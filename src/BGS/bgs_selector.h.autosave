@@ -1,0 +1,80 @@
+#ifndef BGS_SELECTOR_H
+#define BGS_SELECTOR_H
+
+#endif // BGS_SELECTOR_H
+
+/************************************************************************************/
+/* Header file of BGS_selector.cpp                                                  */
+/* This class allows us to choose a background subtraction method                   */
+/*                                          */
+/************************************************************************************/
+
+//Se incluyen los ficheros cabecera de las distintas tecnicas de substraccion de fondo implementadas.
+#pragma once
+#include <opencv2/opencv.hpp>
+#include "opencv2/imgproc/imgproc.hpp"
+#include "opencv2/highgui/highgui.hpp"
+
+#include "../../../lib/bgslibrary/package_bgs/FrameDifferenceBGS.h"
+
+using namespace std;
+using namespace cv;
+
+
+class MyBGSSelector
+{
+public:
+    
+    // Variables declaration
+    Mat img_input;
+    Mat img_output;
+    Mat img_bgmodel;
+    Mat SecuenceROI;
+    
+    // Subtraction techniques objects declaration
+    
+
+    
+};
+
+
+
+
+/*
+//Class declarat
+class MyBGSSelector
+{
+public:
+    // Se definen las variables a utilizar durante el procesamiento de la secuencia de video en la primera etapa del sistema
+    cv::Mat img_input;
+    cv::Mat img_output;
+    cv::Mat img_bgmodel;
+    cv::Mat SecuenceROI;
+
+    double learningRateOverride;
+    double learningRate;
+    int int_BGSid;
+
+    // Creacion de los objetos de las clases que definen las distintas tecnicas de substraccion de fondo.
+    IndependentMultimodalBGS *pIMBSBGS;
+    cv::Ptr<BackgroundSubtractorMOG2> pMOG2;
+    cv::Ptr<BackgroundSubtractorKNN> pKNN;
+    BackgroundSubtractorPAWCS *pPAWCSBGS;
+    BackgroundSubtractorLOBSTER *pLOBSTERBGS;
+    FASOM *pFASOMBGS;
+    SGMM_SOD *pSGMMBGS;
+    SGMM_SOD_Params *bgfg_detector_params;
+
+    //Definicion de las funciones de la clase MyBGSSelector
+    MyBGSSelector(){};
+    MyBGSSelector(char *BGSid);
+    ~MyBGSSelector();
+
+    virtual void init(cv::Mat frame);
+    virtual void process(cv::Mat frame, bool ShowResults);
+
+    virtual std::vector<cv::Mat> GetForegroundImage();
+    cv::Mat GetBGModel();
+    double GetBackgroundRatio();
+    void finish(void);
+};*/
