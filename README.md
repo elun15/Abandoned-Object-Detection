@@ -22,7 +22,7 @@ Abandoned Object Detection System
 * Three EXECUTION ways:  *
 **************************
 
-INPUT ARGUMENTS
+INPUT ARGUMENTS  
     // 1: bkg subtraction method  
     // 2: sfgd method  
     // 3: classifier method  
