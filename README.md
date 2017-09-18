@@ -3,7 +3,7 @@ Abandoned Object Detection System
 
 
 ************
-* FOLDERS: *
+* FOLDERS: 
 ************
 
 ./build_debug  
@@ -19,7 +19,7 @@ Abandoned Object Detection System
 
 
 **************************
-* Three EXECUTION ways:  *
+* Three EXECUTION ways:  
 **************************
 
 INPUT ARGUMENTS  
