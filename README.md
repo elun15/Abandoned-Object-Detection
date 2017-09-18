@@ -6,15 +6,15 @@ Abandoned Object Detection System
 * FOLDERS: *
 ************
 
-./build_debug
-./build_release
-./datasets  (containing input video files of each dataset)
-./images  (containing context mask images)
-./lib
-./models
-./proj  (containing Qt project files)
-./results (containing results oredered by configurations)
-./src  (source code)
+./build_debug  
+./build_release  
+./datasets  (containing input video files of each dataset)  
+./images  (containing context mask images)  
+./lib  
+./models  
+./proj  (containing Qt project files)  
+./results (containing results oredered by configurations)  
+./src  (source code)  
  
 
 
@@ -23,14 +23,14 @@ Abandoned Object Detection System
 **************************
 
 INPUT ARGUMENTS
-    // 1: bkg subtraction method
-    // 2: sfgd method
-    // 3: classifier method
-    // 4: people detector method
-    // 5: video file directory
-    // 6: video name
-    // 7: results folder
-    // 8: video context mask directory (not mandatory)
+    // 1: bkg subtraction method  
+    // 2: sfgd method  
+    // 3: classifier method  
+    // 4: people detector method  
+    // 5: video file directory  
+    // 6: video name  
+    // 7: results folder  
+    // 8: video context mask directory (not mandatory)  
 
 
 ONLY option 1 takes into account difficulty categories, best option to evaluate several videos
