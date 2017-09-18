@@ -98,9 +98,9 @@ int main(int argc, char *argv[])
 
 
 
-    // ↓↓↓↓↓↓ UNCOMENT IF WORKING IN PROGRAMMING  ENVIRONMENT ↓↓↓↓↓↓
+    // ↓↓↓↓↓↓ UNCOMMENT IF WORKING IN PROGRAMMING  ENVIRONMENT ↓↓↓↓↓↓
 
-    /*
+
 
     Video.bkg_method = 3;
     Video.sfgd_method  = 1;
@@ -120,7 +120,6 @@ int main(int argc, char *argv[])
     cout << "video filedir " << Video.fileDir << endl;
 
 
-   */
 
    // ↑↑↑↑↑ UNCOMMENT IF WORKING IN PROGRAMMING  ENVIRONMENT ↑↑↑↑↑↑
 
