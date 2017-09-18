@@ -23,9 +23,6 @@ public:
     video();
    ~video();
 
-
-
-
     VideoCapture cap;
 
     int cols;

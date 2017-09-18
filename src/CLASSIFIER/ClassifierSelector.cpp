@@ -93,7 +93,7 @@ Mat ClassifierSelector::process(cv::Mat frame, cv::Mat bkgImage, cv::Mat StaticF
         }
 
 
-        if (Video.SaveImages)
+         if (Video.SaveImages && (Video.numFrame % 20 == 0)) //Save 1 frame out of every 20
         {
 
             String d = Video.DirImages + "class" + to_string(Video.numFrame) + ".jpg";
@@ -115,7 +115,7 @@ Mat ClassifierSelector::process(cv::Mat frame, cv::Mat bkgImage, cv::Mat StaticF
             waitKey(1);}
 
 
-        if (Video.SaveImages)
+         if (Video.SaveImages && (Video.numFrame % 20 == 0)) //Save 1 frame out of every 20
         {
 
             String d = Video.DirImages + "class" + to_string(Video.numFrame) + ".jpg";

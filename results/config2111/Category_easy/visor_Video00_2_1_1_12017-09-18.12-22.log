@@ -1,0 +1,2250 @@
+Selectec bkg method: 2
+Selected sfgd method: 1
+Selcted classifier method: 1
+Selected people detector method:1
+Input video dir: ./datasets/./VISOR/visor_Video00.avi
+Video name: visor_Video00
+Results will be saved in ./results/config2111/Category_easy/visor_Video00_2_1_1_1_2017-09-18.12-22.xml
+Video successfully opened
+25 fps. Size: 320 x 256
+Time (seconds) to static: 10
+Detecting people only when something static is detected.
+Saving results and execution times.
+Init viper file
+Frame 1
+BkgSubtractionSelector()
+Method: 2
+PAWCS Method selected.
+SFGDSelector()
+MyPEDESTRIANDETECTORSelector()
+ClassifierSelector()
+HIGH GRAD
+	Current event List (0 events) (past 0)
+1.52438
+Frame 2
+	Current event List (0 events) (past 0)
+0.228351
+Frame 3
+	Current event List (0 events) (past 0)
+0.161917
+Frame 4
+	Current event List (0 events) (past 0)
+0.144586
+Frame 5
+	Current event List (0 events) (past 0)
+0.137713
+Frame 6
+	Current event List (0 events) (past 0)
+0.135245
+Frame 7
+	Current event List (0 events) (past 0)
+0.122404
+Frame 8
+	Current event List (0 events) (past 0)
+0.107344
+Frame 9
+	Current event List (0 events) (past 0)
+0.099019
+Frame 10
+	Current event List (0 events) (past 0)
+0.095731
+Frame 11
+	Current event List (0 events) (past 0)
+0.099273
+Frame 12
+	Current event List (0 events) (past 0)
+0.100967
+Frame 13
+	Current event List (0 events) (past 0)
+0.096681
+Frame 14
+	Current event List (0 events) (past 0)
+0.094473
+Frame 15
+	Current event List (0 events) (past 0)
+0.093154
+Frame 16
+	Current event List (0 events) (past 0)
+0.101637
+Frame 17
+	Current event List (0 events) (past 0)
+0.095282
+Frame 18
+	Current event List (0 events) (past 0)
+0.096434
+Frame 19
+	Current event List (0 events) (past 0)
+0.101054
+Frame 20
+	Current event List (0 events) (past 0)
+0.099295
+Frame 21
+	Current event List (0 events) (past 0)
+0.092739
+Frame 22
+	Current event List (0 events) (past 0)
+0.117196
+Frame 23
+	Current event List (0 events) (past 0)
+0.136184
+Frame 24
+	Current event List (0 events) (past 0)
+0.12585
+Frame 25
+	Current event List (0 events) (past 0)
+0.109595
+Frame 26
+	Current event List (0 events) (past 0)
+0.108063
+Frame 27
+	Current event List (0 events) (past 0)
+0.104081
+Frame 28
+	Current event List (0 events) (past 0)
+0.101956
+Frame 29
+	Current event List (0 events) (past 0)
+0.105728
+Frame 30
+	Current event List (0 events) (past 0)
+0.110803
+Frame 31
+	Current event List (0 events) (past 0)
+0.11889
+Frame 32
+	Current event List (0 events) (past 0)
+0.138621
+Frame 33
+	Current event List (0 events) (past 0)
+0.107196
+Frame 34
+	Current event List (0 events) (past 0)
+0.096574
+Frame 35
+	Current event List (0 events) (past 0)
+0.120161
+Frame 36
+	Current event List (0 events) (past 0)
+0.10887
+Frame 37
+	Current event List (0 events) (past 0)
+0.092024
+Frame 38
+	Current event List (0 events) (past 0)
+0.091165
+Frame 39
+	Current event List (0 events) (past 0)
+0.092756
+Frame 40
+	Current event List (0 events) (past 0)
+0.108165
+Frame 41
+	Current event List (0 events) (past 0)
+0.100329
+Frame 42
+	Current event List (0 events) (past 0)
+0.093666
+Frame 43
+	Current event List (0 events) (past 0)
+0.103062
+Frame 44
+	Current event List (0 events) (past 0)
+0.100177
+Frame 45
+	Current event List (0 events) (past 0)
+0.099237
+Frame 46
+	Current event List (0 events) (past 0)
+0.100764
+Frame 47
+	Current event List (0 events) (past 0)
+0.094136
+Frame 48
+	Current event List (0 events) (past 0)
+0.101996
+Frame 49
+	Current event List (0 events) (past 0)
+0.097289
+Frame 50
+	Current event List (0 events) (past 0)
+0.102166
+Frame 51
+	Current event List (0 events) (past 0)
+0.100444
+Frame 52
+	Current event List (0 events) (past 0)
+0.093593
+Frame 53
+	Current event List (0 events) (past 0)
+0.091876
+Frame 54
+	Current event List (0 events) (past 0)
+0.090869
+Frame 55
+	Current event List (0 events) (past 0)
+0.103695
+Frame 56
+	Current event List (0 events) (past 0)
+0.109817
+Frame 57
+	Current event List (0 events) (past 0)
+0.097208
+Frame 58
+	Current event List (0 events) (past 0)
+0.090482
+Frame 59
+	Current event List (0 events) (past 0)
+0.093256
+Frame 60
+	Current event List (0 events) (past 0)
+0.098868
+Frame 61
+	Current event List (0 events) (past 0)
+0.101447
+Frame 62
+	Current event List (0 events) (past 0)
+0.093112
+Frame 63
+	Current event List (0 events) (past 0)
+0.089157
+Frame 64
+	Current event List (0 events) (past 0)
+0.09887
+Frame 65
+	Current event List (0 events) (past 0)
+0.090532
+Frame 66
+	Current event List (0 events) (past 0)
+0.089177
+Frame 67
+	Current event List (0 events) (past 0)
+0.098871
+Frame 68
+	Current event List (0 events) (past 0)
+0.142908
+Frame 69
+	Current event List (0 events) (past 0)
+0.114768
+Frame 70
+	Current event List (0 events) (past 0)
+0.117264
+Frame 71
+	Current event List (0 events) (past 0)
+0.113263
+Frame 72
+	Current event List (0 events) (past 0)
+0.129203
+Frame 73
+	Current event List (0 events) (past 0)
+0.115488
+Frame 74
+	Current event List (0 events) (past 0)
+0.113205
+Frame 75
+	Current event List (0 events) (past 0)
+0.094389
+Frame 76
+	Current event List (0 events) (past 0)
+0.140202
+Frame 77
+	Current event List (0 events) (past 0)
+0.113956
+Frame 78
+	Current event List (0 events) (past 0)
+0.113407
+Frame 79
+	Current event List (0 events) (past 0)
+0.11331
+Frame 80
+	Current event List (0 events) (past 0)
+0.14647
+Frame 81
+	Current event List (0 events) (past 0)
+0.148698
+Frame 82
+	Current event List (0 events) (past 0)
+0.117333
+Frame 83
+	Current event List (0 events) (past 0)
+0.113677
+Frame 84
+	Current event List (0 events) (past 0)
+0.117696
+Frame 85
+	Current event List (0 events) (past 0)
+0.113535
+Frame 86
+	Current event List (0 events) (past 0)
+0.113495
+Frame 87
+	Current event List (0 events) (past 0)
+0.114926
+Frame 88
+	Current event List (0 events) (past 0)
+0.112398
+Frame 89
+	Current event List (0 events) (past 0)
+0.096481
+Frame 90
+	Current event List (0 events) (past 0)
+0.093872
+Frame 91
+	Current event List (0 events) (past 0)
+0.096128
+Frame 92
+	Current event List (0 events) (past 0)
+0.096453
+Frame 93
+	Current event List (0 events) (past 0)
+0.089978
+Frame 94
+	Current event List (0 events) (past 0)
+0.093466
+Frame 95
+	Current event List (0 events) (past 0)
+0.095071
+Frame 96
+	Current event List (0 events) (past 0)
+0.108166
+Frame 97
+	Current event List (0 events) (past 0)
+0.095999
+Frame 98
+	Current event List (0 events) (past 0)
+0.093229
+Frame 99
+	Current event List (0 events) (past 0)
+0.094241
+Frame 100
+	Current event List (0 events) (past 0)
+0.093286
+Frame 101
+	Current event List (0 events) (past 0)
+0.093392
+Frame 102
+	Current event List (0 events) (past 0)
+0.096248
+Frame 103
+	Current event List (0 events) (past 0)
+0.092342
+Frame 104
+	Current event List (0 events) (past 0)
+0.103849
+Frame 105
+	Current event List (0 events) (past 0)
+0.095286
+Frame 106
+	Current event List (0 events) (past 0)
+0.094946
+Frame 107
+	Current event List (0 events) (past 0)
+0.095868
+Frame 108
+	Current event List (0 events) (past 0)
+0.093934
+Frame 109
+	Current event List (0 events) (past 0)
+0.094661
+Frame 110
+	Current event List (0 events) (past 0)
+0.099183
+Frame 111
+	Current event List (0 events) (past 0)
+0.093883
+Frame 112
+	Current event List (0 events) (past 0)
+0.10666
+Frame 113
+	Current event List (0 events) (past 0)
+0.094186
+Frame 114
+	Current event List (0 events) (past 0)
+0.097369
+Frame 115
+	Current event List (0 events) (past 0)
+0.096404
+Frame 116
+	Current event List (0 events) (past 0)
+0.093176
+Frame 117
+	Current event List (0 events) (past 0)
+0.088685
+Frame 118
+	Current event List (0 events) (past 0)
+0.090734
+Frame 119
+	Current event List (0 events) (past 0)
+0.095567
+Frame 120
+	Current event List (0 events) (past 0)
+0.106262
+Frame 121
+	Current event List (0 events) (past 0)
+0.09147
+Frame 122
+	Current event List (0 events) (past 0)
+0.089626
+Frame 123
+	Current event List (0 events) (past 0)
+0.090342
+Frame 124
+	Current event List (0 events) (past 0)
+0.089192
+Frame 125
+	Current event List (0 events) (past 0)
+0.089234
+Frame 126
+	Current event List (0 events) (past 0)
+0.099184
+Frame 127
+	Current event List (0 events) (past 0)
+0.092674
+Frame 128
+	Current event List (0 events) (past 0)
+0.103411
+Frame 129
+	Current event List (0 events) (past 0)
+0.092193
+Frame 130
+	Current event List (0 events) (past 0)
+0.092045
+Frame 131
+	Current event List (0 events) (past 0)
+0.088181
+Frame 132
+	Current event List (0 events) (past 0)
+0.118749
+Frame 133
+	Current event List (0 events) (past 0)
+0.099862
+Frame 134
+	Current event List (0 events) (past 0)
+0.091636
+Frame 135
+	Current event List (0 events) (past 0)
+0.090166
+Frame 136
+	Current event List (0 events) (past 0)
+0.101632
+Frame 137
+	Current event List (0 events) (past 0)
+0.090912
+Frame 138
+	Current event List (0 events) (past 0)
+0.09408
+Frame 139
+	Current event List (0 events) (past 0)
+0.109527
+Frame 140
+	Current event List (0 events) (past 0)
+0.097039
+Frame 141
+	Current event List (0 events) (past 0)
+0.094772
+Frame 142
+	Current event List (0 events) (past 0)
+0.093193
+Frame 143
+	Current event List (0 events) (past 0)
+0.09681
+Frame 144
+	Current event List (0 events) (past 0)
+0.107408
+Frame 145
+	Current event List (0 events) (past 0)
+0.097768
+Frame 146
+	Current event List (0 events) (past 0)
+0.094073
+Frame 147
+	Current event List (0 events) (past 0)
+0.091119
+Frame 148
+	Current event List (0 events) (past 0)
+0.093772
+Frame 149
+	Current event List (0 events) (past 0)
+0.093762
+Frame 150
+	Current event List (0 events) (past 0)
+0.092946
+Frame 151
+	Current event List (0 events) (past 0)
+0.097566
+Frame 152
+	Current event List (0 events) (past 0)
+0.11046
+Frame 153
+	Current event List (0 events) (past 0)
+0.09267
+Frame 154
+	Current event List (0 events) (past 0)
+0.093324
+Frame 155
+	Current event List (0 events) (past 0)
+0.093657
+Frame 156
+	Current event List (0 events) (past 0)
+0.093537
+Frame 157
+	Current event List (0 events) (past 0)
+0.097243
+Frame 158
+	Current event List (0 events) (past 0)
+0.093549
+Frame 159
+	Current event List (0 events) (past 0)
+0.091162
+Frame 160
+	Current event List (0 events) (past 0)
+0.10443
+Frame 161
+	Current event List (0 events) (past 0)
+0.091948
+Frame 162
+	Current event List (0 events) (past 0)
+0.094377
+Frame 163
+	Current event List (0 events) (past 0)
+0.09262
+Frame 164
+	Current event List (0 events) (past 0)
+0.09814
+Frame 165
+	Current event List (0 events) (past 0)
+0.096145
+Frame 166
+	Current event List (0 events) (past 0)
+0.098864
+Frame 167
+	Current event List (0 events) (past 0)
+0.098415
+Frame 168
+	Current event List (0 events) (past 0)
+0.108118
+Frame 169
+	Current event List (0 events) (past 0)
+0.099562
+Frame 170
+	Current event List (0 events) (past 0)
+0.093921
+Frame 171
+	Current event List (0 events) (past 0)
+0.091829
+Frame 172
+	Current event List (0 events) (past 0)
+0.090954
+Frame 173
+	Current event List (0 events) (past 0)
+0.089137
+Frame 174
+	Current event List (0 events) (past 0)
+0.089428
+Frame 175
+	Current event List (0 events) (past 0)
+0.091362
+Frame 176
+	Current event List (0 events) (past 0)
+0.104306
+Frame 177
+	Current event List (0 events) (past 0)
+0.089863
+Frame 178
+	Current event List (0 events) (past 0)
+0.089257
+Frame 179
+	Current event List (0 events) (past 0)
+0.08846
+Frame 180
+	Current event List (0 events) (past 0)
+0.088157
+Frame 181
+	Current event List (0 events) (past 0)
+0.09311
+Frame 182
+	Current event List (0 events) (past 0)
+0.088875
+Frame 183
+	Current event List (0 events) (past 0)
+0.093985
+Frame 184
+	Current event List (0 events) (past 0)
+0.100722
+Frame 185
+	Current event List (0 events) (past 0)
+0.092481
+Frame 186
+	Current event List (0 events) (past 0)
+0.091556
+Frame 187
+	Current event List (0 events) (past 0)
+0.088486
+Frame 188
+	Current event List (0 events) (past 0)
+0.087293
+Frame 189
+	Current event List (0 events) (past 0)
+0.088663
+Frame 190
+	Current event List (0 events) (past 0)
+0.088944
+Frame 191
+	Current event List (0 events) (past 0)
+0.088202
+Frame 192
+	Current event List (0 events) (past 0)
+0.106085
+Frame 193
+	Current event List (0 events) (past 0)
+0.095414
+Frame 194
+	Current event List (0 events) (past 0)
+0.093883
+Frame 195
+	Current event List (0 events) (past 0)
+0.092458
+Frame 196
+	Current event List (0 events) (past 0)
+0.089699
+Frame 197
+	Current event List (0 events) (past 0)
+0.091363
+Frame 198
+	Current event List (0 events) (past 0)
+0.092977
+Frame 199
+	Current event List (0 events) (past 0)
+0.08986
+Frame 200
+	Current event List (0 events) (past 0)
+0.097872
+Frame 201
+	Current event List (0 events) (past 0)
+0.088332
+Frame 202
+	Current event List (0 events) (past 0)
+0.097841
+Frame 203
+	Current event List (0 events) (past 0)
+0.095696
+Frame 204
+	Current event List (0 events) (past 0)
+0.141727
+Frame 205
+	Current event List (0 events) (past 0)
+0.124779
+Frame 206
+	Current event List (0 events) (past 0)
+0.121749
+Frame 207
+	Current event List (0 events) (past 0)
+0.146827
+Frame 208
+	Current event List (0 events) (past 0)
+0.152428
+Frame 209
+	Current event List (0 events) (past 0)
+0.128839
+Frame 210
+	Current event List (0 events) (past 0)
+0.123211
+Frame 211
+	Current event List (0 events) (past 0)
+0.115297
+Frame 212
+	Current event List (0 events) (past 0)
+0.117067
+Frame 213
+	Current event List (0 events) (past 0)
+0.105051
+Frame 214
+	Current event List (0 events) (past 0)
+0.090479
+Frame 215
+	Current event List (0 events) (past 0)
+0.092543
+Frame 216
+	Current event List (0 events) (past 0)
+0.097724
+Frame 217
+	Current event List (0 events) (past 0)
+0.088117
+Frame 218
+	Current event List (0 events) (past 0)
+0.088585
+Frame 219
+	Current event List (0 events) (past 0)
+0.088414
+Frame 220
+	Current event List (0 events) (past 0)
+0.088728
+Frame 221
+	Current event List (0 events) (past 0)
+0.096581
+Frame 222
+	Current event List (0 events) (past 0)
+0.094407
+Frame 223
+	Current event List (0 events) (past 0)
+0.09327
+Frame 224
+	Current event List (0 events) (past 0)
+0.104068
+Frame 225
+	Current event List (0 events) (past 0)
+0.098686
+Frame 226
+	Current event List (0 events) (past 0)
+0.096781
+Frame 227
+	Current event List (0 events) (past 0)
+0.096249
+Frame 228
+	Current event List (0 events) (past 0)
+0.096751
+Frame 229
+	Current event List (0 events) (past 0)
+0.096828
+Frame 230
+	Current event List (0 events) (past 0)
+0.096476
+Frame 231
+	Current event List (0 events) (past 0)
+0.101726
+Frame 232
+	Current event List (0 events) (past 0)
+0.109844
+Frame 233
+	Current event List (0 events) (past 0)
+0.095993
+Frame 234
+	Current event List (0 events) (past 0)
+0.093529
+Frame 235
+	Current event List (0 events) (past 0)
+0.096084
+Frame 236
+	Current event List (0 events) (past 0)
+0.094983
+Frame 237
+	Current event List (0 events) (past 0)
+0.094899
+Frame 238
+	Current event List (0 events) (past 0)
+0.101574
+Frame 239
+	Current event List (0 events) (past 0)
+0.093537
+Frame 240
+	Current event List (0 events) (past 0)
+0.101844
+Frame 241
+	Current event List (0 events) (past 0)
+0.094686
+Frame 242
+	Current event List (0 events) (past 0)
+0.091443
+Frame 243
+	Current event List (0 events) (past 0)
+0.09083
+Frame 244
+	Current event List (0 events) (past 0)
+0.088938
+Frame 245
+	Current event List (0 events) (past 0)
+0.088794
+Frame 246
+	Current event List (0 events) (past 0)
+0.089313
+Frame 247
+	Current event List (0 events) (past 0)
+0.092281
+Frame 248
+	Current event List (0 events) (past 0)
+0.102875
+Frame 249
+	Current event List (0 events) (past 0)
+0.14744
+Frame 250
+	Current event List (0 events) (past 0)
+0.115921
+Frame 251
+	Current event List (0 events) (past 0)
+0.115119
+Frame 252
+	Current event List (0 events) (past 0)
+0.125493
+Frame 253
+	Current event List (0 events) (past 0)
+0.118255
+Frame 254
+	Current event List (0 events) (past 0)
+0.11564
+Frame 255
+	Current event List (0 events) (past 0)
+0.103881
+Frame 256
+	Current event List (0 events) (past 0)
+0.106852
+Frame 257
+	Current event List (0 events) (past 0)
+0.095809
+Frame 258
+	Current event List (0 events) (past 0)
+0.093957
+Frame 259
+	Current event List (0 events) (past 0)
+0.095837
+Frame 260
+	Current event List (0 events) (past 0)
+0.094918
+Frame 261
+	Current event List (0 events) (past 0)
+0.097058
+Frame 262
+	Current event List (0 events) (past 0)
+0.095534
+Frame 263
+	Current event List (0 events) (past 0)
+0.0948
+Frame 264
+	Current event List (0 events) (past 0)
+0.100822
+Frame 265
+	Current event List (0 events) (past 0)
+0.092568
+Frame 266
+	Current event List (0 events) (past 0)
+0.093601
+Frame 267
+	Current event List (0 events) (past 0)
+0.091281
+Frame 268
+	Current event List (0 events) (past 0)
+0.09734
+Frame 269
+	Current event List (0 events) (past 0)
+0.090415
+Frame 270
+	Current event List (0 events) (past 0)
+0.089682
+Frame 271
+	Current event List (0 events) (past 0)
+0.091548
+Frame 272
+	Current event List (0 events) (past 0)
+0.10096
+Frame 273
+	Current event List (0 events) (past 0)
+0.0931
+Frame 274
+	Current event List (0 events) (past 0)
+0.090978
+Frame 275
+	Current event List (0 events) (past 0)
+0.089536
+Frame 276
+	Current event List (0 events) (past 0)
+0.089901
+Frame 277
+	Current event List (0 events) (past 0)
+0.091916
+Frame 278
+	Current event List (0 events) (past 0)
+0.089356
+Frame 279
+	Current event List (0 events) (past 0)
+0.089314
+Frame 280
+	Current event List (0 events) (past 0)
+0.098274
+Frame 281
+	Current event List (0 events) (past 0)
+0.089263
+Frame 282
+	Current event List (0 events) (past 0)
+0.089819
+Frame 283
+	Current event List (0 events) (past 0)
+0.089769
+Frame 284
+	Current event List (0 events) (past 0)
+0.089737
+Frame 285
+	Current event List (0 events) (past 0)
+0.090373
+Frame 286
+	Current event List (0 events) (past 0)
+0.08931
+Frame 287
+	Current event List (0 events) (past 0)
+0.090011
+Frame 288
+	Current event List (0 events) (past 0)
+0.103333
+Frame 289
+	Current event List (0 events) (past 0)
+0.09198
+Frame 290
+	Current event List (0 events) (past 0)
+0.089304
+Frame 291
+	Current event List (0 events) (past 0)
+0.091992
+Frame 292
+	Current event List (0 events) (past 0)
+0.094047
+Frame 293
+	Current event List (0 events) (past 0)
+0.094558
+Frame 294
+	Current event List (0 events) (past 0)
+0.091471
+Frame 295
+	Current event List (0 events) (past 0)
+0.097139
+Frame 296
+	Current event List (0 events) (past 0)
+0.098965
+Frame 297
+	Current event List (0 events) (past 0)
+0.089913
+Frame 298
+	Current event List (0 events) (past 0)
+0.092523
+Frame 299
+	Current event List (0 events) (past 0)
+0.107187
+Frame 300
+	Current event List (0 events) (past 0)
+0.118012
+Frame 301
+	Current event List (0 events) (past 0)
+0.181287
+Frame 302
+	Current event List (0 events) (past 0)
+0.138778
+Frame 303
+	Current event List (0 events) (past 0)
+0.127683
+Frame 304
+	Current event List (0 events) (past 0)
+0.138462
+Frame 305
+	Current event List (0 events) (past 0)
+0.127086
+Frame 306
+	Current event List (0 events) (past 0)
+0.135503
+Frame 307
+	Current event List (0 events) (past 0)
+0.125877
+Frame 308
+	Current event List (0 events) (past 0)
+0.113841
+Frame 309
+	Current event List (0 events) (past 0)
+0.114868
+Frame 310
+	Current event List (0 events) (past 0)
+0.105986
+Frame 311
+	Current event List (0 events) (past 0)
+0.106226
+Frame 312
+	Current event List (0 events) (past 0)
+0.17007
+Frame 313
+	Current event List (0 events) (past 0)
+0.113908
+Frame 314
+	Current event List (0 events) (past 0)
+0.117643
+Frame 315
+	Current event List (0 events) (past 0)
+0.116564
+Frame 316
+	Current event List (0 events) (past 0)
+0.114885
+Frame 317
+	Current event List (0 events) (past 0)
+0.113649
+Frame 318
+	Current event List (0 events) (past 0)
+0.097692
+Frame 319
+	Current event List (0 events) (past 0)
+0.09484
+Frame 320
+	Current event List (0 events) (past 0)
+0.102241
+Frame 321
+	Current event List (0 events) (past 0)
+0.091994
+Frame 322
+	Current event List (0 events) (past 0)
+0.091922
+Frame 323
+	Current event List (0 events) (past 0)
+0.090226
+Frame 324
+	Current event List (0 events) (past 0)
+0.09305
+Frame 325
+	Current event List (0 events) (past 0)
+0.0957
+Frame 326
+	Current event List (0 events) (past 0)
+0.096368
+Frame 327
+	Current event List (0 events) (past 0)
+0.095592
+Frame 328
+	Current event List (0 events) (past 0)
+0.112423
+Frame 329
+	Current event List (0 events) (past 0)
+0.095
+Frame 330
+	Current event List (0 events) (past 0)
+0.092747
+Frame 331
+	Current event List (0 events) (past 0)
+0.093248
+Frame 332
+	Current event List (0 events) (past 0)
+0.096411
+Frame 333
+	Current event List (0 events) (past 0)
+0.092816
+Frame 334
+	Current event List (0 events) (past 0)
+0.094461
+Frame 335
+	Current event List (0 events) (past 0)
+0.100873
+Frame 336
+	Current event List (0 events) (past 0)
+0.107393
+Frame 337
+	Current event List (0 events) (past 0)
+0.097417
+Frame 338
+	Current event List (0 events) (past 0)
+0.097374
+Frame 339
+	Current event List (0 events) (past 0)
+0.096833
+Frame 340
+	Current event List (0 events) (past 0)
+0.100768
+Frame 341
+	Current event List (0 events) (past 0)
+0.09514
+Frame 342
+	Current event List (0 events) (past 0)
+0.094455
+Frame 343
+	Current event List (0 events) (past 0)
+0.094149
+Frame 344
+	Current event List (0 events) (past 0)
+0.102944
+Frame 345
+	Current event List (0 events) (past 0)
+0.094304
+Frame 346
+	Current event List (0 events) (past 0)
+0.116838
+Frame 347
+	Current event List (0 events) (past 0)
+0.094531
+Frame 348
+	Current event List (0 events) (past 0)
+0.110921
+Frame 349
+	Current event List (0 events) (past 0)
+0.092347
+Frame 350
+	Current event List (0 events) (past 0)
+0.093327
+Frame 351
+	Current event List (0 events) (past 0)
+0.093061
+Frame 352
+	Current event List (0 events) (past 0)
+0.097036
+Frame 353
+	Current event List (0 events) (past 0)
+0.097523
+Frame 354
+	Current event List (0 events) (past 0)
+0.087326
+Frame 355
+	Current event List (0 events) (past 0)
+0.092204
+Frame 356
+	Current event List (0 events) (past 0)
+0.092785
+Frame 357
+	Current event List (0 events) (past 0)
+0.091732
+Frame 358
+	Current event List (0 events) (past 0)
+0.093363
+Frame 359
+	Current event List (0 events) (past 0)
+0.093529
+Frame 360
+	Current event List (0 events) (past 0)
+0.101071
+Frame 361
+	Current event List (0 events) (past 0)
+0.089112
+Frame 362
+	Current event List (0 events) (past 0)
+0.08952
+Frame 363
+	Current event List (0 events) (past 0)
+0.088846
+Frame 364
+	Current event List (0 events) (past 0)
+0.087377
+Frame 365
+	Current event List (0 events) (past 0)
+0.087092
+Frame 366
+	Current event List (0 events) (past 0)
+0.091481
+Frame 367
+	Current event List (0 events) (past 0)
+0.087613
+Frame 368
+	Current event List (0 events) (past 0)
+0.095005
+Frame 369
+	Current event List (0 events) (past 0)
+0.087316
+Frame 370
+	Current event List (0 events) (past 0)
+0.091633
+Frame 371
+	Current event List (0 events) (past 0)
+0.093098
+Frame 372
+	Current event List (0 events) (past 0)
+0.088502
+Frame 373
+	Current event List (0 events) (past 0)
+0.088749
+Frame 374
+	Current event List (0 events) (past 0)
+0.087066
+Frame 375
+	Current event List (0 events) (past 0)
+0.091015
+Frame 376
+	Current event List (0 events) (past 0)
+0.096627
+Frame 377
+	Current event List (0 events) (past 0)
+0.089332
+Frame 378
+	Current event List (0 events) (past 0)
+0.086893
+Frame 379
+	Current event List (0 events) (past 0)
+0.087346
+Frame 380
+	Current event List (0 events) (past 0)
+0.086949
+Frame 381
+	Current event List (0 events) (past 0)
+0.0869
+Frame 382
+	Current event List (0 events) (past 0)
+0.087293
+Frame 383
+	Current event List (0 events) (past 0)
+0.089803
+Frame 384
+	Current event List (0 events) (past 0)
+0.096628
+Frame 385
+	Current event List (0 events) (past 0)
+0.087
+Frame 386
+	Current event List (0 events) (past 0)
+0.086662
+Frame 387
+	Current event List (0 events) (past 0)
+0.086683
+Frame 388
+	Current event List (0 events) (past 0)
+0.087689
+Frame 389
+	Current event List (0 events) (past 0)
+0.091586
+Frame 390
+	Current event List (0 events) (past 0)
+0.089913
+Frame 391
+	Current event List (0 events) (past 0)
+0.087009
+Frame 392
+	Current event List (0 events) (past 0)
+0.094544
+Frame 393
+	Current event List (0 events) (past 0)
+0.087254
+Frame 394
+	Current event List (0 events) (past 0)
+0.089808
+Frame 395
+	Current event List (0 events) (past 0)
+0.087713
+Frame 396
+	Current event List (0 events) (past 0)
+0.089379
+Frame 397
+	Current event List (0 events) (past 0)
+0.087219
+Frame 398
+	Current event List (0 events) (past 0)
+0.087109
+Frame 399
+	Current event List (0 events) (past 0)
+0.093208
+Frame 400
+	Current event List (0 events) (past 0)
+0.097915
+Frame 401
+	Current event List (0 events) (past 0)
+0.087227
+Frame 402
+	Current event List (0 events) (past 0)
+0.104101
+Frame 403
+	Current event List (0 events) (past 0)
+0.090612
+Frame 404
+	Current event List (0 events) (past 0)
+0.113602
+Frame 405
+	Current event List (0 events) (past 0)
+0.094313
+Frame 406
+	Current event List (0 events) (past 0)
+0.093603
+Frame 407
+	Current event List (0 events) (past 0)
+0.091992
+Frame 408
+	Current event List (0 events) (past 0)
+0.099052
+Frame 409
+	Current event List (0 events) (past 0)
+0.089052
+Frame 410
+	Current event List (0 events) (past 0)
+0.091359
+Frame 411
+	Current event List (0 events) (past 0)
+0.090844
+Frame 412
+	Current event List (0 events) (past 0)
+0.089251
+Frame 413
+	Current event List (0 events) (past 0)
+0.088087
+Frame 414
+	Current event List (0 events) (past 0)
+0.088252
+Frame 415
+	Current event List (0 events) (past 0)
+0.088356
+Frame 416
+	Current event List (0 events) (past 0)
+0.103019
+Frame 417
+	Current event List (0 events) (past 0)
+0.092708
+Frame 418
+	Current event List (0 events) (past 0)
+0.091695
+Frame 419
+	Current event List (0 events) (past 0)
+0.088077
+Frame 420
+	Current event List (0 events) (past 0)
+0.089966
+Frame 421
+	Current event List (0 events) (past 0)
+0.089307
+Frame 422
+	Current event List (0 events) (past 0)
+0.087227
+Frame 423
+	Current event List (0 events) (past 0)
+0.090026
+Frame 424
+	Current event List (0 events) (past 0)
+0.095211
+Frame 425
+	Current event List (0 events) (past 0)
+0.091135
+Frame 426
+	Current event List (0 events) (past 0)
+0.0921
+Frame 427
+	Current event List (0 events) (past 0)
+0.092356
+Frame 428
+	Current event List (0 events) (past 0)
+0.093642
+Frame 429
+	Current event List (0 events) (past 0)
+0.09468
+Frame 430
+	Current event List (0 events) (past 0)
+0.093886
+Frame 431
+	Current event List (0 events) (past 0)
+0.09273
+Frame 432
+	Current event List (0 events) (past 0)
+0.097516
+Frame 433
+	Current event List (0 events) (past 0)
+0.088244
+Frame 434
+	Current event List (0 events) (past 0)
+0.088587
+Frame 435
+	Current event List (0 events) (past 0)
+0.088587
+Frame 436
+	Current event List (0 events) (past 0)
+0.088583
+Frame 437
+	Current event List (0 events) (past 0)
+0.090196
+Frame 438
+	Current event List (0 events) (past 0)
+0.094453
+Frame 439
+	Current event List (0 events) (past 0)
+0.092337
+Frame 440
+	Current event List (0 events) (past 0)
+0.104045
+Frame 441
+	Current event List (0 events) (past 0)
+0.091684
+Frame 442
+	Current event List (0 events) (past 0)
+0.091762
+Frame 443
+	Current event List (0 events) (past 0)
+0.098471
+Frame 444
+	Current event List (0 events) (past 0)
+0.094349
+Frame 445
+	Current event List (0 events) (past 0)
+0.092587
+Frame 446
+	Current event List (0 events) (past 0)
+0.09133
+Frame 447
+	Current event List (0 events) (past 0)
+0.091467
+Frame 448
+	Current event List (0 events) (past 0)
+0.099864
+Frame 449
+	Current event List (0 events) (past 0)
+0.095024
+Frame 450
+	Current event List (0 events) (past 0)
+0.09486
+Frame 451
+	Current event List (0 events) (past 0)
+0.093345
+Frame 452
+	Current event List (0 events) (past 0)
+0.092308
+Frame 453
+	Current event List (0 events) (past 0)
+0.095144
+Frame 454
+	Current event List (0 events) (past 0)
+0.091879
+Frame 455
+	Current event List (0 events) (past 0)
+0.090117
+Frame 456
+	Current event List (0 events) (past 0)
+0.097533
+Frame 457
+	Current event List (0 events) (past 0)
+0.095103
+Frame 458
+	Current event List (0 events) (past 0)
+0.091727
+Frame 459
+	Current event List (0 events) (past 0)
+0.092836
+Frame 460
+	Current event List (0 events) (past 0)
+0.090058
+Frame 461
+	Current event List (0 events) (past 0)
+0.088628
+Frame 462
+	Current event List (0 events) (past 0)
+0.088204
+Frame 463
+	Current event List (0 events) (past 0)
+0.088493
+Frame 464
+	Current event List (0 events) (past 0)
+0.097171
+Frame 465
+	Current event List (0 events) (past 0)
+0.092204
+Frame 466
+	Current event List (0 events) (past 0)
+0.088058
+Frame 467
+	Current event List (0 events) (past 0)
+0.089023
+Frame 468
+	Current event List (0 events) (past 0)
+0.089582
+Frame 469
+	Current event List (0 events) (past 0)
+0.090519
+Frame 470
+	Current event List (0 events) (past 0)
+0.093323
+Frame 471
+	Current event List (0 events) (past 0)
+0.093394
+Frame 472
+	Current event List (0 events) (past 0)
+0.099811
+Frame 473
+	Current event List (0 events) (past 0)
+0.089262
+Frame 474
+	Current event List (0 events) (past 0)
+0.086631
+Frame 475
+	Current event List (0 events) (past 0)
+0.088048
+Frame 476
+	Current event List (0 events) (past 0)
+0.089593
+Frame 477
+	Current event List (0 events) (past 0)
+0.087231
+Frame 478
+	Current event List (0 events) (past 0)
+0.086879
+Frame 479
+	Current event List (0 events) (past 0)
+0.087074
+Frame 480
+	Current event List (0 events) (past 0)
+0.093127
+Frame 481
+	Current event List (0 events) (past 0)
+0.08877
+Frame 482
+	Current event List (0 events) (past 0)
+0.090814
+Frame 483
+	Current event List (0 events) (past 0)
+0.090788
+Frame 484
+	Current event List (0 events) (past 0)
+0.090666
+Frame 485
+	Current event List (0 events) (past 0)
+0.090788
+Frame 486
+	Current event List (0 events) (past 0)
+0.091028
+Frame 487
+	Current event List (0 events) (past 0)
+0.093362
+Frame 488
+	Current event List (0 events) (past 0)
+0.100874
+Frame 489
+	Current event List (0 events) (past 0)
+0.093903
+Frame 490
+	Current event List (0 events) (past 0)
+0.093661
+Frame 491
+	Current event List (0 events) (past 0)
+0.093561
+Frame 492
+	Current event List (0 events) (past 0)
+0.092628
+Frame 493
+	Current event List (0 events) (past 0)
+0.093598
+Frame 494
+	Current event List (0 events) (past 0)
+0.093407
+Frame 495
+	Current event List (0 events) (past 0)
+0.093669
+Frame 496
+	Current event List (0 events) (past 0)
+0.100513
+Frame 497
+	Current event List (0 events) (past 0)
+0.093495
+Frame 498
+	Current event List (0 events) (past 0)
+0.093628
+Frame 499
+	Current event List (0 events) (past 0)
+0.093459
+Frame 500
+	Current event List (0 events) (past 0)
+0.128648
+Frame 501
+	Current event List (0 events) (past 0)
+0.093524
+Frame 502
+	Current event List (0 events) (past 0)
+0.097256
+Frame 503
+	Current event List (0 events) (past 0)
+0.099613
+Frame 504
+	Current event List (0 events) (past 0)
+0.099092
+Frame 505
+	Current event List (0 events) (past 0)
+0.09959
+Frame 506
+	Current event List (0 events) (past 0)
+0.098947
+Frame 507
+	Current event List (0 events) (past 0)
+0.099338
+Frame 508
+	Current event List (0 events) (past 0)
+0.098956
+Frame 509
+	Current event List (0 events) (past 0)
+0.099496
+Frame 510
+	Current event List (0 events) (past 0)
+0.099207
+Frame 511
+	Current event List (0 events) (past 0)
+0.140018
+Frame 512
+	Current event List (0 events) (past 0)
+0.181917
+Frame 513
+	Current event List (0 events) (past 0)
+0.126391
+Frame 514
+	Current event List (0 events) (past 0)
+0.103603
+Frame 515
+	Current event List (0 events) (past 0)
+0.099068
+Frame 516
+	Current event List (0 events) (past 0)
+0.09907
+Frame 517
+	Current event List (0 events) (past 0)
+0.099012
+Frame 518
+	Current event List (0 events) (past 0)
+0.099164
+Frame 519
+	Current event List (0 events) (past 0)
+0.096721
+Frame 520
+	Current event List (0 events) (past 0)
+0.096344
+Frame 521
+	Current event List (0 events) (past 0)
+0.096438
+Frame 522
+	Current event List (0 events) (past 0)
+0.096248
+Frame 523
+	Current event List (0 events) (past 0)
+0.095966
+Frame 524
+	Current event List (0 events) (past 0)
+0.095841
+Frame 525
+	Current event List (0 events) (past 0)
+0.096546
+Frame 526
+	Current event List (0 events) (past 0)
+0.095736
+Frame 527
+	Current event List (0 events) (past 0)
+0.09321
+Frame 528
+	Current event List (0 events) (past 0)
+0.105802
+Frame 529
+	Current event List (0 events) (past 0)
+0.093527
+Frame 530
+	Current event List (0 events) (past 0)
+0.0935
+Frame 531
+	Current event List (0 events) (past 0)
+0.093
+Frame 532
+	Current event List (0 events) (past 0)
+0.09373
+Frame 533
+	Current event List (0 events) (past 0)
+0.093693
+Frame 534
+	Current event List (0 events) (past 0)
+0.093794
+Frame 535
+	Current event List (0 events) (past 0)
+0.094386
+Frame 536
+	Current event List (0 events) (past 0)
+0.093678
+Frame 537
+	Current event List (0 events) (past 0)
+0.099415
+Frame 538
+	Current event List (0 events) (past 0)
+0.101975
+Frame 539
+	Current event List (0 events) (past 0)
+0.096904
+Frame 540
+	Current event List (0 events) (past 0)
+0.09357
+Frame 541
+	Current event List (0 events) (past 0)
+0.092757
+Frame 542
+	Current event List (0 events) (past 0)
+0.093492
+Frame 543
+	Current event List (0 events) (past 0)
+0.093585
+Frame 544
+	Current event List (0 events) (past 0)
+0.100564
+Frame 545
+	Current event List (0 events) (past 0)
+0.09051
+Frame 546
+	Current event List (0 events) (past 0)
+0.091468
+Frame 547
+	Current event List (0 events) (past 0)
+0.093667
+Frame 548
+	Current event List (0 events) (past 0)
+0.098632
+Frame 549
+	Current event List (0 events) (past 0)
+0.092058
+Frame 550
+	Current event List (0 events) (past 0)
+0.098808
+Frame 551
+	Current event List (0 events) (past 0)
+0.092303
+Frame 552
+	Current event List (0 events) (past 0)
+0.108045
+Frame 553
+	Current event List (0 events) (past 0)
+0.093397
+Frame 554
+	Current event List (0 events) (past 0)
+0.090644
+Frame 555
+	Current event List (0 events) (past 0)
+0.09399
+Frame 556
+	Current event List (0 events) (past 0)
+0.089601
+Frame 557
+	Current event List (0 events) (past 0)
+0.088175
+Frame 558
+	Current event List (0 events) (past 0)
+0.096371
+Frame 559
+	Current event List (0 events) (past 0)
+0.095429
+Frame 560
+	Current event List (0 events) (past 0)
+0.106772
+Frame 561
+	Current event List (0 events) (past 0)
+0.100539
+Frame 562
+	Current event List (0 events) (past 0)
+0.132978
+Frame 563
+	Current event List (0 events) (past 0)
+0.119274
+Frame 564
+	Current event List (0 events) (past 0)
+0.117307
+Frame 565
+	Current event List (0 events) (past 0)
+0.118733
+Frame 566
+	Current event List (0 events) (past 0)
+0.119494
+Frame 567
+	Current event List (0 events) (past 0)
+0.120084
+Frame 568
+	Current event List (0 events) (past 0)
+0.110237
+Frame 569
+	Current event List (0 events) (past 0)
+0.10813
+Frame 570
+	Current event List (0 events) (past 0)
+0.10877
+Frame 571
+	Current event List (0 events) (past 0)
+0.106092
+Frame 572
+	Current event List (0 events) (past 0)
+0.117779
+Frame 573
+	Current event List (0 events) (past 0)
+0.102911
+Frame 574
+	Current event List (0 events) (past 0)
+0.102108
+Frame 575
+	Current event List (0 events) (past 0)
+0.101441
+Frame 576
+	Current event List (0 events) (past 0)
+0.119673
+Frame 577
+	Current event List (0 events) (past 0)
+0.113993
+Frame 578
+	Current event List (0 events) (past 0)
+0.103778
+Frame 579
+	Current event List (0 events) (past 0)
+0.105744
+Frame 580
+	Current event List (0 events) (past 0)
+0.118924
+Frame 581
+	Current event List (0 events) (past 0)
+0.110181
+Frame 582
+	Current event List (0 events) (past 0)
+0.112362
+Frame 583
+	Current event List (0 events) (past 0)
+0.108733
+Frame 584
+	Current event List (0 events) (past 0)
+0.101842
+Frame 585
+	Current event List (0 events) (past 0)
+0.105395
+Frame 586
+	Current event List (0 events) (past 0)
+0.108354
+Frame 587
+	Current event List (0 events) (past 0)
+0.106088
+Frame 588
+	Current event List (0 events) (past 0)
+0.107493
+Frame 589
+	Current event List (0 events) (past 0)
+0.10528
+Frame 590
+	Current event List (0 events) (past 0)
+0.107159
+Frame 591
+	Current event List (0 events) (past 0)
+0.108769
+Frame 592
+	Current event List (0 events) (past 0)
+0.113345
+Frame 593
+	Current event List (0 events) (past 0)
+0.106564
+Frame 594
+	Current event List (0 events) (past 0)
+0.101991
+Frame 595
+	Current event List (0 events) (past 0)
+0.105927
+Frame 596
+	Current event List (0 events) (past 0)
+0.102954
+Frame 597
+	Current event List (0 events) (past 0)
+0.100848
+Frame 598
+	Current event List (0 events) (past 0)
+0.101142
+Frame 599
+	Current event List (0 events) (past 0)
+0.101766
+Frame 600
+	Current event List (0 events) (past 0)
+0.115109
+Frame 601
+	Current event List (0 events) (past 0)
+0.105516
+Frame 602
+	Current event List (0 events) (past 0)
+0.114969
+Frame 603
+	Current event List (0 events) (past 0)
+0.111281
+Frame 604
+	Current event List (0 events) (past 0)
+0.115954
+Frame 605
+	Current event List (0 events) (past 0)
+0.10647
+Frame 606
+	Current event List (0 events) (past 0)
+0.101236
+Frame 607
+	Current event List (0 events) (past 0)
+0.108159
+Frame 608
+	Current event List (0 events) (past 0)
+0.174883
+Frame 609
+	Current event List (0 events) (past 0)
+0.129202
+Frame 610
+	Current event List (0 events) (past 0)
+0.129846
+Frame 611
+	Current event List (0 events) (past 0)
+0.139842
+Frame 612
+	Current event List (0 events) (past 0)
+0.137995
+Frame 613
+	Current event List (0 events) (past 0)
+0.128246
+Frame 614
+	Current event List (0 events) (past 0)
+0.110532
+Frame 615
+	Current event List (0 events) (past 0)
+0.10259
+Frame 616
+	Current event List (0 events) (past 0)
+0.108279
+Frame 617
+	Current event List (0 events) (past 0)
+0.104615
+Frame 618
+	Current event List (0 events) (past 0)
+0.100248
+Frame 619
+	Current event List (0 events) (past 0)
+0.097731
+Frame 620
+	Current event List (0 events) (past 0)
+0.098236
+Frame 621
+	Current event List (0 events) (past 0)
+0.102312
+Frame 622
+	Current event List (0 events) (past 0)
+0.099209
+Frame 623
+	Current event List (0 events) (past 0)
+0.09752
+Frame 624
+	Current event List (0 events) (past 0)
+0.104722
+Frame 625
+	Current event List (0 events) (past 0)
+0.100064
+Frame 626
+	Current event List (0 events) (past 0)
+0.099017
+Frame 627
+	Current event List (0 events) (past 0)
+0.10283
+Frame 628
+	Current event List (0 events) (past 0)
+0.103
+Frame 629
+	Current event List (0 events) (past 0)
+0.101899
+Frame 630
+	Current event List (0 events) (past 0)
+0.100516
+Frame 631
+	Current event List (0 events) (past 0)
+0.100216
+Frame 632
+	Current event List (0 events) (past 0)
+0.106125
+Frame 633
+	Current event List (0 events) (past 0)
+0.100035
+Frame 634
+	Current event List (0 events) (past 0)
+0.099752
+Frame 635
+	Current event List (0 events) (past 0)
+0.1005
+Frame 636
+	Current event List (0 events) (past 0)
+0.10331
+Frame 637
+	Current event List (0 events) (past 0)
+0.105794
+Frame 638
+	Current event List (0 events) (past 0)
+0.105715
+Frame 639
+	Current event List (0 events) (past 0)
+0.102902
+Frame 640
+	Current event List (0 events) (past 0)
+0.110747
+Frame 641
+	Current event List (0 events) (past 0)
+0.109171
+Frame 642
+	Current event List (0 events) (past 0)
+0.112636
+Frame 643
+	Current event List (0 events) (past 0)
+0.105611
+Frame 644
+	Current event List (0 events) (past 0)
+0.106018
+Frame 645
+	Current event List (0 events) (past 0)
+0.114903
+Frame 646
+	Current event List (0 events) (past 0)
+0.116831
+Frame 647
+	Current event List (0 events) (past 0)
+0.113963
+Frame 648
+	Current event List (0 events) (past 0)
+0.110009
+Frame 649
+	Current event List (0 events) (past 0)
+0.111438
+Frame 650
+	Current event List (0 events) (past 0)
+0.116575
+Frame 651
+	Current event List (0 events) (past 0)
+0.121629
+Frame 652
+	Current event List (0 events) (past 0)
+0.121565
+Frame 653
+	Current event List (0 events) (past 0)
+0.125862
+Frame 654
+	Current event List (0 events) (past 0)
+0.120752
+Frame 655
+	Current event List (0 events) (past 0)
+0.125875
+Frame 656
+	Current event List (0 events) (past 0)
+0.121325
+Frame 657
+	Current event List (0 events) (past 0)
+0.113737
+Frame 658
+	Current event List (0 events) (past 0)
+0.118242
+Frame 659
+	Current event List (0 events) (past 0)
+0.122181
+Frame 660
+	Current event List (0 events) (past 0)
+0.127106
+Frame 661
+	Current event List (0 events) (past 0)
+0.120076
+Frame 662
+	Current event List (0 events) (past 0)
+0.125857
+Frame 663
+	Current event List (0 events) (past 0)
+0.123337
+Frame 664
+	Current event List (0 events) (past 0)
+0.118371
+Frame 665
+	Current event List (0 events) (past 0)
+0.119431
+Frame 666
+	Current event List (0 events) (past 0)
+0.114
+Frame 667
+	Current event List (0 events) (past 0)
+0.122546
+Frame 668
+	Current event List (0 events) (past 0)
+0.126183
+Frame 669
+	Current event List (0 events) (past 0)
+0.118523
+Frame 670
+	Current event List (0 events) (past 0)
+0.116233
+Frame 671
+	Current event List (0 events) (past 0)
+0.117305
+Frame 672
+	Current event List (0 events) (past 0)
+0.120656
+Frame 673
+	Current event List (0 events) (past 0)
+0.11323
+Frame 674
+	Current event List (0 events) (past 0)
+0.113444
+Frame 675
+	Current event List (0 events) (past 0)
+0.116999
+Frame 676
+	Current event List (0 events) (past 0)
+0.119489
+Frame 677
+	Current event List (0 events) (past 0)
+0.121061
+Frame 678
+	Current event List (0 events) (past 0)
+0.116421
+Frame 679
+	Current event List (0 events) (past 0)
+0.11451
+Frame 680
+	Current event List (0 events) (past 0)
+0.119459
+Frame 681
+	Current event List (0 events) (past 0)
+0.113826
+Frame 682
+	Current event List (0 events) (past 0)
+0.112288
+Frame 683
+	Current event List (0 events) (past 0)
+0.112138
+Frame 684
+	Current event List (0 events) (past 0)
+0.112181
+Frame 685
+	Current event List (0 events) (past 0)
+0.111747
+Frame 686
+	Current event List (0 events) (past 0)
+0.111684
+Frame 687
+	Current event List (0 events) (past 0)
+0.112567
+Frame 688
+	Current event List (0 events) (past 0)
+0.124172
+Frame 689
+	Current event List (0 events) (past 0)
+0.118319
+Frame 690
+	Current event List (0 events) (past 0)
+0.118144
+Frame 691
+	Current event List (0 events) (past 0)
+0.118141
+Frame 692
+	Current event List (0 events) (past 0)
+0.126186
+Frame 693
+	Current event List (0 events) (past 0)
+0.121333
+Frame 694
+	Current event List (0 events) (past 0)
+0.118499
+Frame 695
+	Current event List (0 events) (past 0)
+0.118365
+Frame 696
+	Current event List (0 events) (past 0)
+0.152804
+Frame 697
+	Current event List (0 events) (past 0)
+0.138945
+Frame 698
+	Current event List (0 events) (past 0)
+0.139727
+Frame 699
+	Current event List (0 events) (past 0)
+0.134063
+Frame 700
+	Current event List (0 events) (past 0)
+0.133277
+Frame 701
+	Current event List (0 events) (past 0)
+0.130786
+Frame 702
+	Current event List (0 events) (past 0)
+0.127228
+Frame 703
+	Current event List (0 events) (past 0)
+0.126105
+Frame 704
+	Current event List (0 events) (past 0)
+0.140571
+Frame 705
+	Current event List (0 events) (past 0)
+0.133401
+Frame 706
+	Current event List (0 events) (past 0)
+0.132058
+Frame 707
+	Current event List (0 events) (past 0)
+0.131853
+Frame 708
+	Current event List (0 events) (past 0)
+0.133253
+Frame 709
+	Current event List (0 events) (past 0)
+0.129996
+Frame 710
+	Current event List (0 events) (past 0)
+0.133182
+Frame 711
+	Current event List (0 events) (past 0)
+0.126039
+Frame 712
+	Current event List (0 events) (past 0)
+0.119308
+Frame 713
+	Current event List (0 events) (past 0)
+0.119117
+Frame 714
+	Current event List (0 events) (past 0)
+0.122472
+Frame 715
+	Current event List (0 events) (past 0)
+0.122214
+Frame 716
+	Current event List (0 events) (past 0)
+0.122043
+Frame 717
+	Current event List (0 events) (past 0)
+0.12157
+Frame 718
+	Current event List (0 events) (past 0)
+0.125463
+Frame 719
+	Current event List (0 events) (past 0)
+0.123638
+Frame 720
+	Current event List (0 events) (past 0)
+0.131042
+Frame 721
+	Current event List (0 events) (past 0)
+0.12459
+Frame 722
+	Current event List (0 events) (past 0)
+0.118088
+Frame 723
+	Current event List (0 events) (past 0)
+0.116321
+Frame 724
+	Current event List (0 events) (past 0)
+0.122122
+Frame 725
+	Current event List (0 events) (past 0)
+0.116308
+Frame 726
+	Current event List (0 events) (past 0)
+0.120986
+Frame 727
+	Current event List (0 events) (past 0)
+0.120759
+Frame 728
+	Current event List (0 events) (past 0)
+0.12546
+Frame 729
+	Current event List (0 events) (past 0)
+0.131341
+Frame 730
+	Current event List (0 events) (past 0)
+0.124353
+Frame 731
+	Current event List (0 events) (past 0)
+0.133475
+Frame 732
+	Current event List (0 events) (past 0)
+0.131675
+Frame 733
+	Current event List (0 events) (past 0)
+0.124992
+Frame 734
+	Current event List (0 events) (past 0)
+0.114795
+Frame 735
+	Current event List (0 events) (past 0)
+0.12552
+Frame 736
+	Current event List (0 events) (past 0)
+0.126015
+Frame 737
+	Current event List (0 events) (past 0)
+0.121144
+Frame 738
+	Current event List (0 events) (past 0)
+0.116056
+Frame 739
+	Current event List (0 events) (past 0)
+0.112795
+Frame 740
+	Current event List (0 events) (past 0)
+0.122381
+Frame 741
+	Current event List (0 events) (past 0)
+0.118841
+Frame 742
+	Current event List (0 events) (past 0)
+0.118334
+Frame 743
+	Current event List (0 events) (past 0)
+0.118623
+Frame 744

@@ -59,8 +59,7 @@ void SFDGSelector::process(Mat frame, Mat foreground_img, Mat bgmodel_img,video 
             imshow("STATIC MOTION MASK SUBSAMPLING", this->psubsamplingSFGD->getStaticMask());
         }
 
-
-        if (Video.SaveImages)
+        if (Video.SaveImages && (Video.numFrame % 20 == 0)) //Save 1 frame out of every 20
         {
 
             String d = Video.DirImages + "sfgd" + to_string(Video.numFrame) + ".jpg";
@@ -76,7 +75,7 @@ void SFDGSelector::process(Mat frame, Mat foreground_img, Mat bgmodel_img,video 
         break;
 
 
-    //ACC
+        //ACC
     case 2:
 
         this->pAccMaskSFGD->processFrame(foreground_img, framerate, time2static);
@@ -86,7 +85,7 @@ void SFDGSelector::process(Mat frame, Mat foreground_img, Mat bgmodel_img,video 
         }
 
 
-        if (Video.SaveImages)
+        if (Video.SaveImages && (Video.numFrame % 20 == 0)) //Save 1 frame out of every 20
         {
 
             String d = Video.DirImages + "sfgd" + to_string(Video.numFrame) + ".jpg";

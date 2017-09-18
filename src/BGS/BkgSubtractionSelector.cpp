@@ -81,7 +81,7 @@ void BkgSubtractionSelector::init(Mat frame)
         this->pMOG2  = createBackgroundSubtractorMOG2(400);
         //(int history=200, int nmixtures=5, double backgroundRatio=0.7, double noiseSigma=0
         this->pMOG2->setBackgroundRatio(0.7);
-       //this->pMOG2 = createBackgroundSubtractorMOG2();
+        //this->pMOG2 = createBackgroundSubtractorMOG2();
 
         this->pMOG2->setNMixtures(5);
 
@@ -138,6 +138,17 @@ void BkgSubtractionSelector::process(Mat frame,video Video)
             waitKey(1);
         }
 
+        if (Video.SaveImages && (Video.numFrame % 20 == 0)) //Save 1 frame out of every 20
+        {
+
+            putText(img_input,to_string(Video.numFrame), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
+            String d = Video.DirImages + "frame" + to_string(Video.numFrame) + ".jpg";
+            imwrite(d,img_input);
+
+        }
+
+
+
 
 
     case 2:
@@ -156,14 +167,12 @@ void BkgSubtractionSelector::process(Mat frame,video Video)
             waitKey(1);
         }
 
-        if (Video.SaveImages)
+        if (Video.SaveImages && (Video.numFrame % 20 == 0)) //Save 1 frame out of every 20
         {
 
             putText(img_input,to_string(Video.numFrame), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
             String d = Video.DirImages + "frame" + to_string(Video.numFrame) + ".jpg";
             imwrite(d,img_input);
-
-
 
         }
 
@@ -188,12 +197,21 @@ void BkgSubtractionSelector::process(Mat frame,video Video)
             waitKey(1);
         }
 
+
+        if (Video.SaveImages && (Video.numFrame % 20 == 0)) //Save 1 frame out of every 20
+        {
+
+            putText(img_input,to_string(Video.numFrame), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
+            String d = Video.DirImages + "frame" + to_string(Video.numFrame) + ".jpg";
+            imwrite(d,img_input);
+
+        }
         break;
 
     case 4:
 
         double learn;
-       // learn = 0.001; //0 not updated. 1 totally updated
+        // learn = 0.001; //0 not updated. 1 totally updated
         cout << "learning rate " << learn << endl;
         this->pKNN->apply(this->img_input, this->img_output,learn);
         this->pKNN->getBackgroundImage(this->img_bgmodel);
@@ -203,6 +221,15 @@ void BkgSubtractionSelector::process(Mat frame,video Video)
             imshow("KNN FG", this->img_output);
             imshow("KNN Reconstructed BG", this->img_bgmodel);
             waitKey(40);
+        }
+
+        if (Video.SaveImages && (Video.numFrame % 20 == 0)) //Save 1 frame out of every 20
+        {
+
+            putText(img_input,to_string(Video.numFrame), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
+            String d = Video.DirImages + "frame" + to_string(Video.numFrame) + ".jpg";
+            imwrite(d,img_input);
+
         }
 
         break;
@@ -216,6 +243,15 @@ void BkgSubtractionSelector::process(Mat frame,video Video)
             imshow("IMBS FG", this->img_output);
             imshow("IMBS BG Model", this->img_bgmodel);
             waitKey(1);
+        }
+
+        if (Video.SaveImages && (Video.numFrame % 20 == 0)) //Save 1 frame out of every 20
+        {
+
+            putText(img_input,to_string(Video.numFrame), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
+            String d = Video.DirImages + "frame" + to_string(Video.numFrame) + ".jpg";
+            imwrite(d,img_input);
+
         }
         break;
 

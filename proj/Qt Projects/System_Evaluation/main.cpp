@@ -64,12 +64,9 @@ const string currentDateTime() {
 }
 
 
-
 /*********************************/
 /*** MAIN PROGRAM FUNCTION     ***/
 /*********************************/
-
-
 
 
 int main(int argc, char *argv[])
@@ -99,12 +96,16 @@ int main(int argc, char *argv[])
     // 2: DPM
     // 3: ACF
 
-    /* Comandos desde el ordenador BORRAR LUEGO */
+
+
+    // ↓↓↓↓↓↓ UNCOMENT IF WORKING IN PROGRAMMING  ENVIRONMENT ↓↓↓↓↓↓
+
+    /*
 
     Video.bkg_method = 3;
-    Video.sfgd_method  = 2;
-    Video.classifier_method= 2;
-    Video.detector_method= 2;
+    Video.sfgd_method  = 1;
+    Video.classifier_method = 1;
+    Video.detector_method= 1;
 
     Video.fileDir = "../../../videos/AVSS_corto.mov";
     string videoName = "AVSS_corto";
@@ -113,33 +114,22 @@ int main(int argc, char *argv[])
 
     Video.fileResults = folder_results + videoName + "_PRUEBA_" + to_string(Video.bkg_method) + "_" + to_string( Video.sfgd_method) + "_"+ to_string( Video.classifier_method ) + "_" + to_string( Video.detector_method ) + "_"+ currentDateTime() + ".xml";
     Video.fileTime =  folder_results + videoName + "time_" + to_string(Video.bkg_method) + "_" + to_string( Video.sfgd_method) + "_"+ to_string( Video.classifier_method ) + "_" + to_string( Video.detector_method ) + "_"+ currentDateTime() + ".time";
-    Video.DirImages = "/home/vpu/TFM/TFM CODE LAS/images";
+    Video.DirImages = "../../../results/images/";
 
     cout << "File results: " << Video.fileResults << endl;
     cout << "video filedir " << Video.fileDir << endl;
 
 
+   */
 
-    /* Comandos desde el ordenador BORRAR LUEGO */
+   // ↑↑↑↑↑ UNCOMMENT IF WORKING IN PROGRAMMING  ENVIRONMENT ↑↑↑↑↑↑
 
-    /*******************************/
-    /*** INPUT TERMINAL COMMANDS ***/
-    /*******************************/
 
-    // ARGUMENTS ORDER:
 
-    // 1: bkg subtraction method
-    // 2: sfgd method
-    // 3: classifier method
-    // 4: people detector method
-    // 5: video file directory
-    // 6: video name
-    // 7: results folder
-    // 8: video context mask directory (not mandatory)
 
+    // ↓↓↓↓↓↓ UNCOMMENT IF WORKING IN TERMINAL OR .SH SCRIPT ↓↓↓↓↓↓
 
     /*
-
     // Check number of mandatory input arguments
 
     if (argc < 8 )
@@ -196,9 +186,6 @@ int main(int argc, char *argv[])
         // file with execution times (.time)
         Video.fileTime = folder_results + videoName + "_"+ to_string(Video.bkg_method) + "_" + to_string( Video.sfgd_method) + "_"+ to_string( Video.classifier_method ) + "_" + to_string( Video.detector_method ) + "_"+ currentDateTime() + ".time";
 
-        //Save images directory
-        //Video.DirImages = "/media/vpu/f3f23811-f666-4a1f-a1d8-066b9a3a15ae/Images AVSS PV LARGE/";
-        //cout << "Images will be saved in " <<  Video.DirImages << endl;
 
 
     }
@@ -214,6 +201,25 @@ int main(int argc, char *argv[])
 
     */
 
+     // ↑↑↑↑↑ UNCOMMENT IF WORKING IN TERMINAL OR .SH SCRIPT ↑↑↑↑↑
+
+
+
+
+    /*******************************/
+    /*** INPUT TERMINAL COMMANDS ***/
+    /*******************************/
+
+    // ARGUMENTS ORDER:
+
+    // 1: bkg subtraction method
+    // 2: sfgd method
+    // 3: classifier method
+    // 4: people detector method
+    // 5: video file directory
+    // 6: video name
+    // 7: results folder
+    // 8: video context mask directory (not mandatory)
 
 
     /********************/
@@ -226,6 +232,7 @@ int main(int argc, char *argv[])
     Video.totalNumFrames = Video.cap.get(CAP_PROP_FRAME_COUNT);
     Video.rows = Video.cap.get(CAP_PROP_FRAME_HEIGHT);
     Video.cols = Video.cap.get(CAP_PROP_FRAME_WIDTH);
+
 
     //Check if Videocapture variable has been correctly opened
     if (!Video.cap.isOpened())
@@ -250,7 +257,7 @@ int main(int argc, char *argv[])
     Video.ShowResults = false;
 
     // Save results images if true
-    Video.SaveImages= false;
+    Video.SaveImages = false;
 
     // Save XML results file if true
     Video.SaveResults = true;
@@ -297,6 +304,17 @@ int main(int argc, char *argv[])
     }
 
 
+
+    //Save images directory
+    Video.DirImages = "../../../results/images/";
+
+    if (Video.SaveImages == true)
+    {
+        cout << "Images will be saved in " <<  Video.DirImages << endl;
+    }
+
+
+
     /******** LOOP OVER THE VIDEO FILE ********/
 
     for ( ; ; )
@@ -326,8 +344,8 @@ int main(int argc, char *argv[])
         if (frame.data)
         {
 
-           // imshow("FRAME", frame);
-           // waitKey(10);
+            // imshow("FRAME", frame);
+            // waitKey(10);
 
             cout << "Frame " << Video.numFrame << endl;
 
@@ -406,7 +424,6 @@ int main(int argc, char *argv[])
 
                 clock_t finish_pd = clock();
                 elapsedTime_pd = (double)(finish_pd - start_pd)/CLOCKS_PER_SEC;
-
 
 
                 // Create a static objects list (Video.list_objects) by filtering the static foreground blobs (BlobList)
@@ -491,10 +508,10 @@ int main(int argc, char *argv[])
         
         if (Video.SaveResults == true)
         {
-                
-        /******** TIME CONSUPTION WRITTING (For each frame) ********/
-        fprintf(Video.file_time,"%d     %2.6f %2.6f %2.6f %2.6f %2.6f %2.6f\n",Video.numFrame,elapsedTime_total ,elapsedTime_bkg,elapsedTime_sfgd,elapsedTime_pd,elapsedTime_class,elapsedTime_write);
-         }
+
+            /******** TIME CONSUPTION WRITTING (For each frame) ********/
+            fprintf(Video.file_time,"%d     %2.6f %2.6f %2.6f %2.6f %2.6f %2.6f\n",Video.numFrame,elapsedTime_total ,elapsedTime_bkg,elapsedTime_sfgd,elapsedTime_pd,elapsedTime_class,elapsedTime_write);
+        }
 
     }
 
