@@ -10,12 +10,8 @@
 #include "opencv2/highgui/highgui.hpp"
 
 #include "detectorselector.h"
-#include "../../../lib/bgslibrary/package_bgs/FrameDifferenceBGS.h"
-#include "../../../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLOBSTER.h"
-#include "../../../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLBSP.h"
-#include "../../../lib/bgslibrary/package_bgs/db/imbs.hpp"
-#include "../../../lib/bgslibrary/package_bgs/db/IndependentMultimodalBGS.h"
-#include "../../../lib/BackgroundSubtractorPAWCS.h"
+
+//#include "../../../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.h"
 
 
 
@@ -49,9 +45,9 @@ void DetectorSelector::init(){
         break;
 
     case 2: //DPM
-        this->pDPM  = DPMDetector::create(vector<string>(1, "../../../lib/DPM/inriaperson.xml"));
+        this->pDPM  = DPMDetector::create(vector<string>(1, "/home/vpu/AOD_System/lib/DPM/inriaperson.xml"));
 
- break;
+        break;
 
     case 3: // ACF
 
@@ -69,6 +65,7 @@ void DetectorSelector::init(){
 vector<Rect> DetectorSelector::process(Mat frame){
 
     this->found.clear();
+    frameAux = frame.clone();
 
     switch (this->int_PEDESTRIANDETECTORid)
     {
@@ -79,12 +76,13 @@ vector<Rect> DetectorSelector::process(Mat frame){
 
         break;
 
-    // DPM
+        // DPM
     case 2:
 
         // DPM detector with NMS. The function destroys the Frame
-        frameAux = frame.clone();
+
         this->pDPM->detect(frameAux, this->DPMBoundingBoxesAux);
+
         for (size_t i = 0; i < DPMBoundingBoxesAux.size(); i++)
         {
             this->found.push_back(this->DPMBoundingBoxesAux[i].rect);
@@ -94,8 +92,21 @@ vector<Rect> DetectorSelector::process(Mat frame){
 
         break;
 
-    //ACF
+        //ACF
     case 3:
+        //Apply ACF detector
+        Dl = Dt.applyDetector(frameAux);
+
+        //Apply NMS
+        Dl_NMS = NMS.dollarNMS(Dl);
+        for ( int i = 0; i < Dl_NMS.Ds.size(); i++)
+        {
+            Rect detection = Rect (Dl_NMS.Ds[i]->getX(),Dl_NMS.Ds[i]->getY(),Dl_NMS.Ds[i]->getWidth(),Dl_NMS.Ds[i]->getHeight());
+             this->found.push_back(detection);
+        }
+
+
+
 
         break;
 

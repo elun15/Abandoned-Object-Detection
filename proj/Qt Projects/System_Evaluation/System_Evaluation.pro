@@ -29,15 +29,8 @@ SOURCES += main.cpp\
     ../../../src/SFGD/StaticMaskExtractor_AccMask.cpp \
     ../../../src/SFGD/SFGDSelector.cpp \
     ../../../src/BGS/BkgSubtractionSelector.cpp \
-    ../../../lib/BackgroundSubtractorPAWCS.cpp \
-    ../../../lib/bgslibrary/package_bgs/db/imbs.cpp \
-    ../../../lib/bgslibrary/package_bgs/db/IndependentMultimodalBGS.cpp \
-    ../../../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLBSP.cpp \
-    ../../../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLOBSTER.cpp \
-    ../../../lib/bgslibrary/package_bgs/pl/LBSP.cpp \
-    ../../../lib/bgslibrary/package_bgs/pl/LOBSTER.cpp \
-    ../../../src/BLOBS/BlobExtractor.cpp \
-   ../../../src/BLOBS/BasicBlob.cpp \
+     ../../../src/BLOBS/BlobExtractor.cpp \
+    ../../../src/BLOBS/BasicBlob.cpp \
     ../../../src/Utils/solape.cpp \
     ../../../src/DETECTOR/DefineObjectBlobList.cpp \
     ../../../src/BLOBS/BlobList.cpp \
@@ -58,24 +51,54 @@ SOURCES += main.cpp\
     ../../../lib/DPM/dpm_model.cpp \
     ../../../lib/DPM/dpm_nms.cpp \
     video.cpp \
-    ../../../src/DETECTOR/detectorselector.cpp
+    ../../../src/DETECTOR/detectorselector.cpp \
+    ../../../lib/bgslibrary/package_bgs/KNN.cpp \
+    ../../../lib/bgslibrary/package_bgs/IndependentMultimodal.cpp \
+    ../../../lib/bgslibrary/package_bgs/LOBSTER.cpp \
+    ../../../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.cpp \
+    ../../../lib/bgslibrary/package_bgs/PAWCS.cpp \
+    ../../../lib/bgslibrary/package_bgs/SuBSENSE.cpp \
+    ../../../lib/bgslibrary/package_bgs/IMBS/IMBS.cpp \
+    ../../../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.cpp \
+    ../../../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.cpp \
+    ../../../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.cpp \
+    ../../../lib/bgslibrary/package_bgs/LBSP/LBSP_.cpp \
+    ../../../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.cpp \
+    ../../../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.cpp \
+    ../../../lib/bgslibrary/package_bgs/LBSP/LBSP.cpp \
+    ../../../lib/ACF/ACFDetector.cpp \
+    ../../../lib/ACF/ACFFeaturePyramid.cpp \
+    ../../../lib/ACF/Channel.cpp \
+    ../../../lib/ACF/ChannelFeatures.cpp \
+    ../../../lib/ACF/ColorChannel.cpp \
+    ../../../lib/ACF/convConst.cpp \
+    ../../../lib/ACF/GradHistChannel.cpp \
+    ../../../lib/ACF/gradientMex.cpp \
+    ../../../lib/ACF/GradMagChannel.cpp \
+    ../../../lib/ACF/wrappers.cpp \
+    ../../../lib/Channel/Convert.cpp \
+    ../../../lib/Core/detection.cpp \
+    ../../../lib/Core/DetectionList.cpp \
+    ../../../lib/Core/detector.cpp \
+    ../../../lib/Core/DetectorManager.cpp \
+    ../../../lib/Core/detectormodel.cpp \
+    ../../../lib/Core/feature.cpp \
+    ../../../lib/Core/featurelayer.cpp \
+    ../../../lib/Core/filelocator.cpp \
+    ../../../lib/Core/FileWriter.cpp \
+    ../../../lib/Core/FrameFromCamera.cpp \
+    ../../../lib/Core/FrameFromDirectory.cpp \
+    ../../../lib/Core/FrameFromVideo.cpp \
+    ../../../lib/Core/FrameProducer.cpp \
+    ../../../lib/Core/nms.cpp \
+    ../../../lib/Core/NonMaximumSuppression.cpp \
+    ../../../lib/Core/ScaleSpacePyramid.cpp
 
 HEADERS  +=   ../../../src/SFGD/StaticMaskExtractor_subsampling.h \
     ../../../src/SFGD/StaticMaskExtractor.h \
     ../../../src/SFGD/StaticMaskExtractor_AccMask.h \
     ../../../src/SFGD/SFGDSelector.h \
     ../../../src/BGS/BkgSubtractionSelector.h \
-    ../../../lib/BackgroundSubtractorPAWCS.h \
-    ../../../lib/bgslibrary/package_bgs/db/imbs.hpp \
-    ../../../lib/bgslibrary/package_bgs/db/IndependentMultimodalBGS.h \
-    ../../../lib/bgslibrary/package_bgs/FrameDifferenceBGS.h \
-    ../../../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLBSP.h \
-    ../../../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLOBSTER.h \
-    ../../../lib/bgslibrary/package_bgs/pl/DistanceUtils.h \
-    ../../../lib/bgslibrary/package_bgs/pl/LBSP.h \
-    ../../../lib/bgslibrary/package_bgs/pl/LOBSTER.h \
-    ../../../lib/bgslibrary/package_bgs/pl/RandUtils.h \
-    ../../../src/DETECTOR/DetectorSelector.h \
     ../../../src/BLOBS/BlobExtractor.h \
     ../../../src/BLOBS/BasicBlob.h \
     ../../../src/Utils/solape.h \
@@ -99,7 +122,59 @@ HEADERS  +=   ../../../src/SFGD/StaticMaskExtractor_subsampling.h \
     ../../../lib/DPM/dpm.hpp \
     ../../../lib/DPM/precomp.hpp \
     video.h \
-    ../../../src/DETECTOR/detectorselector.h
+    ../../../src/DETECTOR/detectorselector.h \
+    ../../../lib/bgslibrary/package_bgs/KNN.h \
+    ../../../lib/bgslibrary/package_bgs/bgslibrary.h \
+    ../../../lib/bgslibrary/package_bgs/IndependentMultimodal.h \
+    ../../../lib/bgslibrary/package_bgs/LOBSTER.h \
+    ../../../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.h \
+    ../../../lib/bgslibrary/package_bgs/PAWCS.h \
+    ../../../lib/bgslibrary/package_bgs/SuBSENSE.h \
+    ../../../lib/bgslibrary/package_bgs/IBGS.h \
+    ../../../lib/bgslibrary/package_bgs/IMBS/IMBS.hpp \
+    ../../../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.h \
+    ../../../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.h \
+    ../../../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.h \
+    ../../../lib/bgslibrary/package_bgs/LBSP/DistanceUtils.h \
+    ../../../lib/bgslibrary/package_bgs/LBSP/RandUtils.h \
+    ../../../lib/bgslibrary/package_bgs/LBSP/LBSP_.h \
+    ../../../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.h \
+    ../../../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.h \
+    ../../../lib/bgslibrary/package_bgs/LBSP/LBSP.h \
+    ../../../lib/ACF/ACFDetector.h \
+    ../../../lib/ACF/ACFFeaturePyramid.h \
+    ../../../lib/ACF/Channel.h \
+    ../../../lib/ACF/ChannelFeatures.h \
+    ../../../lib/ACF/ColorChannel.h \
+    ../../../lib/ACF/GradHistChannel.h \
+    ../../../lib/ACF/GradMagChannel.h \
+    ../../../lib/ACF/imResampleMex.hpp \
+    ../../../lib/ACF/rgbConvertMex.hpp \
+    ../../../lib/ACF/sse.hpp \
+    ../../../lib/ACF/wrappers.hpp \
+    ../../../lib/Channel/Functions.h \
+    ../../../lib/Core/detection.h \
+    ../../../lib/Core/DetectionList.h \
+    ../../../lib/Core/detector.h \
+    ../../../lib/Core/DetectorManager.h \
+    ../../../lib/Core/detectormodel.h \
+    ../../../lib/Core/dirent.h \
+    ../../../lib/Core/feature.h \
+    ../../../lib/Core/featurelayer.h \
+    ../../../lib/Core/filelocator.h \
+    ../../../lib/Core/FileWriter.h \
+    ../../../lib/Core/FrameFromCamera.h \
+    ../../../lib/Core/FrameFromDirectory.h \
+    ../../../lib/Core/FrameFromVideo.h \
+    ../../../lib/Core/FrameProducer.h \
+    ../../../lib/Core/Image.hpp \
+    ../../../lib/Core/nms.h \
+    ../../../lib/Core/NonMaximumSuppression.h \
+    ../../../lib/Core/ScaleSpacePyramid.h \
+    ../../../lib/rapidxml-1.13/rapidxml_iterators.hpp \
+    ../../../lib/rapidxml-1.13/rapidxml_print.hpp \
+    ../../../lib/rapidxml-1.13/rapidxml_utils.hpp \
+    ../../../lib/rapidxml-1.13/rapidxml.hpp
 
 FORMS    += mainwindow.ui
 # The following lines tells Qmake to use pkg-config for opencv
@@ -108,3 +183,7 @@ CONFIG  += link_pkgconfig
 PKGCONFIG += opencv
 INCLUDEPATH += /usr/lib/x86_64-linux-gnu/
 LIBS += -L/usr/lib/x86_64-linux-gnu/
+
+DISTFILES += \
+    ../../../lib/ACF/INRIA_ACF.xml \
+    ../../../lib/rapidxml-1.13/license.txt

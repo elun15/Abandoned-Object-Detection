@@ -91,9 +91,9 @@ for c in $(seq 0 1 $((Nconfig-1))); do
 			#${binary_path} $bkg_sel $sfg_sel $asc_sel $ped_sel ${seq_path} ${fname} ${out_path} ${mask}> ${out_log} 2>&1
 			
 			# WITHOUT CONTEXT MASK
-			echo ${binary_path} $bkg_sel $sfg_sel $asc_sel $ped_sel ${seq_path} ${fname} ${out_path} > ${out_log}
-			${binary_path} $bkg_sel $sfg_sel $asc_sel $ped_sel ${seq_path} ${fname} ${out_path} > ${out_log} 2>&1
-			
+			echo ${binary_path} $bkg_sel $sfg_sel $asc_sel $ped_sel ${seq_path} ${out_path} > ${out_log}
+			${binary_path} $bkg_sel $sfg_sel $asc_sel $ped_sel ${seq_path} ${out_path} > ${out_log} 2>&1
+		
 
 			echo "done ($(($(($SECONDS- $START_TIME))/60)) min $(($(($SECONDS-$START_TIME))%60)) sec)"
 		done

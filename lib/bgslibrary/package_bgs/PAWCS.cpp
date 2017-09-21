@@ -15,6 +15,9 @@ You should have received a copy of the GNU General Public License
 along with BGSLibrary.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "PAWCS.h"
+#include "../../../lib/bgslibrary/package_bgs/bgslibrary.h"
+#include "LBSP/BackgroundSubtractorPAWCS.h"
+
 
 using namespace bgslibrary::algorithms;
 

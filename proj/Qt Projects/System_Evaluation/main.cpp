@@ -23,7 +23,7 @@
 #include <opencv2/opencv.hpp> //opencv libraries
 
 #include "../../../src/Utils/DrawDetections.h"
-#include "../../../lib/bgslibrary/package_bgs/FrameDifferenceBGS.h"
+#include "../../../lib/bgslibrary/package_bgs/bgslibrary.h"
 #include "../../../src/BGS/BkgSubtractionSelector.h"
 #include "../../../src/SFGD/SFGDSelector.h"
 #include "../../../src/DETECTOR/detectorselector.h"
@@ -85,6 +85,7 @@ int main(int argc, char *argv[])
     // 3: MOG2
     // 4: KNN
     // 5: Multimodal
+    // 6: SUBSENSE
 
     // 1: Subsampling
     // 2: Acc Mask
@@ -97,32 +98,41 @@ int main(int argc, char *argv[])
     // 3: ACF
 
 
-
     // ↓↓↓↓↓↓ UNCOMMENT IF WORKING IN PROGRAMMING  ENVIRONMENT ↓↓↓↓↓↓
 
 
 
-    Video.bkg_method = 3;
+    Video.bkg_method = 1;
     Video.sfgd_method  = 1;
     Video.classifier_method = 1;
-    Video.detector_method= 1;
+    Video.detector_method= 3;
 
-    Video.fileDir = "../../../videos/AVSS_corto.mov";
-    string videoName = "AVSS_corto";
-    String folder_results  = "../../../results/";
+    Video.fileDir = "../datasets/AVSS/AVSS_corto.mov";
+    string basename  = Video.fileDir.substr(Video.fileDir.find_last_of("/")+1);
+    string::size_type const point_position(basename.find_last_of('.'));
+    string videoName = basename.substr(0,point_position);
 
+    if ( videoName.find("AVSS") != string::npos)
+    {
+        Video.contextMask = imread("../images/AVSS_Mask.jpg",CV_LOAD_IMAGE_GRAYSCALE);
+        if (Video.contextMask.empty())
+        {
+            cout << "Could not open mask image." << endl;
+            return -1;
+        }
+        bitwise_not(Video.contextMask,Video.contextMask);
+    }
+
+    String folder_results  = "../results/";
 
     Video.fileResults = folder_results + videoName + "_PRUEBA_" + to_string(Video.bkg_method) + "_" + to_string( Video.sfgd_method) + "_"+ to_string( Video.classifier_method ) + "_" + to_string( Video.detector_method ) + "_"+ currentDateTime() + ".xml";
     Video.fileTime =  folder_results + videoName + "time_" + to_string(Video.bkg_method) + "_" + to_string( Video.sfgd_method) + "_"+ to_string( Video.classifier_method ) + "_" + to_string( Video.detector_method ) + "_"+ currentDateTime() + ".time";
-    Video.DirImages = "../../../results/images/";
+    Video.DirImages = "../results/images/";
 
     cout << "File results: " << Video.fileResults << endl;
     cout << "video filedir " << Video.fileDir << endl;
 
-
-
-   // ↑↑↑↑↑ UNCOMMENT IF WORKING IN PROGRAMMING  ENVIRONMENT ↑↑↑↑↑↑
-
+    // ↑↑↑↑↑ UNCOMMENT IF WORKING IN PROGRAMMING  ENVIRONMENT ↑↑↑↑↑↑
 
 
 
@@ -131,7 +141,7 @@ int main(int argc, char *argv[])
     /*
     // Check number of mandatory input arguments
 
-    if (argc < 8 )
+    if (argc < 7 )
     {
         cout << "Not enough arguments" << endl;
         exit(0);
@@ -171,12 +181,12 @@ int main(int argc, char *argv[])
         Video.fileDir = argv[5];
         cout << "Input video dir: " << argv[5] << endl;
 
-        // INPUT VIDEO NAME
-        string videoName = argv[6];
-        cout << "Video name: " << argv[6] << endl;
+        string basename  = Video.fileDir.substr(Video.fileDir.find_last_of("/")+1);
+        string::size_type const point_position(basename.find_last_of('.'));
+        string videoName = basename.substr(0,point_position);
 
         // RESULTS FOLDER
-        String folder_results = argv[7];
+        String folder_results = argv[6];
 
         // XML file with results (.xml)
         Video.fileResults = folder_results + videoName + "_"+ to_string(Video.bkg_method) + "_" + to_string( Video.sfgd_method) + "_"+ to_string( Video.classifier_method ) + "_" + to_string( Video.detector_method ) + "_"+ currentDateTime() + ".xml";
@@ -190,17 +200,18 @@ int main(int argc, char *argv[])
     }
 
     // CONTEXT MASK
-    if(argc == 9)
+    if(argc == 8)
     {
 
-        Video.contextMask = imread(argv[8]);
+        Video.contextMask = imread(argv[7]);
         cout << " A context mask will be used " << endl;
     }
 
 
     */
 
-     // ↑↑↑↑↑ UNCOMMENT IF WORKING IN TERMINAL OR .SH SCRIPT ↑↑↑↑↑
+
+    // ↑↑↑↑↑ UNCOMMENT IF WORKING IN TERMINAL OR .SH SCRIPT ↑↑↑↑↑
 
 
 
@@ -253,13 +264,13 @@ int main(int argc, char *argv[])
     cout << "Time (seconds) to static: " << Video.time_to_static << endl;
 
     // Show results if true
-    Video.ShowResults = false;
+    Video.ShowResults = true;
 
     // Save results images if true
     Video.SaveImages = false;
 
     // Save XML results file if true
-    Video.SaveResults = true;
+    Video.SaveResults = false;
 
     // Detect people in every frame if true
     Video.DetectPeopleAlways = false;
@@ -375,8 +386,8 @@ int main(int argc, char *argv[])
 
             clock_t start_bkg = clock();
 
-            bkg_selector->process(frame,Video);
-
+            bkg_selector->process(frame, Video);
+            waitKey(10);
             clock_t finish_bkg = clock();
             elapsedTime_bkg = (double)(finish_bkg - start_bkg)/CLOCKS_PER_SEC;
 
@@ -469,7 +480,6 @@ int main(int argc, char *argv[])
 
             clock_t finish_write = clock();
             elapsedTime_write = (double)(finish_write - start_write)/CLOCKS_PER_SEC;
-
 
             Video.list_objects->clear();
 

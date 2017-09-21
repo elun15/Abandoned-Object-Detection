@@ -16,18 +16,14 @@
 #include "opencv2/highgui/highgui.hpp"
 
 
-#include "../../../lib/bgslibrary/package_bgs/FrameDifferenceBGS.h"
-#include "../../../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLOBSTER.h"
-#include "../../../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLBSP.h"
-#include "../../../lib/BackgroundSubtractorPAWCS.h"
-
-#include "../../../lib/bgslibrary/package_bgs/db/imbs.hpp"
-#include "../../../lib/bgslibrary/package_bgs/db/IndependentMultimodalBGS.h"
+#include "../../../lib/bgslibrary/package_bgs/bgslibrary.h"
+#include <opencv2/video/background_segm.hpp>
 #include "video.h"
 
 
 using namespace std;
 using namespace cv;
+using namespace bgslibrary::algorithms;
 
 
 class BkgSubtractionSelector
@@ -45,19 +41,12 @@ public:
     Mat img_input;
     Mat img_output;
     Mat img_bgmodel;
-    Mat SecuenceROI;
+
 
     // Subtraction techniques objects declaration
 
-    FrameDifferenceBGS *MethodFrameDifference;
-    BackgroundSubtractorLOBSTER *pLOBSTERBGS;
-    BackgroundSubtractorPAWCS *pPAWCSBGS;
 
-    Ptr<BackgroundSubtractorMOG2> pMOG2;
-    Ptr<BackgroundSubtractorKNN> pKNN;
-    IndependentMultimodalBGS *pIMBSBGS;
-
-
+    IBGS *bgs;
 
     // Constructors
     BkgSubtractionSelector();

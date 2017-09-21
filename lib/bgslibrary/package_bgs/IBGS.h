@@ -46,7 +46,7 @@ namespace bgslibrary
 
 		protected:
 			bool firstTime = true;
-			bool showOutput = true;
+            bool showOutput = false;
 			cv::Mat img_background;
 			cv::Mat img_foreground;
 			std::string config_xml;

@@ -54,13 +54,6 @@ SOURCES       = ../proj/Qt\ Projects/System_Evaluation/main.cpp \
 		../src/SFGD/StaticMaskExtractor_AccMask.cpp \
 		../src/SFGD/SFGDSelector.cpp \
 		../src/BGS/BkgSubtractionSelector.cpp \
-		../lib/BackgroundSubtractorPAWCS.cpp \
-		../lib/bgslibrary/package_bgs/db/imbs.cpp \
-		../lib/bgslibrary/package_bgs/db/IndependentMultimodalBGS.cpp \
-		../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLBSP.cpp \
-		../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLOBSTER.cpp \
-		../lib/bgslibrary/package_bgs/pl/LBSP.cpp \
-		../lib/bgslibrary/package_bgs/pl/LOBSTER.cpp \
 		../src/BLOBS/BlobExtractor.cpp \
 		../src/BLOBS/BasicBlob.cpp \
 		../src/Utils/solape.cpp \
@@ -82,20 +75,54 @@ SOURCES       = ../proj/Qt\ Projects/System_Evaluation/main.cpp \
 		../lib/DPM/dpm_model.cpp \
 		../lib/DPM/dpm_nms.cpp \
 		../proj/Qt\ Projects/System_Evaluation/video.cpp \
-		../src/DETECTOR/detectorselector.cpp 
+		../src/DETECTOR/detectorselector.cpp \
+		../lib/bgslibrary/package_bgs/KNN.cpp \
+		../lib/bgslibrary/package_bgs/IndependentMultimodal.cpp \
+		../lib/bgslibrary/package_bgs/LOBSTER.cpp \
+		../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.cpp \
+		../lib/bgslibrary/package_bgs/PAWCS.cpp \
+		../lib/bgslibrary/package_bgs/SuBSENSE.cpp \
+		../lib/bgslibrary/package_bgs/IMBS/IMBS.cpp \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.cpp \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.cpp \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.cpp \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_.cpp \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.cpp \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.cpp \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP.cpp \
+		../lib/ACF/ACFDetector.cpp \
+		../lib/ACF/ACFFeaturePyramid.cpp \
+		../lib/ACF/Channel.cpp \
+		../lib/ACF/ChannelFeatures.cpp \
+		../lib/ACF/ColorChannel.cpp \
+		../lib/ACF/convConst.cpp \
+		../lib/ACF/GradHistChannel.cpp \
+		../lib/ACF/gradientMex.cpp \
+		../lib/ACF/GradMagChannel.cpp \
+		../lib/ACF/wrappers.cpp \
+		../lib/Channel/Convert.cpp \
+		../lib/Core/detection.cpp \
+		../lib/Core/DetectionList.cpp \
+		../lib/Core/detector.cpp \
+		../lib/Core/DetectorManager.cpp \
+		../lib/Core/detectormodel.cpp \
+		../lib/Core/feature.cpp \
+		../lib/Core/featurelayer.cpp \
+		../lib/Core/filelocator.cpp \
+		../lib/Core/FileWriter.cpp \
+		../lib/Core/FrameFromCamera.cpp \
+		../lib/Core/FrameFromDirectory.cpp \
+		../lib/Core/FrameFromVideo.cpp \
+		../lib/Core/FrameProducer.cpp \
+		../lib/Core/nms.cpp \
+		../lib/Core/NonMaximumSuppression.cpp \
+		../lib/Core/ScaleSpacePyramid.cpp 
 OBJECTS       = main.o \
 		StaticMaskExtractor_Subsampling.o \
 		StaticMaskExtractor.o \
 		StaticMaskExtractor_AccMask.o \
 		SFGDSelector.o \
 		BkgSubtractionSelector.o \
-		BackgroundSubtractorPAWCS.o \
-		imbs.o \
-		IndependentMultimodalBGS.o \
-		BackgroundSubtractorLBSP.o \
-		BackgroundSubtractorLOBSTER.o \
-		LBSP.o \
-		LOBSTER.o \
 		BlobExtractor.o \
 		BasicBlob.o \
 		solape.o \
@@ -117,8 +144,51 @@ OBJECTS       = main.o \
 		dpm_model.o \
 		dpm_nms.o \
 		video.o \
-		detectorselector.o
-DIST          = ../proj/Qt5.7.0/5.7/gcc_64/mkspecs/features/spec_pre.prf \
+		detectorselector.o \
+		KNN.o \
+		IndependentMultimodal.o \
+		LOBSTER.o \
+		MixtureOfGaussianV2.o \
+		PAWCS.o \
+		SuBSENSE.o \
+		IMBS.o \
+		BackgroundSubtractorLOBSTER.o \
+		BackgroundSubtractorPAWCS.o \
+		BackgroundSubtractorSuBSENSE.o \
+		LBSP_.o \
+		BackgroundSubtractorLBSP.o \
+		BackgroundSubtractorLBSP_.o \
+		LBSP.o \
+		ACFDetector.o \
+		ACFFeaturePyramid.o \
+		Channel.o \
+		ChannelFeatures.o \
+		ColorChannel.o \
+		convConst.o \
+		GradHistChannel.o \
+		gradientMex.o \
+		GradMagChannel.o \
+		wrappers.o \
+		Convert.o \
+		detection.o \
+		DetectionList.o \
+		detector.o \
+		DetectorManager.o \
+		detectormodel.o \
+		feature.o \
+		featurelayer.o \
+		filelocator.o \
+		FileWriter.o \
+		FrameFromCamera.o \
+		FrameFromDirectory.o \
+		FrameFromVideo.o \
+		FrameProducer.o \
+		nms.o \
+		NonMaximumSuppression.o \
+		ScaleSpacePyramid.o
+DIST          = ../lib/ACF/INRIA_ACF.xml \
+		../lib/rapidxml-1.13/license.txt \
+		../proj/Qt5.7.0/5.7/gcc_64/mkspecs/features/spec_pre.prf \
 		../proj/Qt5.7.0/5.7/gcc_64/mkspecs/common/unix.conf \
 		../proj/Qt5.7.0/5.7/gcc_64/mkspecs/common/linux.conf \
 		../proj/Qt5.7.0/5.7/gcc_64/mkspecs/common/sanitize.conf \
@@ -272,17 +342,6 @@ DIST          = ../proj/Qt5.7.0/5.7/gcc_64/mkspecs/features/spec_pre.prf \
 		../src/SFGD/StaticMaskExtractor_AccMask.h \
 		../src/SFGD/SFGDSelector.h \
 		../src/BGS/BkgSubtractionSelector.h \
-		../lib/BackgroundSubtractorPAWCS.h \
-		../lib/bgslibrary/package_bgs/db/imbs.hpp \
-		../lib/bgslibrary/package_bgs/db/IndependentMultimodalBGS.h \
-		../lib/bgslibrary/package_bgs/FrameDifferenceBGS.h \
-		../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLBSP.h \
-		../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLOBSTER.h \
-		../lib/bgslibrary/package_bgs/pl/DistanceUtils.h \
-		../lib/bgslibrary/package_bgs/pl/LBSP.h \
-		../lib/bgslibrary/package_bgs/pl/LOBSTER.h \
-		../lib/bgslibrary/package_bgs/pl/RandUtils.h \
-		../../../src/DETECTOR/DetectorSelector.h \
 		../src/BLOBS/BlobExtractor.h \
 		../src/BLOBS/BasicBlob.h \
 		../src/Utils/solape.h \
@@ -306,19 +365,64 @@ DIST          = ../proj/Qt5.7.0/5.7/gcc_64/mkspecs/features/spec_pre.prf \
 		../lib/DPM/dpm.hpp \
 		../lib/DPM/precomp.hpp \
 		../proj/Qt\ Projects/System_Evaluation/video.h \
-		../src/DETECTOR/detectorselector.h ../proj/Qt\ Projects/System_Evaluation/main.cpp \
+		../src/DETECTOR/detectorselector.h \
+		../lib/bgslibrary/package_bgs/KNN.h \
+		../lib/bgslibrary/package_bgs/bgslibrary.h \
+		../lib/bgslibrary/package_bgs/IndependentMultimodal.h \
+		../lib/bgslibrary/package_bgs/LOBSTER.h \
+		../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.h \
+		../lib/bgslibrary/package_bgs/PAWCS.h \
+		../lib/bgslibrary/package_bgs/SuBSENSE.h \
+		../lib/bgslibrary/package_bgs/IBGS.h \
+		../lib/bgslibrary/package_bgs/IMBS/IMBS.hpp \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.h \
+		../lib/bgslibrary/package_bgs/LBSP/DistanceUtils.h \
+		../lib/bgslibrary/package_bgs/LBSP/RandUtils.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP.h \
+		../lib/ACF/ACFDetector.h \
+		../lib/ACF/ACFFeaturePyramid.h \
+		../lib/ACF/Channel.h \
+		../lib/ACF/ChannelFeatures.h \
+		../lib/ACF/ColorChannel.h \
+		../lib/ACF/GradHistChannel.h \
+		../lib/ACF/GradMagChannel.h \
+		../lib/ACF/imResampleMex.hpp \
+		../lib/ACF/rgbConvertMex.hpp \
+		../lib/ACF/sse.hpp \
+		../lib/ACF/wrappers.hpp \
+		../lib/Channel/Functions.h \
+		../lib/Core/detection.h \
+		../lib/Core/DetectionList.h \
+		../lib/Core/detector.h \
+		../lib/Core/DetectorManager.h \
+		../lib/Core/detectormodel.h \
+		../lib/Core/dirent.h \
+		../lib/Core/feature.h \
+		../lib/Core/featurelayer.h \
+		../lib/Core/filelocator.h \
+		../lib/Core/FileWriter.h \
+		../lib/Core/FrameFromCamera.h \
+		../lib/Core/FrameFromDirectory.h \
+		../lib/Core/FrameFromVideo.h \
+		../lib/Core/FrameProducer.h \
+		../lib/Core/Image.hpp \
+		../lib/Core/nms.h \
+		../lib/Core/NonMaximumSuppression.h \
+		../lib/Core/ScaleSpacePyramid.h \
+		../lib/rapidxml-1.13/rapidxml_iterators.hpp \
+		../lib/rapidxml-1.13/rapidxml_print.hpp \
+		../lib/rapidxml-1.13/rapidxml_utils.hpp \
+		../lib/rapidxml-1.13/rapidxml.hpp ../proj/Qt\ Projects/System_Evaluation/main.cpp \
 		../src/SFGD/StaticMaskExtractor_Subsampling.cpp \
 		../src/SFGD/StaticMaskExtractor.cpp \
 		../src/SFGD/StaticMaskExtractor_AccMask.cpp \
 		../src/SFGD/SFGDSelector.cpp \
 		../src/BGS/BkgSubtractionSelector.cpp \
-		../lib/BackgroundSubtractorPAWCS.cpp \
-		../lib/bgslibrary/package_bgs/db/imbs.cpp \
-		../lib/bgslibrary/package_bgs/db/IndependentMultimodalBGS.cpp \
-		../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLBSP.cpp \
-		../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLOBSTER.cpp \
-		../lib/bgslibrary/package_bgs/pl/LBSP.cpp \
-		../lib/bgslibrary/package_bgs/pl/LOBSTER.cpp \
 		../src/BLOBS/BlobExtractor.cpp \
 		../src/BLOBS/BasicBlob.cpp \
 		../src/Utils/solape.cpp \
@@ -340,7 +444,48 @@ DIST          = ../proj/Qt5.7.0/5.7/gcc_64/mkspecs/features/spec_pre.prf \
 		../lib/DPM/dpm_model.cpp \
 		../lib/DPM/dpm_nms.cpp \
 		../proj/Qt\ Projects/System_Evaluation/video.cpp \
-		../src/DETECTOR/detectorselector.cpp
+		../src/DETECTOR/detectorselector.cpp \
+		../lib/bgslibrary/package_bgs/KNN.cpp \
+		../lib/bgslibrary/package_bgs/IndependentMultimodal.cpp \
+		../lib/bgslibrary/package_bgs/LOBSTER.cpp \
+		../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.cpp \
+		../lib/bgslibrary/package_bgs/PAWCS.cpp \
+		../lib/bgslibrary/package_bgs/SuBSENSE.cpp \
+		../lib/bgslibrary/package_bgs/IMBS/IMBS.cpp \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.cpp \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.cpp \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.cpp \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_.cpp \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.cpp \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.cpp \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP.cpp \
+		../lib/ACF/ACFDetector.cpp \
+		../lib/ACF/ACFFeaturePyramid.cpp \
+		../lib/ACF/Channel.cpp \
+		../lib/ACF/ChannelFeatures.cpp \
+		../lib/ACF/ColorChannel.cpp \
+		../lib/ACF/convConst.cpp \
+		../lib/ACF/GradHistChannel.cpp \
+		../lib/ACF/gradientMex.cpp \
+		../lib/ACF/GradMagChannel.cpp \
+		../lib/ACF/wrappers.cpp \
+		../lib/Channel/Convert.cpp \
+		../lib/Core/detection.cpp \
+		../lib/Core/DetectionList.cpp \
+		../lib/Core/detector.cpp \
+		../lib/Core/DetectorManager.cpp \
+		../lib/Core/detectormodel.cpp \
+		../lib/Core/feature.cpp \
+		../lib/Core/featurelayer.cpp \
+		../lib/Core/filelocator.cpp \
+		../lib/Core/FileWriter.cpp \
+		../lib/Core/FrameFromCamera.cpp \
+		../lib/Core/FrameFromDirectory.cpp \
+		../lib/Core/FrameFromVideo.cpp \
+		../lib/Core/FrameProducer.cpp \
+		../lib/Core/nms.cpp \
+		../lib/Core/NonMaximumSuppression.cpp \
+		../lib/Core/ScaleSpacePyramid.cpp
 QMAKE_TARGET  = System_Evaluation
 DESTDIR       = 
 TARGET        = System_Evaluation
@@ -673,8 +818,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../src/SFGD/StaticMaskExtractor_subsampling.h ../src/SFGD/StaticMaskExtractor.h ../src/SFGD/StaticMaskExtractor_AccMask.h ../src/SFGD/SFGDSelector.h ../src/BGS/BkgSubtractionSelector.h ../lib/BackgroundSubtractorPAWCS.h ../lib/bgslibrary/package_bgs/db/imbs.hpp ../lib/bgslibrary/package_bgs/db/IndependentMultimodalBGS.h ../lib/bgslibrary/package_bgs/FrameDifferenceBGS.h ../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLBSP.h ../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLOBSTER.h ../lib/bgslibrary/package_bgs/pl/DistanceUtils.h ../lib/bgslibrary/package_bgs/pl/LBSP.h ../lib/bgslibrary/package_bgs/pl/LOBSTER.h ../lib/bgslibrary/package_bgs/pl/RandUtils.h ../../../src/DETECTOR/DetectorSelector.h ../src/BLOBS/BlobExtractor.h ../src/BLOBS/BasicBlob.h ../src/Utils/solape.h ../src/DETECTOR/DefineObjectBlobList.h ../src/BLOBS/BlobList.h ../src/BLOBS/CompareBlobs.h ../src/BLOBS/ObjectBlob.h ../src/CLASSIFIER/ClassifierSelector.h ../src/CLASSIFIER/StaticObjectClassifier.h ../src/CLASSIFIER/StaticObjectClassifierHist.h ../src/CLASSIFIER/StaticObjectClassifierHighGradient.h ../src/Utils/DrawDetections.h ../src/Event/EventController.h ../src/Event/Event.h ../src/Event/EventWriter.h ../lib/DPM/dpm_cascade.hpp ../lib/DPM/dpm_convolution.hpp ../lib/DPM/dpm_feature.hpp ../lib/DPM/dpm_model.hpp ../lib/DPM/dpm_nms.hpp ../lib/DPM/dpm.hpp ../lib/DPM/precomp.hpp ../proj/Qt\ Projects/System_Evaluation/video.h ../src/DETECTOR/detectorselector.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../proj/Qt\ Projects/System_Evaluation/main.cpp ../src/SFGD/StaticMaskExtractor_Subsampling.cpp ../src/SFGD/StaticMaskExtractor.cpp ../src/SFGD/StaticMaskExtractor_AccMask.cpp ../src/SFGD/SFGDSelector.cpp ../src/BGS/BkgSubtractionSelector.cpp ../lib/BackgroundSubtractorPAWCS.cpp ../lib/bgslibrary/package_bgs/db/imbs.cpp ../lib/bgslibrary/package_bgs/db/IndependentMultimodalBGS.cpp ../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLBSP.cpp ../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLOBSTER.cpp ../lib/bgslibrary/package_bgs/pl/LBSP.cpp ../lib/bgslibrary/package_bgs/pl/LOBSTER.cpp ../src/BLOBS/BlobExtractor.cpp ../src/BLOBS/BasicBlob.cpp ../src/Utils/solape.cpp ../src/DETECTOR/DefineObjectBlobList.cpp ../src/BLOBS/CompareBlobs.cpp ../src/BLOBS/ObjectBlob.cpp ../src/CLASSIFIER/ClassifierSelector.cpp ../src/CLASSIFIER/StaticObjectClassifier.cpp ../src/CLASSIFIER/StaticObjectClassifierHist.cpp ../src/CLASSIFIER/StaticObjectClassifierHighGradient.cpp ../src/Utils/DrawDetections.cpp ../src/Event/EventController.cpp ../src/Event/EventWriter.cpp ../src/Event/Event.cpp ../lib/DPM/dpm_cascade_detector.cpp ../lib/DPM/dpm_cascade.cpp ../lib/DPM/dpm_convolution.cpp ../lib/DPM/dpm_feature.cpp ../lib/DPM/dpm_model.cpp ../lib/DPM/dpm_nms.cpp ../proj/Qt\ Projects/System_Evaluation/video.cpp ../src/DETECTOR/detectorselector.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/SFGD/StaticMaskExtractor_subsampling.h ../src/SFGD/StaticMaskExtractor.h ../src/SFGD/StaticMaskExtractor_AccMask.h ../src/SFGD/SFGDSelector.h ../src/BGS/BkgSubtractionSelector.h ../src/BLOBS/BlobExtractor.h ../src/BLOBS/BasicBlob.h ../src/Utils/solape.h ../src/DETECTOR/DefineObjectBlobList.h ../src/BLOBS/BlobList.h ../src/BLOBS/CompareBlobs.h ../src/BLOBS/ObjectBlob.h ../src/CLASSIFIER/ClassifierSelector.h ../src/CLASSIFIER/StaticObjectClassifier.h ../src/CLASSIFIER/StaticObjectClassifierHist.h ../src/CLASSIFIER/StaticObjectClassifierHighGradient.h ../src/Utils/DrawDetections.h ../src/Event/EventController.h ../src/Event/Event.h ../src/Event/EventWriter.h ../lib/DPM/dpm_cascade.hpp ../lib/DPM/dpm_convolution.hpp ../lib/DPM/dpm_feature.hpp ../lib/DPM/dpm_model.hpp ../lib/DPM/dpm_nms.hpp ../lib/DPM/dpm.hpp ../lib/DPM/precomp.hpp ../proj/Qt\ Projects/System_Evaluation/video.h ../src/DETECTOR/detectorselector.h ../lib/bgslibrary/package_bgs/KNN.h ../lib/bgslibrary/package_bgs/bgslibrary.h ../lib/bgslibrary/package_bgs/IndependentMultimodal.h ../lib/bgslibrary/package_bgs/LOBSTER.h ../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.h ../lib/bgslibrary/package_bgs/PAWCS.h ../lib/bgslibrary/package_bgs/SuBSENSE.h ../lib/bgslibrary/package_bgs/IBGS.h ../lib/bgslibrary/package_bgs/IMBS/IMBS.hpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.h ../lib/bgslibrary/package_bgs/LBSP/DistanceUtils.h ../lib/bgslibrary/package_bgs/LBSP/RandUtils.h ../lib/bgslibrary/package_bgs/LBSP/LBSP_.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.h ../lib/bgslibrary/package_bgs/LBSP/LBSP.h ../lib/ACF/ACFDetector.h ../lib/ACF/ACFFeaturePyramid.h ../lib/ACF/Channel.h ../lib/ACF/ChannelFeatures.h ../lib/ACF/ColorChannel.h ../lib/ACF/GradHistChannel.h ../lib/ACF/GradMagChannel.h ../lib/ACF/imResampleMex.hpp ../lib/ACF/rgbConvertMex.hpp ../lib/ACF/sse.hpp ../lib/ACF/wrappers.hpp ../lib/Channel/Functions.h ../lib/Core/detection.h ../lib/Core/DetectionList.h ../lib/Core/detector.h ../lib/Core/DetectorManager.h ../lib/Core/detectormodel.h ../lib/Core/dirent.h ../lib/Core/feature.h ../lib/Core/featurelayer.h ../lib/Core/filelocator.h ../lib/Core/FileWriter.h ../lib/Core/FrameFromCamera.h ../lib/Core/FrameFromDirectory.h ../lib/Core/FrameFromVideo.h ../lib/Core/FrameProducer.h ../lib/Core/Image.hpp ../lib/Core/nms.h ../lib/Core/NonMaximumSuppression.h ../lib/Core/ScaleSpacePyramid.h ../lib/rapidxml-1.13/rapidxml_iterators.hpp ../lib/rapidxml-1.13/rapidxml_print.hpp ../lib/rapidxml-1.13/rapidxml_utils.hpp ../lib/rapidxml-1.13/rapidxml.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../proj/Qt\ Projects/System_Evaluation/main.cpp ../src/SFGD/StaticMaskExtractor_Subsampling.cpp ../src/SFGD/StaticMaskExtractor.cpp ../src/SFGD/StaticMaskExtractor_AccMask.cpp ../src/SFGD/SFGDSelector.cpp ../src/BGS/BkgSubtractionSelector.cpp ../src/BLOBS/BlobExtractor.cpp ../src/BLOBS/BasicBlob.cpp ../src/Utils/solape.cpp ../src/DETECTOR/DefineObjectBlobList.cpp ../src/BLOBS/CompareBlobs.cpp ../src/BLOBS/ObjectBlob.cpp ../src/CLASSIFIER/ClassifierSelector.cpp ../src/CLASSIFIER/StaticObjectClassifier.cpp ../src/CLASSIFIER/StaticObjectClassifierHist.cpp ../src/CLASSIFIER/StaticObjectClassifierHighGradient.cpp ../src/Utils/DrawDetections.cpp ../src/Event/EventController.cpp ../src/Event/EventWriter.cpp ../src/Event/Event.cpp ../lib/DPM/dpm_cascade_detector.cpp ../lib/DPM/dpm_cascade.cpp ../lib/DPM/dpm_convolution.cpp ../lib/DPM/dpm_feature.cpp ../lib/DPM/dpm_model.cpp ../lib/DPM/dpm_nms.cpp ../proj/Qt\ Projects/System_Evaluation/video.cpp ../src/DETECTOR/detectorselector.cpp ../lib/bgslibrary/package_bgs/KNN.cpp ../lib/bgslibrary/package_bgs/IndependentMultimodal.cpp ../lib/bgslibrary/package_bgs/LOBSTER.cpp ../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.cpp ../lib/bgslibrary/package_bgs/PAWCS.cpp ../lib/bgslibrary/package_bgs/SuBSENSE.cpp ../lib/bgslibrary/package_bgs/IMBS/IMBS.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.cpp ../lib/bgslibrary/package_bgs/LBSP/LBSP_.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.cpp ../lib/bgslibrary/package_bgs/LBSP/LBSP.cpp ../lib/ACF/ACFDetector.cpp ../lib/ACF/ACFFeaturePyramid.cpp ../lib/ACF/Channel.cpp ../lib/ACF/ChannelFeatures.cpp ../lib/ACF/ColorChannel.cpp ../lib/ACF/convConst.cpp ../lib/ACF/GradHistChannel.cpp ../lib/ACF/gradientMex.cpp ../lib/ACF/GradMagChannel.cpp ../lib/ACF/wrappers.cpp ../lib/Channel/Convert.cpp ../lib/Core/detection.cpp ../lib/Core/DetectionList.cpp ../lib/Core/detector.cpp ../lib/Core/DetectorManager.cpp ../lib/Core/detectormodel.cpp ../lib/Core/feature.cpp ../lib/Core/featurelayer.cpp ../lib/Core/filelocator.cpp ../lib/Core/FileWriter.cpp ../lib/Core/FrameFromCamera.cpp ../lib/Core/FrameFromDirectory.cpp ../lib/Core/FrameFromVideo.cpp ../lib/Core/FrameProducer.cpp ../lib/Core/nms.cpp ../lib/Core/NonMaximumSuppression.cpp ../lib/Core/ScaleSpacePyramid.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../proj/Qt\ Projects/System_Evaluation/mainwindow.ui $(DISTDIR)/
 
 
@@ -848,26 +993,130 @@ main.o: ../proj/Qt\ Projects/System_Evaluation/main.cpp ../../Qt5.7.0/5.7/gcc_64
 		../src/Utils/DrawDetections.h \
 		../src/Utils/BasicBlob.h \
 		../src/Utils/solape.h \
-		../lib/bgslibrary/package_bgs/FrameDifferenceBGS.h \
+		../lib/bgslibrary/package_bgs/bgslibrary.h \
+		../lib/bgslibrary/package_bgs/FrameDifference.h \
 		../lib/bgslibrary/package_bgs/IBGS.h \
+		../lib/bgslibrary/package_bgs/StaticFrameDifference.h \
+		../lib/bgslibrary/package_bgs/WeightedMovingMean.h \
+		../lib/bgslibrary/package_bgs/WeightedMovingVariance.h \
+		../lib/bgslibrary/package_bgs/MixtureOfGaussianV1.h \
+		../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.h \
+		../lib/bgslibrary/package_bgs/AdaptiveBackgroundLearning.h \
+		../lib/bgslibrary/package_bgs/AdaptiveSelectiveBackgroundLearning.h \
+		../lib/bgslibrary/package_bgs/KNN.h \
+		../lib/bgslibrary/package_bgs/GMG.h \
+		../lib/bgslibrary/package_bgs/DPAdaptiveMedian.h \
+		../lib/bgslibrary/package_bgs/dp/AdaptiveMedianBGS.h \
+		../lib/bgslibrary/package_bgs/dp/Bgs.h \
+		../lib/bgslibrary/package_bgs/dp/Image.h \
+		../lib/bgslibrary/package_bgs/dp/BgsParams.h \
+		../lib/bgslibrary/package_bgs/DPGrimsonGMM.h \
+		../lib/bgslibrary/package_bgs/dp/GrimsonGMM.h \
+		../lib/bgslibrary/package_bgs/DPZivkovicAGMM.h \
+		../lib/bgslibrary/package_bgs/dp/ZivkovicAGMM.h \
+		../lib/bgslibrary/package_bgs/DPMean.h \
+		../lib/bgslibrary/package_bgs/dp/MeanBGS.h \
+		../lib/bgslibrary/package_bgs/DPWrenGA.h \
+		../lib/bgslibrary/package_bgs/dp/WrenGA.h \
+		../lib/bgslibrary/package_bgs/DPPratiMediod.h \
+		../lib/bgslibrary/package_bgs/dp/PratiMediodBGS.h \
+		../lib/bgslibrary/package_bgs/DPEigenbackground.h \
+		../lib/bgslibrary/package_bgs/dp/Eigenbackground.h \
+		../lib/bgslibrary/package_bgs/DPTexture.h \
+		../lib/bgslibrary/package_bgs/dp/TextureBGS.h \
+		../lib/bgslibrary/package_bgs/T2FGMM_UM.h \
+		../lib/bgslibrary/package_bgs/T2F/T2FGMM.h \
+		../lib/bgslibrary/package_bgs/T2FGMM_UV.h \
+		../lib/bgslibrary/package_bgs/T2FMRF_UM.h \
+		../lib/bgslibrary/package_bgs/T2F/MRF.h \
+		../lib/bgslibrary/package_bgs/T2F/T2FMRF.h \
+		../lib/bgslibrary/package_bgs/T2FMRF_UV.h \
+		../lib/bgslibrary/package_bgs/FuzzySugenoIntegral.h \
+		../lib/bgslibrary/package_bgs/T2F/FuzzyUtils.h \
+		../lib/bgslibrary/package_analysis/PixelUtils.h \
+		../lib/bgslibrary/package_bgs/FuzzyChoquetIntegral.h \
+		../lib/bgslibrary/package_bgs/LBSimpleGaussian.h \
+		../lib/bgslibrary/package_bgs/lb/BGModelGauss.h \
+		../lib/bgslibrary/package_bgs/lb/BGModel.h \
+		../lib/bgslibrary/package_bgs/lb/Types.h \
+		../lib/bgslibrary/package_bgs/LBFuzzyGaussian.h \
+		../lib/bgslibrary/package_bgs/lb/BGModelFuzzyGauss.h \
+		../lib/bgslibrary/package_bgs/LBMixtureOfGaussians.h \
+		../lib/bgslibrary/package_bgs/lb/BGModelMog.h \
+		../lib/bgslibrary/package_bgs/LBAdaptiveSOM.h \
+		../lib/bgslibrary/package_bgs/lb/BGModelSom.h \
+		../lib/bgslibrary/package_bgs/LBFuzzyAdaptiveSOM.h \
+		../lib/bgslibrary/package_bgs/lb/BGModelFuzzySom.h \
+		../lib/bgslibrary/package_bgs/LBP_MRF.h \
+		../lib/bgslibrary/package_bgs/LBP_MRF/MotionDetection.hpp \
+		../lib/bgslibrary/package_bgs/LBP_MRF/MEDefs.hpp \
+		../lib/bgslibrary/package_bgs/LBP_MRF/MEImage.hpp \
+		../lib/bgslibrary/package_bgs/MultiLayer.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/CMultiLayerBGS.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/LocalBinaryPattern.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/OpenCvLegacyIncludes.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/BGS.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/OpenCvDataConversion.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/BlobResult.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/BlobLibraryConfiguration.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/blob.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/BackgroundSubtractionAPI.h \
+		../lib/bgslibrary/package_bgs/PixelBasedAdaptiveSegmenter.h \
+		../lib/bgslibrary/package_bgs/PBAS/PBAS.h \
+		../lib/bgslibrary/package_bgs/VuMeter.h \
+		../lib/bgslibrary/package_bgs/VuMeter/TBackgroundVuMeter.h \
+		../lib/bgslibrary/package_bgs/VuMeter/TBackground.h \
+		../lib/bgslibrary/package_bgs/KDE.h \
+		../lib/bgslibrary/package_bgs/KDE/NPBGSubtractor.h \
+		../lib/bgslibrary/package_bgs/KDE/NPBGmodel.h \
+		../lib/bgslibrary/package_bgs/KDE/KernelTable.h \
+		../lib/bgslibrary/package_bgs/IndependentMultimodal.h \
+		../lib/bgslibrary/package_bgs/IMBS/IMBS.hpp \
+		../lib/bgslibrary/package_bgs/MultiCue.h \
+		../lib/bgslibrary/package_bgs/SigmaDelta.h \
+		../lib/bgslibrary/package_bgs/SigmaDelta/sdLaMa091.h \
+		../lib/bgslibrary/package_bgs/SuBSENSE.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP.h \
+		../lib/bgslibrary/package_bgs/LBSP/DistanceUtils.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_1ch.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch3t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch1t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_s3ch.i \
+		../lib/bgslibrary/package_bgs/LOBSTER.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.h \
+		../lib/bgslibrary/package_bgs/PAWCS.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_.h \
+		../lib/bgslibrary/package_bgs/TwoPoints.h \
+		../lib/bgslibrary/package_bgs/TwoPoints/two_points.h \
+		../lib/bgslibrary/package_bgs/ViBe.h \
+		../lib/bgslibrary/package_bgs/ViBe/vibe-background-sequential.h \
+		../lib/bgslibrary/package_bgs/CodeBook.h \
 		../src/BGS/BkgSubtractionSelector.h \
-		../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLOBSTER.h \
-		../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLBSP.h \
-		../lib/bgslibrary/package_bgs/pl/LBSP.h \
-		../lib/bgslibrary/package_bgs/pl/DistanceUtils.h \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_1ch.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_3ch3t.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_3ch1t.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_s3ch.i \
-		../lib/BackgroundSubtractorPAWCS.h \
-		../lib/bgslibrary/package_bgs/db/imbs.hpp \
-		../lib/bgslibrary/package_bgs/db/IndependentMultimodalBGS.h \
 		../src/SFGD/SFGDSelector.h \
 		../src/SFGD/StaticMaskExtractor.h \
 		../src/SFGD/StaticMaskExtractor_subsampling.h \
 		../src/SFGD/StaticMaskExtractor_AccMask.h \
 		../src/DETECTOR/detectorselector.h \
 		../lib/DPM/dpm.hpp \
+		../lib/ACF/ACFDetector.h \
+		../lib/Core/detection.h \
+		../lib/rapidxml-1.13/rapidxml.hpp \
+		../lib/rapidxml-1.13/rapidxml_print.hpp \
+		../lib/ACF/ChannelFeatures.h \
+		../lib/ACF/ColorChannel.h \
+		../lib/ACF/Channel.h \
+		../lib/ACF/GradMagChannel.h \
+		../lib/ACF/GradHistChannel.h \
+		../lib/Core/DetectionList.h \
+		../lib/Core/FileWriter.h \
+		../lib/Core/detector.h \
+		../lib/Core/detectormodel.h \
+		../lib/Core/NonMaximumSuppression.h \
+		../lib/Core/nms.h \
 		../src/DETECTOR/DefineObjectBlobList.h \
 		../src/BLOBS/CompareBlobs.h \
 		../src/CLASSIFIER/ClassifierSelector.h \
@@ -971,35 +1220,213 @@ SFGDSelector.o: ../src/SFGD/SFGDSelector.cpp ../src/SFGD/SFGDSelector.h \
 		../src/Event/Event.h \
 		../src/Event/EventWriter.h \
 		../src/BGS/BkgSubtractionSelector.h \
-		../lib/bgslibrary/package_bgs/FrameDifferenceBGS.h \
+		../lib/bgslibrary/package_bgs/bgslibrary.h \
+		../lib/bgslibrary/package_bgs/FrameDifference.h \
 		../lib/bgslibrary/package_bgs/IBGS.h \
-		../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLOBSTER.h \
-		../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLBSP.h \
-		../lib/bgslibrary/package_bgs/pl/LBSP.h \
-		../lib/bgslibrary/package_bgs/pl/DistanceUtils.h \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_1ch.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_3ch3t.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_3ch1t.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_s3ch.i \
-		../lib/BackgroundSubtractorPAWCS.h \
-		../lib/bgslibrary/package_bgs/db/imbs.hpp \
-		../lib/bgslibrary/package_bgs/db/IndependentMultimodalBGS.h
+		../lib/bgslibrary/package_bgs/StaticFrameDifference.h \
+		../lib/bgslibrary/package_bgs/WeightedMovingMean.h \
+		../lib/bgslibrary/package_bgs/WeightedMovingVariance.h \
+		../lib/bgslibrary/package_bgs/MixtureOfGaussianV1.h \
+		../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.h \
+		../lib/bgslibrary/package_bgs/AdaptiveBackgroundLearning.h \
+		../lib/bgslibrary/package_bgs/AdaptiveSelectiveBackgroundLearning.h \
+		../lib/bgslibrary/package_bgs/KNN.h \
+		../lib/bgslibrary/package_bgs/GMG.h \
+		../lib/bgslibrary/package_bgs/DPAdaptiveMedian.h \
+		../lib/bgslibrary/package_bgs/dp/AdaptiveMedianBGS.h \
+		../lib/bgslibrary/package_bgs/dp/Bgs.h \
+		../lib/bgslibrary/package_bgs/dp/Image.h \
+		../lib/bgslibrary/package_bgs/dp/BgsParams.h \
+		../lib/bgslibrary/package_bgs/DPGrimsonGMM.h \
+		../lib/bgslibrary/package_bgs/dp/GrimsonGMM.h \
+		../lib/bgslibrary/package_bgs/DPZivkovicAGMM.h \
+		../lib/bgslibrary/package_bgs/dp/ZivkovicAGMM.h \
+		../lib/bgslibrary/package_bgs/DPMean.h \
+		../lib/bgslibrary/package_bgs/dp/MeanBGS.h \
+		../lib/bgslibrary/package_bgs/DPWrenGA.h \
+		../lib/bgslibrary/package_bgs/dp/WrenGA.h \
+		../lib/bgslibrary/package_bgs/DPPratiMediod.h \
+		../lib/bgslibrary/package_bgs/dp/PratiMediodBGS.h \
+		../lib/bgslibrary/package_bgs/DPEigenbackground.h \
+		../lib/bgslibrary/package_bgs/dp/Eigenbackground.h \
+		../lib/bgslibrary/package_bgs/DPTexture.h \
+		../lib/bgslibrary/package_bgs/dp/TextureBGS.h \
+		../lib/bgslibrary/package_bgs/T2FGMM_UM.h \
+		../lib/bgslibrary/package_bgs/T2F/T2FGMM.h \
+		../lib/bgslibrary/package_bgs/T2FGMM_UV.h \
+		../lib/bgslibrary/package_bgs/T2FMRF_UM.h \
+		../lib/bgslibrary/package_bgs/T2F/MRF.h \
+		../lib/bgslibrary/package_bgs/T2F/T2FMRF.h \
+		../lib/bgslibrary/package_bgs/T2FMRF_UV.h \
+		../lib/bgslibrary/package_bgs/FuzzySugenoIntegral.h \
+		../lib/bgslibrary/package_bgs/T2F/FuzzyUtils.h \
+		../lib/bgslibrary/package_analysis/PixelUtils.h \
+		../lib/bgslibrary/package_bgs/FuzzyChoquetIntegral.h \
+		../lib/bgslibrary/package_bgs/LBSimpleGaussian.h \
+		../lib/bgslibrary/package_bgs/lb/BGModelGauss.h \
+		../lib/bgslibrary/package_bgs/lb/BGModel.h \
+		../lib/bgslibrary/package_bgs/lb/Types.h \
+		../lib/bgslibrary/package_bgs/LBFuzzyGaussian.h \
+		../lib/bgslibrary/package_bgs/lb/BGModelFuzzyGauss.h \
+		../lib/bgslibrary/package_bgs/LBMixtureOfGaussians.h \
+		../lib/bgslibrary/package_bgs/lb/BGModelMog.h \
+		../lib/bgslibrary/package_bgs/LBAdaptiveSOM.h \
+		../lib/bgslibrary/package_bgs/lb/BGModelSom.h \
+		../lib/bgslibrary/package_bgs/LBFuzzyAdaptiveSOM.h \
+		../lib/bgslibrary/package_bgs/lb/BGModelFuzzySom.h \
+		../lib/bgslibrary/package_bgs/LBP_MRF.h \
+		../lib/bgslibrary/package_bgs/LBP_MRF/MotionDetection.hpp \
+		../lib/bgslibrary/package_bgs/LBP_MRF/MEDefs.hpp \
+		../lib/bgslibrary/package_bgs/LBP_MRF/MEImage.hpp \
+		../lib/bgslibrary/package_bgs/MultiLayer.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/CMultiLayerBGS.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/LocalBinaryPattern.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/OpenCvLegacyIncludes.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/BGS.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/OpenCvDataConversion.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/BlobResult.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/BlobLibraryConfiguration.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/blob.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/BackgroundSubtractionAPI.h \
+		../lib/bgslibrary/package_bgs/PixelBasedAdaptiveSegmenter.h \
+		../lib/bgslibrary/package_bgs/PBAS/PBAS.h \
+		../lib/bgslibrary/package_bgs/VuMeter.h \
+		../lib/bgslibrary/package_bgs/VuMeter/TBackgroundVuMeter.h \
+		../lib/bgslibrary/package_bgs/VuMeter/TBackground.h \
+		../lib/bgslibrary/package_bgs/KDE.h \
+		../lib/bgslibrary/package_bgs/KDE/NPBGSubtractor.h \
+		../lib/bgslibrary/package_bgs/KDE/NPBGmodel.h \
+		../lib/bgslibrary/package_bgs/KDE/KernelTable.h \
+		../lib/bgslibrary/package_bgs/IndependentMultimodal.h \
+		../lib/bgslibrary/package_bgs/IMBS/IMBS.hpp \
+		../lib/bgslibrary/package_bgs/MultiCue.h \
+		../lib/bgslibrary/package_bgs/SigmaDelta.h \
+		../lib/bgslibrary/package_bgs/SigmaDelta/sdLaMa091.h \
+		../lib/bgslibrary/package_bgs/SuBSENSE.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP.h \
+		../lib/bgslibrary/package_bgs/LBSP/DistanceUtils.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_1ch.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch3t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch1t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_s3ch.i \
+		../lib/bgslibrary/package_bgs/LOBSTER.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.h \
+		../lib/bgslibrary/package_bgs/PAWCS.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_.h \
+		../lib/bgslibrary/package_bgs/TwoPoints.h \
+		../lib/bgslibrary/package_bgs/TwoPoints/two_points.h \
+		../lib/bgslibrary/package_bgs/ViBe.h \
+		../lib/bgslibrary/package_bgs/ViBe/vibe-background-sequential.h \
+		../lib/bgslibrary/package_bgs/CodeBook.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SFGDSelector.o ../src/SFGD/SFGDSelector.cpp
 
 BkgSubtractionSelector.o: ../src/BGS/BkgSubtractionSelector.cpp ../src/BGS/BkgSubtractionSelector.h \
-		../lib/bgslibrary/package_bgs/FrameDifferenceBGS.h \
+		../lib/bgslibrary/package_bgs/bgslibrary.h \
+		../lib/bgslibrary/package_bgs/FrameDifference.h \
 		../lib/bgslibrary/package_bgs/IBGS.h \
-		../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLOBSTER.h \
-		../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLBSP.h \
-		../lib/bgslibrary/package_bgs/pl/LBSP.h \
-		../lib/bgslibrary/package_bgs/pl/DistanceUtils.h \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_1ch.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_3ch3t.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_3ch1t.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_s3ch.i \
-		../lib/BackgroundSubtractorPAWCS.h \
-		../lib/bgslibrary/package_bgs/db/imbs.hpp \
-		../lib/bgslibrary/package_bgs/db/IndependentMultimodalBGS.h \
+		../lib/bgslibrary/package_bgs/StaticFrameDifference.h \
+		../lib/bgslibrary/package_bgs/WeightedMovingMean.h \
+		../lib/bgslibrary/package_bgs/WeightedMovingVariance.h \
+		../lib/bgslibrary/package_bgs/MixtureOfGaussianV1.h \
+		../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.h \
+		../lib/bgslibrary/package_bgs/AdaptiveBackgroundLearning.h \
+		../lib/bgslibrary/package_bgs/AdaptiveSelectiveBackgroundLearning.h \
+		../lib/bgslibrary/package_bgs/KNN.h \
+		../lib/bgslibrary/package_bgs/GMG.h \
+		../lib/bgslibrary/package_bgs/DPAdaptiveMedian.h \
+		../lib/bgslibrary/package_bgs/dp/AdaptiveMedianBGS.h \
+		../lib/bgslibrary/package_bgs/dp/Bgs.h \
+		../lib/bgslibrary/package_bgs/dp/Image.h \
+		../lib/bgslibrary/package_bgs/dp/BgsParams.h \
+		../lib/bgslibrary/package_bgs/DPGrimsonGMM.h \
+		../lib/bgslibrary/package_bgs/dp/GrimsonGMM.h \
+		../lib/bgslibrary/package_bgs/DPZivkovicAGMM.h \
+		../lib/bgslibrary/package_bgs/dp/ZivkovicAGMM.h \
+		../lib/bgslibrary/package_bgs/DPMean.h \
+		../lib/bgslibrary/package_bgs/dp/MeanBGS.h \
+		../lib/bgslibrary/package_bgs/DPWrenGA.h \
+		../lib/bgslibrary/package_bgs/dp/WrenGA.h \
+		../lib/bgslibrary/package_bgs/DPPratiMediod.h \
+		../lib/bgslibrary/package_bgs/dp/PratiMediodBGS.h \
+		../lib/bgslibrary/package_bgs/DPEigenbackground.h \
+		../lib/bgslibrary/package_bgs/dp/Eigenbackground.h \
+		../lib/bgslibrary/package_bgs/DPTexture.h \
+		../lib/bgslibrary/package_bgs/dp/TextureBGS.h \
+		../lib/bgslibrary/package_bgs/T2FGMM_UM.h \
+		../lib/bgslibrary/package_bgs/T2F/T2FGMM.h \
+		../lib/bgslibrary/package_bgs/T2FGMM_UV.h \
+		../lib/bgslibrary/package_bgs/T2FMRF_UM.h \
+		../lib/bgslibrary/package_bgs/T2F/MRF.h \
+		../lib/bgslibrary/package_bgs/T2F/T2FMRF.h \
+		../lib/bgslibrary/package_bgs/T2FMRF_UV.h \
+		../lib/bgslibrary/package_bgs/FuzzySugenoIntegral.h \
+		../lib/bgslibrary/package_bgs/T2F/FuzzyUtils.h \
+		../lib/bgslibrary/package_analysis/PixelUtils.h \
+		../lib/bgslibrary/package_bgs/FuzzyChoquetIntegral.h \
+		../lib/bgslibrary/package_bgs/LBSimpleGaussian.h \
+		../lib/bgslibrary/package_bgs/lb/BGModelGauss.h \
+		../lib/bgslibrary/package_bgs/lb/BGModel.h \
+		../lib/bgslibrary/package_bgs/lb/Types.h \
+		../lib/bgslibrary/package_bgs/LBFuzzyGaussian.h \
+		../lib/bgslibrary/package_bgs/lb/BGModelFuzzyGauss.h \
+		../lib/bgslibrary/package_bgs/LBMixtureOfGaussians.h \
+		../lib/bgslibrary/package_bgs/lb/BGModelMog.h \
+		../lib/bgslibrary/package_bgs/LBAdaptiveSOM.h \
+		../lib/bgslibrary/package_bgs/lb/BGModelSom.h \
+		../lib/bgslibrary/package_bgs/LBFuzzyAdaptiveSOM.h \
+		../lib/bgslibrary/package_bgs/lb/BGModelFuzzySom.h \
+		../lib/bgslibrary/package_bgs/LBP_MRF.h \
+		../lib/bgslibrary/package_bgs/LBP_MRF/MotionDetection.hpp \
+		../lib/bgslibrary/package_bgs/LBP_MRF/MEDefs.hpp \
+		../lib/bgslibrary/package_bgs/LBP_MRF/MEImage.hpp \
+		../lib/bgslibrary/package_bgs/MultiLayer.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/CMultiLayerBGS.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/LocalBinaryPattern.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/OpenCvLegacyIncludes.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/BGS.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/OpenCvDataConversion.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/BlobResult.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/BlobLibraryConfiguration.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/blob.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/BackgroundSubtractionAPI.h \
+		../lib/bgslibrary/package_bgs/PixelBasedAdaptiveSegmenter.h \
+		../lib/bgslibrary/package_bgs/PBAS/PBAS.h \
+		../lib/bgslibrary/package_bgs/VuMeter.h \
+		../lib/bgslibrary/package_bgs/VuMeter/TBackgroundVuMeter.h \
+		../lib/bgslibrary/package_bgs/VuMeter/TBackground.h \
+		../lib/bgslibrary/package_bgs/KDE.h \
+		../lib/bgslibrary/package_bgs/KDE/NPBGSubtractor.h \
+		../lib/bgslibrary/package_bgs/KDE/NPBGmodel.h \
+		../lib/bgslibrary/package_bgs/KDE/KernelTable.h \
+		../lib/bgslibrary/package_bgs/IndependentMultimodal.h \
+		../lib/bgslibrary/package_bgs/IMBS/IMBS.hpp \
+		../lib/bgslibrary/package_bgs/MultiCue.h \
+		../lib/bgslibrary/package_bgs/SigmaDelta.h \
+		../lib/bgslibrary/package_bgs/SigmaDelta/sdLaMa091.h \
+		../lib/bgslibrary/package_bgs/SuBSENSE.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP.h \
+		../lib/bgslibrary/package_bgs/LBSP/DistanceUtils.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_1ch.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch3t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch1t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_s3ch.i \
+		../lib/bgslibrary/package_bgs/LOBSTER.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.h \
+		../lib/bgslibrary/package_bgs/PAWCS.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_.h \
+		../lib/bgslibrary/package_bgs/TwoPoints.h \
+		../lib/bgslibrary/package_bgs/TwoPoints/two_points.h \
+		../lib/bgslibrary/package_bgs/ViBe.h \
+		../lib/bgslibrary/package_bgs/ViBe/vibe-background-sequential.h \
+		../lib/bgslibrary/package_bgs/CodeBook.h \
 		../proj/Qt\ Projects/System_Evaluation/video.h \
 		../../Qt5.7.0/5.7/gcc_64/include/QtCore/QString \
 		../../Qt5.7.0/5.7/gcc_64/include/QtCore/qstring.h \
@@ -1040,66 +1467,6 @@ BkgSubtractionSelector.o: ../src/BGS/BkgSubtractionSelector.cpp ../src/BGS/BkgSu
 		../src/Event/Event.h \
 		../src/Event/EventWriter.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BkgSubtractionSelector.o ../src/BGS/BkgSubtractionSelector.cpp
-
-BackgroundSubtractorPAWCS.o: ../lib/BackgroundSubtractorPAWCS.cpp ../lib/BackgroundSubtractorPAWCS.h \
-		../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLBSP.h \
-		../lib/bgslibrary/package_bgs/pl/LBSP.h \
-		../lib/bgslibrary/package_bgs/pl/DistanceUtils.h \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_1ch.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_3ch3t.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_3ch1t.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_s3ch.i \
-		../lib/bgslibrary/package_bgs/pl/RandUtils.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BackgroundSubtractorPAWCS.o ../lib/BackgroundSubtractorPAWCS.cpp
-
-imbs.o: ../lib/bgslibrary/package_bgs/db/imbs.cpp ../lib/bgslibrary/package_bgs/db/imbs.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o imbs.o ../lib/bgslibrary/package_bgs/db/imbs.cpp
-
-IndependentMultimodalBGS.o: ../lib/bgslibrary/package_bgs/db/IndependentMultimodalBGS.cpp ../lib/bgslibrary/package_bgs/db/IndependentMultimodalBGS.h \
-		../lib/bgslibrary/package_bgs/db/imbs.hpp \
-		../lib/bgslibrary/package_bgs/IBGS.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o IndependentMultimodalBGS.o ../lib/bgslibrary/package_bgs/db/IndependentMultimodalBGS.cpp
-
-BackgroundSubtractorLBSP.o: ../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLBSP.cpp ../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLBSP.h \
-		../lib/bgslibrary/package_bgs/pl/LBSP.h \
-		../lib/bgslibrary/package_bgs/pl/DistanceUtils.h \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_1ch.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_3ch3t.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_3ch1t.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_s3ch.i \
-		../lib/bgslibrary/package_bgs/pl/RandUtils.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BackgroundSubtractorLBSP.o ../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLBSP.cpp
-
-BackgroundSubtractorLOBSTER.o: ../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLOBSTER.cpp ../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLOBSTER.h \
-		../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLBSP.h \
-		../lib/bgslibrary/package_bgs/pl/LBSP.h \
-		../lib/bgslibrary/package_bgs/pl/DistanceUtils.h \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_1ch.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_3ch3t.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_3ch1t.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_s3ch.i \
-		../lib/bgslibrary/package_bgs/pl/RandUtils.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BackgroundSubtractorLOBSTER.o ../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLOBSTER.cpp
-
-LBSP.o: ../lib/bgslibrary/package_bgs/pl/LBSP.cpp ../lib/bgslibrary/package_bgs/pl/LBSP.h \
-		../lib/bgslibrary/package_bgs/pl/DistanceUtils.h \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_1ch.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_3ch3t.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_3ch1t.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_s3ch.i
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LBSP.o ../lib/bgslibrary/package_bgs/pl/LBSP.cpp
-
-LOBSTER.o: ../lib/bgslibrary/package_bgs/pl/LOBSTER.cpp ../lib/bgslibrary/package_bgs/pl/LOBSTER.h \
-		../lib/bgslibrary/package_bgs/IBGS.h \
-		../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLOBSTER.h \
-		../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLBSP.h \
-		../lib/bgslibrary/package_bgs/pl/LBSP.h \
-		../lib/bgslibrary/package_bgs/pl/DistanceUtils.h \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_1ch.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_3ch3t.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_3ch1t.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_s3ch.i
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LOBSTER.o ../lib/bgslibrary/package_bgs/pl/LOBSTER.cpp
 
 BlobExtractor.o: ../src/BLOBS/BlobExtractor.cpp ../src/BLOBS/BlobExtractor.h \
 		../src/BLOBS/BasicBlob.h
@@ -1437,6 +1804,72 @@ video.o: ../proj/Qt\ Projects/System_Evaluation/video.cpp ../proj/Qt\ Projects/S
 		../../Qt5.7.0/5.7/gcc_64/include/QtGui/qtextoption.h \
 		../../Qt5.7.0/5.7/gcc_64/include/QtGui/qpen.h \
 		ui_mainwindow.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtCore/QVariant \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QAction \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qaction.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QApplication \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qapplication.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtCore/qcoreapplication.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtCore/qeventloop.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtGui/qguiapplication.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtGui/qinputmethod.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QButtonGroup \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QCheckBox \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qcheckbox.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QComboBox \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qcombobox.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtGui/qvalidator.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtCore/qregularexpression.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qslider.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qstyle.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qtabbar.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qrubberband.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qframe.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QFormLayout \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qformlayout.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QLayout \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qlayout.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QGridLayout \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QGroupBox \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qgroupbox.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QHeaderView \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qheaderview.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QLabel \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qlabel.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QMenu \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qmenu.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QMenuBar \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qmenubar.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QPushButton \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QSpinBox \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qspinbox.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QStatusBar \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qstatusbar.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QTextBrowser \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qtextbrowser.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qtextedit.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtGui/qtextdocument.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtGui/qtextcursor.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtGui/qtextformat.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QToolBar \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qtoolbar.h \
+		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QVBoxLayout \
 		../proj/Qt\ Projects/System_Evaluation/video.h \
 		../../Qt5.7.0/5.7/gcc_64/include/QtCore/QString \
 		../src/BLOBS/BlobExtractor.h \
@@ -1451,20 +1884,393 @@ video.o: ../proj/Qt\ Projects/System_Evaluation/video.cpp ../proj/Qt\ Projects/S
 
 detectorselector.o: ../src/DETECTOR/detectorselector.cpp ../src/DETECTOR/detectorselector.h \
 		../lib/DPM/dpm.hpp \
-		../lib/bgslibrary/package_bgs/FrameDifferenceBGS.h \
-		../lib/bgslibrary/package_bgs/IBGS.h \
-		../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLOBSTER.h \
-		../lib/bgslibrary/package_bgs/pl/BackgroundSubtractorLBSP.h \
-		../lib/bgslibrary/package_bgs/pl/LBSP.h \
-		../lib/bgslibrary/package_bgs/pl/DistanceUtils.h \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_1ch.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_3ch3t.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_3ch1t.i \
-		../lib/bgslibrary/package_bgs/pl/LBSP_16bits_dbcross_s3ch.i \
-		../lib/bgslibrary/package_bgs/db/imbs.hpp \
-		../lib/bgslibrary/package_bgs/db/IndependentMultimodalBGS.h \
-		../lib/BackgroundSubtractorPAWCS.h
+		../lib/ACF/ACFDetector.h \
+		../lib/Core/detection.h \
+		../lib/rapidxml-1.13/rapidxml.hpp \
+		../lib/rapidxml-1.13/rapidxml_print.hpp \
+		../lib/ACF/ChannelFeatures.h \
+		../lib/ACF/ColorChannel.h \
+		../lib/ACF/Channel.h \
+		../lib/ACF/GradMagChannel.h \
+		../lib/ACF/GradHistChannel.h \
+		../lib/Core/DetectionList.h \
+		../lib/Core/FileWriter.h \
+		../lib/Core/detector.h \
+		../lib/Core/detectormodel.h \
+		../lib/Core/NonMaximumSuppression.h \
+		../lib/Core/nms.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o detectorselector.o ../src/DETECTOR/detectorselector.cpp
+
+KNN.o: ../lib/bgslibrary/package_bgs/KNN.cpp ../lib/bgslibrary/package_bgs/KNN.h \
+		../lib/bgslibrary/package_bgs/IBGS.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o KNN.o ../lib/bgslibrary/package_bgs/KNN.cpp
+
+IndependentMultimodal.o: ../lib/bgslibrary/package_bgs/IndependentMultimodal.cpp ../lib/bgslibrary/package_bgs/IndependentMultimodal.h \
+		../lib/bgslibrary/package_bgs/IBGS.h \
+		../lib/bgslibrary/package_bgs/IMBS/IMBS.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o IndependentMultimodal.o ../lib/bgslibrary/package_bgs/IndependentMultimodal.cpp
+
+LOBSTER.o: ../lib/bgslibrary/package_bgs/LOBSTER.cpp ../lib/bgslibrary/package_bgs/LOBSTER.h \
+		../lib/bgslibrary/package_bgs/IBGS.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP.h \
+		../lib/bgslibrary/package_bgs/LBSP/DistanceUtils.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_1ch.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch3t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch1t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_s3ch.i
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LOBSTER.o ../lib/bgslibrary/package_bgs/LOBSTER.cpp
+
+MixtureOfGaussianV2.o: ../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.cpp ../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.h \
+		../lib/bgslibrary/package_bgs/IBGS.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MixtureOfGaussianV2.o ../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.cpp
+
+PAWCS.o: ../lib/bgslibrary/package_bgs/PAWCS.cpp ../lib/bgslibrary/package_bgs/PAWCS.h \
+		../lib/bgslibrary/package_bgs/IBGS.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_.h \
+		../lib/bgslibrary/package_bgs/LBSP/DistanceUtils.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_1ch.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch3t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch1t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_s3ch.i \
+		../lib/bgslibrary/package_bgs/bgslibrary.h \
+		../lib/bgslibrary/package_bgs/FrameDifference.h \
+		../lib/bgslibrary/package_bgs/StaticFrameDifference.h \
+		../lib/bgslibrary/package_bgs/WeightedMovingMean.h \
+		../lib/bgslibrary/package_bgs/WeightedMovingVariance.h \
+		../lib/bgslibrary/package_bgs/MixtureOfGaussianV1.h \
+		../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.h \
+		../lib/bgslibrary/package_bgs/AdaptiveBackgroundLearning.h \
+		../lib/bgslibrary/package_bgs/AdaptiveSelectiveBackgroundLearning.h \
+		../lib/bgslibrary/package_bgs/KNN.h \
+		../lib/bgslibrary/package_bgs/GMG.h \
+		../lib/bgslibrary/package_bgs/DPAdaptiveMedian.h \
+		../lib/bgslibrary/package_bgs/dp/AdaptiveMedianBGS.h \
+		../lib/bgslibrary/package_bgs/dp/Bgs.h \
+		../lib/bgslibrary/package_bgs/dp/Image.h \
+		../lib/bgslibrary/package_bgs/dp/BgsParams.h \
+		../lib/bgslibrary/package_bgs/DPGrimsonGMM.h \
+		../lib/bgslibrary/package_bgs/dp/GrimsonGMM.h \
+		../lib/bgslibrary/package_bgs/DPZivkovicAGMM.h \
+		../lib/bgslibrary/package_bgs/dp/ZivkovicAGMM.h \
+		../lib/bgslibrary/package_bgs/DPMean.h \
+		../lib/bgslibrary/package_bgs/dp/MeanBGS.h \
+		../lib/bgslibrary/package_bgs/DPWrenGA.h \
+		../lib/bgslibrary/package_bgs/dp/WrenGA.h \
+		../lib/bgslibrary/package_bgs/DPPratiMediod.h \
+		../lib/bgslibrary/package_bgs/dp/PratiMediodBGS.h \
+		../lib/bgslibrary/package_bgs/DPEigenbackground.h \
+		../lib/bgslibrary/package_bgs/dp/Eigenbackground.h \
+		../lib/bgslibrary/package_bgs/DPTexture.h \
+		../lib/bgslibrary/package_bgs/dp/TextureBGS.h \
+		../lib/bgslibrary/package_bgs/T2FGMM_UM.h \
+		../lib/bgslibrary/package_bgs/T2F/T2FGMM.h \
+		../lib/bgslibrary/package_bgs/T2FGMM_UV.h \
+		../lib/bgslibrary/package_bgs/T2FMRF_UM.h \
+		../lib/bgslibrary/package_bgs/T2F/MRF.h \
+		../lib/bgslibrary/package_bgs/T2F/T2FMRF.h \
+		../lib/bgslibrary/package_bgs/T2FMRF_UV.h \
+		../lib/bgslibrary/package_bgs/FuzzySugenoIntegral.h \
+		../lib/bgslibrary/package_bgs/T2F/FuzzyUtils.h \
+		../lib/bgslibrary/package_analysis/PixelUtils.h \
+		../lib/bgslibrary/package_bgs/FuzzyChoquetIntegral.h \
+		../lib/bgslibrary/package_bgs/LBSimpleGaussian.h \
+		../lib/bgslibrary/package_bgs/lb/BGModelGauss.h \
+		../lib/bgslibrary/package_bgs/lb/BGModel.h \
+		../lib/bgslibrary/package_bgs/lb/Types.h \
+		../lib/bgslibrary/package_bgs/LBFuzzyGaussian.h \
+		../lib/bgslibrary/package_bgs/lb/BGModelFuzzyGauss.h \
+		../lib/bgslibrary/package_bgs/LBMixtureOfGaussians.h \
+		../lib/bgslibrary/package_bgs/lb/BGModelMog.h \
+		../lib/bgslibrary/package_bgs/LBAdaptiveSOM.h \
+		../lib/bgslibrary/package_bgs/lb/BGModelSom.h \
+		../lib/bgslibrary/package_bgs/LBFuzzyAdaptiveSOM.h \
+		../lib/bgslibrary/package_bgs/lb/BGModelFuzzySom.h \
+		../lib/bgslibrary/package_bgs/LBP_MRF.h \
+		../lib/bgslibrary/package_bgs/LBP_MRF/MotionDetection.hpp \
+		../lib/bgslibrary/package_bgs/LBP_MRF/MEDefs.hpp \
+		../lib/bgslibrary/package_bgs/LBP_MRF/MEImage.hpp \
+		../lib/bgslibrary/package_bgs/MultiLayer.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/CMultiLayerBGS.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/LocalBinaryPattern.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/OpenCvLegacyIncludes.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/BGS.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/OpenCvDataConversion.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/BlobResult.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/BlobLibraryConfiguration.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/blob.h \
+		../lib/bgslibrary/package_bgs/MultiLayer/BackgroundSubtractionAPI.h \
+		../lib/bgslibrary/package_bgs/PixelBasedAdaptiveSegmenter.h \
+		../lib/bgslibrary/package_bgs/PBAS/PBAS.h \
+		../lib/bgslibrary/package_bgs/VuMeter.h \
+		../lib/bgslibrary/package_bgs/VuMeter/TBackgroundVuMeter.h \
+		../lib/bgslibrary/package_bgs/VuMeter/TBackground.h \
+		../lib/bgslibrary/package_bgs/KDE.h \
+		../lib/bgslibrary/package_bgs/KDE/NPBGSubtractor.h \
+		../lib/bgslibrary/package_bgs/KDE/NPBGmodel.h \
+		../lib/bgslibrary/package_bgs/KDE/KernelTable.h \
+		../lib/bgslibrary/package_bgs/IndependentMultimodal.h \
+		../lib/bgslibrary/package_bgs/IMBS/IMBS.hpp \
+		../lib/bgslibrary/package_bgs/MultiCue.h \
+		../lib/bgslibrary/package_bgs/SigmaDelta.h \
+		../lib/bgslibrary/package_bgs/SigmaDelta/sdLaMa091.h \
+		../lib/bgslibrary/package_bgs/SuBSENSE.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP.h \
+		../lib/bgslibrary/package_bgs/LOBSTER.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.h \
+		../lib/bgslibrary/package_bgs/TwoPoints.h \
+		../lib/bgslibrary/package_bgs/TwoPoints/two_points.h \
+		../lib/bgslibrary/package_bgs/ViBe.h \
+		../lib/bgslibrary/package_bgs/ViBe/vibe-background-sequential.h \
+		../lib/bgslibrary/package_bgs/CodeBook.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PAWCS.o ../lib/bgslibrary/package_bgs/PAWCS.cpp
+
+SuBSENSE.o: ../lib/bgslibrary/package_bgs/SuBSENSE.cpp ../lib/bgslibrary/package_bgs/SuBSENSE.h \
+		../lib/bgslibrary/package_bgs/IBGS.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP.h \
+		../lib/bgslibrary/package_bgs/LBSP/DistanceUtils.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_1ch.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch3t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch1t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_s3ch.i
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SuBSENSE.o ../lib/bgslibrary/package_bgs/SuBSENSE.cpp
+
+IMBS.o: ../lib/bgslibrary/package_bgs/IMBS/IMBS.cpp ../lib/bgslibrary/package_bgs/IMBS/IMBS.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o IMBS.o ../lib/bgslibrary/package_bgs/IMBS/IMBS.cpp
+
+BackgroundSubtractorLOBSTER.o: ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP.h \
+		../lib/bgslibrary/package_bgs/LBSP/DistanceUtils.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_1ch.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch3t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch1t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_s3ch.i \
+		../lib/bgslibrary/package_bgs/LBSP/RandUtils.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BackgroundSubtractorLOBSTER.o ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.cpp
+
+BackgroundSubtractorPAWCS.o: ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_.h \
+		../lib/bgslibrary/package_bgs/LBSP/DistanceUtils.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_1ch.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch3t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch1t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_s3ch.i \
+		../lib/bgslibrary/package_bgs/LBSP/RandUtils.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BackgroundSubtractorPAWCS.o ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.cpp
+
+BackgroundSubtractorSuBSENSE.o: ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.h \
+		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP.h \
+		../lib/bgslibrary/package_bgs/LBSP/DistanceUtils.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_1ch.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch3t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch1t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_s3ch.i \
+		../lib/bgslibrary/package_bgs/LBSP/RandUtils.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BackgroundSubtractorSuBSENSE.o ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.cpp
+
+LBSP_.o: ../lib/bgslibrary/package_bgs/LBSP/LBSP_.cpp ../lib/bgslibrary/package_bgs/LBSP/LBSP_.h \
+		../lib/bgslibrary/package_bgs/LBSP/DistanceUtils.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_1ch.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch3t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch1t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_s3ch.i
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LBSP_.o ../lib/bgslibrary/package_bgs/LBSP/LBSP_.cpp
+
+BackgroundSubtractorLBSP.o: ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP.h \
+		../lib/bgslibrary/package_bgs/LBSP/DistanceUtils.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_1ch.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch3t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch1t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_s3ch.i \
+		../lib/bgslibrary/package_bgs/LBSP/RandUtils.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BackgroundSubtractorLBSP.o ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.cpp
+
+BackgroundSubtractorLBSP_.o: ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_.h \
+		../lib/bgslibrary/package_bgs/LBSP/DistanceUtils.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_1ch.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch3t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch1t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_s3ch.i \
+		../lib/bgslibrary/package_bgs/LBSP/RandUtils.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BackgroundSubtractorLBSP_.o ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.cpp
+
+LBSP.o: ../lib/bgslibrary/package_bgs/LBSP/LBSP.cpp ../lib/bgslibrary/package_bgs/LBSP/LBSP.h \
+		../lib/bgslibrary/package_bgs/LBSP/DistanceUtils.h \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_1ch.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch3t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_3ch1t.i \
+		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_s3ch.i
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LBSP.o ../lib/bgslibrary/package_bgs/LBSP/LBSP.cpp
+
+ACFDetector.o: ../lib/ACF/ACFDetector.cpp ../lib/ACF/ACFDetector.h \
+		../lib/Core/detection.h \
+		../lib/rapidxml-1.13/rapidxml.hpp \
+		../lib/rapidxml-1.13/rapidxml_print.hpp \
+		../lib/ACF/ChannelFeatures.h \
+		../lib/ACF/ColorChannel.h \
+		../lib/ACF/Channel.h \
+		../lib/ACF/GradMagChannel.h \
+		../lib/ACF/GradHistChannel.h \
+		../lib/Core/DetectionList.h \
+		../lib/Core/FileWriter.h \
+		../lib/Core/detector.h \
+		../lib/Core/detectormodel.h \
+		../lib/ACF/ACFFeaturePyramid.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ACFDetector.o ../lib/ACF/ACFDetector.cpp
+
+ACFFeaturePyramid.o: ../lib/ACF/ACFFeaturePyramid.cpp ../lib/ACF/ACFFeaturePyramid.h \
+		../lib/ACF/ChannelFeatures.h \
+		../lib/ACF/ColorChannel.h \
+		../lib/ACF/Channel.h \
+		../lib/ACF/GradMagChannel.h \
+		../lib/ACF/GradHistChannel.h \
+		../lib/ACF/ACFDetector.h \
+		../lib/Core/detection.h \
+		../lib/rapidxml-1.13/rapidxml.hpp \
+		../lib/rapidxml-1.13/rapidxml_print.hpp \
+		../lib/Core/DetectionList.h \
+		../lib/Core/FileWriter.h \
+		../lib/Core/detector.h \
+		../lib/Core/detectormodel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ACFFeaturePyramid.o ../lib/ACF/ACFFeaturePyramid.cpp
+
+Channel.o: ../lib/ACF/Channel.cpp ../lib/ACF/Channel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Channel.o ../lib/ACF/Channel.cpp
+
+ChannelFeatures.o: ../lib/ACF/ChannelFeatures.cpp ../lib/ACF/ChannelFeatures.h \
+		../lib/ACF/ColorChannel.h \
+		../lib/ACF/Channel.h \
+		../lib/ACF/GradMagChannel.h \
+		../lib/ACF/GradHistChannel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ChannelFeatures.o ../lib/ACF/ChannelFeatures.cpp
+
+ColorChannel.o: ../lib/ACF/ColorChannel.cpp ../lib/ACF/imResampleMex.hpp \
+		../lib/ACF/sse.hpp \
+		../lib/ACF/wrappers.hpp \
+		../lib/ACF/rgbConvertMex.hpp \
+		../lib/ACF/ColorChannel.h \
+		../lib/ACF/Channel.h \
+		../lib/ACF/GradMagChannel.h \
+		../lib/ACF/GradHistChannel.h \
+		../lib/ACF/ChannelFeatures.h \
+		../lib/Channel/Functions.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ColorChannel.o ../lib/ACF/ColorChannel.cpp
+
+convConst.o: ../lib/ACF/convConst.cpp ../lib/ACF/wrappers.hpp \
+		../lib/ACF/sse.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o convConst.o ../lib/ACF/convConst.cpp
+
+GradHistChannel.o: ../lib/ACF/GradHistChannel.cpp ../lib/ACF/GradHistChannel.h \
+		../lib/ACF/Channel.h \
+		../lib/ACF/GradMagChannel.h \
+		../lib/ACF/ColorChannel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GradHistChannel.o ../lib/ACF/GradHistChannel.cpp
+
+gradientMex.o: ../lib/ACF/gradientMex.cpp ../lib/ACF/wrappers.hpp \
+		../lib/ACF/sse.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gradientMex.o ../lib/ACF/gradientMex.cpp
+
+GradMagChannel.o: ../lib/ACF/GradMagChannel.cpp ../lib/ACF/GradMagChannel.h \
+		../lib/ACF/Channel.h \
+		../lib/ACF/ColorChannel.h \
+		../lib/Channel/Functions.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GradMagChannel.o ../lib/ACF/GradMagChannel.cpp
+
+wrappers.o: ../lib/ACF/wrappers.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o wrappers.o ../lib/ACF/wrappers.cpp
+
+Convert.o: ../lib/Channel/Convert.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Convert.o ../lib/Channel/Convert.cpp
+
+detection.o: ../lib/Core/detection.cpp ../lib/Core/detection.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o detection.o ../lib/Core/detection.cpp
+
+DetectionList.o: ../lib/Core/DetectionList.cpp ../lib/Core/DetectionList.h \
+		../lib/Core/detection.h \
+		../lib/Core/FileWriter.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DetectionList.o ../lib/Core/DetectionList.cpp
+
+detector.o: ../lib/Core/detector.cpp ../lib/Core/detector.h \
+		../lib/Core/detection.h \
+		../lib/Core/detectormodel.h \
+		../lib/Core/DetectionList.h \
+		../lib/Core/FileWriter.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o detector.o ../lib/Core/detector.cpp
+
+DetectorManager.o: ../lib/Core/DetectorManager.cpp ../lib/Core/DetectorManager.h \
+		../lib/ACF/ACFDetector.h \
+		../lib/Core/detection.h \
+		../lib/rapidxml-1.13/rapidxml.hpp \
+		../lib/rapidxml-1.13/rapidxml_print.hpp \
+		../lib/ACF/ChannelFeatures.h \
+		../lib/ACF/ColorChannel.h \
+		../lib/ACF/Channel.h \
+		../lib/ACF/GradMagChannel.h \
+		../lib/ACF/GradHistChannel.h \
+		../lib/Core/DetectionList.h \
+		../lib/Core/FileWriter.h \
+		../lib/Core/detector.h \
+		../lib/Core/detectormodel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DetectorManager.o ../lib/Core/DetectorManager.cpp
+
+detectormodel.o: ../lib/Core/detectormodel.cpp ../lib/Core/detectormodel.h \
+		../lib/Core/detection.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o detectormodel.o ../lib/Core/detectormodel.cpp
+
+feature.o: ../lib/Core/feature.cpp ../lib/Core/feature.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o feature.o ../lib/Core/feature.cpp
+
+featurelayer.o: ../lib/Core/featurelayer.cpp ../lib/Core/featurelayer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o featurelayer.o ../lib/Core/featurelayer.cpp
+
+filelocator.o: ../lib/Core/filelocator.cpp ../lib/Core/filelocator.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o filelocator.o ../lib/Core/filelocator.cpp
+
+FileWriter.o: ../lib/Core/FileWriter.cpp ../lib/Core/FileWriter.h \
+		../lib/Core/detection.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o FileWriter.o ../lib/Core/FileWriter.cpp
+
+FrameFromCamera.o: ../lib/Core/FrameFromCamera.cpp ../lib/Core/FrameFromCamera.h \
+		../lib/Core/FrameProducer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o FrameFromCamera.o ../lib/Core/FrameFromCamera.cpp
+
+FrameFromDirectory.o: ../lib/Core/FrameFromDirectory.cpp ../lib/Core/filelocator.h \
+		../lib/Core/FrameFromDirectory.h \
+		../lib/Core/FrameProducer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o FrameFromDirectory.o ../lib/Core/FrameFromDirectory.cpp
+
+FrameFromVideo.o: ../lib/Core/FrameFromVideo.cpp ../lib/Core/FrameFromVideo.h \
+		../lib/Core/FrameProducer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o FrameFromVideo.o ../lib/Core/FrameFromVideo.cpp
+
+FrameProducer.o: ../lib/Core/FrameProducer.cpp ../lib/Core/FrameProducer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o FrameProducer.o ../lib/Core/FrameProducer.cpp
+
+nms.o: ../lib/Core/nms.cpp ../lib/Core/nms.h \
+		../lib/Core/detection.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o nms.o ../lib/Core/nms.cpp
+
+NonMaximumSuppression.o: ../lib/Core/NonMaximumSuppression.cpp ../lib/Core/NonMaximumSuppression.h \
+		../lib/Core/DetectionList.h \
+		../lib/Core/detection.h \
+		../lib/Core/FileWriter.h \
+		../lib/Core/nms.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o NonMaximumSuppression.o ../lib/Core/NonMaximumSuppression.cpp
+
+ScaleSpacePyramid.o: ../lib/Core/ScaleSpacePyramid.cpp ../lib/Core/ScaleSpacePyramid.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ScaleSpacePyramid.o ../lib/Core/ScaleSpacePyramid.cpp
 
 ####### Install
 

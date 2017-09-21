@@ -6,6 +6,11 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
 #include "../../../lib/DPM/dpm.hpp"
+//ACF
+#include "../../../lib/ACF/ACFDetector.h"
+#include "../../../lib/Core/DetectionList.h"
+#include "../../../lib/Core/NonMaximumSuppression.h"
+
 
 using namespace std;
 using namespace cv;
@@ -22,6 +27,11 @@ public:
     HOGDescriptor pHOG;
   
     //ACF
+    ACFDetector Dt;
+    NonMaximumSuppression NMS;
+    DetectionList Dl;
+    DetectionList Dl_NMS;
+
     
     //DPM
     Ptr<DPMDetector> pDPM;
