@@ -59,15 +59,6 @@ public:
 	//Method to process each frame
     void processFrame(Mat fgmask, double framerate, int time_to_static);
 
-	//Method to get the static motion mask
-	//IplImage *getStaticMask();
-    //Mat getStaticMask();
-
-	//Method to set the time to detect an object as stationary
-	//void setTime(double _time);
-
-	//Method to set the framerate of the input video
-	//void setFramerate(double _framerate);
 
 	void setWeightDecay(double _wd);
 	double getWeightDecay();
@@ -92,11 +83,7 @@ private:
 	double adapt;
 	double static_th;
 
-
-
-
-
-     Mat fgmask_counter;
+    Mat fgmask_counter;
 
 
 
