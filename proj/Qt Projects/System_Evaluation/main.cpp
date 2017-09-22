@@ -449,7 +449,6 @@ int main(int argc, char *argv[])
 
             /******** CLASSIFIER  ********/
 
-
             clock_t start_class = clock();
 
 
@@ -513,7 +512,7 @@ int main(int argc, char *argv[])
 
         clock_t finish_total = clock();
         elapsedTime_total = (double)(finish_total - start_total)/CLOCKS_PER_SEC;
-        cout << elapsedTime_total << endl;
+        //cout << elapsedTime_total << endl;
         
         if (Video.SaveResults == true)
         {

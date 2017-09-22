@@ -126,7 +126,6 @@ Mat ClassifierSelector::process(cv::Mat frame, cv::Mat bkgImage, cv::Mat StaticF
         break;
 
 
-
     default:
         break;
 
