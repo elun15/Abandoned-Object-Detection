@@ -41,9 +41,10 @@ public:
     String fileResults; // XML file with results (.xml)
     String fileTime;  // file with execution times (.time)
     FILE *file_time = NULL;
-
+    String folder_results;
 
     vector<Point> maskPoints;
+    Mat contextMask1;
     Mat contextMask;
 
 

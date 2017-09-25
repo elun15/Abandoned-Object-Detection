@@ -66,33 +66,33 @@ SOURCES += main.cpp\
     ../../../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.cpp \
     ../../../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.cpp \
     ../../../lib/bgslibrary/package_bgs/LBSP/LBSP.cpp \
-    ../../../lib/ACF/ACFDetector.cpp \
-    ../../../lib/ACF/ACFFeaturePyramid.cpp \
-    ../../../lib/ACF/Channel.cpp \
-    ../../../lib/ACF/ChannelFeatures.cpp \
-    ../../../lib/ACF/ColorChannel.cpp \
-    ../../../lib/ACF/convConst.cpp \
-    ../../../lib/ACF/GradHistChannel.cpp \
-    ../../../lib/ACF/gradientMex.cpp \
-    ../../../lib/ACF/GradMagChannel.cpp \
-    ../../../lib/ACF/wrappers.cpp \
-    ../../../lib/Channel/Convert.cpp \
-    ../../../lib/Core/detection.cpp \
-    ../../../lib/Core/DetectionList.cpp \
-    ../../../lib/Core/detector.cpp \
-    ../../../lib/Core/DetectorManager.cpp \
-    ../../../lib/Core/detectormodel.cpp \
-    ../../../lib/Core/feature.cpp \
-    ../../../lib/Core/featurelayer.cpp \
-    ../../../lib/Core/filelocator.cpp \
-    ../../../lib/Core/FileWriter.cpp \
-    ../../../lib/Core/FrameFromCamera.cpp \
-    ../../../lib/Core/FrameFromDirectory.cpp \
-    ../../../lib/Core/FrameFromVideo.cpp \
-    ../../../lib/Core/FrameProducer.cpp \
-    ../../../lib/Core/nms.cpp \
-    ../../../lib/Core/NonMaximumSuppression.cpp \
-    ../../../lib/Core/ScaleSpacePyramid.cpp
+    ../../../lib/ACFlibrary/ACF/ACFDetector.cpp \
+    ../../../lib/ACFlibrary/ACF/ACFFeaturePyramid.cpp \
+    ../../../lib/ACFlibrary/ACF/Channel.cpp \
+    ../../../lib/ACFlibrary/ACF/ChannelFeatures.cpp \
+    ../../../lib/ACFlibrary/ACF/ColorChannel.cpp \
+    ../../../lib/ACFlibrary/ACF/convConst.cpp \
+    ../../../lib/ACFlibrary/ACF/GradHistChannel.cpp \
+    ../../../lib/ACFlibrary/ACF/gradientMex.cpp \
+    ../../../lib/ACFlibrary/ACF/GradMagChannel.cpp \
+    ../../../lib/ACFlibrary/ACF/wrappers.cpp \
+    ../../../lib/ACFlibrary/Channel/Convert.cpp \
+    ../../../lib/ACFlibrary/Core/detection.cpp \
+    ../../../lib/ACFlibrary/Core/DetectionList.cpp \
+    ../../../lib/ACFlibrary/Core/detector.cpp \
+    ../../../lib/ACFlibrary/Core/DetectorManager.cpp \
+    ../../../lib/ACFlibrary/Core/detectormodel.cpp \
+    ../../../lib/ACFlibrary/Core/feature.cpp \
+    ../../../lib/ACFlibrary/Core/featurelayer.cpp \
+    ../../../lib/ACFlibrary/Core/filelocator.cpp \
+    ../../../lib/ACFlibrary/Core/FileWriter.cpp \
+    ../../../lib/ACFlibrary/Core/FrameFromCamera.cpp \
+    ../../../lib/ACFlibrary/Core/FrameFromDirectory.cpp \
+    ../../../lib/ACFlibrary/Core/FrameFromVideo.cpp \
+    ../../../lib/ACFlibrary/Core/FrameProducer.cpp \
+    ../../../lib/ACFlibrary/Core/nms.cpp \
+    ../../../lib/ACFlibrary/Core/NonMaximumSuppression.cpp \
+    ../../../lib/ACFlibrary/Core/ScaleSpacePyramid.cpp
 
 HEADERS  +=   ../../../src/SFGD/StaticMaskExtractor_subsampling.h \
     ../../../src/SFGD/StaticMaskExtractor.h \
@@ -141,42 +141,41 @@ HEADERS  +=   ../../../src/SFGD/StaticMaskExtractor_subsampling.h \
     ../../../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.h \
     ../../../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.h \
     ../../../lib/bgslibrary/package_bgs/LBSP/LBSP.h \
-    ../../../lib/ACF/ACFDetector.h \
-    ../../../lib/ACF/ACFFeaturePyramid.h \
-    ../../../lib/ACF/Channel.h \
-    ../../../lib/ACF/ChannelFeatures.h \
-    ../../../lib/ACF/ColorChannel.h \
-    ../../../lib/ACF/GradHistChannel.h \
-    ../../../lib/ACF/GradMagChannel.h \
-    ../../../lib/ACF/imResampleMex.hpp \
-    ../../../lib/ACF/rgbConvertMex.hpp \
-    ../../../lib/ACF/sse.hpp \
-    ../../../lib/ACF/wrappers.hpp \
-    ../../../lib/Channel/Functions.h \
-    ../../../lib/Core/detection.h \
-    ../../../lib/Core/DetectionList.h \
-    ../../../lib/Core/detector.h \
-    ../../../lib/Core/DetectorManager.h \
-    ../../../lib/Core/detectormodel.h \
-    ../../../lib/Core/dirent.h \
-    ../../../lib/Core/feature.h \
-    ../../../lib/Core/featurelayer.h \
-    ../../../lib/Core/filelocator.h \
-    ../../../lib/Core/FileWriter.h \
-    ../../../lib/Core/FrameFromCamera.h \
-    ../../../lib/Core/FrameFromDirectory.h \
-    ../../../lib/Core/FrameFromVideo.h \
-    ../../../lib/Core/FrameProducer.h \
-    ../../../lib/Core/Image.hpp \
-    ../../../lib/Core/nms.h \
-    ../../../lib/Core/NonMaximumSuppression.h \
-    ../../../lib/Core/ScaleSpacePyramid.h \
-    ../../../lib/rapidxml-1.13/rapidxml_iterators.hpp \
-    ../../../lib/rapidxml-1.13/rapidxml_print.hpp \
-    ../../../lib/rapidxml-1.13/rapidxml_utils.hpp \
-    ../../../lib/rapidxml-1.13/rapidxml.hpp
+    ../../../lib/ACFlibrary/ACF/ACFDetector.h \
+    ../../../lib/ACFlibrary/ACF/ACFFeaturePyramid.h \
+    ../../../lib/ACFlibrary/ACF/Channel.h \
+    ../../../lib/ACFlibrary/ACF/ChannelFeatures.h \
+    ../../../lib/ACFlibrary/ACF/ColorChannel.h \
+    ../../../lib/ACFlibrary/ACF/GradHistChannel.h \
+    ../../../lib/ACFlibrary/ACF/GradMagChannel.h \
+    ../../../lib/ACFlibrary/ACF/imResampleMex.hpp \
+    ../../../lib/ACFlibrary/ACF/rgbConvertMex.hpp \
+    ../../../lib/ACFlibrary/ACF/sse.hpp \
+    ../../../lib/ACFlibrary/ACF/wrappers.hpp \
+    ../../../lib/ACFlibrary/Channel/Functions.h \
+    ../../../lib/ACFlibrary/Core/detection.h \
+    ../../../lib/ACFlibrary/Core/DetectionList.h \
+    ../../../lib/ACFlibrary/Core/detector.h \
+    ../../../lib/ACFlibrary/Core/DetectorManager.h \
+    ../../../lib/ACFlibrary/Core/detectormodel.h \
+    ../../../lib/ACFlibrary/Core/dirent.h \
+    ../../../lib/ACFlibrary/Core/feature.h \
+    ../../../lib/ACFlibrary/Core/featurelayer.h \
+    ../../../lib/ACFlibrary/Core/filelocator.h \
+    ../../../lib/ACFlibrary/Core/FileWriter.h \
+    ../../../lib/ACFlibrary/Core/FrameFromCamera.h \
+    ../../../lib/ACFlibrary/Core/FrameFromDirectory.h \
+    ../../../lib/ACFlibrary/Core/FrameFromVideo.h \
+    ../../../lib/ACFlibrary/Core/FrameProducer.h \
+    ../../../lib/ACFlibrary/Core/Image.hpp \
+    ../../../lib/ACFlibrary/Core/nms.h \
+    ../../../lib/ACFlibrary/Core/NonMaximumSuppression.h \
+    ../../../lib/ACFlibrary/Core/ScaleSpacePyramid.h \
+    ../../../lib/ACFlibrary/rapidxml-1.13/rapidxml_iterators.hpp \
+    ../../../lib/ACFlibrary/rapidxml-1.13/rapidxml_print.hpp \
+    ../../../lib/ACFlibrary/rapidxml-1.13/rapidxml_utils.hpp \
+    ../../../lib/ACFlibrary/rapidxml-1.13/rapidxml.hpp
 
-FORMS    += mainwindow.ui
 # The following lines tells Qmake to use pkg-config for opencv
 QT_CONFIG -= no-pkg-config
 CONFIG  += link_pkgconfig

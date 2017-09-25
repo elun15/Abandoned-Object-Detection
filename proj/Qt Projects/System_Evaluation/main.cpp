@@ -32,7 +32,6 @@
 #include "../../../src/Event/EventController.h"
 
 
-//Global video capture
 
 
 //Global pointers
@@ -98,56 +97,35 @@ int main(int argc, char *argv[])
     // 3: ACF
 
 
-    // ↓↓↓↓↓↓ UNCOMMENT IF WORKING IN PROGRAMMING  ENVIRONMENT ↓↓↓↓↓↓
-
-
-
-    Video.bkg_method = 1;
-    Video.sfgd_method  = 1;
-    Video.classifier_method = 1;
-    Video.detector_method= 3;
-
-    Video.fileDir = "../datasets/AVSS/AVSS_corto.mov";
-    string basename  = Video.fileDir.substr(Video.fileDir.find_last_of("/")+1);
-    string::size_type const point_position(basename.find_last_of('.'));
-    string videoName = basename.substr(0,point_position);
-
-    if ( videoName.find("AVSS") != string::npos)
-    {
-        Video.contextMask = imread("../images/AVSS_Mask.jpg",CV_LOAD_IMAGE_GRAYSCALE);
-        if (Video.contextMask.empty())
-        {
-            cout << "Could not open mask image." << endl;
-            return -1;
-        }
-        bitwise_not(Video.contextMask,Video.contextMask);
-    }
-
-    String folder_results  = "../results/";
-
-    Video.fileResults = folder_results + videoName + "_PRUEBA_" + to_string(Video.bkg_method) + "_" + to_string( Video.sfgd_method) + "_"+ to_string( Video.classifier_method ) + "_" + to_string( Video.detector_method ) + "_"+ currentDateTime() + ".xml";
-    Video.fileTime =  folder_results + videoName + "time_" + to_string(Video.bkg_method) + "_" + to_string( Video.sfgd_method) + "_"+ to_string( Video.classifier_method ) + "_" + to_string( Video.detector_method ) + "_"+ currentDateTime() + ".time";
-    Video.DirImages = "../results/images/";
-
-    cout << "File results: " << Video.fileResults << endl;
-    cout << "video filedir " << Video.fileDir << endl;
-
-    // ↑↑↑↑↑ UNCOMMENT IF WORKING IN PROGRAMMING  ENVIRONMENT ↑↑↑↑↑↑
-
-
-
-    // ↓↓↓↓↓↓ UNCOMMENT IF WORKING IN TERMINAL OR .SH SCRIPT ↓↓↓↓↓↓
-
-    /*
-    // Check number of mandatory input arguments
-
+    // Using Default parameters
     if (argc < 7 )
     {
-        cout << "Not enough arguments" << endl;
-        exit(0);
+
+        cout << "Executing with default parameters" << endl;
+
+        // BKG METHOD
+        Video.bkg_method = 6;
+
+        // SFGD METHOD
+        Video.sfgd_method  = 1;
+
+        // CLASSIFIER METHOD
+        Video.classifier_method = 1;
+
+        // PEOPLE DETECTOR METHOD
+        Video.detector_method = 3;
+
+        // INPUT VIDEO FILE DIRECTORY
+        //Video.fileDir = "../datasets/VISOR/visor_Video00.avi";
+         Video.fileDir = "../datasets/AVSS/AVSS_corto.mov";
+
+        // RESULTS FOLDER
+        Video.folder_results  = "../results/";
+
+
 
     }
-    else
+    else //Using input parameters
     {
         // BKG METHOD
         int bkg;
@@ -181,39 +159,50 @@ int main(int argc, char *argv[])
         Video.fileDir = argv[5];
         cout << "Input video dir: " << argv[5] << endl;
 
-        string basename  = Video.fileDir.substr(Video.fileDir.find_last_of("/")+1);
-        string::size_type const point_position(basename.find_last_of('.'));
-        string videoName = basename.substr(0,point_position);
 
         // RESULTS FOLDER
-        String folder_results = argv[6];
-
-        // XML file with results (.xml)
-        Video.fileResults = folder_results + videoName + "_"+ to_string(Video.bkg_method) + "_" + to_string( Video.sfgd_method) + "_"+ to_string( Video.classifier_method ) + "_" + to_string( Video.detector_method ) + "_"+ currentDateTime() + ".xml";
-        cout << "Results will be saved in " << Video.fileResults << endl;
-
-        // file with execution times (.time)
-        Video.fileTime = folder_results + videoName + "_"+ to_string(Video.bkg_method) + "_" + to_string( Video.sfgd_method) + "_"+ to_string( Video.classifier_method ) + "_" + to_string( Video.detector_method ) + "_"+ currentDateTime() + ".time";
-
+        Video.folder_results = argv[6];
 
 
     }
 
-    // CONTEXT MASK
-    if(argc == 8)
+
+
+    // Compute videoName variable, used for saving the results
+    string basename  = Video.fileDir.substr(Video.fileDir.find_last_of("/")+1);
+    string::size_type const point_position(basename.find_last_of('.'));
+    string videoName = basename.substr(0,point_position);
+
+    // Check if it is required to apply context mask
+    if ( videoName.find("AVSS") != string::npos)
     {
+        Video.contextMask1 = imread("../datasets/AVSS/AVSS_Mask_1.jpg",CV_LOAD_IMAGE_GRAYSCALE);
+        if (Video.contextMask1.empty())
+        {
+            cout << "Could not open mask image." << endl;
+            return -1;
+        }
+        bitwise_not(Video.contextMask1,Video.contextMask1);
 
-        Video.contextMask = imread(argv[7]);
-        cout << " A context mask will be used " << endl;
+        Video.contextMask = imread("../datasets/AVSS/AVSS_Mask_2.jpg",CV_LOAD_IMAGE_GRAYSCALE);
+        if (Video.contextMask.empty())
+        {
+            cout << "Could not open mask image." << endl;
+            return -1;
+        }
     }
 
 
-    */
 
+    // XML file with results (.xml)
+    Video.fileResults = Video.folder_results + videoName + "_"+ to_string(Video.bkg_method) + "_" + to_string( Video.sfgd_method) + "_"+ to_string( Video.classifier_method ) + "_" + to_string( Video.detector_method ) + "_"+ currentDateTime() + ".xml";
+    cout << "Results will be saved in " << Video.fileResults << endl;
 
-    // ↑↑↑↑↑ UNCOMMENT IF WORKING IN TERMINAL OR .SH SCRIPT ↑↑↑↑↑
+    // file with execution times (.time)
+    Video.fileTime = Video.folder_results + videoName + "_"+ to_string(Video.bkg_method) + "_" + to_string( Video.sfgd_method) + "_"+ to_string( Video.classifier_method ) + "_" + to_string( Video.detector_method ) + "_"+ currentDateTime() + ".time";
 
-
+    //Save images directory
+    Video.DirImages = "../../../results/images/";
 
 
     /*******************************/
@@ -313,10 +302,6 @@ int main(int argc, char *argv[])
 
     }
 
-
-
-    //Save images directory
-    Video.DirImages = "../../../results/images/";
 
     if (Video.SaveImages == true)
     {
