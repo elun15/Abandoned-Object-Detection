@@ -15,7 +15,7 @@ CXX           = g++
 DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -O2 -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../proj/Qt\ Projects/System_Evaluation -I. -I/usr/lib/x86_64-linux-gnu -isystem /usr/local/include/opencv -isystem /usr/local/include -I../../Qt5.7.0/5.7/gcc_64/include -I../../Qt5.7.0/5.7/gcc_64/include/QtWidgets -I../../Qt5.7.0/5.7/gcc_64/include/QtGui -I../../Qt5.7.0/5.7/gcc_64/include/QtCore -I. -I. -I../../Qt5.7.0/5.7/gcc_64/mkspecs/linux-g++
+INCPATH       = -I../proj/Qt\ Projects/System_Evaluation -I. -I/usr/lib/x86_64-linux-gnu -isystem /usr/local/include/opencv -isystem /usr/local/include -I../../Qt5.7.0/5.7/gcc_64/include -I../../Qt5.7.0/5.7/gcc_64/include/QtWidgets -I../../Qt5.7.0/5.7/gcc_64/include/QtGui -I../../Qt5.7.0/5.7/gcc_64/include/QtCore -I. -I../../Qt5.7.0/5.7/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/vpu/Qt5.7.0/5.7/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -90,33 +90,33 @@ SOURCES       = ../proj/Qt\ Projects/System_Evaluation/main.cpp \
 		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.cpp \
 		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.cpp \
 		../lib/bgslibrary/package_bgs/LBSP/LBSP.cpp \
-		../lib/ACF/ACFDetector.cpp \
-		../lib/ACF/ACFFeaturePyramid.cpp \
-		../lib/ACF/Channel.cpp \
-		../lib/ACF/ChannelFeatures.cpp \
-		../lib/ACF/ColorChannel.cpp \
-		../lib/ACF/convConst.cpp \
-		../lib/ACF/GradHistChannel.cpp \
-		../lib/ACF/gradientMex.cpp \
-		../lib/ACF/GradMagChannel.cpp \
-		../lib/ACF/wrappers.cpp \
-		../lib/Channel/Convert.cpp \
-		../lib/Core/detection.cpp \
-		../lib/Core/DetectionList.cpp \
-		../lib/Core/detector.cpp \
-		../lib/Core/DetectorManager.cpp \
-		../lib/Core/detectormodel.cpp \
-		../lib/Core/feature.cpp \
-		../lib/Core/featurelayer.cpp \
-		../lib/Core/filelocator.cpp \
-		../lib/Core/FileWriter.cpp \
-		../lib/Core/FrameFromCamera.cpp \
-		../lib/Core/FrameFromDirectory.cpp \
-		../lib/Core/FrameFromVideo.cpp \
-		../lib/Core/FrameProducer.cpp \
-		../lib/Core/nms.cpp \
-		../lib/Core/NonMaximumSuppression.cpp \
-		../lib/Core/ScaleSpacePyramid.cpp 
+		../lib/ACFlibrary/ACF/ACFDetector.cpp \
+		../lib/ACFlibrary/ACF/ACFFeaturePyramid.cpp \
+		../lib/ACFlibrary/ACF/Channel.cpp \
+		../lib/ACFlibrary/ACF/ChannelFeatures.cpp \
+		../lib/ACFlibrary/ACF/ColorChannel.cpp \
+		../lib/ACFlibrary/ACF/convConst.cpp \
+		../lib/ACFlibrary/ACF/GradHistChannel.cpp \
+		../lib/ACFlibrary/ACF/gradientMex.cpp \
+		../lib/ACFlibrary/ACF/GradMagChannel.cpp \
+		../lib/ACFlibrary/ACF/wrappers.cpp \
+		../lib/ACFlibrary/Channel/Convert.cpp \
+		../lib/ACFlibrary/Core/detection.cpp \
+		../lib/ACFlibrary/Core/DetectionList.cpp \
+		../lib/ACFlibrary/Core/detector.cpp \
+		../lib/ACFlibrary/Core/DetectorManager.cpp \
+		../lib/ACFlibrary/Core/detectormodel.cpp \
+		../lib/ACFlibrary/Core/feature.cpp \
+		../lib/ACFlibrary/Core/featurelayer.cpp \
+		../lib/ACFlibrary/Core/filelocator.cpp \
+		../lib/ACFlibrary/Core/FileWriter.cpp \
+		../lib/ACFlibrary/Core/FrameFromCamera.cpp \
+		../lib/ACFlibrary/Core/FrameFromDirectory.cpp \
+		../lib/ACFlibrary/Core/FrameFromVideo.cpp \
+		../lib/ACFlibrary/Core/FrameProducer.cpp \
+		../lib/ACFlibrary/Core/nms.cpp \
+		../lib/ACFlibrary/Core/NonMaximumSuppression.cpp \
+		../lib/ACFlibrary/Core/ScaleSpacePyramid.cpp 
 OBJECTS       = main.o \
 		StaticMaskExtractor_Subsampling.o \
 		StaticMaskExtractor.o \
@@ -384,40 +384,40 @@ DIST          = ../lib/ACF/INRIA_ACF.xml \
 		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.h \
 		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.h \
 		../lib/bgslibrary/package_bgs/LBSP/LBSP.h \
-		../lib/ACF/ACFDetector.h \
-		../lib/ACF/ACFFeaturePyramid.h \
-		../lib/ACF/Channel.h \
-		../lib/ACF/ChannelFeatures.h \
-		../lib/ACF/ColorChannel.h \
-		../lib/ACF/GradHistChannel.h \
-		../lib/ACF/GradMagChannel.h \
-		../lib/ACF/imResampleMex.hpp \
-		../lib/ACF/rgbConvertMex.hpp \
-		../lib/ACF/sse.hpp \
-		../lib/ACF/wrappers.hpp \
-		../lib/Channel/Functions.h \
-		../lib/Core/detection.h \
-		../lib/Core/DetectionList.h \
-		../lib/Core/detector.h \
-		../lib/Core/DetectorManager.h \
-		../lib/Core/detectormodel.h \
-		../lib/Core/dirent.h \
-		../lib/Core/feature.h \
-		../lib/Core/featurelayer.h \
-		../lib/Core/filelocator.h \
-		../lib/Core/FileWriter.h \
-		../lib/Core/FrameFromCamera.h \
-		../lib/Core/FrameFromDirectory.h \
-		../lib/Core/FrameFromVideo.h \
-		../lib/Core/FrameProducer.h \
-		../lib/Core/Image.hpp \
-		../lib/Core/nms.h \
-		../lib/Core/NonMaximumSuppression.h \
-		../lib/Core/ScaleSpacePyramid.h \
-		../lib/rapidxml-1.13/rapidxml_iterators.hpp \
-		../lib/rapidxml-1.13/rapidxml_print.hpp \
-		../lib/rapidxml-1.13/rapidxml_utils.hpp \
-		../lib/rapidxml-1.13/rapidxml.hpp ../proj/Qt\ Projects/System_Evaluation/main.cpp \
+		../lib/ACFlibrary/ACF/ACFDetector.h \
+		../lib/ACFlibrary/ACF/ACFFeaturePyramid.h \
+		../lib/ACFlibrary/ACF/Channel.h \
+		../lib/ACFlibrary/ACF/ChannelFeatures.h \
+		../lib/ACFlibrary/ACF/ColorChannel.h \
+		../lib/ACFlibrary/ACF/GradHistChannel.h \
+		../lib/ACFlibrary/ACF/GradMagChannel.h \
+		../lib/ACFlibrary/ACF/imResampleMex.hpp \
+		../lib/ACFlibrary/ACF/rgbConvertMex.hpp \
+		../lib/ACFlibrary/ACF/sse.hpp \
+		../lib/ACFlibrary/ACF/wrappers.hpp \
+		../lib/ACFlibrary/Channel/Functions.h \
+		../lib/ACFlibrary/Core/detection.h \
+		../lib/ACFlibrary/Core/DetectionList.h \
+		../lib/ACFlibrary/Core/detector.h \
+		../lib/ACFlibrary/Core/DetectorManager.h \
+		../lib/ACFlibrary/Core/detectormodel.h \
+		../lib/ACFlibrary/Core/dirent.h \
+		../lib/ACFlibrary/Core/feature.h \
+		../lib/ACFlibrary/Core/featurelayer.h \
+		../lib/ACFlibrary/Core/filelocator.h \
+		../lib/ACFlibrary/Core/FileWriter.h \
+		../lib/ACFlibrary/Core/FrameFromCamera.h \
+		../lib/ACFlibrary/Core/FrameFromDirectory.h \
+		../lib/ACFlibrary/Core/FrameFromVideo.h \
+		../lib/ACFlibrary/Core/FrameProducer.h \
+		../lib/ACFlibrary/Core/Image.hpp \
+		../lib/ACFlibrary/Core/nms.h \
+		../lib/ACFlibrary/Core/NonMaximumSuppression.h \
+		../lib/ACFlibrary/Core/ScaleSpacePyramid.h \
+		../lib/ACFlibrary/rapidxml-1.13/rapidxml_iterators.hpp \
+		../lib/ACFlibrary/rapidxml-1.13/rapidxml_print.hpp \
+		../lib/ACFlibrary/rapidxml-1.13/rapidxml_utils.hpp \
+		../lib/ACFlibrary/rapidxml-1.13/rapidxml.hpp ../proj/Qt\ Projects/System_Evaluation/main.cpp \
 		../src/SFGD/StaticMaskExtractor_Subsampling.cpp \
 		../src/SFGD/StaticMaskExtractor.cpp \
 		../src/SFGD/StaticMaskExtractor_AccMask.cpp \
@@ -459,33 +459,33 @@ DIST          = ../lib/ACF/INRIA_ACF.xml \
 		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.cpp \
 		../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.cpp \
 		../lib/bgslibrary/package_bgs/LBSP/LBSP.cpp \
-		../lib/ACF/ACFDetector.cpp \
-		../lib/ACF/ACFFeaturePyramid.cpp \
-		../lib/ACF/Channel.cpp \
-		../lib/ACF/ChannelFeatures.cpp \
-		../lib/ACF/ColorChannel.cpp \
-		../lib/ACF/convConst.cpp \
-		../lib/ACF/GradHistChannel.cpp \
-		../lib/ACF/gradientMex.cpp \
-		../lib/ACF/GradMagChannel.cpp \
-		../lib/ACF/wrappers.cpp \
-		../lib/Channel/Convert.cpp \
-		../lib/Core/detection.cpp \
-		../lib/Core/DetectionList.cpp \
-		../lib/Core/detector.cpp \
-		../lib/Core/DetectorManager.cpp \
-		../lib/Core/detectormodel.cpp \
-		../lib/Core/feature.cpp \
-		../lib/Core/featurelayer.cpp \
-		../lib/Core/filelocator.cpp \
-		../lib/Core/FileWriter.cpp \
-		../lib/Core/FrameFromCamera.cpp \
-		../lib/Core/FrameFromDirectory.cpp \
-		../lib/Core/FrameFromVideo.cpp \
-		../lib/Core/FrameProducer.cpp \
-		../lib/Core/nms.cpp \
-		../lib/Core/NonMaximumSuppression.cpp \
-		../lib/Core/ScaleSpacePyramid.cpp
+		../lib/ACFlibrary/ACF/ACFDetector.cpp \
+		../lib/ACFlibrary/ACF/ACFFeaturePyramid.cpp \
+		../lib/ACFlibrary/ACF/Channel.cpp \
+		../lib/ACFlibrary/ACF/ChannelFeatures.cpp \
+		../lib/ACFlibrary/ACF/ColorChannel.cpp \
+		../lib/ACFlibrary/ACF/convConst.cpp \
+		../lib/ACFlibrary/ACF/GradHistChannel.cpp \
+		../lib/ACFlibrary/ACF/gradientMex.cpp \
+		../lib/ACFlibrary/ACF/GradMagChannel.cpp \
+		../lib/ACFlibrary/ACF/wrappers.cpp \
+		../lib/ACFlibrary/Channel/Convert.cpp \
+		../lib/ACFlibrary/Core/detection.cpp \
+		../lib/ACFlibrary/Core/DetectionList.cpp \
+		../lib/ACFlibrary/Core/detector.cpp \
+		../lib/ACFlibrary/Core/DetectorManager.cpp \
+		../lib/ACFlibrary/Core/detectormodel.cpp \
+		../lib/ACFlibrary/Core/feature.cpp \
+		../lib/ACFlibrary/Core/featurelayer.cpp \
+		../lib/ACFlibrary/Core/filelocator.cpp \
+		../lib/ACFlibrary/Core/FileWriter.cpp \
+		../lib/ACFlibrary/Core/FrameFromCamera.cpp \
+		../lib/ACFlibrary/Core/FrameFromDirectory.cpp \
+		../lib/ACFlibrary/Core/FrameFromVideo.cpp \
+		../lib/ACFlibrary/Core/FrameProducer.cpp \
+		../lib/ACFlibrary/Core/nms.cpp \
+		../lib/ACFlibrary/Core/NonMaximumSuppression.cpp \
+		../lib/ACFlibrary/Core/ScaleSpacePyramid.cpp
 QMAKE_TARGET  = System_Evaluation
 DESTDIR       = 
 TARGET        = System_Evaluation
@@ -494,7 +494,7 @@ TARGET        = System_Evaluation
 first: all
 ####### Build rules
 
-$(TARGET): ui_mainwindow.h $(OBJECTS)  
+$(TARGET):  $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../proj/Qt\ Projects/System_Evaluation/System_Evaluation.pro ../../Qt5.7.0/5.7/gcc_64/mkspecs/features/spec_pre.prf \
@@ -818,9 +818,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../src/SFGD/StaticMaskExtractor_subsampling.h ../src/SFGD/StaticMaskExtractor.h ../src/SFGD/StaticMaskExtractor_AccMask.h ../src/SFGD/SFGDSelector.h ../src/BGS/BkgSubtractionSelector.h ../src/BLOBS/BlobExtractor.h ../src/BLOBS/BasicBlob.h ../src/Utils/solape.h ../src/DETECTOR/DefineObjectBlobList.h ../src/BLOBS/BlobList.h ../src/BLOBS/CompareBlobs.h ../src/BLOBS/ObjectBlob.h ../src/CLASSIFIER/ClassifierSelector.h ../src/CLASSIFIER/StaticObjectClassifier.h ../src/CLASSIFIER/StaticObjectClassifierHist.h ../src/CLASSIFIER/StaticObjectClassifierHighGradient.h ../src/Utils/DrawDetections.h ../src/Event/EventController.h ../src/Event/Event.h ../src/Event/EventWriter.h ../lib/DPM/dpm_cascade.hpp ../lib/DPM/dpm_convolution.hpp ../lib/DPM/dpm_feature.hpp ../lib/DPM/dpm_model.hpp ../lib/DPM/dpm_nms.hpp ../lib/DPM/dpm.hpp ../lib/DPM/precomp.hpp ../proj/Qt\ Projects/System_Evaluation/video.h ../src/DETECTOR/detectorselector.h ../lib/bgslibrary/package_bgs/KNN.h ../lib/bgslibrary/package_bgs/bgslibrary.h ../lib/bgslibrary/package_bgs/IndependentMultimodal.h ../lib/bgslibrary/package_bgs/LOBSTER.h ../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.h ../lib/bgslibrary/package_bgs/PAWCS.h ../lib/bgslibrary/package_bgs/SuBSENSE.h ../lib/bgslibrary/package_bgs/IBGS.h ../lib/bgslibrary/package_bgs/IMBS/IMBS.hpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.h ../lib/bgslibrary/package_bgs/LBSP/DistanceUtils.h ../lib/bgslibrary/package_bgs/LBSP/RandUtils.h ../lib/bgslibrary/package_bgs/LBSP/LBSP_.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.h ../lib/bgslibrary/package_bgs/LBSP/LBSP.h ../lib/ACF/ACFDetector.h ../lib/ACF/ACFFeaturePyramid.h ../lib/ACF/Channel.h ../lib/ACF/ChannelFeatures.h ../lib/ACF/ColorChannel.h ../lib/ACF/GradHistChannel.h ../lib/ACF/GradMagChannel.h ../lib/ACF/imResampleMex.hpp ../lib/ACF/rgbConvertMex.hpp ../lib/ACF/sse.hpp ../lib/ACF/wrappers.hpp ../lib/Channel/Functions.h ../lib/Core/detection.h ../lib/Core/DetectionList.h ../lib/Core/detector.h ../lib/Core/DetectorManager.h ../lib/Core/detectormodel.h ../lib/Core/dirent.h ../lib/Core/feature.h ../lib/Core/featurelayer.h ../lib/Core/filelocator.h ../lib/Core/FileWriter.h ../lib/Core/FrameFromCamera.h ../lib/Core/FrameFromDirectory.h ../lib/Core/FrameFromVideo.h ../lib/Core/FrameProducer.h ../lib/Core/Image.hpp ../lib/Core/nms.h ../lib/Core/NonMaximumSuppression.h ../lib/Core/ScaleSpacePyramid.h ../lib/rapidxml-1.13/rapidxml_iterators.hpp ../lib/rapidxml-1.13/rapidxml_print.hpp ../lib/rapidxml-1.13/rapidxml_utils.hpp ../lib/rapidxml-1.13/rapidxml.hpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../proj/Qt\ Projects/System_Evaluation/main.cpp ../src/SFGD/StaticMaskExtractor_Subsampling.cpp ../src/SFGD/StaticMaskExtractor.cpp ../src/SFGD/StaticMaskExtractor_AccMask.cpp ../src/SFGD/SFGDSelector.cpp ../src/BGS/BkgSubtractionSelector.cpp ../src/BLOBS/BlobExtractor.cpp ../src/BLOBS/BasicBlob.cpp ../src/Utils/solape.cpp ../src/DETECTOR/DefineObjectBlobList.cpp ../src/BLOBS/CompareBlobs.cpp ../src/BLOBS/ObjectBlob.cpp ../src/CLASSIFIER/ClassifierSelector.cpp ../src/CLASSIFIER/StaticObjectClassifier.cpp ../src/CLASSIFIER/StaticObjectClassifierHist.cpp ../src/CLASSIFIER/StaticObjectClassifierHighGradient.cpp ../src/Utils/DrawDetections.cpp ../src/Event/EventController.cpp ../src/Event/EventWriter.cpp ../src/Event/Event.cpp ../lib/DPM/dpm_cascade_detector.cpp ../lib/DPM/dpm_cascade.cpp ../lib/DPM/dpm_convolution.cpp ../lib/DPM/dpm_feature.cpp ../lib/DPM/dpm_model.cpp ../lib/DPM/dpm_nms.cpp ../proj/Qt\ Projects/System_Evaluation/video.cpp ../src/DETECTOR/detectorselector.cpp ../lib/bgslibrary/package_bgs/KNN.cpp ../lib/bgslibrary/package_bgs/IndependentMultimodal.cpp ../lib/bgslibrary/package_bgs/LOBSTER.cpp ../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.cpp ../lib/bgslibrary/package_bgs/PAWCS.cpp ../lib/bgslibrary/package_bgs/SuBSENSE.cpp ../lib/bgslibrary/package_bgs/IMBS/IMBS.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.cpp ../lib/bgslibrary/package_bgs/LBSP/LBSP_.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.cpp ../lib/bgslibrary/package_bgs/LBSP/LBSP.cpp ../lib/ACF/ACFDetector.cpp ../lib/ACF/ACFFeaturePyramid.cpp ../lib/ACF/Channel.cpp ../lib/ACF/ChannelFeatures.cpp ../lib/ACF/ColorChannel.cpp ../lib/ACF/convConst.cpp ../lib/ACF/GradHistChannel.cpp ../lib/ACF/gradientMex.cpp ../lib/ACF/GradMagChannel.cpp ../lib/ACF/wrappers.cpp ../lib/Channel/Convert.cpp ../lib/Core/detection.cpp ../lib/Core/DetectionList.cpp ../lib/Core/detector.cpp ../lib/Core/DetectorManager.cpp ../lib/Core/detectormodel.cpp ../lib/Core/feature.cpp ../lib/Core/featurelayer.cpp ../lib/Core/filelocator.cpp ../lib/Core/FileWriter.cpp ../lib/Core/FrameFromCamera.cpp ../lib/Core/FrameFromDirectory.cpp ../lib/Core/FrameFromVideo.cpp ../lib/Core/FrameProducer.cpp ../lib/Core/nms.cpp ../lib/Core/NonMaximumSuppression.cpp ../lib/Core/ScaleSpacePyramid.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../proj/Qt\ Projects/System_Evaluation/mainwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/SFGD/StaticMaskExtractor_subsampling.h ../src/SFGD/StaticMaskExtractor.h ../src/SFGD/StaticMaskExtractor_AccMask.h ../src/SFGD/SFGDSelector.h ../src/BGS/BkgSubtractionSelector.h ../src/BLOBS/BlobExtractor.h ../src/BLOBS/BasicBlob.h ../src/Utils/solape.h ../src/DETECTOR/DefineObjectBlobList.h ../src/BLOBS/BlobList.h ../src/BLOBS/CompareBlobs.h ../src/BLOBS/ObjectBlob.h ../src/CLASSIFIER/ClassifierSelector.h ../src/CLASSIFIER/StaticObjectClassifier.h ../src/CLASSIFIER/StaticObjectClassifierHist.h ../src/CLASSIFIER/StaticObjectClassifierHighGradient.h ../src/Utils/DrawDetections.h ../src/Event/EventController.h ../src/Event/Event.h ../src/Event/EventWriter.h ../lib/DPM/dpm_cascade.hpp ../lib/DPM/dpm_convolution.hpp ../lib/DPM/dpm_feature.hpp ../lib/DPM/dpm_model.hpp ../lib/DPM/dpm_nms.hpp ../lib/DPM/dpm.hpp ../lib/DPM/precomp.hpp ../proj/Qt\ Projects/System_Evaluation/video.h ../src/DETECTOR/detectorselector.h ../lib/bgslibrary/package_bgs/KNN.h ../lib/bgslibrary/package_bgs/bgslibrary.h ../lib/bgslibrary/package_bgs/IndependentMultimodal.h ../lib/bgslibrary/package_bgs/LOBSTER.h ../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.h ../lib/bgslibrary/package_bgs/PAWCS.h ../lib/bgslibrary/package_bgs/SuBSENSE.h ../lib/bgslibrary/package_bgs/IBGS.h ../lib/bgslibrary/package_bgs/IMBS/IMBS.hpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.h ../lib/bgslibrary/package_bgs/LBSP/DistanceUtils.h ../lib/bgslibrary/package_bgs/LBSP/RandUtils.h ../lib/bgslibrary/package_bgs/LBSP/LBSP_.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.h ../lib/bgslibrary/package_bgs/LBSP/LBSP.h ../lib/ACFlibrary/ACF/ACFDetector.h ../lib/ACFlibrary/ACF/ACFFeaturePyramid.h ../lib/ACFlibrary/ACF/Channel.h ../lib/ACFlibrary/ACF/ChannelFeatures.h ../lib/ACFlibrary/ACF/ColorChannel.h ../lib/ACFlibrary/ACF/GradHistChannel.h ../lib/ACFlibrary/ACF/GradMagChannel.h ../lib/ACFlibrary/ACF/imResampleMex.hpp ../lib/ACFlibrary/ACF/rgbConvertMex.hpp ../lib/ACFlibrary/ACF/sse.hpp ../lib/ACFlibrary/ACF/wrappers.hpp ../lib/ACFlibrary/Channel/Functions.h ../lib/ACFlibrary/Core/detection.h ../lib/ACFlibrary/Core/DetectionList.h ../lib/ACFlibrary/Core/detector.h ../lib/ACFlibrary/Core/DetectorManager.h ../lib/ACFlibrary/Core/detectormodel.h ../lib/ACFlibrary/Core/dirent.h ../lib/ACFlibrary/Core/feature.h ../lib/ACFlibrary/Core/featurelayer.h ../lib/ACFlibrary/Core/filelocator.h ../lib/ACFlibrary/Core/FileWriter.h ../lib/ACFlibrary/Core/FrameFromCamera.h ../lib/ACFlibrary/Core/FrameFromDirectory.h ../lib/ACFlibrary/Core/FrameFromVideo.h ../lib/ACFlibrary/Core/FrameProducer.h ../lib/ACFlibrary/Core/Image.hpp ../lib/ACFlibrary/Core/nms.h ../lib/ACFlibrary/Core/NonMaximumSuppression.h ../lib/ACFlibrary/Core/ScaleSpacePyramid.h ../lib/ACFlibrary/rapidxml-1.13/rapidxml_iterators.hpp ../lib/ACFlibrary/rapidxml-1.13/rapidxml_print.hpp ../lib/ACFlibrary/rapidxml-1.13/rapidxml_utils.hpp ../lib/ACFlibrary/rapidxml-1.13/rapidxml.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../proj/Qt\ Projects/System_Evaluation/main.cpp ../src/SFGD/StaticMaskExtractor_Subsampling.cpp ../src/SFGD/StaticMaskExtractor.cpp ../src/SFGD/StaticMaskExtractor_AccMask.cpp ../src/SFGD/SFGDSelector.cpp ../src/BGS/BkgSubtractionSelector.cpp ../src/BLOBS/BlobExtractor.cpp ../src/BLOBS/BasicBlob.cpp ../src/Utils/solape.cpp ../src/DETECTOR/DefineObjectBlobList.cpp ../src/BLOBS/CompareBlobs.cpp ../src/BLOBS/ObjectBlob.cpp ../src/CLASSIFIER/ClassifierSelector.cpp ../src/CLASSIFIER/StaticObjectClassifier.cpp ../src/CLASSIFIER/StaticObjectClassifierHist.cpp ../src/CLASSIFIER/StaticObjectClassifierHighGradient.cpp ../src/Utils/DrawDetections.cpp ../src/Event/EventController.cpp ../src/Event/EventWriter.cpp ../src/Event/Event.cpp ../lib/DPM/dpm_cascade_detector.cpp ../lib/DPM/dpm_cascade.cpp ../lib/DPM/dpm_convolution.cpp ../lib/DPM/dpm_feature.cpp ../lib/DPM/dpm_model.cpp ../lib/DPM/dpm_nms.cpp ../proj/Qt\ Projects/System_Evaluation/video.cpp ../src/DETECTOR/detectorselector.cpp ../lib/bgslibrary/package_bgs/KNN.cpp ../lib/bgslibrary/package_bgs/IndependentMultimodal.cpp ../lib/bgslibrary/package_bgs/LOBSTER.cpp ../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.cpp ../lib/bgslibrary/package_bgs/PAWCS.cpp ../lib/bgslibrary/package_bgs/SuBSENSE.cpp ../lib/bgslibrary/package_bgs/IMBS/IMBS.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.cpp ../lib/bgslibrary/package_bgs/LBSP/LBSP_.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.cpp ../lib/bgslibrary/package_bgs/LBSP/LBSP.cpp ../lib/ACFlibrary/ACF/ACFDetector.cpp ../lib/ACFlibrary/ACF/ACFFeaturePyramid.cpp ../lib/ACFlibrary/ACF/Channel.cpp ../lib/ACFlibrary/ACF/ChannelFeatures.cpp ../lib/ACFlibrary/ACF/ColorChannel.cpp ../lib/ACFlibrary/ACF/convConst.cpp ../lib/ACFlibrary/ACF/GradHistChannel.cpp ../lib/ACFlibrary/ACF/gradientMex.cpp ../lib/ACFlibrary/ACF/GradMagChannel.cpp ../lib/ACFlibrary/ACF/wrappers.cpp ../lib/ACFlibrary/Channel/Convert.cpp ../lib/ACFlibrary/Core/detection.cpp ../lib/ACFlibrary/Core/DetectionList.cpp ../lib/ACFlibrary/Core/detector.cpp ../lib/ACFlibrary/Core/DetectorManager.cpp ../lib/ACFlibrary/Core/detectormodel.cpp ../lib/ACFlibrary/Core/feature.cpp ../lib/ACFlibrary/Core/featurelayer.cpp ../lib/ACFlibrary/Core/filelocator.cpp ../lib/ACFlibrary/Core/FileWriter.cpp ../lib/ACFlibrary/Core/FrameFromCamera.cpp ../lib/ACFlibrary/Core/FrameFromDirectory.cpp ../lib/ACFlibrary/Core/FrameFromVideo.cpp ../lib/ACFlibrary/Core/FrameProducer.cpp ../lib/ACFlibrary/Core/nms.cpp ../lib/ACFlibrary/Core/NonMaximumSuppression.cpp ../lib/ACFlibrary/Core/ScaleSpacePyramid.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -850,21 +849,15 @@ compiler_moc_header_make_all:
 compiler_moc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h
+compiler_uic_make_all:
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h
-ui_mainwindow.h: ../proj/Qt\ Projects/System_Evaluation/mainwindow.ui \
-		../../Qt5.7.0/5.7/gcc_64/bin/uic \
-		../proj/Qt\ Projects/System_Evaluation/imagewidget.h
-	/home/vpu/Qt5.7.0/5.7/gcc_64/bin/uic ../proj/Qt\ Projects/System_Evaluation/mainwindow.ui -o ui_mainwindow.h
-
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
 compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_uic_clean 
+compiler_clean: 
 
 ####### Compile
 
@@ -1102,21 +1095,21 @@ main.o: ../proj/Qt\ Projects/System_Evaluation/main.cpp ../../Qt5.7.0/5.7/gcc_64
 		../src/SFGD/StaticMaskExtractor_AccMask.h \
 		../src/DETECTOR/detectorselector.h \
 		../lib/DPM/dpm.hpp \
-		../lib/ACF/ACFDetector.h \
-		../lib/Core/detection.h \
-		../lib/rapidxml-1.13/rapidxml.hpp \
-		../lib/rapidxml-1.13/rapidxml_print.hpp \
-		../lib/ACF/ChannelFeatures.h \
-		../lib/ACF/ColorChannel.h \
-		../lib/ACF/Channel.h \
-		../lib/ACF/GradMagChannel.h \
-		../lib/ACF/GradHistChannel.h \
-		../lib/Core/DetectionList.h \
-		../lib/Core/FileWriter.h \
-		../lib/Core/detector.h \
-		../lib/Core/detectormodel.h \
-		../lib/Core/NonMaximumSuppression.h \
-		../lib/Core/nms.h \
+		../lib/ACFlibrary/ACF/ACFDetector.h \
+		../lib/ACFlibrary/Core/detection.h \
+		../lib/ACFlibrary/rapidxml-1.13/rapidxml.hpp \
+		../lib/ACFlibrary/rapidxml-1.13/rapidxml_print.hpp \
+		../lib/ACFlibrary/ACF/ChannelFeatures.h \
+		../lib/ACFlibrary/ACF/ColorChannel.h \
+		../lib/ACFlibrary/ACF/Channel.h \
+		../lib/ACFlibrary/ACF/GradMagChannel.h \
+		../lib/ACFlibrary/ACF/GradHistChannel.h \
+		../lib/ACFlibrary/Core/DetectionList.h \
+		../lib/ACFlibrary/Core/FileWriter.h \
+		../lib/ACFlibrary/Core/detector.h \
+		../lib/ACFlibrary/Core/detectormodel.h \
+		../lib/ACFlibrary/Core/NonMaximumSuppression.h \
+		../lib/ACFlibrary/Core/nms.h \
 		../src/DETECTOR/DefineObjectBlobList.h \
 		../src/BLOBS/CompareBlobs.h \
 		../src/CLASSIFIER/ClassifierSelector.h \
@@ -1803,73 +1796,6 @@ video.o: ../proj/Qt\ Projects/System_Evaluation/video.cpp ../proj/Qt\ Projects/S
 		../../Qt5.7.0/5.7/gcc_64/include/QtGui/qpainter.h \
 		../../Qt5.7.0/5.7/gcc_64/include/QtGui/qtextoption.h \
 		../../Qt5.7.0/5.7/gcc_64/include/QtGui/qpen.h \
-		ui_mainwindow.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtCore/QVariant \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QAction \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qaction.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qactiongroup.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QApplication \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qapplication.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtCore/qcoreapplication.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtCore/qeventloop.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtGui/qguiapplication.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtGui/qinputmethod.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QButtonGroup \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qbuttongroup.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QCheckBox \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qcheckbox.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qabstractbutton.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QComboBox \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qcombobox.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qstyleoption.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtGui/qvalidator.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtCore/qregularexpression.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qslider.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qabstractslider.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qstyle.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qtabbar.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qrubberband.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qframe.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtCore/qabstractitemmodel.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QFormLayout \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qformlayout.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QLayout \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qlayout.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qlayoutitem.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qboxlayout.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qgridlayout.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QGridLayout \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QGroupBox \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qgroupbox.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QHeaderView \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qheaderview.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qabstractitemview.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtCore/qitemselectionmodel.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QLabel \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qlabel.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QMenu \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qmenu.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QMenuBar \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qmenubar.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QPushButton \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qpushbutton.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QSpinBox \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qspinbox.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QStatusBar \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qstatusbar.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QTextBrowser \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qtextbrowser.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qtextedit.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtGui/qtextdocument.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtGui/qtextcursor.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtGui/qtextformat.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QToolBar \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/qtoolbar.h \
-		../../Qt5.7.0/5.7/gcc_64/include/QtWidgets/QVBoxLayout \
 		../proj/Qt\ Projects/System_Evaluation/video.h \
 		../../Qt5.7.0/5.7/gcc_64/include/QtCore/QString \
 		../src/BLOBS/BlobExtractor.h \
@@ -1884,21 +1810,21 @@ video.o: ../proj/Qt\ Projects/System_Evaluation/video.cpp ../proj/Qt\ Projects/S
 
 detectorselector.o: ../src/DETECTOR/detectorselector.cpp ../src/DETECTOR/detectorselector.h \
 		../lib/DPM/dpm.hpp \
-		../lib/ACF/ACFDetector.h \
-		../lib/Core/detection.h \
-		../lib/rapidxml-1.13/rapidxml.hpp \
-		../lib/rapidxml-1.13/rapidxml_print.hpp \
-		../lib/ACF/ChannelFeatures.h \
-		../lib/ACF/ColorChannel.h \
-		../lib/ACF/Channel.h \
-		../lib/ACF/GradMagChannel.h \
-		../lib/ACF/GradHistChannel.h \
-		../lib/Core/DetectionList.h \
-		../lib/Core/FileWriter.h \
-		../lib/Core/detector.h \
-		../lib/Core/detectormodel.h \
-		../lib/Core/NonMaximumSuppression.h \
-		../lib/Core/nms.h
+		../lib/ACFlibrary/ACF/ACFDetector.h \
+		../lib/ACFlibrary/Core/detection.h \
+		../lib/ACFlibrary/rapidxml-1.13/rapidxml.hpp \
+		../lib/ACFlibrary/rapidxml-1.13/rapidxml_print.hpp \
+		../lib/ACFlibrary/ACF/ChannelFeatures.h \
+		../lib/ACFlibrary/ACF/ColorChannel.h \
+		../lib/ACFlibrary/ACF/Channel.h \
+		../lib/ACFlibrary/ACF/GradMagChannel.h \
+		../lib/ACFlibrary/ACF/GradHistChannel.h \
+		../lib/ACFlibrary/Core/DetectionList.h \
+		../lib/ACFlibrary/Core/FileWriter.h \
+		../lib/ACFlibrary/Core/detector.h \
+		../lib/ACFlibrary/Core/detectormodel.h \
+		../lib/ACFlibrary/Core/NonMaximumSuppression.h \
+		../lib/ACFlibrary/Core/nms.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o detectorselector.o ../src/DETECTOR/detectorselector.cpp
 
 KNN.o: ../lib/bgslibrary/package_bgs/KNN.cpp ../lib/bgslibrary/package_bgs/KNN.h \
@@ -2114,163 +2040,163 @@ LBSP.o: ../lib/bgslibrary/package_bgs/LBSP/LBSP.cpp ../lib/bgslibrary/package_bg
 		../lib/bgslibrary/package_bgs/LBSP/LBSP_16bits_dbcross_s3ch.i
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LBSP.o ../lib/bgslibrary/package_bgs/LBSP/LBSP.cpp
 
-ACFDetector.o: ../lib/ACF/ACFDetector.cpp ../lib/ACF/ACFDetector.h \
-		../lib/Core/detection.h \
-		../lib/rapidxml-1.13/rapidxml.hpp \
-		../lib/rapidxml-1.13/rapidxml_print.hpp \
-		../lib/ACF/ChannelFeatures.h \
-		../lib/ACF/ColorChannel.h \
-		../lib/ACF/Channel.h \
-		../lib/ACF/GradMagChannel.h \
-		../lib/ACF/GradHistChannel.h \
-		../lib/Core/DetectionList.h \
-		../lib/Core/FileWriter.h \
-		../lib/Core/detector.h \
-		../lib/Core/detectormodel.h \
-		../lib/ACF/ACFFeaturePyramid.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ACFDetector.o ../lib/ACF/ACFDetector.cpp
+ACFDetector.o: ../lib/ACFlibrary/ACF/ACFDetector.cpp ../lib/ACFlibrary/ACF/ACFDetector.h \
+		../lib/ACFlibrary/Core/detection.h \
+		../lib/ACFlibrary/rapidxml-1.13/rapidxml.hpp \
+		../lib/ACFlibrary/rapidxml-1.13/rapidxml_print.hpp \
+		../lib/ACFlibrary/ACF/ChannelFeatures.h \
+		../lib/ACFlibrary/ACF/ColorChannel.h \
+		../lib/ACFlibrary/ACF/Channel.h \
+		../lib/ACFlibrary/ACF/GradMagChannel.h \
+		../lib/ACFlibrary/ACF/GradHistChannel.h \
+		../lib/ACFlibrary/Core/DetectionList.h \
+		../lib/ACFlibrary/Core/FileWriter.h \
+		../lib/ACFlibrary/Core/detector.h \
+		../lib/ACFlibrary/Core/detectormodel.h \
+		../lib/ACFlibrary/ACF/ACFFeaturePyramid.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ACFDetector.o ../lib/ACFlibrary/ACF/ACFDetector.cpp
 
-ACFFeaturePyramid.o: ../lib/ACF/ACFFeaturePyramid.cpp ../lib/ACF/ACFFeaturePyramid.h \
-		../lib/ACF/ChannelFeatures.h \
-		../lib/ACF/ColorChannel.h \
-		../lib/ACF/Channel.h \
-		../lib/ACF/GradMagChannel.h \
-		../lib/ACF/GradHistChannel.h \
-		../lib/ACF/ACFDetector.h \
-		../lib/Core/detection.h \
-		../lib/rapidxml-1.13/rapidxml.hpp \
-		../lib/rapidxml-1.13/rapidxml_print.hpp \
-		../lib/Core/DetectionList.h \
-		../lib/Core/FileWriter.h \
-		../lib/Core/detector.h \
-		../lib/Core/detectormodel.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ACFFeaturePyramid.o ../lib/ACF/ACFFeaturePyramid.cpp
+ACFFeaturePyramid.o: ../lib/ACFlibrary/ACF/ACFFeaturePyramid.cpp ../lib/ACFlibrary/ACF/ACFFeaturePyramid.h \
+		../lib/ACFlibrary/ACF/ChannelFeatures.h \
+		../lib/ACFlibrary/ACF/ColorChannel.h \
+		../lib/ACFlibrary/ACF/Channel.h \
+		../lib/ACFlibrary/ACF/GradMagChannel.h \
+		../lib/ACFlibrary/ACF/GradHistChannel.h \
+		../lib/ACFlibrary/ACF/ACFDetector.h \
+		../lib/ACFlibrary/Core/detection.h \
+		../lib/ACFlibrary/rapidxml-1.13/rapidxml.hpp \
+		../lib/ACFlibrary/rapidxml-1.13/rapidxml_print.hpp \
+		../lib/ACFlibrary/Core/DetectionList.h \
+		../lib/ACFlibrary/Core/FileWriter.h \
+		../lib/ACFlibrary/Core/detector.h \
+		../lib/ACFlibrary/Core/detectormodel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ACFFeaturePyramid.o ../lib/ACFlibrary/ACF/ACFFeaturePyramid.cpp
 
-Channel.o: ../lib/ACF/Channel.cpp ../lib/ACF/Channel.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Channel.o ../lib/ACF/Channel.cpp
+Channel.o: ../lib/ACFlibrary/ACF/Channel.cpp ../lib/ACFlibrary/ACF/Channel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Channel.o ../lib/ACFlibrary/ACF/Channel.cpp
 
-ChannelFeatures.o: ../lib/ACF/ChannelFeatures.cpp ../lib/ACF/ChannelFeatures.h \
-		../lib/ACF/ColorChannel.h \
-		../lib/ACF/Channel.h \
-		../lib/ACF/GradMagChannel.h \
-		../lib/ACF/GradHistChannel.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ChannelFeatures.o ../lib/ACF/ChannelFeatures.cpp
+ChannelFeatures.o: ../lib/ACFlibrary/ACF/ChannelFeatures.cpp ../lib/ACFlibrary/ACF/ChannelFeatures.h \
+		../lib/ACFlibrary/ACF/ColorChannel.h \
+		../lib/ACFlibrary/ACF/Channel.h \
+		../lib/ACFlibrary/ACF/GradMagChannel.h \
+		../lib/ACFlibrary/ACF/GradHistChannel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ChannelFeatures.o ../lib/ACFlibrary/ACF/ChannelFeatures.cpp
 
-ColorChannel.o: ../lib/ACF/ColorChannel.cpp ../lib/ACF/imResampleMex.hpp \
-		../lib/ACF/sse.hpp \
-		../lib/ACF/wrappers.hpp \
-		../lib/ACF/rgbConvertMex.hpp \
-		../lib/ACF/ColorChannel.h \
-		../lib/ACF/Channel.h \
-		../lib/ACF/GradMagChannel.h \
-		../lib/ACF/GradHistChannel.h \
-		../lib/ACF/ChannelFeatures.h \
-		../lib/Channel/Functions.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ColorChannel.o ../lib/ACF/ColorChannel.cpp
+ColorChannel.o: ../lib/ACFlibrary/ACF/ColorChannel.cpp ../lib/ACFlibrary/ACF/imResampleMex.hpp \
+		../lib/ACFlibrary/ACF/sse.hpp \
+		../lib/ACFlibrary/ACF/wrappers.hpp \
+		../lib/ACFlibrary/ACF/rgbConvertMex.hpp \
+		../lib/ACFlibrary/ACF/ColorChannel.h \
+		../lib/ACFlibrary/ACF/Channel.h \
+		../lib/ACFlibrary/ACF/GradMagChannel.h \
+		../lib/ACFlibrary/ACF/GradHistChannel.h \
+		../lib/ACFlibrary/ACF/ChannelFeatures.h \
+		../lib/ACFlibrary/Channel/Functions.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ColorChannel.o ../lib/ACFlibrary/ACF/ColorChannel.cpp
 
-convConst.o: ../lib/ACF/convConst.cpp ../lib/ACF/wrappers.hpp \
-		../lib/ACF/sse.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o convConst.o ../lib/ACF/convConst.cpp
+convConst.o: ../lib/ACFlibrary/ACF/convConst.cpp ../lib/ACFlibrary/ACF/wrappers.hpp \
+		../lib/ACFlibrary/ACF/sse.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o convConst.o ../lib/ACFlibrary/ACF/convConst.cpp
 
-GradHistChannel.o: ../lib/ACF/GradHistChannel.cpp ../lib/ACF/GradHistChannel.h \
-		../lib/ACF/Channel.h \
-		../lib/ACF/GradMagChannel.h \
-		../lib/ACF/ColorChannel.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GradHistChannel.o ../lib/ACF/GradHistChannel.cpp
+GradHistChannel.o: ../lib/ACFlibrary/ACF/GradHistChannel.cpp ../lib/ACFlibrary/ACF/GradHistChannel.h \
+		../lib/ACFlibrary/ACF/Channel.h \
+		../lib/ACFlibrary/ACF/GradMagChannel.h \
+		../lib/ACFlibrary/ACF/ColorChannel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GradHistChannel.o ../lib/ACFlibrary/ACF/GradHistChannel.cpp
 
-gradientMex.o: ../lib/ACF/gradientMex.cpp ../lib/ACF/wrappers.hpp \
-		../lib/ACF/sse.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gradientMex.o ../lib/ACF/gradientMex.cpp
+gradientMex.o: ../lib/ACFlibrary/ACF/gradientMex.cpp ../lib/ACFlibrary/ACF/wrappers.hpp \
+		../lib/ACFlibrary/ACF/sse.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gradientMex.o ../lib/ACFlibrary/ACF/gradientMex.cpp
 
-GradMagChannel.o: ../lib/ACF/GradMagChannel.cpp ../lib/ACF/GradMagChannel.h \
-		../lib/ACF/Channel.h \
-		../lib/ACF/ColorChannel.h \
-		../lib/Channel/Functions.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GradMagChannel.o ../lib/ACF/GradMagChannel.cpp
+GradMagChannel.o: ../lib/ACFlibrary/ACF/GradMagChannel.cpp ../lib/ACFlibrary/ACF/GradMagChannel.h \
+		../lib/ACFlibrary/ACF/Channel.h \
+		../lib/ACFlibrary/ACF/ColorChannel.h \
+		../lib/ACFlibrary/Channel/Functions.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GradMagChannel.o ../lib/ACFlibrary/ACF/GradMagChannel.cpp
 
-wrappers.o: ../lib/ACF/wrappers.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o wrappers.o ../lib/ACF/wrappers.cpp
+wrappers.o: ../lib/ACFlibrary/ACF/wrappers.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o wrappers.o ../lib/ACFlibrary/ACF/wrappers.cpp
 
-Convert.o: ../lib/Channel/Convert.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Convert.o ../lib/Channel/Convert.cpp
+Convert.o: ../lib/ACFlibrary/Channel/Convert.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Convert.o ../lib/ACFlibrary/Channel/Convert.cpp
 
-detection.o: ../lib/Core/detection.cpp ../lib/Core/detection.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o detection.o ../lib/Core/detection.cpp
+detection.o: ../lib/ACFlibrary/Core/detection.cpp ../lib/ACFlibrary/Core/detection.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o detection.o ../lib/ACFlibrary/Core/detection.cpp
 
-DetectionList.o: ../lib/Core/DetectionList.cpp ../lib/Core/DetectionList.h \
-		../lib/Core/detection.h \
-		../lib/Core/FileWriter.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DetectionList.o ../lib/Core/DetectionList.cpp
+DetectionList.o: ../lib/ACFlibrary/Core/DetectionList.cpp ../lib/ACFlibrary/Core/DetectionList.h \
+		../lib/ACFlibrary/Core/detection.h \
+		../lib/ACFlibrary/Core/FileWriter.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DetectionList.o ../lib/ACFlibrary/Core/DetectionList.cpp
 
-detector.o: ../lib/Core/detector.cpp ../lib/Core/detector.h \
-		../lib/Core/detection.h \
-		../lib/Core/detectormodel.h \
-		../lib/Core/DetectionList.h \
-		../lib/Core/FileWriter.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o detector.o ../lib/Core/detector.cpp
+detector.o: ../lib/ACFlibrary/Core/detector.cpp ../lib/ACFlibrary/Core/detector.h \
+		../lib/ACFlibrary/Core/detection.h \
+		../lib/ACFlibrary/Core/detectormodel.h \
+		../lib/ACFlibrary/Core/DetectionList.h \
+		../lib/ACFlibrary/Core/FileWriter.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o detector.o ../lib/ACFlibrary/Core/detector.cpp
 
-DetectorManager.o: ../lib/Core/DetectorManager.cpp ../lib/Core/DetectorManager.h \
-		../lib/ACF/ACFDetector.h \
-		../lib/Core/detection.h \
-		../lib/rapidxml-1.13/rapidxml.hpp \
-		../lib/rapidxml-1.13/rapidxml_print.hpp \
-		../lib/ACF/ChannelFeatures.h \
-		../lib/ACF/ColorChannel.h \
-		../lib/ACF/Channel.h \
-		../lib/ACF/GradMagChannel.h \
-		../lib/ACF/GradHistChannel.h \
-		../lib/Core/DetectionList.h \
-		../lib/Core/FileWriter.h \
-		../lib/Core/detector.h \
-		../lib/Core/detectormodel.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DetectorManager.o ../lib/Core/DetectorManager.cpp
+DetectorManager.o: ../lib/ACFlibrary/Core/DetectorManager.cpp ../lib/ACFlibrary/Core/DetectorManager.h \
+		../lib/ACFlibrary/ACF/ACFDetector.h \
+		../lib/ACFlibrary/Core/detection.h \
+		../lib/ACFlibrary/rapidxml-1.13/rapidxml.hpp \
+		../lib/ACFlibrary/rapidxml-1.13/rapidxml_print.hpp \
+		../lib/ACFlibrary/ACF/ChannelFeatures.h \
+		../lib/ACFlibrary/ACF/ColorChannel.h \
+		../lib/ACFlibrary/ACF/Channel.h \
+		../lib/ACFlibrary/ACF/GradMagChannel.h \
+		../lib/ACFlibrary/ACF/GradHistChannel.h \
+		../lib/ACFlibrary/Core/DetectionList.h \
+		../lib/ACFlibrary/Core/FileWriter.h \
+		../lib/ACFlibrary/Core/detector.h \
+		../lib/ACFlibrary/Core/detectormodel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DetectorManager.o ../lib/ACFlibrary/Core/DetectorManager.cpp
 
-detectormodel.o: ../lib/Core/detectormodel.cpp ../lib/Core/detectormodel.h \
-		../lib/Core/detection.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o detectormodel.o ../lib/Core/detectormodel.cpp
+detectormodel.o: ../lib/ACFlibrary/Core/detectormodel.cpp ../lib/ACFlibrary/Core/detectormodel.h \
+		../lib/ACFlibrary/Core/detection.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o detectormodel.o ../lib/ACFlibrary/Core/detectormodel.cpp
 
-feature.o: ../lib/Core/feature.cpp ../lib/Core/feature.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o feature.o ../lib/Core/feature.cpp
+feature.o: ../lib/ACFlibrary/Core/feature.cpp ../lib/ACFlibrary/Core/feature.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o feature.o ../lib/ACFlibrary/Core/feature.cpp
 
-featurelayer.o: ../lib/Core/featurelayer.cpp ../lib/Core/featurelayer.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o featurelayer.o ../lib/Core/featurelayer.cpp
+featurelayer.o: ../lib/ACFlibrary/Core/featurelayer.cpp ../lib/ACFlibrary/Core/featurelayer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o featurelayer.o ../lib/ACFlibrary/Core/featurelayer.cpp
 
-filelocator.o: ../lib/Core/filelocator.cpp ../lib/Core/filelocator.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o filelocator.o ../lib/Core/filelocator.cpp
+filelocator.o: ../lib/ACFlibrary/Core/filelocator.cpp ../lib/ACFlibrary/Core/filelocator.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o filelocator.o ../lib/ACFlibrary/Core/filelocator.cpp
 
-FileWriter.o: ../lib/Core/FileWriter.cpp ../lib/Core/FileWriter.h \
-		../lib/Core/detection.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o FileWriter.o ../lib/Core/FileWriter.cpp
+FileWriter.o: ../lib/ACFlibrary/Core/FileWriter.cpp ../lib/ACFlibrary/Core/FileWriter.h \
+		../lib/ACFlibrary/Core/detection.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o FileWriter.o ../lib/ACFlibrary/Core/FileWriter.cpp
 
-FrameFromCamera.o: ../lib/Core/FrameFromCamera.cpp ../lib/Core/FrameFromCamera.h \
-		../lib/Core/FrameProducer.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o FrameFromCamera.o ../lib/Core/FrameFromCamera.cpp
+FrameFromCamera.o: ../lib/ACFlibrary/Core/FrameFromCamera.cpp ../lib/ACFlibrary/Core/FrameFromCamera.h \
+		../lib/ACFlibrary/Core/FrameProducer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o FrameFromCamera.o ../lib/ACFlibrary/Core/FrameFromCamera.cpp
 
-FrameFromDirectory.o: ../lib/Core/FrameFromDirectory.cpp ../lib/Core/filelocator.h \
-		../lib/Core/FrameFromDirectory.h \
-		../lib/Core/FrameProducer.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o FrameFromDirectory.o ../lib/Core/FrameFromDirectory.cpp
+FrameFromDirectory.o: ../lib/ACFlibrary/Core/FrameFromDirectory.cpp ../lib/ACFlibrary/Core/filelocator.h \
+		../lib/ACFlibrary/Core/FrameFromDirectory.h \
+		../lib/ACFlibrary/Core/FrameProducer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o FrameFromDirectory.o ../lib/ACFlibrary/Core/FrameFromDirectory.cpp
 
-FrameFromVideo.o: ../lib/Core/FrameFromVideo.cpp ../lib/Core/FrameFromVideo.h \
-		../lib/Core/FrameProducer.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o FrameFromVideo.o ../lib/Core/FrameFromVideo.cpp
+FrameFromVideo.o: ../lib/ACFlibrary/Core/FrameFromVideo.cpp ../lib/ACFlibrary/Core/FrameFromVideo.h \
+		../lib/ACFlibrary/Core/FrameProducer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o FrameFromVideo.o ../lib/ACFlibrary/Core/FrameFromVideo.cpp
 
-FrameProducer.o: ../lib/Core/FrameProducer.cpp ../lib/Core/FrameProducer.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o FrameProducer.o ../lib/Core/FrameProducer.cpp
+FrameProducer.o: ../lib/ACFlibrary/Core/FrameProducer.cpp ../lib/ACFlibrary/Core/FrameProducer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o FrameProducer.o ../lib/ACFlibrary/Core/FrameProducer.cpp
 
-nms.o: ../lib/Core/nms.cpp ../lib/Core/nms.h \
-		../lib/Core/detection.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o nms.o ../lib/Core/nms.cpp
+nms.o: ../lib/ACFlibrary/Core/nms.cpp ../lib/ACFlibrary/Core/nms.h \
+		../lib/ACFlibrary/Core/detection.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o nms.o ../lib/ACFlibrary/Core/nms.cpp
 
-NonMaximumSuppression.o: ../lib/Core/NonMaximumSuppression.cpp ../lib/Core/NonMaximumSuppression.h \
-		../lib/Core/DetectionList.h \
-		../lib/Core/detection.h \
-		../lib/Core/FileWriter.h \
-		../lib/Core/nms.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o NonMaximumSuppression.o ../lib/Core/NonMaximumSuppression.cpp
+NonMaximumSuppression.o: ../lib/ACFlibrary/Core/NonMaximumSuppression.cpp ../lib/ACFlibrary/Core/NonMaximumSuppression.h \
+		../lib/ACFlibrary/Core/DetectionList.h \
+		../lib/ACFlibrary/Core/detection.h \
+		../lib/ACFlibrary/Core/FileWriter.h \
+		../lib/ACFlibrary/Core/nms.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o NonMaximumSuppression.o ../lib/ACFlibrary/Core/NonMaximumSuppression.cpp
 
-ScaleSpacePyramid.o: ../lib/Core/ScaleSpacePyramid.cpp ../lib/Core/ScaleSpacePyramid.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ScaleSpacePyramid.o ../lib/Core/ScaleSpacePyramid.cpp
+ScaleSpacePyramid.o: ../lib/ACFlibrary/Core/ScaleSpacePyramid.cpp ../lib/ACFlibrary/Core/ScaleSpacePyramid.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ScaleSpacePyramid.o ../lib/ACFlibrary/Core/ScaleSpacePyramid.cpp
 
 ####### Install
 

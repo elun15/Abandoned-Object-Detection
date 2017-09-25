@@ -114,9 +114,9 @@ void BkgSubtractionSelector::process(Mat frame,video Video)
     this->bgs->process(frame,this->img_output,this->img_bgmodel);
 
 
-    if (!Video.contextMask.empty())
+    if (!Video.contextMask1.empty())
     {
-        bitwise_and(this->img_output,Video.contextMask,this->img_output);
+        bitwise_and(this->img_output,Video.contextMask1,this->img_output);
     }
 
     if (Video.ShowResults)

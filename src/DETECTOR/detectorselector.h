@@ -7,9 +7,9 @@
 #include <iostream>
 #include "../../../lib/DPM/dpm.hpp"
 //ACF
-#include "../../../lib/ACF/ACFDetector.h"
-#include "../../../lib/Core/DetectionList.h"
-#include "../../../lib/Core/NonMaximumSuppression.h"
+#include "../../../lib/ACFlibrary/ACF/ACFDetector.h"
+#include "../../../lib/ACFlibrary/Core/DetectionList.h"
+#include "../../../lib/ACFlibrary/Core/NonMaximumSuppression.h"
 
 
 using namespace std;

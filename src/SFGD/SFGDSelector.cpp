@@ -31,11 +31,21 @@ void SFDGSelector::init(Mat frame)
 
     switch (this->int_SFGDid)
     {
+    //SUBSAMPLING
     case 1:
         this->psubsamplingSFGD = new StaticMaskExtractor_subsampling(frame, this->framerate, this->time2static, SFGD_SUBSAMPLING_NUMSTAGES);
         break;
+
+    //ACC MASK
     case 2:
         this->pAccMaskSFGD = new StaticMaskExtractor_AccMask(frame, this->framerate, this->time2static, 2.0f, 250);
+        break;
+
+    //HistoryImages
+    case 3:
+
+
+
         break;
     default:
         break;
@@ -98,6 +108,22 @@ void SFDGSelector::process(Mat frame, Mat foreground_img, Mat bgmodel_img,video 
 
         }
         break;
+
+
+        //History Images
+
+    case 3:
+
+
+        //History Images processing code here
+        //
+
+
+
+
+
+        break;
+
 
 
     default:
