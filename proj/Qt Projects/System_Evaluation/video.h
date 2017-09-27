@@ -5,7 +5,7 @@
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
 #include <iostream>
-#include <QString>
+
 #include "../../../src/BLOBS/BlobExtractor.h"
 #include "../../../src/BLOBS/BlobList.h"
 #include "../../../src/BLOBS/ObjectBlob.h"

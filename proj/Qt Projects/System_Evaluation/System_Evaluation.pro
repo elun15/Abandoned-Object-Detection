@@ -92,7 +92,9 @@ SOURCES += main.cpp\
     ../../../lib/ACFlibrary/Core/FrameProducer.cpp \
     ../../../lib/ACFlibrary/Core/nms.cpp \
     ../../../lib/ACFlibrary/Core/NonMaximumSuppression.cpp \
-    ../../../lib/ACFlibrary/Core/ScaleSpacePyramid.cpp
+    ../../../lib/ACFlibrary/Core/ScaleSpacePyramid.cpp \
+    ../../../src/Utils/CurrentDateTime.cpp \
+    ../../../src/aod.cpp
 
 HEADERS  +=   ../../../src/SFGD/StaticMaskExtractor_subsampling.h \
     ../../../src/SFGD/StaticMaskExtractor.h \
@@ -174,7 +176,9 @@ HEADERS  +=   ../../../src/SFGD/StaticMaskExtractor_subsampling.h \
     ../../../lib/ACFlibrary/rapidxml-1.13/rapidxml_iterators.hpp \
     ../../../lib/ACFlibrary/rapidxml-1.13/rapidxml_print.hpp \
     ../../../lib/ACFlibrary/rapidxml-1.13/rapidxml_utils.hpp \
-    ../../../lib/ACFlibrary/rapidxml-1.13/rapidxml.hpp
+    ../../../lib/ACFlibrary/rapidxml-1.13/rapidxml.hpp \
+    ../../../src/Utils/CurrentDateTime.h \
+    ../../../src/aod.h
 
 # The following lines tells Qmake to use pkg-config for opencv
 QT_CONFIG -= no-pkg-config

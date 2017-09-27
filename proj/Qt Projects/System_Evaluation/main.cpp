@@ -1,16 +1,7 @@
-
-#include <QApplication>
-
 #include <iostream>
-#include <QTimer>
 #include <ctime>
 #include <time.h>
-#include <QString>
-#include <QWidget>
-#include <QFileDialog>
-#include <opencv2/opencv.hpp>
-#include "opencv2/imgproc/imgproc.hpp"
-#include "opencv2/highgui/highgui.hpp"
+
 #include "video.h"
 #include <string>
 #include <stdlib.h>
@@ -30,8 +21,8 @@
 #include "../../../src/DETECTOR/DefineObjectBlobList.h"
 #include "../../../src/CLASSIFIER/ClassifierSelector.h"
 #include "../../../src/Event/EventController.h"
-
-
+#include "../../../src/Utils/CurrentDateTime.h"
+#include "../../../src/aod.h"
 
 
 //Global pointers
@@ -45,24 +36,6 @@ using namespace cv;
 using namespace std;
 
 
-
-/*********************************/
-/*** GET CURRENT TIME FUNCTION ***/
-/*********************************/
-
-const string currentDateTime() {
-    time_t     now = time(0);
-    struct tm  tstruct;
-    char       buf[80];
-    tstruct = *localtime(&now);
-    // Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
-    // for more information about date/time format
-    strftime(buf, sizeof(buf), "%Y-%m-%d.%H-%M", &tstruct);
-
-    return buf;
-}
-
-
 /*********************************/
 /*** MAIN PROGRAM FUNCTION     ***/
 /*********************************/
@@ -73,6 +46,7 @@ int main(int argc, char *argv[])
 {
     // Video class
     video Video;
+    AOD system;
 
 
     /******************************/
@@ -104,7 +78,7 @@ int main(int argc, char *argv[])
         cout << "Executing with default parameters" << endl;
 
         // BKG METHOD
-        Video.bkg_method = 6;
+        Video.bkg_method = 3;
 
         // SFGD METHOD
         Video.sfgd_method  = 1;
@@ -113,11 +87,11 @@ int main(int argc, char *argv[])
         Video.classifier_method = 1;
 
         // PEOPLE DETECTOR METHOD
-        Video.detector_method = 3;
+        Video.detector_method = 1;
 
         // INPUT VIDEO FILE DIRECTORY
-        //Video.fileDir = "../datasets/VISOR/visor_Video00.avi";
-         Video.fileDir = "../datasets/AVSS/AVSS_corto.mov";
+        Video.fileDir = "../datasets/VISOR/visor_Video00.avi";
+         //Video.fileDir = "../datasets/AVSS/AVSS_corto.mov";
 
         // RESULTS FOLDER
         Video.folder_results  = "../results/";
@@ -386,9 +360,6 @@ int main(int argc, char *argv[])
 
             // Get static foreground mask
             Mat tmp = sfgd_selector->GetStaticForeground().clone();
-            Mat ch[3];
-            split(tmp, ch);
-            tmp = ch[0];
 
             // Extract all blobs in static foreground
             blob_extractor.extractBlobs(tmp,false);
