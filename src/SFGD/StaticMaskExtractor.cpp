@@ -31,27 +31,14 @@ StaticMaskExtractor::StaticMaskExtractor(Mat sampleFrame, double framerate, doub
 
 	this->secs2static = _secs2static;
 	this->framerate = framerate;
-    //this->_log = log;
 
-    //arrSize = cvGetSize(img);
-   // arrSize= img.size;
 
     nChannels = img.channels();
     elemType = img.type();
 
-    //staticMask = NULL;
-    //this->staticMask = cvCreateImage(arrSize, IPL_DEPTH_8U, 1);
-    // this->staticMask = Mat(arrSize,CV_8UC1);
 
     this->staticMask = Mat::zeros(img.rows,img.cols,CV_8UC1);
 
-
-
-    //this->staticMask->origin = img->origin;
-
-    //cvSetZero(this->staticMask);
-
-    //this->staticMask.release();
 
 	this->counter = 0;
 }
@@ -67,8 +54,7 @@ StaticMaskExtractor::StaticMaskExtractor(Mat sampleFrame, double framerate, doub
 StaticMaskExtractor::~StaticMaskExtractor(void)
 {
 
-    //if (staticMask != NULL)
-        //cvReleaseImage(&staticMask);
+
 
     if (!staticMask.empty())
         staticMask.release();
