@@ -37,7 +37,7 @@ public:
     double elapsedTime_pd;
     double elapsedTime_class;
     double elapsedTime_write;
-     double elapsedTime_frame;
+    double elapsedTime_frame;
 
    video init(video Video, Mat frame);
    video processFrame(video Video, Mat frame);

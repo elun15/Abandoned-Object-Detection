@@ -12,9 +12,7 @@
 #include "../../../lib/bgslibrary/package_bgs/bgslibrary.h"
 #include <opencv2/video/background_segm.hpp>
 
-
-
-#include "video.h"
+#include "../../../src/video.h"
 
 
 using namespace std;

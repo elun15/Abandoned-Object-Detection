@@ -6,7 +6,7 @@
 #include <iostream>
 #include "BasicBlob.h"
 #include "solape.h"
-#include "video.h"
+#include "../../../src/video.h"
 
 using namespace cv;
 using namespace std;

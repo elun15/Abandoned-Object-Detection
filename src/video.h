@@ -19,8 +19,10 @@ class video
 {
 
 public:
-
     video();
+
+    video init(int argc, char *argv[], video Video);
+    video open(video Video);
    ~video();
 
     VideoCapture cap;

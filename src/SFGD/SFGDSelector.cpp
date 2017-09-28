@@ -8,7 +8,7 @@
 #include <string>
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
-#include "video.h"
+#include "../../../src/video.h"
 
 using namespace std;
 using namespace cv;

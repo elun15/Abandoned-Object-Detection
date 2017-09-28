@@ -10,7 +10,7 @@
 #include "StaticObjectClassifier.h"
 #include "StaticObjectClassifierHist.h"
 #include "StaticObjectClassifierHighGradient.h"
-#include "video.h"
+#include "../../../src/video.h"
 
 /*#include "StaticObjectClassifierPixelColourContrast.h"
 #include "StaticObjectClassifierGradient.h"
