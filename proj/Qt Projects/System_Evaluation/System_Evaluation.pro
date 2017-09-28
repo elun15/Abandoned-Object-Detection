@@ -29,7 +29,7 @@ SOURCES += main.cpp\
     ../../../src/SFGD/StaticMaskExtractor_AccMask.cpp \
     ../../../src/SFGD/SFGDSelector.cpp \
     ../../../src/BGS/BkgSubtractionSelector.cpp \
-     ../../../src/BLOBS/BlobExtractor.cpp \
+    ../../../src/BLOBS/BlobExtractor.cpp \
     ../../../src/BLOBS/BasicBlob.cpp \
     ../../../src/Utils/solape.cpp \
     ../../../src/DETECTOR/DefineObjectBlobList.cpp \
@@ -50,7 +50,7 @@ SOURCES += main.cpp\
     ../../../lib/DPM/dpm_feature.cpp \
     ../../../lib/DPM/dpm_model.cpp \
     ../../../lib/DPM/dpm_nms.cpp \
-    video.cpp \
+    ../../../src/video.cpp \
     ../../../src/DETECTOR/detectorselector.cpp \
     ../../../lib/bgslibrary/package_bgs/KNN.cpp \
     ../../../lib/bgslibrary/package_bgs/IndependentMultimodal.cpp \
@@ -94,7 +94,7 @@ SOURCES += main.cpp\
     ../../../lib/ACFlibrary/Core/NonMaximumSuppression.cpp \
     ../../../lib/ACFlibrary/Core/ScaleSpacePyramid.cpp \
     ../../../src/Utils/CurrentDateTime.cpp \
-    ../../../src/aod.cpp
+    ../../../src/aod.cpp \
 
 HEADERS  +=   ../../../src/SFGD/StaticMaskExtractor_subsampling.h \
     ../../../src/SFGD/StaticMaskExtractor.h \
@@ -123,7 +123,6 @@ HEADERS  +=   ../../../src/SFGD/StaticMaskExtractor_subsampling.h \
     ../../../lib/DPM/dpm_nms.hpp \
     ../../../lib/DPM/dpm.hpp \
     ../../../lib/DPM/precomp.hpp \
-    video.h \
     ../../../src/DETECTOR/detectorselector.h \
     ../../../lib/bgslibrary/package_bgs/KNN.h \
     ../../../lib/bgslibrary/package_bgs/bgslibrary.h \
@@ -178,7 +177,8 @@ HEADERS  +=   ../../../src/SFGD/StaticMaskExtractor_subsampling.h \
     ../../../lib/ACFlibrary/rapidxml-1.13/rapidxml_utils.hpp \
     ../../../lib/ACFlibrary/rapidxml-1.13/rapidxml.hpp \
     ../../../src/Utils/CurrentDateTime.h \
-    ../../../src/aod.h
+    ../../../src/aod.h \
+    ../../../src/video.h
 
 # The following lines tells Qmake to use pkg-config for opencv
 QT_CONFIG -= no-pkg-config

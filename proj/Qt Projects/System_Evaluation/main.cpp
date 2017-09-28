@@ -2,7 +2,7 @@
 #include <ctime>
 #include <time.h>
 
-#include "video.h"
+#include "../../../src/video.h"
 #include <string>
 #include <stdlib.h>
 #include <stdio.h>
@@ -15,18 +15,51 @@
 
 
 #include "../../../src/aod.h"
-#include "../../../src/Utils/CurrentDateTime.h"
 
 
-//Global pointers
-BkgSubtractionSelector *bkg_selector;
-SFDGSelector *sfgd_selector;
-DetectorSelector *detec_selector;
-BlobExtractor blob_extractor;
-ClassifierSelector *classifier_selector;
+
 
 using namespace cv;
 using namespace std;
+
+
+/******************************/
+/*** IMPLEMENTED ALGORITHMS ***/
+/******************************/
+
+// 1: LOBSTER
+// 2: PAWCS
+// 3: MOG2
+// 4: KNN
+// 5: Multimodal
+// 6: SUBSENSE
+
+// 1: Subsampling
+// 2: Acc Mask
+
+// 1: High Gradient
+// 2: Histogram
+
+// 1: HOG
+// 2: DPM
+// 3: ACF
+
+
+/*******************************/
+/*** INPUT TERMINAL COMMANDS ***/
+/*******************************/
+
+// ARGUMENTS ORDER:
+
+// 1: bkg subtraction method
+// 2: sfgd method
+// 3: classifier method
+// 4: people detector method
+// 5: video file directory
+// 6: video name
+// 7: results folder
+// 8: video context mask directory (not mandatory)
+
 
 /*********************************/
 /*** MAIN PROGRAM FUNCTION     ***/
@@ -36,246 +69,24 @@ using namespace std;
 int main(int argc, char *argv[])
 
 {
-    // Video class
-    video Video;
-
     // AOD class encapsulating all the processes
     AOD system;
 
-    /******************************/
-    /*** IMPLEMENTED ALGORITHMS ***/
-    /******************************/
+    // Video class
+    video Video;
 
-    // 1: LOBSTER
-    // 2: PAWCS
-    // 3: MOG2
-    // 4: KNN
-    // 5: Multimodal
-    // 6: SUBSENSE
+    // Initialize all video variables
+    Video = Video.init(argc,argv, Video);
 
-    // 1: Subsampling
-    // 2: Acc Mask
-
-    // 1: High Gradient
-    // 2: Histogram
-
-    // 1: HOG
-    // 2: DPM
-    // 3: ACF
-
-
-    // Using Default parameters
-    if (argc < 7 )
-    {
-
-        cout << "Executing with default parameters" << endl;
-
-        // BKG METHOD
-        Video.bkg_method = 2;
-
-        // SFGD METHOD
-        Video.sfgd_method  = 1;
-
-        // CLASSIFIER METHOD
-        Video.classifier_method = 1;
-
-        // PEOPLE DETECTOR METHOD
-        Video.detector_method = 1;
-
-        // INPUT VIDEO FILE DIRECTORY
-        Video.fileDir = "../datasets/VISOR/visor_Video00.avi";
-        //Video.fileDir = "../datasets/AVSS/AVSS_corto.mov";
-
-        // RESULTS FOLDER
-        Video.folder_results  = "../results/";
-
-    }
-    else //Using input parameters
-    {
-        // BKG METHOD
-        int bkg;
-        istringstream ss(argv[1]);
-        ss >> bkg;
-        Video.bkg_method = bkg;
-        cout << "Selectec bkg method: " << bkg << endl;
-
-        // SFGD METHOD
-        int sfgd;
-        istringstream ss2(argv[2]);
-        ss2 >>sfgd;
-        Video.sfgd_method = sfgd;
-        cout << "Selected sfgd method: " << sfgd << endl;
-
-        // CLASSIFIER METHOD
-        int classif;
-        istringstream ss3(argv[3]);
-        ss3 >> classif;
-        Video.classifier_method= classif;
-        cout << "Selcted classifier method: " << classif << endl;
-
-        // PEOPLE DETECTOR METHOD
-        int pd;
-        istringstream ss4(argv[4]);
-        ss4 >> pd;
-        Video.detector_method= pd;
-        cout << "Selected people detector method:" << pd << endl;
-
-        // INPUT VIDEO FILE DIRECTORY
-        Video.fileDir = argv[5];
-        cout << "Input video dir: " << argv[5] << endl;
-
-        // RESULTS FOLDER
-        Video.folder_results = argv[6];
-
-
-    }
-
-
-    // Compute videoName variable, used for saving the results
-    string basename  = Video.fileDir.substr(Video.fileDir.find_last_of("/")+1);
-    string::size_type const point_position(basename.find_last_of('.'));
-    string videoName = basename.substr(0,point_position);
-
-    // Check if it is required to apply context mask
-    if ( videoName.find("AVSS") != string::npos)
-    {
-        Video.contextMask1 = imread("../datasets/AVSS/AVSS_Mask_1.jpg",CV_LOAD_IMAGE_GRAYSCALE);
-        if (Video.contextMask1.empty())
-        {
-            cout << "Could not open mask image." << endl;
-            return -1;
-        }
-        bitwise_not(Video.contextMask1,Video.contextMask1);
-
-        Video.contextMask = imread("../datasets/AVSS/AVSS_Mask_2.jpg",CV_LOAD_IMAGE_GRAYSCALE);
-        if (Video.contextMask.empty())
-        {
-            cout << "Could not open mask image." << endl;
-            return -1;
-        }
-    }
-
-
-    // XML file with results (.xml)
-    Video.fileResults = Video.folder_results + videoName + "_"+ to_string(Video.bkg_method) + "_" + to_string( Video.sfgd_method) + "_"+ to_string( Video.classifier_method ) + "_" + to_string( Video.detector_method ) + "_"+ currentDateTime() + ".xml";
-    cout << "Results will be saved in " << Video.fileResults << endl;
-
-    // file with execution times (.time)
-    Video.fileTime = Video.folder_results + videoName + "_"+ to_string(Video.bkg_method) + "_" + to_string( Video.sfgd_method) + "_"+ to_string( Video.classifier_method ) + "_" + to_string( Video.detector_method ) + "_"+ currentDateTime() + ".time";
-
-    //Save images directory
-    Video.DirImages = "../../../results/images/";
-
-
-    /*******************************/
-    /*** INPUT TERMINAL COMMANDS ***/
-    /*******************************/
-
-    // ARGUMENTS ORDER:
-
-    // 1: bkg subtraction method
-    // 2: sfgd method
-    // 3: classifier method
-    // 4: people detector method
-    // 5: video file directory
-    // 6: video name
-    // 7: results folder
-    // 8: video context mask directory (not mandatory)
-
-    /********************/
-    /*** MAIN PROCESS ***/
-    /********************/
-
-    // Read video properties
-    Video.cap.open(Video.fileDir);
-    Video.framerate = Video.cap.get(CAP_PROP_FPS);
-    Video.totalNumFrames = Video.cap.get(CAP_PROP_FRAME_COUNT);
-    Video.rows = Video.cap.get(CAP_PROP_FRAME_HEIGHT);
-    Video.cols = Video.cap.get(CAP_PROP_FRAME_WIDTH);
-
-
-    //Check if Videocapture variable has been correctly opened
-    if (!Video.cap.isOpened())
-    {
-        cout << "Could not open the video file" << endl;
-        return -1;
-    }
-    else
-    {
-        cout << "Video successfully opened" << endl;
-        cout << Video.framerate << " fps. Size: " << Video.cap.get(CV_CAP_PROP_FRAME_WIDTH) << " x " << Video.cap.get(CV_CAP_PROP_FRAME_HEIGHT) << endl;
-    }
-
-    /******** VARIABLE SETTING ********/
-
-    // Seconds to consider an object as static
-    Video.time_to_static = 10;
-    cout << "Time (seconds) to static: " << Video.time_to_static << endl;
-
-    // Show results if true
-    Video.ShowResults = false;
-
-    // Save results images if true
-    Video.SaveImages = false;
-
-    // Save XML results file if true
-    Video.SaveResults = true;
-
-    // Detect people in every frame if true
-    Video.DetectPeopleAlways = false;
-    cout << "Detecting people only when something static is detected." << endl;
-
-
-    if ( Video.DetectPeopleAlways )
-    {
-        cout << "Detecting people in every frame." << endl;
-    }
-
-    if (Video.SaveResults == true)
-    {
-
-        cout << "Saving results and execution times." << endl;
-
-        /******** EVENT FILE INITIALIZATION ********/
-        // XML results file initialization
-
-        //To const char* conversion (video file)
-        char *sourceFile = new char[Video.fileDir.length() + 1];
-        strcpy(sourceFile, Video.fileDir.c_str());
-
-        //To const char* conversion (results file)
-        char *resultsFile = new char[ Video.fileResults.length() + 1];
-        strcpy(resultsFile,  Video.fileResults.c_str());
-
-        Video.evtControl = new EventController();
-
-        Video.evtControl->init(Video.rows, Video.cols ,sourceFile, resultsFile, Video.totalNumFrames,Video.framerate, Video.time_to_static, 0);
-
-        // Time file initialization
-        char *pfile = (char *)malloc(strlen(Video.fileTime.c_str()) + 1);
-        strcpy(pfile, Video.fileTime.c_str());
-        Video.file_time = fopen(pfile, "w+");
-
-        fprintf( Video.file_time,"Execution times\n");
-        fprintf( Video.file_time,"Frame    Total     BKG     SFGD      PD    CLASS    WRITE\n");
-
-    }
-
-
-    if (Video.SaveImages == true)
-    {
-        cout << "Images will be saved in " <<  Video.DirImages << endl;
-    }
-
+    // Open video file
+    Video = Video.open(Video);
 
 
     // Start the clock for measuring total consumption time of the whole video sequence
-
     double elapsedTime_totalVideo  = 0;
     clock_t start_total = clock();
 
     /******** LOOP OVER THE VIDEO FILE ********/
-
 
     for ( ; ; )
     {
@@ -287,7 +98,6 @@ int main(int argc, char *argv[])
 
 
         /******** FRAME PROCESSING ********/
-
         if (frame.data)
         {
 
@@ -300,8 +110,6 @@ int main(int argc, char *argv[])
             }
 
            Video = system.processFrame(Video, frame);
-
-
 
 
         }
