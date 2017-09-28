@@ -30,7 +30,18 @@ public:
     BlobExtractor blob_extractor;
     ClassifierSelector *classifier_selector;
 
-    //init();
+
+
+    double elapsedTime_bkg;
+    double elapsedTime_sfgd;
+    double elapsedTime_pd;
+    double elapsedTime_class;
+    double elapsedTime_write;
+     double elapsedTime_frame;
+
+   video init(video Video, Mat frame);
+   video processFrame(video Video, Mat frame);
+   void finish(video Video);
 
 
 

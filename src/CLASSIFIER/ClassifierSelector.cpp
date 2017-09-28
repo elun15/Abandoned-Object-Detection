@@ -55,14 +55,12 @@ Mat ClassifierSelector::process(cv::Mat frame, cv::Mat bkgImage, cv::Mat StaticF
     Mat result;
 
     Mat StaticFGImage=StaticFGImage2.clone();
+
     //remove noise
     Mat element = getStructuringElement(MORPH_RECT, Size(3,3));
 
-
     erode(StaticFGImage, StaticFGImage,element);
-
     dilate(StaticFGImage, StaticFGImage,element);
-
 
     //fill holes
     dilate(StaticFGImage, StaticFGImage,element);
@@ -72,7 +70,6 @@ Mat ClassifierSelector::process(cv::Mat frame, cv::Mat bkgImage, cv::Mat StaticF
 
     //binarization
     threshold(StaticFGImage, StaticFGImage, 250, 255, CV_THRESH_BINARY);
-
 
     switch (this->int_CLSSFRid)
     {
@@ -93,7 +90,7 @@ Mat ClassifierSelector::process(cv::Mat frame, cv::Mat bkgImage, cv::Mat StaticF
         }
 
 
-         if (Video.SaveImages && (Video.numFrame % 20 == 0)) //Save 1 frame out of every 20
+        if (Video.SaveImages && (Video.numFrame % 20 == 0)) //Save 1 frame out of every 20
         {
 
             String d = Video.DirImages + "class" + to_string(Video.numFrame) + ".jpg";
@@ -103,7 +100,7 @@ Mat ClassifierSelector::process(cv::Mat frame, cv::Mat bkgImage, cv::Mat StaticF
 
         break;
 
-    // COLOR HISTOGRAM METHOD
+        // COLOR HISTOGRAM METHOD
 
     case 2:
 
@@ -115,7 +112,7 @@ Mat ClassifierSelector::process(cv::Mat frame, cv::Mat bkgImage, cv::Mat StaticF
             waitKey(1);}
 
 
-         if (Video.SaveImages && (Video.numFrame % 20 == 0)) //Save 1 frame out of every 20
+        if (Video.SaveImages && (Video.numFrame % 20 == 0)) //Save 1 frame out of every 20
         {
 
             String d = Video.DirImages + "class" + to_string(Video.numFrame) + ".jpg";

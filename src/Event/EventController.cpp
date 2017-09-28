@@ -8,8 +8,8 @@
  *				- 1.0 (05-08-08): Initial Implementation (vfc)
  *				- 1.1 (20-12-08): Use of the EventChecker class (jcs)
  *				- 2.0 (12-06-16): update  (jcs)
- *
- */
+ *              - 3.0 (17-09-17): update (elg)
+ /
 
 //Additional includes
 #include "EventController.h"
@@ -28,6 +28,8 @@
  *	\param _verbose_mode Flag to indicate verbose mode (=1) or not (=0)
  *
  */
+
+#include "EventController.h"
 EventController::EventController()
 {
 
@@ -796,6 +798,7 @@ int EventController::setEventByID(int ID, Event* newEvent, vector<Event *> *pEve
  * \return Returns operation code
  */
 int EventController::writeEvents(vector<Event *> *pEventList) {
+
     Event* evento = NULL;
 
     if(pEventList == NULL)
