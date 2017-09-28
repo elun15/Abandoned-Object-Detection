@@ -13,16 +13,9 @@
 #include <opencv2/imgproc/imgproc.hpp> //cvtColor
 #include <opencv2/opencv.hpp> //opencv libraries
 
-#include "../../../src/Utils/DrawDetections.h"
-#include "../../../lib/bgslibrary/package_bgs/bgslibrary.h"
-#include "../../../src/BGS/BkgSubtractionSelector.h"
-#include "../../../src/SFGD/SFGDSelector.h"
-#include "../../../src/DETECTOR/detectorselector.h"
-#include "../../../src/DETECTOR/DefineObjectBlobList.h"
-#include "../../../src/CLASSIFIER/ClassifierSelector.h"
-#include "../../../src/Event/EventController.h"
-#include "../../../src/Utils/CurrentDateTime.h"
+
 #include "../../../src/aod.h"
+#include "../../../src/Utils/CurrentDateTime.h"
 
 
 //Global pointers
@@ -35,7 +28,6 @@ ClassifierSelector *classifier_selector;
 using namespace cv;
 using namespace std;
 
-
 /*********************************/
 /*** MAIN PROGRAM FUNCTION     ***/
 /*********************************/
@@ -46,8 +38,9 @@ int main(int argc, char *argv[])
 {
     // Video class
     video Video;
-    AOD system;
 
+    // AOD class encapsulating all the processes
+    AOD system;
 
     /******************************/
     /*** IMPLEMENTED ALGORITHMS ***/
@@ -78,7 +71,7 @@ int main(int argc, char *argv[])
         cout << "Executing with default parameters" << endl;
 
         // BKG METHOD
-        Video.bkg_method = 3;
+        Video.bkg_method = 2;
 
         // SFGD METHOD
         Video.sfgd_method  = 1;
@@ -91,12 +84,10 @@ int main(int argc, char *argv[])
 
         // INPUT VIDEO FILE DIRECTORY
         Video.fileDir = "../datasets/VISOR/visor_Video00.avi";
-         //Video.fileDir = "../datasets/AVSS/AVSS_corto.mov";
+        //Video.fileDir = "../datasets/AVSS/AVSS_corto.mov";
 
         // RESULTS FOLDER
         Video.folder_results  = "../results/";
-
-
 
     }
     else //Using input parameters
@@ -133,13 +124,11 @@ int main(int argc, char *argv[])
         Video.fileDir = argv[5];
         cout << "Input video dir: " << argv[5] << endl;
 
-
         // RESULTS FOLDER
         Video.folder_results = argv[6];
 
 
     }
-
 
 
     // Compute videoName variable, used for saving the results
@@ -165,7 +154,6 @@ int main(int argc, char *argv[])
             return -1;
         }
     }
-
 
 
     // XML file with results (.xml)
@@ -194,7 +182,6 @@ int main(int argc, char *argv[])
     // 7: results folder
     // 8: video context mask directory (not mandatory)
 
-
     /********************/
     /*** MAIN PROCESS ***/
     /********************/
@@ -219,7 +206,6 @@ int main(int argc, char *argv[])
         cout << Video.framerate << " fps. Size: " << Video.cap.get(CV_CAP_PROP_FRAME_WIDTH) << " x " << Video.cap.get(CV_CAP_PROP_FRAME_HEIGHT) << endl;
     }
 
-
     /******** VARIABLE SETTING ********/
 
     // Seconds to consider an object as static
@@ -227,13 +213,13 @@ int main(int argc, char *argv[])
     cout << "Time (seconds) to static: " << Video.time_to_static << endl;
 
     // Show results if true
-    Video.ShowResults = true;
+    Video.ShowResults = false;
 
     // Save results images if true
     Video.SaveImages = false;
 
     // Save XML results file if true
-    Video.SaveResults = false;
+    Video.SaveResults = true;
 
     // Detect people in every frame if true
     Video.DetectPeopleAlways = false;
@@ -251,7 +237,6 @@ int main(int argc, char *argv[])
         cout << "Saving results and execution times." << endl;
 
         /******** EVENT FILE INITIALIZATION ********/
-
         // XML results file initialization
 
         //To const char* conversion (video file)
@@ -284,22 +269,16 @@ int main(int argc, char *argv[])
 
 
 
+    // Start the clock for measuring total consumption time of the whole video sequence
+
+    double elapsedTime_totalVideo  = 0;
+    clock_t start_total = clock();
+
     /******** LOOP OVER THE VIDEO FILE ********/
+
 
     for ( ; ; )
     {
-
-        // Time variables initialization
-        double elapsedTime_total  = 0;
-        double elapsedTime_bkg  = 0;
-        double elapsedTime_sfgd  = 0;
-        double elapsedTime_pd  = 0;
-        double elapsedTime_class  = 0;
-        double elapsedTime_write  = 0;
-
-        // Start the clock for measuring total consumption time
-        clock_t start_total = clock();
-
 
         // Get frame
         Mat frame;
@@ -307,181 +286,45 @@ int main(int argc, char *argv[])
         Video.numFrame = Video.cap.get(CAP_PROP_POS_FRAMES);
 
 
-
         /******** FRAME PROCESSING ********/
 
         if (frame.data)
         {
-
-            // imshow("FRAME", frame);
-            // waitKey(10);
 
             cout << "Frame " << Video.numFrame << endl;
 
             // First frame
             if (Video.numFrame  == 1)
             {
-
-                // Initializations
-                bkg_selector = new BkgSubtractionSelector(Video.bkg_method);
-                bkg_selector->init(frame);
-
-                sfgd_selector = new SFDGSelector(Video.sfgd_method,Video.framerate,Video.time_to_static);
-                sfgd_selector->init(frame);
-
-                detec_selector= new DetectorSelector(Video.detector_method);
-                detec_selector->init();
-
-                classifier_selector = new ClassifierSelector(Video.classifier_method);
-                classifier_selector->init();
-
-                Video.list_objects = new BlobList<ObjectBlob*>();
-
-
+                Video = system.init(Video,frame);
             }
 
-            /******** BACKGROUND SUBTRACTION  ********/
+           Video = system.processFrame(Video, frame);
 
 
-            clock_t start_bkg = clock();
 
-            bkg_selector->process(frame, Video);
-            waitKey(10);
-            clock_t finish_bkg = clock();
-            elapsedTime_bkg = (double)(finish_bkg - start_bkg)/CLOCKS_PER_SEC;
-
-
-            /******** STATIC FOREGROUND DETECTION  ********/
-
-            clock_t start_sfgd = clock();
-
-            sfgd_selector->process(frame,bkg_selector->GetForegroundImage(),bkg_selector->GetBGModel(),Video);
-
-
-            // Get static foreground mask
-            Mat tmp = sfgd_selector->GetStaticForeground().clone();
-
-            // Extract all blobs in static foreground
-            blob_extractor.extractBlobs(tmp,false);
-
-            // Create BlobList containing all blobs in static foreground
-            vector<cvBlob> *BlobList = blob_extractor.getBlobList();
-
-
-            clock_t finish_sfgd = clock();
-            elapsedTime_sfgd = (double)(finish_sfgd - start_sfgd)/CLOCKS_PER_SEC;
-
-            /******** PEOPLE DETECTION  ********/
-
-            // Detecting people in every frame or when something static has been detected (BlobList !empty)
-            if (Video.DetectPeopleAlways == true || (Video.DetectPeopleAlways == false && BlobList->size()) )
-            {
-
-                clock_t start_pd = clock();
-
-                detec_selector->process(frame);
-
-                // Filter detections with nms
-                detec_selector->non_max_suppresion(detec_selector->found,Video.found_filtered,0.5);
-
-                // Show people detections if show results variable is true
-                Mat peopleDetection = DrawDetections(frame,Video.found_filtered, BlobList, Video);
-
-
-                clock_t finish_pd = clock();
-                elapsedTime_pd = (double)(finish_pd - start_pd)/CLOCKS_PER_SEC;
-
-
-                // Create a static objects list (Video.list_objects) by filtering the static foreground blobs (BlobList)
-                // by removing static foreground blobs due to people detections (Video.found_filtered) and considering
-                // the context mask (if applicable)
-
-                DefineObjectBlobList(BlobList, Video.found_filtered, Video.list_objects,Video.contextMask);
-
-                cout << "Frame " << Video.numFrame << ". Num objects blobs = " << Video.list_objects->getBlobNum() <<  ".  Number of people detected: " << detec_selector->found.size() << endl;
-
-            }
-
-
-            /******** CLASSIFIER  ********/
-
-            clock_t start_class = clock();
-
-
-            // Only if some static object is detected
-
-            if (Video.list_objects->getBlobNum()){
-
-                Mat clss;
-                clss = classifier_selector->process(frame, bkg_selector->GetBGModel(), tmp, bkg_selector->GetForegroundImage(),Video.list_objects,Video);
-
-            }
-
-            clock_t finish_class = clock();
-            elapsedTime_class = (double)(finish_class - start_class)/CLOCKS_PER_SEC;
-
-
-            /******** WRITE RESULTS   ********/
-
-            clock_t start_write = clock();
-
-            if (Video.SaveResults == true)
-            {
-                // Check events
-
-                Video.evtControl->checkEvents(Video.list_objects);
-
-            }
-
-            clock_t finish_write = clock();
-            elapsedTime_write = (double)(finish_write - start_write)/CLOCKS_PER_SEC;
-
-            Video.list_objects->clear();
 
         }
-        else
-            // End of the video
+        else  // End of the video
         {
-            cout << "Video has finished." << endl;
 
+            system.finish(Video);
 
-            // Release video capture
-            Video.cap.release();
-            destroyAllWindows();
-            fclose(Video.file_time);
+            clock_t finish_total = clock();
 
-
-            if (Video.SaveResults == true)
-            {
-                // WRITE EVENTS
-                Video.evtControl->checkFinalPastEvents();
-                Video.evtControl->~EventController();
-                Video.evtControl->pwriter.~EventWriter();
-            }
-
+            elapsedTime_totalVideo = (double)(finish_total - start_total)/CLOCKS_PER_SEC;
+            cout << "Total processing time (secs): " << elapsedTime_totalVideo << endl;
 
             return -1;
-
-
         }
 
 
-        clock_t finish_total = clock();
-        elapsedTime_total = (double)(finish_total - start_total)/CLOCKS_PER_SEC;
-        //cout << elapsedTime_total << endl;
-        
-        if (Video.SaveResults == true)
-        {
-
-            /******** TIME CONSUPTION WRITTING (For each frame) ********/
-            fprintf(Video.file_time,"%d     %2.6f %2.6f %2.6f %2.6f %2.6f %2.6f\n",Video.numFrame,elapsedTime_total ,elapsedTime_bkg,elapsedTime_sfgd,elapsedTime_pd,elapsedTime_class,elapsedTime_write);
-        }
 
     }
-
-
-
     return -1;
+
+
+
 
 
 }
