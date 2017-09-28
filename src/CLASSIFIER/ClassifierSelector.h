@@ -10,7 +10,7 @@
 #include "StaticObjectClassifier.h"
 #include "StaticObjectClassifierHist.h"
 #include "StaticObjectClassifierHighGradient.h"
-#include "../../../src/video.h"
+#include "../../../src/settings.h"
 
 /*#include "StaticObjectClassifierPixelColourContrast.h"
 #include "StaticObjectClassifierGradient.h"
@@ -37,5 +37,5 @@ public:
     ClassifierSelector(int CLSSFRid);
     ~ClassifierSelector();
 	void init();
-    Mat process(cv::Mat frame, cv::Mat bkgImage, cv::Mat StaticFGImage, cv::Mat ForegroundImage, BlobList<ObjectBlob*>* objects, video Video);
+    Mat process(cv::Mat frame, cv::Mat bkgImage, cv::Mat StaticFGImage, cv::Mat ForegroundImage, BlobList<ObjectBlob*>* objects, settings Video);
    };

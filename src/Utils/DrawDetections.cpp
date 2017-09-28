@@ -1,8 +1,8 @@
 #include "../../../src/Utils/DrawDetections.h"
-#include "../../../src/video.h"
+#include "../../../src/settings.h"
 
 
-Mat DrawDetections(cv::Mat frame, vector<Rect> found, std::vector<cvBlob> *BlobList,video Video)
+Mat DrawDetections(cv::Mat frame, vector<Rect> found, std::vector<cvBlob> *BlobList,settings Video)
 {
 
     Mat aux ;

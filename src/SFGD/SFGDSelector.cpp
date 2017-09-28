@@ -8,7 +8,7 @@
 #include <string>
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
-#include "../../../src/video.h"
+#include "../../../src/settings.h"
 
 using namespace std;
 using namespace cv;
@@ -52,7 +52,7 @@ void SFDGSelector::init(Mat frame)
     }
 }
 
-void SFDGSelector::process(Mat frame, Mat foreground_img, Mat bgmodel_img,video Video)
+void SFDGSelector::process(Mat frame, Mat foreground_img, Mat bgmodel_img, settings Video)
 {
 
 

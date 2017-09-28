@@ -29,7 +29,7 @@ IEEE International Workshop on PETS, New York, June 18, 2006
 //#include "BlobExtractor.h"
 #include "StaticMaskExtractor.h"
 #include <opencv2/opencv.hpp>
-#include "../../../src/video.h"
+#include "../../../src/settings.h"
 
 /**
 *	\def CONFIDENCE_THRESHOLD

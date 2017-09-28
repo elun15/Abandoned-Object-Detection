@@ -6,16 +6,16 @@
 #include <opencv2/opencv.hpp>
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
-#include "video.h"
+#include "settings.h"
 #include "../../../src/Event/EventController.h"
 #include "../../../src/Utils/CurrentDateTime.h"
 
 
 
-video::video(){}
-video::~video(){}
+settings::settings(){}
+settings::~settings(){}
 
-video video::init(int argc, char *argv[], video Video)
+settings settings::init(int argc, char *argv[], settings Video)
 {
 
     /******** VARIABLE SETTING ********/
@@ -154,7 +154,7 @@ video video::init(int argc, char *argv[], video Video)
 
 }
 
-video video::open(video Video){
+settings settings::open(settings Video){
 
     // Read video properties
     Video.cap.open(Video.fileDir);
@@ -177,36 +177,8 @@ video video::open(video Video){
     }
 
 
+    // if (Video.SaveResults == true)
 
-    if (Video.SaveResults == true)
-    {
-
-        cout << "Saving results and execution times." << endl;
-
-        /******** EVENT FILE INITIALIZATION ********/
-        // XML results file initialization
-
-        //To const char* conversion (video file)
-        char *sourceFile = new char[Video.fileDir.length() + 1];
-        strcpy(sourceFile, Video.fileDir.c_str());
-
-        //To const char* conversion (results file)
-        char *resultsFile = new char[ Video.fileResults.length() + 1];
-        strcpy(resultsFile,  Video.fileResults.c_str());
-
-        Video.evtControl = new EventController();
-
-        Video.evtControl->init(Video.rows, Video.cols ,sourceFile, resultsFile, Video.totalNumFrames,Video.framerate, Video.time_to_static, 0);
-
-        // Time file initialization
-        char *pfile = (char *)malloc(strlen(Video.fileTime.c_str()) + 1);
-        strcpy(pfile, Video.fileTime.c_str());
-        Video.file_time = fopen(pfile, "w+");
-
-        fprintf( Video.file_time,"Execution times\n");
-        fprintf( Video.file_time,"Frame    Total     BKG     SFGD      PD    CLASS    WRITE\n");
-
-    }
 
     return Video;
 

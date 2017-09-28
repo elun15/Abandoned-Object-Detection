@@ -11,7 +11,7 @@
 #include "../../../src/SFGD/SFGDSelector.h"
 #include "../../../src/CLASSIFIER/ClassifierSelector.h"
 #include "../../../src/DETECTOR/detectorselector.h"
-
+#include "../../../src/Event/EventController.h"
 
 using namespace cv;
 
@@ -30,6 +30,8 @@ public:
     BlobExtractor blob_extractor;
     ClassifierSelector *classifier_selector;
 
+    EventController *evtControl;
+
 
 
     double elapsedTime_bkg;
@@ -39,9 +41,9 @@ public:
     double elapsedTime_write;
     double elapsedTime_frame;
 
-   video init(video Video, Mat frame);
-   video processFrame(video Video, Mat frame);
-   void finish(video Video);
+   settings init(settings Video, Mat frame);
+   settings processFrame(settings Video, Mat frame);
+   void finish(settings Video);
 
 
 

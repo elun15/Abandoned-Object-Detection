@@ -48,7 +48,7 @@ void ClassifierSelector::init()
 
 }
 
-Mat ClassifierSelector::process(cv::Mat frame, cv::Mat bkgImage, cv::Mat StaticFGImage2, cv::Mat ForegroundImage, BlobList<ObjectBlob*>* objects,video Video)
+Mat ClassifierSelector::process(cv::Mat frame, cv::Mat bkgImage, cv::Mat StaticFGImage2, cv::Mat ForegroundImage, BlobList<ObjectBlob*>* objects,settings Video)
 {
 
 

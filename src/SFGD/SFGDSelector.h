@@ -39,7 +39,7 @@ public:
     ~SFDGSelector();
 
     void init(Mat frame);//, BkgSubtractionSelector bkg_selector);
-    void process(Mat frame, Mat foreground_img, Mat bgmodel_img, video Video);
+    void process(Mat frame, Mat foreground_img, Mat bgmodel_img, settings Video);
     Mat GetStaticForeground();
     void finish(void);
 

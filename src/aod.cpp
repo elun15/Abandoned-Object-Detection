@@ -24,7 +24,7 @@
 AOD::AOD(){}
 AOD::~AOD(){}
 
-video AOD::init(video Video, Mat frame){
+settings AOD::init(settings Video, Mat frame){
 
     // Initializations
     this->bkg_selector = new BkgSubtractionSelector(Video.bkg_method);
@@ -41,10 +41,43 @@ video AOD::init(video Video, Mat frame){
 
     Video.list_objects = new BlobList<ObjectBlob*>();
 
+
+    //ADD
+
+
+    if (Video.SaveResults == true)
+    {
+
+        cout << "Saving results and execution times." << endl;
+
+        /******** EVENT FILE INITIALIZATION ********/
+        // XML results file initialization
+
+        //To const char* conversion (video file)
+        char *sourceFile = new char[Video.fileDir.length() + 1];
+        strcpy(sourceFile, Video.fileDir.c_str());
+
+        //To const char* conversion (results file)
+        char *resultsFile = new char[ Video.fileResults.length() + 1];
+        strcpy(resultsFile,  Video.fileResults.c_str());
+        evtControl = new EventController();
+
+        evtControl->init(Video.rows, Video.cols ,sourceFile, resultsFile, Video.totalNumFrames,Video.framerate, Video.time_to_static, 0);
+
+        // Time file initialization
+        char *pfile = (char *)malloc(strlen(Video.fileTime.c_str()) + 1);
+        strcpy(pfile, Video.fileTime.c_str());
+        Video.file_time = fopen(pfile, "w+");
+
+        fprintf( Video.file_time,"Execution times\n");
+        fprintf( Video.file_time,"Frame    Total     BKG     SFGD      PD    CLASS    WRITE\n");
+
+    }
+
     return Video;
 }
 
-video AOD::processFrame(video Video, Mat frame){
+settings AOD::processFrame(settings Video, Mat frame){
 
 
     // Time variables initialization
@@ -141,7 +174,7 @@ video AOD::processFrame(video Video, Mat frame){
     {
         // Check events
 
-        Video.evtControl->checkEvents(Video.list_objects);
+        evtControl->checkEvents(Video.list_objects);
 
     }
 
@@ -166,16 +199,16 @@ return Video;
 }
 
 
-void AOD::finish(video Video){
+void AOD::finish(settings Video){
 
 
 
     if (Video.SaveResults == true)
     {
         // WRITE EVENTS
-        Video.evtControl->checkFinalPastEvents();
-        Video.evtControl->~EventController();
-        Video.evtControl->pwriter.~EventWriter();
+        evtControl->checkFinalPastEvents();
+        evtControl->~EventController();
+        evtControl->pwriter.~EventWriter();
     }
 
     // Release video capture

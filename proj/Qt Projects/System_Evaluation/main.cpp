@@ -2,7 +2,7 @@
 #include <ctime>
 #include <time.h>
 
-#include "../../../src/video.h"
+#include "../../../src/settings.h"
 #include <string>
 #include <stdlib.h>
 #include <stdio.h>
@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
     AOD system;
 
     // Video class
-    video Video;
+    settings Video;
 
     // Initialize all video variables
     Video = Video.init(argc,argv, Video);

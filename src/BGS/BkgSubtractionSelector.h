@@ -18,7 +18,7 @@
 
 #include "../../../lib/bgslibrary/package_bgs/bgslibrary.h"
 #include <opencv2/video/background_segm.hpp>
-#include "../../../src/video.h"
+#include "../../../src/settings.h"
 
 
 using namespace std;
@@ -59,7 +59,7 @@ public:
     //Other functions
 
     virtual void init(Mat frame);
-    virtual void process(Mat frame, video Video);
+    virtual void process(Mat frame, settings Video);
 
 
     virtual Mat GetForegroundImage(); // antes era vector

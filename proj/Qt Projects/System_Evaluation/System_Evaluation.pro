@@ -50,7 +50,6 @@ SOURCES += main.cpp\
     ../../../lib/DPM/dpm_feature.cpp \
     ../../../lib/DPM/dpm_model.cpp \
     ../../../lib/DPM/dpm_nms.cpp \
-    ../../../src/video.cpp \
     ../../../src/DETECTOR/detectorselector.cpp \
     ../../../lib/bgslibrary/package_bgs/KNN.cpp \
     ../../../lib/bgslibrary/package_bgs/IndependentMultimodal.cpp \
@@ -95,6 +94,7 @@ SOURCES += main.cpp\
     ../../../lib/ACFlibrary/Core/ScaleSpacePyramid.cpp \
     ../../../src/Utils/CurrentDateTime.cpp \
     ../../../src/aod.cpp \
+    ../../../src/settings.cpp
 
 HEADERS  +=   ../../../src/SFGD/StaticMaskExtractor_subsampling.h \
     ../../../src/SFGD/StaticMaskExtractor.h \
@@ -178,7 +178,7 @@ HEADERS  +=   ../../../src/SFGD/StaticMaskExtractor_subsampling.h \
     ../../../lib/ACFlibrary/rapidxml-1.13/rapidxml.hpp \
     ../../../src/Utils/CurrentDateTime.h \
     ../../../src/aod.h \
-    ../../../src/video.h
+    ../../../src/settings.h
 
 # The following lines tells Qmake to use pkg-config for opencv
 QT_CONFIG -= no-pkg-config

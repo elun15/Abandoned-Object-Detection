@@ -12,7 +12,7 @@
 #include "../../../lib/bgslibrary/package_bgs/bgslibrary.h"
 #include <opencv2/video/background_segm.hpp>
 
-#include "../../../src/video.h"
+#include "../../../src/settings.h"
 
 
 using namespace std;
@@ -104,7 +104,7 @@ void BkgSubtractionSelector::init(Mat frame)
 
 //Funcion process: realiza el procesamiento de la secuencia de video a analizar segun la tecnica de substraccion de fondo
 //seleccionada desde el programa principal y muestra los resultados si asi se desea.
-void BkgSubtractionSelector::process(Mat frame,video Video)
+void BkgSubtractionSelector::process(Mat frame, settings Video)
 {
     img_input = frame.clone();
     img_output = Mat::zeros(frame.rows,frame.cols,frame.type());

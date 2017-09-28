@@ -6,12 +6,12 @@
 #include <iostream>
 #include "BasicBlob.h"
 #include "solape.h"
-#include "../../../src/video.h"
+#include "../../../src/settings.h"
 
 using namespace cv;
 using namespace std;
 
-Mat DrawDetections(cv::Mat frame, vector<Rect> found, std::vector<cvBlob> *BlobList, video Video);//size_t i, size_t j, bool ShowResults);
+Mat DrawDetections(cv::Mat frame, vector<Rect> found, std::vector<cvBlob> *BlobList, settings Video);//size_t i, size_t j, bool ShowResults);
 
 // Input/Output Variables:
 //

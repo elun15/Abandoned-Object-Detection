@@ -1,5 +1,5 @@
-#ifndef VIDEO_H
-#define VIDEO_H
+#ifndef SETTINGS_H
+#define SETTINGS_H
 
 #include <opencv2/opencv.hpp>
 #include "opencv2/imgproc/imgproc.hpp"
@@ -9,21 +9,21 @@
 #include "../../../src/BLOBS/BlobExtractor.h"
 #include "../../../src/BLOBS/BlobList.h"
 #include "../../../src/BLOBS/ObjectBlob.h"
-#include "../../../src/Event/EventController.h"
+
 
 
 
 using namespace cv;
 
-class video
+class settings
 {
 
 public:
-    video();
+    settings();
 
-    video init(int argc, char *argv[], video Video);
-    video open(video Video);
-   ~video();
+    settings init(int argc, char *argv[], settings Video);
+    settings open(settings Video);
+   ~settings();
 
     VideoCapture cap;
 
@@ -70,7 +70,6 @@ public:
     vector<Rect> found_filtered;
     BlobList<ObjectBlob *>*list_objects;
 
-    EventController *evtControl;
 
 
 
