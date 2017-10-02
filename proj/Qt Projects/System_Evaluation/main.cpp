@@ -36,9 +36,11 @@ using namespace std;
 
 // 1: Subsampling
 // 2: Acc Mask
+// 3: History_Images
 
 // 1: High Gradient
 // 2: Histogram
+// 3: PCC
 
 // 1: HOG
 // 2: DPM
