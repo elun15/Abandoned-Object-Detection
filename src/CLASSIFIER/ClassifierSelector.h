@@ -30,8 +30,6 @@ public:
      StaticObjectClassifierHist *pSOCHist;
      StaticObjectClassifierHighGradient *pSOCHighGradient;
     //StaticObjectClassifierPixelColourContrast *pSOCPixelcolourContrast;
-    //StaticObjectClassifierGradientH *pSOCGradientH;
-    //StaticObjectClassifierGradientL *pSOCGradientL;
 
 	//Definicion de las funciones de la clase MyCLSSFRSelector
     ClassifierSelector(int CLSSFRid);

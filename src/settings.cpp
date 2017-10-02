@@ -25,7 +25,7 @@ settings settings::init(int argc, char *argv[], settings Video)
     cout << "Time (seconds) to static: " << Video.time_to_static << endl;
 
     // Show results if true
-    Video.ShowResults = true;
+    Video.ShowResults = false;
 
     // Save results images if true
     Video.SaveImages = false;
@@ -64,8 +64,9 @@ settings settings::init(int argc, char *argv[], settings Video)
         Video.detector_method = 1;
 
         // INPUT VIDEO FILE DIRECTORY
-        Video.fileDir = "../datasets/VISOR/visor_Video00.avi";
+       // Video.fileDir = "../datasets/VISOR/visor_Video00.avi";
         //Video.fileDir = "../datasets/AVSS/AVSS_corto.mov";
+         Video.fileDir = "/storage-disk/AOD/datasets/AVSS2007/AVSSS07_EASY.mpg";
 
         // RESULTS FOLDER
         Video.folder_results  = "../results/";

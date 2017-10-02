@@ -182,6 +182,12 @@ void EventController::checkDep_NewEventsThatExist()
 
         }
 
+
+        //PRUEBA
+        if (currentFrame == 2307)
+        {
+            int prueba = 1;
+        }
         // Search new detections in the active events
 
         for (int i = 0; i< (int)pNewDetectedEvt.size(); i++)
@@ -199,10 +205,10 @@ void EventController::checkDep_NewEventsThatExist()
                 cv::Rect B = *(evt->getLocation());
                 cv::Rect inter = A & B;
 
-
                 double op1 = 2*inter.area() ;
                 double op2 = (A.area() + B.area());
                 double solap;
+
 
                 solap = op1 / op2;
 
@@ -213,12 +219,16 @@ void EventController::checkDep_NewEventsThatExist()
                     ////update event info (only blob position)
 
                     overlapping = true;
+                    //If they are the same event, update the finish frame
 
-                    // *******MODIFIED********
-                    // UPDATE NEW LOCATION, finish frame, type counter and update flag
-
-                    evt->setLocation(evtN->getLocation());
                     evt->setFinishFrame(evtN->getFinishFrame());
+
+
+                    //Only update new location if the blob is increasing in order to keep the maximum size of the event
+                    if (A.area() > B.area())
+                    {
+                        evt->setLocation(evtN->getLocation());
+                    }
 
                     evt->update = true;
 
@@ -247,7 +257,6 @@ void EventController::checkDep_NewEventsThatExist()
 
                 }
 
-
             }
 
             if(overlapping == false)
@@ -261,14 +270,8 @@ void EventController::checkDep_NewEventsThatExist()
 
 
                 this->addEvent(newActEvt, &pActiveEvt);
-
-
                 this->incrNumberEvent();
             }
-
-
-
-
 
 
         }
@@ -299,13 +302,9 @@ void EventController::checkDep_NewEventsThatExist()
                     delEventByID(evt->getID(), &pActiveEvt);
                 }
 
-
             }
 
-
         }
-
-
 
     }
 
@@ -344,13 +343,12 @@ void EventController::checkFinalPastEvents()
     {
         Event *e1;
         e1 = getEvent(i,&pPastEvt);
-        int flag_write= 0;
+        int flag_write = 1;
 
         if(((int)pFinalEvents.size()) == 0)
         {
             addEvent(e1, &pFinalEvents);
         }
-
 
 
         else{
@@ -361,17 +359,14 @@ void EventController::checkFinalPastEvents()
                 Event *e2;
                 e2 = getEvent(j,&pFinalEvents);
 
-
                 //check spatial overlap
                 cv::Rect A = *(e1->getLocation());
                 cv::Rect B = *(e2->getLocation());
                 cv::Rect inter = A & B;
 
 
-
                 EVENT_TYPE type1 = e1->getEventType();
                 EVENT_TYPE type2 = e2->getEventType();
-
 
 
                 double op1 = 2*inter.area() ;
@@ -380,23 +375,29 @@ void EventController::checkFinalPastEvents()
 
                 solap = op1 / op2;
 
-                if ((solap < 0.5f )|| (solap > 0.5f && (type1 != type2)) || (e1->getLife() > 50)) //not same
+                if (flag_write == 1)
                 {
-                    flag_write = 1;
+                    // If are not the same
+                    if ((solap < 0.3f )|| (solap > 0.3f && (type1 != type2)) || (e1->getLife() > 50))
+                    {
+                        flag_write = 1;
 
+                    }
+                    else //If are the same
+                    {
+                        flag_write = 0;
 
+                    }
                 }
 
 
-
             }
+
             if (flag_write == 1)
             {
 
                 addEvent(e1, &pFinalEvents);
             }
-
-
 
         }
 
@@ -532,7 +533,7 @@ void EventController::checkDep_InconsistencyAreaTime()
                 }
             }
 
- }
+}
 
 /**********************************************************************
                         PARAMETERS GET/SET
@@ -840,10 +841,7 @@ void EventController::printEvents()
 
         switch(evt->getEventType())
         {
-        case PutObject:
-            if(verbose_mode==1)
-                fprintf(stderr,"\t\t Event ID = %d (PutObject)(life=%d)(score=%.2f)\n", evt->getID(), evt->getLife(), evt->getScore());
-            break;
+
         case AbandonedObject:
             if(verbose_mode==1)
                 fprintf(stderr,"\t\t Event ID = %d (AbandonedObject)(life=%d)(score=%.2f)\n", evt->getID(), evt->getLife(), evt->getScore());
@@ -852,14 +850,7 @@ void EventController::printEvents()
             if(verbose_mode==1)
                 fprintf(stderr,"\t\t Event ID = %d (StolenObject)(life=%d)(score=%.2f)\n", evt->getID(), evt->getLife(), evt->getScore());
             break;
-        case AbandonedPerson:
-            if(verbose_mode==1)
-                fprintf(stderr,"\t\t Event ID = %d (AbandonedPerson)(life=%d)(score=%.2f)\n", evt->getID(), evt->getLife(), evt->getScore());
-            break;
-        case StolenPerson:
-            if (verbose_mode == 1)
-                fprintf(stderr, "\t\t Event ID = %d (StolenPerson)(life=%d)(score=%.2f)\n", evt->getID(), evt->getLife(), evt->getScore());
-            break;
+
         }
     }
     /**/

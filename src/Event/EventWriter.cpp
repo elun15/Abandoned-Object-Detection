@@ -194,22 +194,13 @@ int EventWriter::writeEventVIPER(Event* pEvent,bool resize) {
 
         //Escribimos por cada evento
         switch (pEvent->getEventType()) {
-        case PutObject:
-            fprintf(this->pf,"<object framespan=\"%d:%d\" id=\"%d\" name=\"PutObject\">\n",pEvent->getStartFrame()-dur,pEvent->getFinishFrame(),pEvent->getID());
-            break;
-        case AbandonedObject:
 
+        case AbandonedObject:
             //As we are writing the past events, finish frame is computed by adding the life to the initial frame
             fprintf(this->pf,"<object framespan=\"%d:%d\" id=\"%d\" name=\"AbandonedObject\">\n",pEvent->getStartFrame()-dur,pEvent->getLife()+pEvent->getStartFrame(),pEvent->getID());
             break;
         case StolenObject:
             fprintf(this->pf,"<object framespan=\"%d:%d\" id=\"%d\" name=\"StolenObject\">\n",pEvent->getStartFrame()-dur,pEvent->getLife()+pEvent->getStartFrame(),pEvent->getID());
-            break;
-        case AbandonedPerson:
-            fprintf(this->pf,"<object framespan=\"%d:%d\" id=\"%d\" name=\"AbandonedPerson\">\n",pEvent->getStartFrame()-dur,pEvent->getFinishFrame(),pEvent->getID());
-            break;
-        case StolenPerson:
-            fprintf(this->pf,"<object framespan=\"%d:%d\" id=\"%d\" name=\"StolenPerson\">\n",pEvent->getStartFrame()-dur,pEvent->getFinishFrame(),pEvent->getID());
             break;
 
         }

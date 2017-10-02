@@ -59,9 +59,6 @@ public:
     //Method to process each frame
     void processFrame(Mat frame, Mat mask);
 
-	//Method to get the static motion mask
-	//IplImage *getStaticMask();
-
 	//Method to get the subsampled mask
      Mat getSampledMask(int n);
 
@@ -96,11 +93,7 @@ private:
 
 	/// Current stage sampled
 	int stage_sampled;
-	// Pointer to log file
-	//FILE *_log;(already defined in StaticMaskExtractor class)
 
-	// mask of stationary regions
-	//IplImage *staticMask; (already defined in StaticMaskExtractor class)
 };
 
 #endif // !defined(AFX_STATICMASKEXTRACTOR_SUBSAMPLING_H_INCLUDED_)
