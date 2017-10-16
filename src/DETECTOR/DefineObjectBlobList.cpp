@@ -1,5 +1,5 @@
 #include "DefineObjectBlobList.h"
-#include "video.h"
+#include "../../../src/settings.h"
 void DefineObjectBlobList(std::vector<cvBlob> *ExtractBlobList, vector<cv::Rect> found, BlobList<ObjectBlob*> *pObjectList,Mat mask){
 
 

@@ -875,9 +875,6 @@ main.o: ../proj/Qt\ Projects/System_Evaluation/main.cpp ../src/settings.h \
 		../src/BLOBS/BlobList.h \
 		../src/BLOBS/BlobList.cpp \
 		../src/BLOBS/ObjectBlob.h \
-		../src/Event/EventController.h \
-		../src/Event/Event.h \
-		../src/Event/EventWriter.h \
 		../src/aod.h \
 		../src/BGS/BkgSubtractionSelector.h \
 		../lib/bgslibrary/package_bgs/bgslibrary.h \
@@ -1006,7 +1003,10 @@ main.o: ../proj/Qt\ Projects/System_Evaluation/main.cpp ../src/settings.h \
 		../lib/ACFlibrary/Core/detector.h \
 		../lib/ACFlibrary/Core/detectormodel.h \
 		../lib/ACFlibrary/Core/NonMaximumSuppression.h \
-		../lib/ACFlibrary/Core/nms.h
+		../lib/ACFlibrary/Core/nms.h \
+		../src/Event/EventController.h \
+		../src/Event/Event.h \
+		../src/Event/EventWriter.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../proj/Qt\ Projects/System_Evaluation/main.cpp
 
 StaticMaskExtractor_Subsampling.o: ../src/SFGD/StaticMaskExtractor_Subsampling.cpp ../src/SFGD/StaticMaskExtractor_subsampling.h \
@@ -1024,10 +1024,7 @@ StaticMaskExtractor_AccMask.o: ../src/SFGD/StaticMaskExtractor_AccMask.cpp ../sr
 		../src/BLOBS/BasicBlob.h \
 		../src/BLOBS/BlobList.h \
 		../src/BLOBS/BlobList.cpp \
-		../src/BLOBS/ObjectBlob.h \
-		../src/Event/EventController.h \
-		../src/Event/Event.h \
-		../src/Event/EventWriter.h
+		../src/BLOBS/ObjectBlob.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o StaticMaskExtractor_AccMask.o ../src/SFGD/StaticMaskExtractor_AccMask.cpp
 
 SFGDSelector.o: ../src/SFGD/SFGDSelector.cpp ../src/SFGD/SFGDSelector.h \
@@ -1040,9 +1037,6 @@ SFGDSelector.o: ../src/SFGD/SFGDSelector.cpp ../src/SFGD/SFGDSelector.h \
 		../src/BLOBS/BlobList.h \
 		../src/BLOBS/BlobList.cpp \
 		../src/BLOBS/ObjectBlob.h \
-		../src/Event/EventController.h \
-		../src/Event/Event.h \
-		../src/Event/EventWriter.h \
 		../src/BGS/BkgSubtractionSelector.h \
 		../lib/bgslibrary/package_bgs/bgslibrary.h \
 		../lib/bgslibrary/package_bgs/FrameDifference.h \
@@ -1256,10 +1250,7 @@ BkgSubtractionSelector.o: ../src/BGS/BkgSubtractionSelector.cpp ../src/BGS/BkgSu
 		../src/BLOBS/BasicBlob.h \
 		../src/BLOBS/BlobList.h \
 		../src/BLOBS/BlobList.cpp \
-		../src/BLOBS/ObjectBlob.h \
-		../src/Event/EventController.h \
-		../src/Event/Event.h \
-		../src/Event/EventWriter.h
+		../src/BLOBS/ObjectBlob.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BkgSubtractionSelector.o ../src/BGS/BkgSubtractionSelector.cpp
 
 BlobExtractor.o: ../src/BLOBS/BlobExtractor.cpp ../src/BLOBS/BlobExtractor.h \
@@ -1298,10 +1289,7 @@ ClassifierSelector.o: ../src/CLASSIFIER/ClassifierSelector.cpp ../src/CLASSIFIER
 		../src/CLASSIFIER/StaticObjectClassifierHist.h \
 		../src/CLASSIFIER/StaticObjectClassifierHighGradient.h \
 		../src/settings.h \
-		../src/BLOBS/BlobExtractor.h \
-		../src/Event/EventController.h \
-		../src/Event/Event.h \
-		../src/Event/EventWriter.h
+		../src/BLOBS/BlobExtractor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ClassifierSelector.o ../src/CLASSIFIER/ClassifierSelector.cpp
 
 StaticObjectClassifier.o: ../src/CLASSIFIER/StaticObjectClassifier.cpp ../src/CLASSIFIER/StaticObjectClassifier.h \
@@ -1335,10 +1323,7 @@ DrawDetections.o: ../src/Utils/DrawDetections.cpp ../src/Utils/DrawDetections.h 
 		../src/BLOBS/BasicBlob.h \
 		../src/BLOBS/BlobList.h \
 		../src/BLOBS/BlobList.cpp \
-		../src/BLOBS/ObjectBlob.h \
-		../src/Event/EventController.h \
-		../src/Event/Event.h \
-		../src/Event/EventWriter.h
+		../src/BLOBS/ObjectBlob.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DrawDetections.o ../src/Utils/DrawDetections.cpp
 
 EventController.o: ../src/Event/EventController.cpp ../src/Event/EventController.h \
@@ -1895,9 +1880,6 @@ aod.o: ../src/aod.cpp ../src/aod.h \
 		../src/BLOBS/BlobList.h \
 		../src/BLOBS/BlobList.cpp \
 		../src/BLOBS/ObjectBlob.h \
-		../src/Event/EventController.h \
-		../src/Event/Event.h \
-		../src/Event/EventWriter.h \
 		../src/SFGD/SFGDSelector.h \
 		../src/SFGD/StaticMaskExtractor.h \
 		../src/SFGD/StaticMaskExtractor_subsampling.h \
@@ -1923,6 +1905,9 @@ aod.o: ../src/aod.cpp ../src/aod.h \
 		../lib/ACFlibrary/Core/detectormodel.h \
 		../lib/ACFlibrary/Core/NonMaximumSuppression.h \
 		../lib/ACFlibrary/Core/nms.h \
+		../src/Event/EventController.h \
+		../src/Event/Event.h \
+		../src/Event/EventWriter.h \
 		../src/Utils/DrawDetections.h \
 		../src/Utils/BasicBlob.h \
 		../src/Utils/solape.h \
