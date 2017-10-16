@@ -25,7 +25,7 @@ settings settings::init(int argc, char *argv[], settings Video)
     cout << "Time (seconds) to static: " << Video.time_to_static << endl;
 
     // Show results if true
-    Video.ShowResults = false;
+    Video.ShowResults = true;
 
     // Save results images if true
     Video.SaveImages = false;
@@ -35,7 +35,7 @@ settings settings::init(int argc, char *argv[], settings Video)
     }
 
     // Save XML results file if true
-    Video.SaveResults = true;
+    Video.SaveResults = false;
 
     // Detect people in every frame if true
     Video.DetectPeopleAlways = false;
@@ -52,10 +52,10 @@ settings settings::init(int argc, char *argv[], settings Video)
         cout << "Executing with default parameters" << endl;
 
         // BKG METHOD
-        Video.bkg_method = 2;
+        Video.bkg_method = 6;
 
         // SFGD METHOD
-        Video.sfgd_method  = 1;
+        Video.sfgd_method = 4;
 
         // CLASSIFIER METHOD
         Video.classifier_method = 1;
@@ -64,9 +64,9 @@ settings settings::init(int argc, char *argv[], settings Video)
         Video.detector_method = 1;
 
         // INPUT VIDEO FILE DIRECTORY
-       // Video.fileDir = "../datasets/VISOR/visor_Video00.avi";
+        //Video.fileDir = "../datasets/VISOR/visor_Video00.avi";
         //Video.fileDir = "../datasets/AVSS/AVSS_corto.mov";
-         Video.fileDir = "/storage-disk/AOD/datasets/AVSS2007/AVSSS07_EASY.mpg";
+        Video.fileDir = "/storage-disk/AOD/datasets/AVSS2007/AVSSS07_EASY.mpg";
 
         // RESULTS FOLDER
         Video.folder_results  = "../results/";
@@ -109,9 +109,7 @@ settings settings::init(int argc, char *argv[], settings Video)
         // RESULTS FOLDER
         Video.folder_results = argv[6];
 
-
     }
-
 
     // Compute videoName variable, used for saving the results
     string basename  = Video.fileDir.substr(Video.fileDir.find_last_of("/")+1);

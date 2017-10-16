@@ -38,15 +38,16 @@ public:
     double learningRateOverride;
     double learningRate;
 
-    Mat img_input;
-    Mat img_output;
-    Mat img_bgmodel;
+    Mat img_input; //Frame
+    Mat img_output; //Foreground mask
+    Mat img_bgmodel; // Background image
 
 
     // Subtraction techniques objects declaration
 
 
     IBGS *bgs;
+
 
     // Constructors
     BkgSubtractionSelector();
@@ -62,7 +63,7 @@ public:
     virtual void process(Mat frame, settings Video);
 
 
-    virtual Mat GetForegroundImage(); // antes era vector
+    virtual std::vector<Mat> GetForegroundImage(); // antes era vector
     Mat GetBGModel();
     //double GetBackgroundRatio();
     //void finish(void);

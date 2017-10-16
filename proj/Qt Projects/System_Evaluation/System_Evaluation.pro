@@ -94,7 +94,10 @@ SOURCES += main.cpp\
     ../../../lib/ACFlibrary/Core/ScaleSpacePyramid.cpp \
     ../../../src/Utils/CurrentDateTime.cpp \
     ../../../src/aod.cpp \
-    ../../../src/settings.cpp
+    ../../../src/settings.cpp \
+    ../../../src/BGS/DualBkgSubtractionSelector.cpp \
+    ../../../src/SFGD/StaticMaskExtractor_DualBkg.cpp
+
 
 HEADERS  +=   ../../../src/SFGD/StaticMaskExtractor_subsampling.h \
     ../../../src/SFGD/StaticMaskExtractor.h \
@@ -178,7 +181,10 @@ HEADERS  +=   ../../../src/SFGD/StaticMaskExtractor_subsampling.h \
     ../../../lib/ACFlibrary/rapidxml-1.13/rapidxml.hpp \
     ../../../src/Utils/CurrentDateTime.h \
     ../../../src/aod.h \
-    ../../../src/settings.h
+    ../../../src/settings.h \
+    ../../../src/BGS/DualBkgSubtractionSelector.h \
+    ../../../src/SFGD/StaticMaskExtractor_DualBkg.h
+
 
 # The following lines tells Qmake to use pkg-config for opencv
 QT_CONFIG -= no-pkg-config

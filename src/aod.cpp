@@ -24,14 +24,25 @@
 AOD::AOD(){}
 AOD::~AOD(){}
 
+
 settings AOD::init(settings Video, Mat frame){
 
     // Initializations
-    this->bkg_selector = new BkgSubtractionSelector(Video.bkg_method);
-    this->bkg_selector->init(frame);
+    if (Video.sfgd_method == 4)
+    {
+        this->bkg_selector = new DualBkgSubtractionSelector(Video.bkg_method);
+        this->bkg_selector->init(frame);
+    }
+    else
+    {
+        this->bkg_selector = new BkgSubtractionSelector(Video.bkg_method);
+        this->bkg_selector->init(frame);
+
+
+    }
 
     this->sfgd_selector = new SFDGSelector(Video.sfgd_method,Video.framerate,Video.time_to_static);
-    this->sfgd_selector->init(frame);
+    this->sfgd_selector->init(frame,*bkg_selector );
 
     this->detec_selector= new DetectorSelector(Video.detector_method);
     this->detec_selector->init();
@@ -143,7 +154,7 @@ settings AOD::processFrame(settings Video, Mat frame){
 
         DefineObjectBlobList(BlobList, Video.found_filtered, Video.list_objects,Video.contextMask);
 
-        cout << "Frame " << Video.numFrame << ". Num objects blobs = " << Video.list_objects->getBlobNum() <<  ".  Number of people detected: " << detec_selector->found.size() << endl;
+        cout << ". Num objects blobs = " << Video.list_objects->getBlobNum() <<  ".  Number of people detected: " << detec_selector->found.size() << endl;
 
     }
 
@@ -152,13 +163,13 @@ settings AOD::processFrame(settings Video, Mat frame){
 
     clock_t start_class = clock();
 
-
+     Mat prueba = this->bkg_selector->GetBGModel();
     // Only if some static object is detected
 
     if (Video.list_objects->getBlobNum()){
 
         Mat clss;
-        clss = this->classifier_selector->process(frame, this->bkg_selector->GetBGModel(), tmp, this->bkg_selector->GetForegroundImage(),Video.list_objects,Video);
+        clss = this->classifier_selector->process(frame, this->bkg_selector->GetBGModel(), tmp, this->bkg_selector->GetForegroundImage()[0],Video.list_objects,Video);
 
     }
 
@@ -193,7 +204,7 @@ settings AOD::processFrame(settings Video, Mat frame){
     }
 
 
-return Video;
+    return Video;
 
 
 }

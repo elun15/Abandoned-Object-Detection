@@ -287,7 +287,7 @@ void EventController::checkDep_NewEventsThatExist()
 
             }
 
-            if (evt->numFramesNotDetected > 200)
+            if (evt->numFramesNotDetected > 1000)
             {
                 if (evt->getLife() > 50) //al menos 100 frames
                 {
@@ -875,17 +875,7 @@ cv::Mat EventController::getOutputFrame(cv::Mat input_frame, BlobList<ObjectBlob
 
         switch(evt->getEventType()) {
 
-        case PutObject: // BLUE
-            //if (evt->getLife() < 2*MAX_LIFE)
-        {
-            colour.val[0] = 255;
-            colour.val[1] = colour.val[2] = colour.val[3] = 0;
-            p1.x = (int)pB->x+4;
-            p1.y = (int)pB->y+4;
-            p2.x = (int)(pB->x + pB->w)+4;
-            p2.y = (int)(pB->y + pB->h)+4;
-        }
-            break;
+
         case AbandonedObject: // GREEN
             //if (evt->getLife() < 2*MAX_LIFE)
         {
@@ -910,29 +900,8 @@ cv::Mat EventController::getOutputFrame(cv::Mat input_frame, BlobList<ObjectBlob
         }
             break;
 
-        case AbandonedPerson: // RED
-            //if (evt->getLife() < 2*MAX_LIFE)
-        {
-            colour.val[2] = 255;
-            colour.val[0] = colour.val[1] = colour.val[3] = 0;
-            p1.x = (int)pB->x + 4;
-            p1.y = (int)pB->y + 4;
-            p2.x = (int)(pB->x + pB->w) + 4;
-            p2.y = (int)(pB->y + pB->h) + 4;
-        }
-            break;
-        case StolenPerson: // ?
-            //if (evt->getLife() < 2*MAX_LIFE)
-        {
-            colour.val[0] = 255;
-            colour.val[1] = 255;
-            colour.val[2] = colour.val[3] = 0;
-            p1.x = (int)pB->x + 4;
-            p1.y = (int)pB->y + 4;
-            p2.x = (int)(pB->x + pB->w) + 4;
-            p2.y = (int)(pB->y + pB->h) + 4;
-        }
-            break;
+
+
         default:
             colour.val[0]=colour.val[1]=colour.val[2]=colour.val[3]=0;
         }
