@@ -1,5 +1,6 @@
 #include "../../../src/Utils/DrawDetections.h"
 #include "../../../src/settings.h"
+#include <opencv2/opencv.hpp>
 
 
 Mat DrawDetections(cv::Mat frame, vector<Rect> found, std::vector<cvBlob> *BlobList,settings Video)

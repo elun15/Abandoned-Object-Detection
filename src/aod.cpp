@@ -134,6 +134,7 @@ settings AOD::processFrame(settings Video, Mat frame){
         // Show people detections if show results variable is true
         Mat peopleDetection = DrawDetections(frame,Video.found_filtered, BlobList, Video);
 
+
         clock_t finish_pd = clock();
         elapsedTime_pd = (double)(finish_pd - start_pd)/CLOCKS_PER_SEC;
 
