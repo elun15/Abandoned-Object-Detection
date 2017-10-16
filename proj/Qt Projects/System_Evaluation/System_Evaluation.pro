@@ -112,7 +112,6 @@ HEADERS  +=   ../../../src/SFGD/StaticMaskExtractor_subsampling.h \
     ../../../src/CLASSIFIER/StaticObjectClassifier.h \
     ../../../src/CLASSIFIER/StaticObjectClassifierHist.h \
     ../../../src/CLASSIFIER/StaticObjectClassifierHighGradient.h \
-    ../../../src/Utils/DrawDetections.h \
     ../../../src/Event/EventController.h \
     ../../../src/Event/Event.h \
     ../../../src/Event/EventWriter.h \
@@ -177,6 +176,7 @@ HEADERS  +=   ../../../src/SFGD/StaticMaskExtractor_subsampling.h \
     ../../../lib/ACFlibrary/rapidxml-1.13/rapidxml_utils.hpp \
     ../../../lib/ACFlibrary/rapidxml-1.13/rapidxml.hpp \
     ../../../src/Utils/CurrentDateTime.h \
+  ../../../src/Utils/DrawDetections.h \
     ../../../src/aod.h \
     ../../../src/settings.h
 
