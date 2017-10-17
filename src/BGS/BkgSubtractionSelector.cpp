@@ -20,7 +20,7 @@ using namespace cv;
 using namespace bgslibrary::algorithms;
 
 
-//Constructor: Identify selected subtraction technique from the main programa and initialize the needed variables
+//Constructor: Identify selected subtraction technique from the main program and initialize the needed variables
 
 BkgSubtractionSelector::BkgSubtractionSelector(int BGSid)
 {
@@ -87,7 +87,7 @@ void BkgSubtractionSelector::init(Mat frame)
     case 6:
 
         cout << "SUSBSENSE Method selected." << endl;
-        this->bgs = new SuBSENSE;
+        this->bgs = new SuBSENSE(1000);
         break;
 
 
@@ -123,6 +123,9 @@ void BkgSubtractionSelector::process(Mat frame, settings Video)
         waitKey(1);
         imshow("Foregroung image",this->img_output );
         waitKey(1);
+        imshow("Frame",frame );
+        waitKey(1);
+
 
     }
 
@@ -142,12 +145,11 @@ void BkgSubtractionSelector::process(Mat frame, settings Video)
 
 
 //Funcion GetForegroundImage: Captura y devuelve el foreground procesado del frame actual bajo analisis.
-Mat BkgSubtractionSelector::GetForegroundImage()
+std::vector<Mat> BkgSubtractionSelector::GetForegroundImage()
 {
     vector<Mat> vector;
     vector.push_back(this->img_output);
-    //return vector;
-    return this->img_output;
+       return vector;
 }
 
 

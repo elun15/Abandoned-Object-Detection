@@ -36,9 +36,12 @@ using namespace std;
 
 // 1: Subsampling
 // 2: Acc Mask
+// 3: History_Images
+// 4: Dual Bkg Model
 
 // 1: High Gradient
 // 2: Histogram
+// 3: PCC
 
 // 1: HOG
 // 2: DPM
@@ -78,6 +81,15 @@ int main(int argc, char *argv[])
     // Initialize all video variables
     Video = Video.init(argc,argv, Video);
 
+    //DBM(4) is only working with SuBSENSE(6)
+    if (Video.sfgd_method == 4 && Video.bkg_method != 6 )
+    {
+        cout << "DBM is only available with SuBSENSE" << endl;
+        return -1;
+
+    }
+
+
     // Open video file
     Video = Video.open(Video);
 
@@ -109,7 +121,7 @@ int main(int argc, char *argv[])
                 Video = system.init(Video,frame);
             }
 
-           Video = system.processFrame(Video, frame);
+            Video = system.processFrame(Video, frame);
 
 
         }

@@ -22,30 +22,6 @@ Event::Event() {
 	init(-1, EVENT_UNKNOWN, -1, -1, -1.0 , false , 0, 0, false, NULL, NULL, -1);
 }
 
-/*Event::Event(int ID, int startFrame, BlobList<ObjectBlob *> *pList, double score, bool decision, int finishFrame,bool written) {
-	this->setID(ID);
-	this->setEventType(-1);
-	this->setStartFrame(startFrame);
-	this->setFinishFrame(finishFrame);
-	this->setScore(score);
-	if (this->decision)
-		this->affDecision();
-	else
-		this->negDecision();
-	this->negAct();
-	this->setLife(life);
-	this->setLength(0);
-	this->setWritten(written);
-	ObjectBlob *pB=NULL;
-	this->pObjList = new BlobList<ObjectBlob*>;
-	if(pList != NULL)
-		for(int i = 0; i< pList->getBlobNum();i++)
-		{
-			pB = pList->getBlob(i);
-			this->pObjList->addBlob(pB);
-		}
-
-}/**/
 
 /**
  *	Class Constructor with initial data

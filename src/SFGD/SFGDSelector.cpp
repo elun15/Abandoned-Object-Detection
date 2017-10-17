@@ -26,7 +26,7 @@ SFDGSelector::~SFDGSelector()
     cout << "~SFGDSelector()" << endl;
 }
 
-void SFDGSelector::init(Mat frame)
+void SFDGSelector::init(Mat frame, BkgSubtractionSelector bgs)
 {
 
     switch (this->int_SFGDid)
@@ -36,15 +36,23 @@ void SFDGSelector::init(Mat frame)
         this->psubsamplingSFGD = new StaticMaskExtractor_subsampling(frame, this->framerate, this->time2static, SFGD_SUBSAMPLING_NUMSTAGES);
         break;
 
-    //ACC MASK
+        //ACC MASK
     case 2:
         this->pAccMaskSFGD = new StaticMaskExtractor_AccMask(frame, this->framerate, this->time2static, 2.0f, 250);
         break;
 
-    //HistoryImages
+        //HistoryImages
     case 3:
 
 
+
+        break;
+
+
+        //DBM
+    case 4:
+
+        this->pDBM = new StaticMaskExtractor_DualBkg(frame,this->framerate,this->time2static,&bgs, this->alpha);
 
         break;
     default:
@@ -52,8 +60,34 @@ void SFDGSelector::init(Mat frame)
     }
 }
 
-void SFDGSelector::process(Mat frame, Mat foreground_img, Mat bgmodel_img, settings Video)
+void SFDGSelector::process(Mat frame, std::vector<cv::Mat> foreground_img, Mat bgmodel_img, settings Video)
 {
+
+
+    Mat foreground;
+
+    // If 3 channels ->  convert to 1 channel
+    if (foreground_img[0].channels() == 1){
+
+        foreground = foreground_img[0];
+    }
+    else{
+
+        Mat tmp;
+        cvtColor(foreground_img[0], tmp, CV_BGR2GRAY);
+        foreground = tmp;
+
+    }
+
+
+    Mat foregroundShort = foreground_img[0];
+    Mat foregroundLong;
+
+    if (foreground_img.size() == 2)
+    {
+        foregroundLong = foreground_img[1];
+    }
+
 
 
     switch (this->int_SFGDid)
@@ -63,11 +97,11 @@ void SFDGSelector::process(Mat frame, Mat foreground_img, Mat bgmodel_img, setti
     //Subsampling
     case 1:
 
-        this->psubsamplingSFGD->processFrame(frame, foreground_img);
+        this->psubsamplingSFGD->processFrame(frame, foreground);
 
-        if (Video.ShowResults){
-            imshow("STATIC MOTION MASK SUBSAMPLING", this->psubsamplingSFGD->getStaticMask());
-        }
+        //if (Video.ShowResults){
+        //    imshow("STATIC MOTION MASK SUBSAMPLING", this->psubsamplingSFGD->getStaticMask());
+        //}
 
         if (Video.SaveImages && (Video.numFrame % 20 == 0)) //Save 1 frame out of every 20
         {
@@ -88,11 +122,11 @@ void SFDGSelector::process(Mat frame, Mat foreground_img, Mat bgmodel_img, setti
         //ACC
     case 2:
 
-        this->pAccMaskSFGD->processFrame(foreground_img, framerate, time2static);
+        this->pAccMaskSFGD->processFrame(foreground, framerate, time2static);
 
-        if (Video.ShowResults){
-            imshow("STATIC MOTION MASK ACC", this->pAccMaskSFGD->getStaticMask());
-        }
+        //  if (Video.ShowResults){
+        //     imshow("STATIC MOTION MASK ACC", this->pAccMaskSFGD->getStaticMask());
+        // }
 
 
         if (Video.SaveImages && (Video.numFrame % 20 == 0)) //Save 1 frame out of every 20
@@ -121,10 +155,14 @@ void SFDGSelector::process(Mat frame, Mat foreground_img, Mat bgmodel_img, setti
 
 
 
-
         break;
 
+        //DBM
+    case 4:
 
+        this->pDBM->processFrame(foregroundLong,foregroundShort);
+
+        break;
 
     default:
         break;
@@ -133,7 +171,7 @@ void SFDGSelector::process(Mat frame, Mat foreground_img, Mat bgmodel_img, setti
 
 
     frame.release();
-    foreground_img.release();
+    foreground_img.clear();
     bgmodel_img.release();
 
 
@@ -151,6 +189,12 @@ Mat SFDGSelector::GetStaticForeground(){
         //ACC
     case 2:
         return (this->pAccMaskSFGD->getStaticMask());
+        break;
+
+
+    case 4:
+        return(this->pDBM->getStaticMask());
+
         break;
 
     default:

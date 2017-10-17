@@ -1,7 +1,7 @@
-#ifndef BGS_SELECTOR_H
-#define BGS_SELECTOR_H
+#ifndef DUALBACKGROUNDSELECTOR_H
+#define DUALBACKGROUNDSELECTOR_H
 
-#endif // BGS_SELECTOR_H
+#endif // DUALBACKGROUNDSELECTOR_H
 
 /************************************************************************************/
 /* Header file of BGS_selector.cpp                                                  */
@@ -19,6 +19,7 @@
 #include "../../../lib/bgslibrary/package_bgs/bgslibrary.h"
 #include <opencv2/video/background_segm.hpp>
 #include "../../../src/settings.h"
+#include "BkgSubtractionSelector.h"
 
 
 using namespace std;
@@ -26,7 +27,7 @@ using namespace cv;
 using namespace bgslibrary::algorithms;
 
 
-class BkgSubtractionSelector
+class DualBkgSubtractionSelector : public BkgSubtractionSelector
 {
 
 
@@ -34,28 +35,30 @@ public:
 
     // Variables declaration
 
-    int int_BGSid;
-    double learningRateOverride;
-    double learningRate;
+    // int_BGSid;
+   // double learningRateOverride;
+   // double learningRate;
 
-    Mat img_input; //Frame
-    Mat img_output; //Foreground mask
-    Mat img_bgmodel; // Background image
-
+   // Mat img_input; //Frame
+//    Mat img_output;
+    Mat img_outputLong; //Long Foreground mask
+    Mat img_outputshort; //Short Foreground mask
+   // Mat img_bgmodel; // Background image
+    Mat img_bgmodelLong; // Background image
 
     // Subtraction techniques objects declaration
 
-
-    IBGS *bgs;
-
+    //IBGS * bgs;
+    IBGS *bgsShort;
+    IBGS *bgsLong;
 
     // Constructors
-    BkgSubtractionSelector();
-    BkgSubtractionSelector(int BGSid);  // BGSid: technique ID
+    DualBkgSubtractionSelector();
+    DualBkgSubtractionSelector(int BGSid);  // BGSid: technique ID
 
 
     //Destructor
-    ~BkgSubtractionSelector();
+    ~DualBkgSubtractionSelector();
 
     //Other functions
 
@@ -64,7 +67,7 @@ public:
 
 
     virtual std::vector<Mat> GetForegroundImage(); // antes era vector
-    Mat GetBGModel();
+   // Mat GetBGModel();
     //double GetBackgroundRatio();
     //void finish(void);
 

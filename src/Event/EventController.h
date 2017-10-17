@@ -57,7 +57,7 @@ const int FRAMES_SHOW_ALARM = 50;
 
 const int MAX_LIFE = 3000;
 
-const double MIN_OVERLAP_SAME_EVENT = 0.3f;
+const double MIN_OVERLAP_SAME_EVENT = 0.2f;//
 
 //class definition
 class EventController {
