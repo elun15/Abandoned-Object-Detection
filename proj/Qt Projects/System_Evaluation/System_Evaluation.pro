@@ -27,7 +27,7 @@ SOURCES += main.cpp\
     ../../../src/SFGD/StaticMaskExtractor_Subsampling.cpp \
     ../../../src/SFGD/StaticMaskExtractor.cpp \
     ../../../src/SFGD/StaticMaskExtractor_AccMask.cpp \
-    ../../../src/SFGD/SFGDSelector.cpp \
+     ../../../src/SFGD/SFGDSelector.cpp \
     ../../../src/BGS/BkgSubtractionSelector.cpp \
     ../../../src/BLOBS/BlobExtractor.cpp \
     ../../../src/BLOBS/BasicBlob.cpp \
@@ -95,9 +95,13 @@ SOURCES += main.cpp\
     ../../../src/Utils/CurrentDateTime.cpp \
     ../../../src/aod.cpp \
     ../../../src/settings.cpp \
+<<<<<<< HEAD
     ../../../src/BGS/DualBkgSubtractionSelector.cpp \
     ../../../src/SFGD/StaticMaskExtractor_DualBkg.cpp
 
+=======
+    ../../../src/SFGD/StaticMaskExtractor_HistoryImages.cpp
+>>>>>>> doh2
 
 HEADERS  +=   ../../../src/SFGD/StaticMaskExtractor_subsampling.h \
     ../../../src/SFGD/StaticMaskExtractor.h \
@@ -115,6 +119,7 @@ HEADERS  +=   ../../../src/SFGD/StaticMaskExtractor_subsampling.h \
     ../../../src/CLASSIFIER/StaticObjectClassifier.h \
     ../../../src/CLASSIFIER/StaticObjectClassifierHist.h \
     ../../../src/CLASSIFIER/StaticObjectClassifierHighGradient.h \
+    ../../../src/Utils/DrawDetections.h \
     ../../../src/Event/EventController.h \
     ../../../src/Event/Event.h \
     ../../../src/Event/EventWriter.h \
@@ -179,11 +184,27 @@ HEADERS  +=   ../../../src/SFGD/StaticMaskExtractor_subsampling.h \
     ../../../lib/ACFlibrary/rapidxml-1.13/rapidxml_utils.hpp \
     ../../../lib/ACFlibrary/rapidxml-1.13/rapidxml.hpp \
     ../../../src/Utils/CurrentDateTime.h \
-  ../../../src/Utils/DrawDetections.h \
     ../../../src/aod.h \
     ../../../src/settings.h \
+<<<<<<< HEAD
     ../../../src/BGS/DualBkgSubtractionSelector.h \
     ../../../src/SFGD/StaticMaskExtractor_DualBkg.h
+=======
+    ../../../src/SFGD/StaticMaskExtractor_HistoryImages.h
+
+
+INCLUDEPATH += /usr/local/include/opencv2
+LIBS += -L/usr/local/lib
+LIBS += -lopencv_core
+LIBS += -lopencv_imgproc
+LIBS += -lopencv_highgui
+LIBS += -lopencv_ml
+LIBS += -lopencv_video
+LIBS += -lopencv_features2d
+LIBS += -lopencv_calib3d
+LIBS += -lopencv_objdetect
+LIBS += -lopencv_flann
+>>>>>>> doh2
 
 
 # The following lines tells Qmake to use pkg-config for opencv

@@ -43,9 +43,12 @@ void SFDGSelector::init(Mat frame, BkgSubtractionSelector bgs)
 
         //HistoryImages
     case 3:
+        this->pHistoryImagesSFGD = new StaticMaskExtractor_HistoryImages(frame, this->framerate, this->time2static, 2.0f, 250);
+        break;
 
 
 
+<<<<<<< HEAD
         break;
 
 
@@ -55,6 +58,8 @@ void SFDGSelector::init(Mat frame, BkgSubtractionSelector bgs)
         this->pDBM = new StaticMaskExtractor_DualBkg(frame,this->framerate,this->time2static,&bgs, this->alpha);
 
         break;
+=======
+>>>>>>> doh2
     default:
         break;
     }
@@ -148,13 +153,28 @@ void SFDGSelector::process(Mat frame, std::vector<cv::Mat> foreground_img, Mat b
 
     case 3:
 
+        this->pHistoryImagesSFGD->processFrame(foreground_img, frame, bgmodel_img, framerate, time2static);
 
-        //History Images processing code here
-        //
+        if (Video.ShowResults){
+            imshow("STATIC MOTION MASK HISTORY", this->pHistoryImagesSFGD->getStaticMask());
+        }
 
 
+        if (Video.SaveImages && (Video.numFrame % 20 == 0)) //Save 1 frame out of every 20
+        {
 
+            String d = Video.DirImages + "sfgd" + to_string(Video.numFrame) + ".jpg";
+            imwrite(d,this->pHistoryImagesSFGD->getStaticMask());
+            d = Video.DirImages + "fg" + to_string(Video.numFrame) + ".jpg";
+            imwrite(d,foreground_img);
 
+            return;
+
+<<<<<<< HEAD
+=======
+
+        }
+>>>>>>> doh2
         break;
 
         //DBM
@@ -191,10 +211,16 @@ Mat SFDGSelector::GetStaticForeground(){
         return (this->pAccMaskSFGD->getStaticMask());
         break;
 
+<<<<<<< HEAD
 
     case 4:
         return(this->pDBM->getStaticMask());
 
+=======
+        //HISTORY IMAGES
+    case 3:
+        return (this->pHistoryImagesSFGD->getStaticMask());
+>>>>>>> doh2
         break;
 
     default:

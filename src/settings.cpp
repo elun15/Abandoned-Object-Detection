@@ -25,7 +25,7 @@ settings settings::init(int argc, char *argv[], settings Video)
     cout << "Time (seconds) to static: " << Video.time_to_static << endl;
 
     // Show results if true
-    Video.ShowResults = true;
+    Video.ShowResults = false;
 
     // Save results images if true
     Video.SaveImages = false;
@@ -55,7 +55,11 @@ settings settings::init(int argc, char *argv[], settings Video)
         Video.bkg_method = 6;
 
         // SFGD METHOD
+<<<<<<< HEAD
         Video.sfgd_method = 4;
+=======
+        Video.sfgd_method  = 3;
+>>>>>>> doh2
 
         // CLASSIFIER METHOD
         Video.classifier_method = 1;

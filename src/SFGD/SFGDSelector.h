@@ -12,7 +12,11 @@
 #include "../../../src/SFGD/StaticMaskExtractor.h"
 #include "../../../src/SFGD/StaticMaskExtractor_subsampling.h"
 #include "../../../src/SFGD/StaticMaskExtractor_AccMask.h"
+<<<<<<< HEAD
 #include "../../../src/SFGD/StaticMaskExtractor_DualBkg.h"
+=======
+#include "../../../src/SFGD/StaticMaskExtractor_HistoryImages.h"
+>>>>>>> doh2
 #include "../../../src/BGS/BkgSubtractionSelector.h"
 
 using namespace std;
@@ -35,7 +39,11 @@ public:
     double alpha = 0.001;//(log(1-Cf)/log(1-alpha))=(log(0.9)/(1-alpha))==#frames para absorcion
     StaticMaskExtractor_subsampling *psubsamplingSFGD;
     StaticMaskExtractor_AccMask *pAccMaskSFGD;
+<<<<<<< HEAD
     StaticMaskExtractor_DualBkg *pDBM;
+=======
+    StaticMaskExtractor_HistoryImages *pHistoryImagesSFGD;
+>>>>>>> doh2
 
     SFDGSelector(int SFGDid, double framerate, int time_to_static);
     ~SFDGSelector();

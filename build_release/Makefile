@@ -15,7 +15,7 @@ CXX           = g++
 DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -O2 -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../proj/Qt\ Projects/System_Evaluation -I. -I/usr/lib/x86_64-linux-gnu -isystem /usr/local/include/opencv -isystem /usr/local/include -I../../Qt5.7.0/5.7/gcc_64/include -I../../Qt5.7.0/5.7/gcc_64/include/QtWidgets -I../../Qt5.7.0/5.7/gcc_64/include/QtGui -I../../Qt5.7.0/5.7/gcc_64/include/QtCore -I. -I../../Qt5.7.0/5.7/gcc_64/mkspecs/linux-g++
+INCPATH       = -I../proj/Qt\ Projects/System_Evaluation -I. -isystem /usr/local/include/opencv2 -I/usr/lib/x86_64-linux-gnu -isystem /usr/local/include/opencv -isystem /usr/local/include -I../../Qt5.7.0/5.7/gcc_64/include -I../../Qt5.7.0/5.7/gcc_64/include/QtWidgets -I../../Qt5.7.0/5.7/gcc_64/include/QtGui -I../../Qt5.7.0/5.7/gcc_64/include/QtCore -I. -I../../Qt5.7.0/5.7/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/vpu/Qt5.7.0/5.7/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -36,7 +36,7 @@ DISTNAME      = System_Evaluation1.0.0
 DISTDIR = /home/vpu/AOD_System/build_release/.tmp/System_Evaluation1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-rpath,/home/vpu/Qt5.7.0/5.7/gcc_64/lib
-LIBS          = $(SUBLIBS) -L/usr/lib/x86_64-linux-gnu/ -L/usr/local/lib -lopencv_shape -lopencv_stitching -lopencv_objdetect -lopencv_superres -lopencv_videostab -lopencv_calib3d -lopencv_features2d -lopencv_highgui -lopencv_videoio -lopencv_imgcodecs -lopencv_video -lopencv_photo -lopencv_ml -lopencv_imgproc -lopencv_flann -lopencv_core -L/home/vpu/Qt5.7.0/5.7/gcc_64/lib -lQt5Widgets -L/usr/lib64 -lQt5Gui -lQt5Core -lGL -lpthread 
+LIBS          = $(SUBLIBS) -L/usr/local/lib -L/usr/lib/x86_64-linux-gnu/ -lopencv_shape -lopencv_stitching -lopencv_objdetect -lopencv_superres -lopencv_videostab -lopencv_calib3d -lopencv_features2d -lopencv_highgui -lopencv_videoio -lopencv_imgcodecs -lopencv_video -lopencv_photo -lopencv_ml -lopencv_imgproc -lopencv_flann -lopencv_core -L/home/vpu/Qt5.7.0/5.7/gcc_64/lib -lQt5Widgets -L/usr/lib64 -lQt5Gui -lQt5Core -lGL -lpthread 
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -119,8 +119,12 @@ SOURCES       = ../proj/Qt\ Projects/System_Evaluation/main.cpp \
 		../src/Utils/CurrentDateTime.cpp \
 		../src/aod.cpp \
 		../src/settings.cpp \
+<<<<<<< HEAD
 		../src/BGS/DualBkgSubtractionSelector.cpp \
 		../src/SFGD/StaticMaskExtractor_DualBkg.cpp 
+=======
+		../src/SFGD/StaticMaskExtractor_HistoryImages.cpp 
+>>>>>>> doh2
 OBJECTS       = main.o \
 		StaticMaskExtractor_Subsampling.o \
 		StaticMaskExtractor.o \
@@ -192,8 +196,12 @@ OBJECTS       = main.o \
 		CurrentDateTime.o \
 		aod.o \
 		settings.o \
+<<<<<<< HEAD
 		DualBkgSubtractionSelector.o \
 		StaticMaskExtractor_DualBkg.o
+=======
+		StaticMaskExtractor_HistoryImages.o
+>>>>>>> doh2
 DIST          = ../lib/ACF/INRIA_ACF.xml \
 		../lib/rapidxml-1.13/license.txt \
 		../proj/Qt5.7.0/5.7/gcc_64/mkspecs/features/spec_pre.prf \
@@ -361,6 +369,7 @@ DIST          = ../lib/ACF/INRIA_ACF.xml \
 		../src/CLASSIFIER/StaticObjectClassifier.h \
 		../src/CLASSIFIER/StaticObjectClassifierHist.h \
 		../src/CLASSIFIER/StaticObjectClassifierHighGradient.h \
+		../src/Utils/DrawDetections.h \
 		../src/Event/EventController.h \
 		../src/Event/Event.h \
 		../src/Event/EventWriter.h \
@@ -425,11 +434,14 @@ DIST          = ../lib/ACF/INRIA_ACF.xml \
 		../lib/ACFlibrary/rapidxml-1.13/rapidxml_utils.hpp \
 		../lib/ACFlibrary/rapidxml-1.13/rapidxml.hpp \
 		../src/Utils/CurrentDateTime.h \
-		../src/Utils/DrawDetections.h \
 		../src/aod.h \
 		../src/settings.h \
+<<<<<<< HEAD
 		../src/BGS/DualBkgSubtractionSelector.h \
 		../src/SFGD/StaticMaskExtractor_DualBkg.h ../proj/Qt\ Projects/System_Evaluation/main.cpp \
+=======
+		../src/SFGD/StaticMaskExtractor_HistoryImages.h ../proj/Qt\ Projects/System_Evaluation/main.cpp \
+>>>>>>> doh2
 		../src/SFGD/StaticMaskExtractor_Subsampling.cpp \
 		../src/SFGD/StaticMaskExtractor.cpp \
 		../src/SFGD/StaticMaskExtractor_AccMask.cpp \
@@ -500,8 +512,12 @@ DIST          = ../lib/ACF/INRIA_ACF.xml \
 		../src/Utils/CurrentDateTime.cpp \
 		../src/aod.cpp \
 		../src/settings.cpp \
+<<<<<<< HEAD
 		../src/BGS/DualBkgSubtractionSelector.cpp \
 		../src/SFGD/StaticMaskExtractor_DualBkg.cpp
+=======
+		../src/SFGD/StaticMaskExtractor_HistoryImages.cpp
+>>>>>>> doh2
 QMAKE_TARGET  = System_Evaluation
 DESTDIR       = 
 TARGET        = System_Evaluation
@@ -835,12 +851,17 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 <<<<<<< HEAD
+<<<<<<< HEAD
 	$(COPY_FILE) --parents ../src/SFGD/StaticMaskExtractor_subsampling.h ../src/SFGD/StaticMaskExtractor.h ../src/SFGD/StaticMaskExtractor_AccMask.h ../src/SFGD/SFGDSelector.h ../src/BGS/BkgSubtractionSelector.h ../src/BLOBS/BlobExtractor.h ../src/BLOBS/BasicBlob.h ../src/Utils/solape.h ../src/DETECTOR/DefineObjectBlobList.h ../src/BLOBS/BlobList.h ../src/BLOBS/CompareBlobs.h ../src/BLOBS/ObjectBlob.h ../src/CLASSIFIER/ClassifierSelector.h ../src/CLASSIFIER/StaticObjectClassifier.h ../src/CLASSIFIER/StaticObjectClassifierHist.h ../src/CLASSIFIER/StaticObjectClassifierHighGradient.h ../src/Event/EventController.h ../src/Event/Event.h ../src/Event/EventWriter.h ../lib/DPM/dpm_cascade.hpp ../lib/DPM/dpm_convolution.hpp ../lib/DPM/dpm_feature.hpp ../lib/DPM/dpm_model.hpp ../lib/DPM/dpm_nms.hpp ../lib/DPM/dpm.hpp ../lib/DPM/precomp.hpp ../src/DETECTOR/detectorselector.h ../lib/bgslibrary/package_bgs/KNN.h ../lib/bgslibrary/package_bgs/bgslibrary.h ../lib/bgslibrary/package_bgs/IndependentMultimodal.h ../lib/bgslibrary/package_bgs/LOBSTER.h ../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.h ../lib/bgslibrary/package_bgs/PAWCS.h ../lib/bgslibrary/package_bgs/SuBSENSE.h ../lib/bgslibrary/package_bgs/IBGS.h ../lib/bgslibrary/package_bgs/IMBS/IMBS.hpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.h ../lib/bgslibrary/package_bgs/LBSP/DistanceUtils.h ../lib/bgslibrary/package_bgs/LBSP/RandUtils.h ../lib/bgslibrary/package_bgs/LBSP/LBSP_.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.h ../lib/bgslibrary/package_bgs/LBSP/LBSP.h ../lib/ACFlibrary/ACF/ACFDetector.h ../lib/ACFlibrary/ACF/ACFFeaturePyramid.h ../lib/ACFlibrary/ACF/Channel.h ../lib/ACFlibrary/ACF/ChannelFeatures.h ../lib/ACFlibrary/ACF/ColorChannel.h ../lib/ACFlibrary/ACF/GradHistChannel.h ../lib/ACFlibrary/ACF/GradMagChannel.h ../lib/ACFlibrary/ACF/imResampleMex.hpp ../lib/ACFlibrary/ACF/rgbConvertMex.hpp ../lib/ACFlibrary/ACF/sse.hpp ../lib/ACFlibrary/ACF/wrappers.hpp ../lib/ACFlibrary/Channel/Functions.h ../lib/ACFlibrary/Core/detection.h ../lib/ACFlibrary/Core/DetectionList.h ../lib/ACFlibrary/Core/detector.h ../lib/ACFlibrary/Core/DetectorManager.h ../lib/ACFlibrary/Core/detectormodel.h ../lib/ACFlibrary/Core/dirent.h ../lib/ACFlibrary/Core/feature.h ../lib/ACFlibrary/Core/featurelayer.h ../lib/ACFlibrary/Core/filelocator.h ../lib/ACFlibrary/Core/FileWriter.h ../lib/ACFlibrary/Core/FrameFromCamera.h ../lib/ACFlibrary/Core/FrameFromDirectory.h ../lib/ACFlibrary/Core/FrameFromVideo.h ../lib/ACFlibrary/Core/FrameProducer.h ../lib/ACFlibrary/Core/Image.hpp ../lib/ACFlibrary/Core/nms.h ../lib/ACFlibrary/Core/NonMaximumSuppression.h ../lib/ACFlibrary/Core/ScaleSpacePyramid.h ../lib/ACFlibrary/rapidxml-1.13/rapidxml_iterators.hpp ../lib/ACFlibrary/rapidxml-1.13/rapidxml_print.hpp ../lib/ACFlibrary/rapidxml-1.13/rapidxml_utils.hpp ../lib/ACFlibrary/rapidxml-1.13/rapidxml.hpp ../src/Utils/CurrentDateTime.h ../src/Utils/DrawDetections.h ../src/aod.h ../src/settings.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../proj/Qt\ Projects/System_Evaluation/main.cpp ../src/SFGD/StaticMaskExtractor_Subsampling.cpp ../src/SFGD/StaticMaskExtractor.cpp ../src/SFGD/StaticMaskExtractor_AccMask.cpp ../src/SFGD/SFGDSelector.cpp ../src/BGS/BkgSubtractionSelector.cpp ../src/BLOBS/BlobExtractor.cpp ../src/BLOBS/BasicBlob.cpp ../src/Utils/solape.cpp ../src/DETECTOR/DefineObjectBlobList.cpp ../src/BLOBS/CompareBlobs.cpp ../src/BLOBS/ObjectBlob.cpp ../src/CLASSIFIER/ClassifierSelector.cpp ../src/CLASSIFIER/StaticObjectClassifier.cpp ../src/CLASSIFIER/StaticObjectClassifierHist.cpp ../src/CLASSIFIER/StaticObjectClassifierHighGradient.cpp ../src/Utils/DrawDetections.cpp ../src/Event/EventController.cpp ../src/Event/EventWriter.cpp ../src/Event/Event.cpp ../lib/DPM/dpm_cascade_detector.cpp ../lib/DPM/dpm_cascade.cpp ../lib/DPM/dpm_convolution.cpp ../lib/DPM/dpm_feature.cpp ../lib/DPM/dpm_model.cpp ../lib/DPM/dpm_nms.cpp ../src/DETECTOR/detectorselector.cpp ../lib/bgslibrary/package_bgs/KNN.cpp ../lib/bgslibrary/package_bgs/IndependentMultimodal.cpp ../lib/bgslibrary/package_bgs/LOBSTER.cpp ../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.cpp ../lib/bgslibrary/package_bgs/PAWCS.cpp ../lib/bgslibrary/package_bgs/SuBSENSE.cpp ../lib/bgslibrary/package_bgs/IMBS/IMBS.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.cpp ../lib/bgslibrary/package_bgs/LBSP/LBSP_.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.cpp ../lib/bgslibrary/package_bgs/LBSP/LBSP.cpp ../lib/ACFlibrary/ACF/ACFDetector.cpp ../lib/ACFlibrary/ACF/ACFFeaturePyramid.cpp ../lib/ACFlibrary/ACF/Channel.cpp ../lib/ACFlibrary/ACF/ChannelFeatures.cpp ../lib/ACFlibrary/ACF/ColorChannel.cpp ../lib/ACFlibrary/ACF/convConst.cpp ../lib/ACFlibrary/ACF/GradHistChannel.cpp ../lib/ACFlibrary/ACF/gradientMex.cpp ../lib/ACFlibrary/ACF/GradMagChannel.cpp ../lib/ACFlibrary/ACF/wrappers.cpp ../lib/ACFlibrary/Channel/Convert.cpp ../lib/ACFlibrary/Core/detection.cpp ../lib/ACFlibrary/Core/DetectionList.cpp ../lib/ACFlibrary/Core/detector.cpp ../lib/ACFlibrary/Core/DetectorManager.cpp ../lib/ACFlibrary/Core/detectormodel.cpp ../lib/ACFlibrary/Core/feature.cpp ../lib/ACFlibrary/Core/featurelayer.cpp ../lib/ACFlibrary/Core/filelocator.cpp ../lib/ACFlibrary/Core/FileWriter.cpp ../lib/ACFlibrary/Core/FrameFromCamera.cpp ../lib/ACFlibrary/Core/FrameFromDirectory.cpp ../lib/ACFlibrary/Core/FrameFromVideo.cpp ../lib/ACFlibrary/Core/FrameProducer.cpp ../lib/ACFlibrary/Core/nms.cpp ../lib/ACFlibrary/Core/NonMaximumSuppression.cpp ../lib/ACFlibrary/Core/ScaleSpacePyramid.cpp ../src/Utils/CurrentDateTime.cpp ../src/aod.cpp ../src/settings.cpp $(DISTDIR)/
 =======
 	$(COPY_FILE) --parents ../src/SFGD/StaticMaskExtractor_subsampling.h ../src/SFGD/StaticMaskExtractor.h ../src/SFGD/StaticMaskExtractor_AccMask.h ../src/SFGD/SFGDSelector.h ../src/BGS/BkgSubtractionSelector.h ../src/BLOBS/BlobExtractor.h ../src/BLOBS/BasicBlob.h ../src/Utils/solape.h ../src/DETECTOR/DefineObjectBlobList.h ../src/BLOBS/BlobList.h ../src/BLOBS/CompareBlobs.h ../src/BLOBS/ObjectBlob.h ../src/CLASSIFIER/ClassifierSelector.h ../src/CLASSIFIER/StaticObjectClassifier.h ../src/CLASSIFIER/StaticObjectClassifierHist.h ../src/CLASSIFIER/StaticObjectClassifierHighGradient.h ../src/Utils/DrawDetections.h ../src/Event/EventController.h ../src/Event/Event.h ../src/Event/EventWriter.h ../lib/DPM/dpm_cascade.hpp ../lib/DPM/dpm_convolution.hpp ../lib/DPM/dpm_feature.hpp ../lib/DPM/dpm_model.hpp ../lib/DPM/dpm_nms.hpp ../lib/DPM/dpm.hpp ../lib/DPM/precomp.hpp ../src/DETECTOR/detectorselector.h ../lib/bgslibrary/package_bgs/KNN.h ../lib/bgslibrary/package_bgs/bgslibrary.h ../lib/bgslibrary/package_bgs/IndependentMultimodal.h ../lib/bgslibrary/package_bgs/LOBSTER.h ../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.h ../lib/bgslibrary/package_bgs/PAWCS.h ../lib/bgslibrary/package_bgs/SuBSENSE.h ../lib/bgslibrary/package_bgs/IBGS.h ../lib/bgslibrary/package_bgs/IMBS/IMBS.hpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.h ../lib/bgslibrary/package_bgs/LBSP/DistanceUtils.h ../lib/bgslibrary/package_bgs/LBSP/RandUtils.h ../lib/bgslibrary/package_bgs/LBSP/LBSP_.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.h ../lib/bgslibrary/package_bgs/LBSP/LBSP.h ../lib/ACFlibrary/ACF/ACFDetector.h ../lib/ACFlibrary/ACF/ACFFeaturePyramid.h ../lib/ACFlibrary/ACF/Channel.h ../lib/ACFlibrary/ACF/ChannelFeatures.h ../lib/ACFlibrary/ACF/ColorChannel.h ../lib/ACFlibrary/ACF/GradHistChannel.h ../lib/ACFlibrary/ACF/GradMagChannel.h ../lib/ACFlibrary/ACF/imResampleMex.hpp ../lib/ACFlibrary/ACF/rgbConvertMex.hpp ../lib/ACFlibrary/ACF/sse.hpp ../lib/ACFlibrary/ACF/wrappers.hpp ../lib/ACFlibrary/Channel/Functions.h ../lib/ACFlibrary/Core/detection.h ../lib/ACFlibrary/Core/DetectionList.h ../lib/ACFlibrary/Core/detector.h ../lib/ACFlibrary/Core/DetectorManager.h ../lib/ACFlibrary/Core/detectormodel.h ../lib/ACFlibrary/Core/dirent.h ../lib/ACFlibrary/Core/feature.h ../lib/ACFlibrary/Core/featurelayer.h ../lib/ACFlibrary/Core/filelocator.h ../lib/ACFlibrary/Core/FileWriter.h ../lib/ACFlibrary/Core/FrameFromCamera.h ../lib/ACFlibrary/Core/FrameFromDirectory.h ../lib/ACFlibrary/Core/FrameFromVideo.h ../lib/ACFlibrary/Core/FrameProducer.h ../lib/ACFlibrary/Core/Image.hpp ../lib/ACFlibrary/Core/nms.h ../lib/ACFlibrary/Core/NonMaximumSuppression.h ../lib/ACFlibrary/Core/ScaleSpacePyramid.h ../lib/ACFlibrary/rapidxml-1.13/rapidxml_iterators.hpp ../lib/ACFlibrary/rapidxml-1.13/rapidxml_print.hpp ../lib/ACFlibrary/rapidxml-1.13/rapidxml_utils.hpp ../lib/ACFlibrary/rapidxml-1.13/rapidxml.hpp ../src/Utils/CurrentDateTime.h ../src/aod.h ../src/settings.h ../src/BGS/DualBkgSubtractionSelector.h ../src/SFGD/StaticMaskExtractor_DualBkg.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../proj/Qt\ Projects/System_Evaluation/main.cpp ../src/SFGD/StaticMaskExtractor_Subsampling.cpp ../src/SFGD/StaticMaskExtractor.cpp ../src/SFGD/StaticMaskExtractor_AccMask.cpp ../src/SFGD/SFGDSelector.cpp ../src/BGS/BkgSubtractionSelector.cpp ../src/BLOBS/BlobExtractor.cpp ../src/BLOBS/BasicBlob.cpp ../src/Utils/solape.cpp ../src/DETECTOR/DefineObjectBlobList.cpp ../src/BLOBS/CompareBlobs.cpp ../src/BLOBS/ObjectBlob.cpp ../src/CLASSIFIER/ClassifierSelector.cpp ../src/CLASSIFIER/StaticObjectClassifier.cpp ../src/CLASSIFIER/StaticObjectClassifierHist.cpp ../src/CLASSIFIER/StaticObjectClassifierHighGradient.cpp ../src/Utils/DrawDetections.cpp ../src/Event/EventController.cpp ../src/Event/EventWriter.cpp ../src/Event/Event.cpp ../lib/DPM/dpm_cascade_detector.cpp ../lib/DPM/dpm_cascade.cpp ../lib/DPM/dpm_convolution.cpp ../lib/DPM/dpm_feature.cpp ../lib/DPM/dpm_model.cpp ../lib/DPM/dpm_nms.cpp ../src/DETECTOR/detectorselector.cpp ../lib/bgslibrary/package_bgs/KNN.cpp ../lib/bgslibrary/package_bgs/IndependentMultimodal.cpp ../lib/bgslibrary/package_bgs/LOBSTER.cpp ../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.cpp ../lib/bgslibrary/package_bgs/PAWCS.cpp ../lib/bgslibrary/package_bgs/SuBSENSE.cpp ../lib/bgslibrary/package_bgs/IMBS/IMBS.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.cpp ../lib/bgslibrary/package_bgs/LBSP/LBSP_.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.cpp ../lib/bgslibrary/package_bgs/LBSP/LBSP.cpp ../lib/ACFlibrary/ACF/ACFDetector.cpp ../lib/ACFlibrary/ACF/ACFFeaturePyramid.cpp ../lib/ACFlibrary/ACF/Channel.cpp ../lib/ACFlibrary/ACF/ChannelFeatures.cpp ../lib/ACFlibrary/ACF/ColorChannel.cpp ../lib/ACFlibrary/ACF/convConst.cpp ../lib/ACFlibrary/ACF/GradHistChannel.cpp ../lib/ACFlibrary/ACF/gradientMex.cpp ../lib/ACFlibrary/ACF/GradMagChannel.cpp ../lib/ACFlibrary/ACF/wrappers.cpp ../lib/ACFlibrary/Channel/Convert.cpp ../lib/ACFlibrary/Core/detection.cpp ../lib/ACFlibrary/Core/DetectionList.cpp ../lib/ACFlibrary/Core/detector.cpp ../lib/ACFlibrary/Core/DetectorManager.cpp ../lib/ACFlibrary/Core/detectormodel.cpp ../lib/ACFlibrary/Core/feature.cpp ../lib/ACFlibrary/Core/featurelayer.cpp ../lib/ACFlibrary/Core/filelocator.cpp ../lib/ACFlibrary/Core/FileWriter.cpp ../lib/ACFlibrary/Core/FrameFromCamera.cpp ../lib/ACFlibrary/Core/FrameFromDirectory.cpp ../lib/ACFlibrary/Core/FrameFromVideo.cpp ../lib/ACFlibrary/Core/FrameProducer.cpp ../lib/ACFlibrary/Core/nms.cpp ../lib/ACFlibrary/Core/NonMaximumSuppression.cpp ../lib/ACFlibrary/Core/ScaleSpacePyramid.cpp ../src/Utils/CurrentDateTime.cpp ../src/aod.cpp ../src/settings.cpp ../src/BGS/DualBkgSubtractionSelector.cpp ../src/SFGD/StaticMaskExtractor_DualBkg.cpp $(DISTDIR)/
 >>>>>>> elg
+=======
+	$(COPY_FILE) --parents ../src/SFGD/StaticMaskExtractor_subsampling.h ../src/SFGD/StaticMaskExtractor.h ../src/SFGD/StaticMaskExtractor_AccMask.h ../src/SFGD/SFGDSelector.h ../src/BGS/BkgSubtractionSelector.h ../src/BLOBS/BlobExtractor.h ../src/BLOBS/BasicBlob.h ../src/Utils/solape.h ../src/DETECTOR/DefineObjectBlobList.h ../src/BLOBS/BlobList.h ../src/BLOBS/CompareBlobs.h ../src/BLOBS/ObjectBlob.h ../src/CLASSIFIER/ClassifierSelector.h ../src/CLASSIFIER/StaticObjectClassifier.h ../src/CLASSIFIER/StaticObjectClassifierHist.h ../src/CLASSIFIER/StaticObjectClassifierHighGradient.h ../src/Utils/DrawDetections.h ../src/Event/EventController.h ../src/Event/Event.h ../src/Event/EventWriter.h ../lib/DPM/dpm_cascade.hpp ../lib/DPM/dpm_convolution.hpp ../lib/DPM/dpm_feature.hpp ../lib/DPM/dpm_model.hpp ../lib/DPM/dpm_nms.hpp ../lib/DPM/dpm.hpp ../lib/DPM/precomp.hpp ../src/DETECTOR/detectorselector.h ../lib/bgslibrary/package_bgs/KNN.h ../lib/bgslibrary/package_bgs/bgslibrary.h ../lib/bgslibrary/package_bgs/IndependentMultimodal.h ../lib/bgslibrary/package_bgs/LOBSTER.h ../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.h ../lib/bgslibrary/package_bgs/PAWCS.h ../lib/bgslibrary/package_bgs/SuBSENSE.h ../lib/bgslibrary/package_bgs/IBGS.h ../lib/bgslibrary/package_bgs/IMBS/IMBS.hpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.h ../lib/bgslibrary/package_bgs/LBSP/DistanceUtils.h ../lib/bgslibrary/package_bgs/LBSP/RandUtils.h ../lib/bgslibrary/package_bgs/LBSP/LBSP_.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.h ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.h ../lib/bgslibrary/package_bgs/LBSP/LBSP.h ../lib/ACFlibrary/ACF/ACFDetector.h ../lib/ACFlibrary/ACF/ACFFeaturePyramid.h ../lib/ACFlibrary/ACF/Channel.h ../lib/ACFlibrary/ACF/ChannelFeatures.h ../lib/ACFlibrary/ACF/ColorChannel.h ../lib/ACFlibrary/ACF/GradHistChannel.h ../lib/ACFlibrary/ACF/GradMagChannel.h ../lib/ACFlibrary/ACF/imResampleMex.hpp ../lib/ACFlibrary/ACF/rgbConvertMex.hpp ../lib/ACFlibrary/ACF/sse.hpp ../lib/ACFlibrary/ACF/wrappers.hpp ../lib/ACFlibrary/Channel/Functions.h ../lib/ACFlibrary/Core/detection.h ../lib/ACFlibrary/Core/DetectionList.h ../lib/ACFlibrary/Core/detector.h ../lib/ACFlibrary/Core/DetectorManager.h ../lib/ACFlibrary/Core/detectormodel.h ../lib/ACFlibrary/Core/dirent.h ../lib/ACFlibrary/Core/feature.h ../lib/ACFlibrary/Core/featurelayer.h ../lib/ACFlibrary/Core/filelocator.h ../lib/ACFlibrary/Core/FileWriter.h ../lib/ACFlibrary/Core/FrameFromCamera.h ../lib/ACFlibrary/Core/FrameFromDirectory.h ../lib/ACFlibrary/Core/FrameFromVideo.h ../lib/ACFlibrary/Core/FrameProducer.h ../lib/ACFlibrary/Core/Image.hpp ../lib/ACFlibrary/Core/nms.h ../lib/ACFlibrary/Core/NonMaximumSuppression.h ../lib/ACFlibrary/Core/ScaleSpacePyramid.h ../lib/ACFlibrary/rapidxml-1.13/rapidxml_iterators.hpp ../lib/ACFlibrary/rapidxml-1.13/rapidxml_print.hpp ../lib/ACFlibrary/rapidxml-1.13/rapidxml_utils.hpp ../lib/ACFlibrary/rapidxml-1.13/rapidxml.hpp ../src/Utils/CurrentDateTime.h ../src/aod.h ../src/settings.h ../src/SFGD/StaticMaskExtractor_HistoryImages.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../proj/Qt\ Projects/System_Evaluation/main.cpp ../src/SFGD/StaticMaskExtractor_Subsampling.cpp ../src/SFGD/StaticMaskExtractor.cpp ../src/SFGD/StaticMaskExtractor_AccMask.cpp ../src/SFGD/SFGDSelector.cpp ../src/BGS/BkgSubtractionSelector.cpp ../src/BLOBS/BlobExtractor.cpp ../src/BLOBS/BasicBlob.cpp ../src/Utils/solape.cpp ../src/DETECTOR/DefineObjectBlobList.cpp ../src/BLOBS/CompareBlobs.cpp ../src/BLOBS/ObjectBlob.cpp ../src/CLASSIFIER/ClassifierSelector.cpp ../src/CLASSIFIER/StaticObjectClassifier.cpp ../src/CLASSIFIER/StaticObjectClassifierHist.cpp ../src/CLASSIFIER/StaticObjectClassifierHighGradient.cpp ../src/Utils/DrawDetections.cpp ../src/Event/EventController.cpp ../src/Event/EventWriter.cpp ../src/Event/Event.cpp ../lib/DPM/dpm_cascade_detector.cpp ../lib/DPM/dpm_cascade.cpp ../lib/DPM/dpm_convolution.cpp ../lib/DPM/dpm_feature.cpp ../lib/DPM/dpm_model.cpp ../lib/DPM/dpm_nms.cpp ../src/DETECTOR/detectorselector.cpp ../lib/bgslibrary/package_bgs/KNN.cpp ../lib/bgslibrary/package_bgs/IndependentMultimodal.cpp ../lib/bgslibrary/package_bgs/LOBSTER.cpp ../lib/bgslibrary/package_bgs/MixtureOfGaussianV2.cpp ../lib/bgslibrary/package_bgs/PAWCS.cpp ../lib/bgslibrary/package_bgs/SuBSENSE.cpp ../lib/bgslibrary/package_bgs/IMBS/IMBS.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLOBSTER.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorPAWCS.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorSuBSENSE.cpp ../lib/bgslibrary/package_bgs/LBSP/LBSP_.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.cpp ../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.cpp ../lib/bgslibrary/package_bgs/LBSP/LBSP.cpp ../lib/ACFlibrary/ACF/ACFDetector.cpp ../lib/ACFlibrary/ACF/ACFFeaturePyramid.cpp ../lib/ACFlibrary/ACF/Channel.cpp ../lib/ACFlibrary/ACF/ChannelFeatures.cpp ../lib/ACFlibrary/ACF/ColorChannel.cpp ../lib/ACFlibrary/ACF/convConst.cpp ../lib/ACFlibrary/ACF/GradHistChannel.cpp ../lib/ACFlibrary/ACF/gradientMex.cpp ../lib/ACFlibrary/ACF/GradMagChannel.cpp ../lib/ACFlibrary/ACF/wrappers.cpp ../lib/ACFlibrary/Channel/Convert.cpp ../lib/ACFlibrary/Core/detection.cpp ../lib/ACFlibrary/Core/DetectionList.cpp ../lib/ACFlibrary/Core/detector.cpp ../lib/ACFlibrary/Core/DetectorManager.cpp ../lib/ACFlibrary/Core/detectormodel.cpp ../lib/ACFlibrary/Core/feature.cpp ../lib/ACFlibrary/Core/featurelayer.cpp ../lib/ACFlibrary/Core/filelocator.cpp ../lib/ACFlibrary/Core/FileWriter.cpp ../lib/ACFlibrary/Core/FrameFromCamera.cpp ../lib/ACFlibrary/Core/FrameFromDirectory.cpp ../lib/ACFlibrary/Core/FrameFromVideo.cpp ../lib/ACFlibrary/Core/FrameProducer.cpp ../lib/ACFlibrary/Core/nms.cpp ../lib/ACFlibrary/Core/NonMaximumSuppression.cpp ../lib/ACFlibrary/Core/ScaleSpacePyramid.cpp ../src/Utils/CurrentDateTime.cpp ../src/aod.cpp ../src/settings.cpp ../src/SFGD/StaticMaskExtractor_HistoryImages.cpp $(DISTDIR)/
+>>>>>>> doh2
 
 
 clean: compiler_clean 
@@ -996,8 +1017,12 @@ main.o: ../proj/Qt\ Projects/System_Evaluation/main.cpp ../src/settings.h \
 		../src/SFGD/StaticMaskExtractor.h \
 		../src/SFGD/StaticMaskExtractor_subsampling.h \
 		../src/SFGD/StaticMaskExtractor_AccMask.h \
+<<<<<<< HEAD
 		../src/SFGD/StaticMaskExtractor_DualBkg.h \
 		../src/BGS/DualBkgSubtractionSelector.h \
+=======
+		../src/SFGD/StaticMaskExtractor_HistoryImages.h \
+>>>>>>> doh2
 		../src/CLASSIFIER/ClassifierSelector.h \
 		../src/CLASSIFIER/StaticObjectClassifier.h \
 		../src/CLASSIFIER/StaticObjectClassifierHist.h \
@@ -1053,6 +1078,10 @@ SFGDSelector.o: ../src/SFGD/SFGDSelector.cpp ../src/SFGD/SFGDSelector.h \
 		../src/BLOBS/BlobList.cpp \
 		../src/BLOBS/ObjectBlob.h \
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+		../src/SFGD/StaticMaskExtractor_HistoryImages.h \
+>>>>>>> doh2
 		../src/BGS/BkgSubtractionSelector.h \
 =======
 		../src/SFGD/StaticMaskExtractor_DualBkg.h \
@@ -1907,8 +1936,12 @@ aod.o: ../src/aod.cpp ../src/aod.h \
 		../src/SFGD/StaticMaskExtractor.h \
 		../src/SFGD/StaticMaskExtractor_subsampling.h \
 		../src/SFGD/StaticMaskExtractor_AccMask.h \
+<<<<<<< HEAD
 		../src/SFGD/StaticMaskExtractor_DualBkg.h \
 		../src/BGS/DualBkgSubtractionSelector.h \
+=======
+		../src/SFGD/StaticMaskExtractor_HistoryImages.h \
+>>>>>>> doh2
 		../src/CLASSIFIER/ClassifierSelector.h \
 		../src/CLASSIFIER/StaticObjectClassifier.h \
 		../src/CLASSIFIER/StaticObjectClassifierHist.h \
@@ -1953,6 +1986,7 @@ settings.o: ../src/settings.cpp ../src/settings.h \
 		../src/Utils/CurrentDateTime.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o settings.o ../src/settings.cpp
 
+<<<<<<< HEAD
 DualBkgSubtractionSelector.o: ../src/BGS/DualBkgSubtractionSelector.cpp ../src/BGS/DualBkgSubtractionSelector.h \
 		../lib/bgslibrary/package_bgs/bgslibrary.h \
 		../lib/bgslibrary/package_bgs/FrameDifference.h \
@@ -2056,11 +2090,17 @@ DualBkgSubtractionSelector.o: ../src/BGS/DualBkgSubtractionSelector.cpp ../src/B
 		../lib/bgslibrary/package_bgs/ViBe.h \
 		../lib/bgslibrary/package_bgs/ViBe/vibe-background-sequential.h \
 		../lib/bgslibrary/package_bgs/CodeBook.h \
+=======
+StaticMaskExtractor_HistoryImages.o: ../src/SFGD/StaticMaskExtractor_HistoryImages.cpp ../src/SFGD/StaticMaskExtractor.h \
+		../src/SFGD/StaticMaskExtractor_subsampling.h \
+		../src/SFGD/StaticMaskExtractor_HistoryImages.h \
+>>>>>>> doh2
 		../src/settings.h \
 		../src/BLOBS/BlobExtractor.h \
 		../src/BLOBS/BasicBlob.h \
 		../src/BLOBS/BlobList.h \
 		../src/BLOBS/BlobList.cpp \
+<<<<<<< HEAD
 		../src/BLOBS/ObjectBlob.h \
 		../src/BGS/BkgSubtractionSelector.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DualBkgSubtractionSelector.o ../src/BGS/DualBkgSubtractionSelector.cpp
@@ -2178,6 +2218,10 @@ StaticMaskExtractor_DualBkg.o: ../src/SFGD/StaticMaskExtractor_DualBkg.cpp ../sr
 		../src/BLOBS/ObjectBlob.h \
 		../src/BGS/BkgSubtractionSelector.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o StaticMaskExtractor_DualBkg.o ../src/SFGD/StaticMaskExtractor_DualBkg.cpp
+=======
+		../src/BLOBS/ObjectBlob.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o StaticMaskExtractor_HistoryImages.o ../src/SFGD/StaticMaskExtractor_HistoryImages.cpp
+>>>>>>> doh2
 
 ####### Install
 
