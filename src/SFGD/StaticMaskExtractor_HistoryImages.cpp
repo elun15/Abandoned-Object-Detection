@@ -240,10 +240,10 @@ void StaticMaskExtractor_HistoryImages::processFrame(Mat fgmask, Mat srcMat, Mat
     //cv::imshow( "Combined HI", SHI);
     //cvWaitKey(1);
 
-    this->staticMask = Mat::zeros(this->staticMask.rows,this->staticMask.cols,CV_32FC1);
-    this->staticMask.setTo(1,maskMov==1 & SHI>=0.7);
-    this->staticMask.setTo(1,maskMov==0 & SHI==1);
-    this->staticMask.setTo(1,mask==1 & HI_F>=0.8 & HI_M<1 & HI_S==1);
+    this->staticMask = Mat::zeros(this->staticMask.rows,this->staticMask.cols,CV_8UC1);
+    this->staticMask.setTo(255,maskMov==1 & SHI>=0.7);
+    this->staticMask.setTo(255,maskMov==0 & SHI==1);
+    this->staticMask.setTo(255,mask==1 & HI_F>=0.8 & HI_M<1 & HI_S==1);
 
     //cv::imshow( "My static mask", this->staticMask);
     //cvWaitKey(1);

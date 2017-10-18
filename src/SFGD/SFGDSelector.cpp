@@ -118,7 +118,7 @@ void SFDGSelector::process(Mat frame, Mat foreground_img, Mat bgmodel_img, setti
         this->pHistoryImagesSFGD->processFrame(foreground_img, frame, bgmodel_img, framerate, time2static);
 
         if (Video.ShowResults){
-            imshow("STATIC MOTION MASK ACC", this->pHistoryImagesSFGD->getStaticMask());
+            imshow("STATIC MOTION MASK HISTORY", this->pHistoryImagesSFGD->getStaticMask());
         }
 
 
@@ -165,6 +165,7 @@ Mat SFDGSelector::GetStaticForeground(){
         return (this->pAccMaskSFGD->getStaticMask());
         break;
 
+        //HISTORY IMAGES
     case 3:
         return (this->pHistoryImagesSFGD->getStaticMask());
         break;

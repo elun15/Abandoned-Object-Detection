@@ -107,13 +107,13 @@ settings AOD::processFrame(settings Video, Mat frame){
 
     // Get static foreground mask
     Mat tmp =  this->sfgd_selector->GetStaticForeground().clone();
-
+  cout << "prueba tmp tipo " << tmp.type() << endl;
     // Extract all blobs in static foreground
     this->blob_extractor.extractBlobs(tmp,false);
 
     // Create BlobList containing all blobs in static foreground
     vector<cvBlob> *BlobList =  this->blob_extractor.getBlobList();
-
+    cout << "prueba num blobs static " << BlobList->size() << endl;
 
     clock_t finish_sfgd = clock();
     elapsedTime_sfgd = (double)(finish_sfgd - start_sfgd)/CLOCKS_PER_SEC;
