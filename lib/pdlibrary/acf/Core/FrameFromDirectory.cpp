@@ -45,5 +45,5 @@ cv::Mat FrameFromDirectory::giveFrame(int index) {
 
 
 bool FrameFromDirectory::isend() {
-    return (position >= Files.size()) || (position >= end);
+    return (position >= (int)Files.size()) || (position >= end);
 }

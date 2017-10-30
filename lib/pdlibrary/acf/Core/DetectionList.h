@@ -31,15 +31,15 @@ public:
 
 // Move detections
     void moveDetections(int x, int y){
-                for(int d=0;d<Ds.size();d++){
-                        Ds[d]->setX(Ds[d]->getX()+x);
-                        Ds[d]->setY(Ds[d]->getY()+y);
-                }
-        }
+		for(int d=0;d<(int)Ds.size();d++){
+				Ds[d]->setX(Ds[d]->getX()+x);
+				Ds[d]->setY(Ds[d]->getY()+y);
+		}
+	}
 
     // Normalise the scores based on Mean and Std (standard normalisation)
     void normaliseScore(float mean, float std) {
-        for(int d=0; d<this->Ds.size(); d++) {
+        for(int d=0; d<(int)this->Ds.size(); d++) {
             Ds[d]->setScore((Ds[d]->getScore()-mean)/std);
         }
     }
@@ -48,7 +48,7 @@ public:
         DetectionList DL;
 
 
-        for(int d=0; d<this->Ds.size(); d++) {
+        for(int d=0; d<(int)this->Ds.size(); d++) {
             if(Ds[d]->getScore() >= score)
                 //std::cout << "With NAME: " << Ds[d]->getDetectorName() << std::endl;
                 DL.addDetection(Ds[d]->getX(),Ds[d]->getY(),Ds[d]->getWidth(),Ds[d]->getHeight(),Ds[d]->getScore(), Ds[d]->getDetectorName());
@@ -58,7 +58,7 @@ public:
     }
 
     void setDetectorNames(std::string D) {
-        for(int d=0; d<this->Ds.size(); d++) {
+        for(int d=0; d<(int)this->Ds.size(); d++) {
             Ds[d]->setDetectorName(D);
         }
     }
@@ -68,7 +68,7 @@ public:
         Detection DL;
         float score = -99999;
         int index = -999;
-        for(int d=0; d<this->Ds.size(); d++) {
+        for(int d=0; d<(int)this->Ds.size(); d++) {
             float s = Ds[d]->getScore();
             if(s > score) {
                 index = d;
@@ -94,7 +94,7 @@ public:
 
     // Draw the detections on Frame
     void Draw(cv::Mat &Frame) {
-        for(int d=0; d<Ds.size(); d++) {
+        for(int d=0; d<(int)Ds.size(); d++) {
             //if(Ds[d]->getScore() > 100)
             cv::rectangle(Frame,cv::Point(Ds[d]->getX(), Ds[d]->getY()), cv::Point(Ds[d]->getX()+Ds[d]->getWidth(), Ds[d]->getY()+Ds[d]->getHeight()), Ds[d]->getColor(),3);
         }
@@ -102,14 +102,14 @@ public:
 
     // Resize the detections (required when working on an upscaled image)
     void resizeDetections(float scale) {
-        for(int d=0; d<this->Ds.size(); d++) {
+        for(int d=0; d<(int)this->Ds.size(); d++) {
             Ds[d]->resize(scale);
         }
     }
 
     // Write detections in XML-format to a file coupled by FW
     void WriteDetections(FileWriter *FW, std::string filename,float rescale = 1.0) const {
-        for(int d=0; d<this->Ds.size(); d++) {
+        for(int d=0; d<(int)this->Ds.size(); d++) {
             Ds[d]->setFilename(filename);
             FW->writeDetection(Ds[d]);
         }
@@ -118,7 +118,7 @@ public:
 
     // Write detections in txt-format to a file coupled by FW
     void WriteDetectionstxt(FileWriter *FW, std::string filename,float rescale = 1.0) const {
-        for(int d=0; d<this->Ds.size(); d++) {
+        for(int d=0; d<(int)this->Ds.size(); d++) {
             Ds[d]->setFilename(filename);
             FW->writeDetectiontxt(Ds[d]);
         }
@@ -144,7 +144,7 @@ public:
     }
 
     void PrintList() const {
-        for(int d=0; d<Ds.size(); d++) {
+        for(int d=0; d<(int)Ds.size(); d++) {
             std::cout << "Score: " << Ds[d]->getScore() << std::endl;
         }
     }
@@ -164,7 +164,7 @@ private:
     void AlterDetectionsAR(std::vector<Detection*> &Dets, float AR, int method) {
 
         if(method == 1) { //constant width
-            for(int D=0; D<Dets.size(); D++) {
+            for(int D=0; D<(int)Dets.size(); D++) {
                 Detection *Det = Dets[D];
 
                 float centerX = Det->getX()+Det->getWidth()/2;
@@ -180,7 +180,7 @@ private:
             }
         }
         else if(method == 2) { //constant height
-            for(int D=0; D<Dets.size(); D++) {
+            for(int D=0; D<(int)Dets.size(); D++) {
                 Detection *Det = Dets[D];
 
                 float centerX = Det->getX()+Det->getWidth()/2;
@@ -197,7 +197,7 @@ private:
             }
         }
         else if(method == 3) { //area
-            for(int D=0; D<Dets.size(); D++) {
+            for(int D=0; D<(int)Dets.size(); D++) {
                 Detection *Det = Dets[D];
 
                 float centerX = Det->getX()+Det->getWidth()/2;

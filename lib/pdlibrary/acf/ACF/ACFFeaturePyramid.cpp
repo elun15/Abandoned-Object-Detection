@@ -53,7 +53,7 @@ ACFFeaturePyramid::ACFFeaturePyramid(const cv::Mat &Image, int scalesPerOct, cv:
     float shrink = ADet.getShrinking();
     float eps = 2.2204e-16;
 
-for(int i=0;i<nScales;i++){
+for(int i=0;i<(int)nScales;i++){
         float s = scales[i];
         float s0 = (round((float)d0*s/shrink)*shrink-0.25*shrink)/d0;
         float s1 = (round((float)d0*s/shrink)*shrink+0.25*shrink)/d0;
@@ -85,7 +85,7 @@ for(int i=0;i<nScales;i++){
         // find the minimum
         int index = 0;
         float val = sst[0];
-        for(int iGG=1; iGG<sst.size(); iGG++) {
+        for(int iGG=1; iGG<(int)sst.size(); iGG++) {
             if(sst[iGG] < val) {
                 val = sst[iGG];
                 index = iGG;
@@ -95,7 +95,7 @@ for(int i=0;i<nScales;i++){
     }
 
     std::vector<bool> kp(scales.size());
-    for(int i=0; i<scales.size()-1; i++) {
+    for(int i=0; i<(int)(int)scales.size()-1; i++) {
         if(scales[i] == scales[i+1])
             kp[i] = false;
         else
@@ -111,7 +111,7 @@ for(int i=0;i<nScales;i++){
 
     std::vector<float> scalesh, scalesw;
 
-    for(int i=0; i<scales.size(); i++) {
+    for(int i=0; i<(int)(int)scales.size(); i++) {
         float h = round(sz1*scales[i]/shrink)*shrink/sz1;
         float w = round(sz2*scales[i]/shrink)*shrink/sz2;
 
@@ -120,38 +120,38 @@ for(int i=0;i<nScales;i++){
     }
 
     std::vector<int> isR;
-    for(int i=1; i<=nScales; i+=approxAmount+1) {
+    for(int i=1; i<=(int)nScales; i+=approxAmount+1) {
         isR.push_back(i);
     }
 
     std::vector<int> isA(nScales);
-    for(int i=1; i<=nScales; i++) {
+    for(int i=1; i<=(int)nScales; i++) {
         isA[i-1] = i;
     }
 
-    for(int i=0; i<isR.size(); i++)
+    for(int i=0; i<(int)isR.size(); i++)
         isA[isR[i]-1] = -1;
 
     std::vector<int> j;
     j.push_back(0);
-    for(int i=0; i<isR.size()-1; i++) {
+    for(int i=0; i<(int)isR.size()-1; i++) {
         j.push_back(std::floor((isR[i]+isR[i+1])/2.0));
     }
     j.push_back(nScales);
 
 
     std::vector<int> isN(nScales);
-    for(int i=1; i<=nScales; i++) {
+    for(int i=1; i<=(int)nScales; i++) {
         isN[i-1] = i;
     }
 
-    for(int i=0; i<isR.size(); i++) {
+    for(int i=0; i<(int)isR.size(); i++) {
         for(int Q = j[i]+1; Q<=j[i+1]; Q++)
             isN[Q-1] = isR[i];
     }
 
 //Real Scales
-    for(int i=0; i<isR.size(); i++) {
+    for(int i=0; i<(int)isR.size(); i++) {
         int ii = isR[i]-1; //go to C-indexing
 
         float sc = scales[ii];
@@ -165,7 +165,7 @@ for(int i=0;i<nScales;i++){
     }
 
 
-    for(int i=0; i<Layers.size(); i++) {
+    for(int i=0; i<(int)Layers.size(); i++) {
         if(isA[i] == -1) //Real layer
             continue;
 
@@ -175,7 +175,7 @@ for(int i=0;i<nScales;i++){
     }
 
 //Smoothing
-    for(int l=0; l<Layers.size(); l++) {
+    for(int l=0; l<(int)Layers.size(); l++) {
         Layers[l]->SmoothChannels();
     }
 }
@@ -215,7 +215,7 @@ ACFFeaturePyramid::ACFFeaturePyramid(const cv::Mat &Image, int scalesPerOct,cv::
     float shrink = ADet.getShrinking();
     float eps = 2.2204e-16;
 
-for(int i=0;i<nScales;i++){
+for(int i=0;i<(int)nScales;i++){
         float s = scales[i];
         float s0 = (round((float)d0*s/shrink)*shrink-0.25*shrink)/d0;
         float s1 = (round((float)d0*s/shrink)*shrink+0.25*shrink)/d0;
@@ -247,7 +247,7 @@ for(int i=0;i<nScales;i++){
         // find the minimum
         int index = 0;
         float val = sst[0];
-        for(int iGG=1; iGG<sst.size(); iGG++) {
+        for(int iGG=1; iGG<(int)sst.size(); iGG++) {
             if(sst[iGG] < val) {
                 val = sst[iGG];
                 index = iGG;
@@ -257,7 +257,7 @@ for(int i=0;i<nScales;i++){
     }
 
     std::vector<bool> kp(scales.size());
-    for(int i=0; i<scales.size()-1; i++) {
+    for(int i=0; i<(int)scales.size()-1; i++) {
         if(scales[i] == scales[i+1])
             kp[i] = false;
         else
@@ -273,7 +273,7 @@ for(int i=0;i<nScales;i++){
 
     std::vector<float> scalesh, scalesw;
 
-    for(int i=0; i<scales.size(); i++) {
+    for(int i=0; i<(int)scales.size(); i++) {
         float h = round(sz1*scales[i]/shrink)*shrink/sz1;
         float w = round(sz2*scales[i]/shrink)*shrink/sz2;
 
@@ -282,38 +282,38 @@ for(int i=0;i<nScales;i++){
     }
 
     std::vector<int> isR;
-    for(int i=1; i<=nScales; i+=approxAmount+1) {
+    for(int i=1; i<=(int)nScales; i+=approxAmount+1) {
         isR.push_back(i);
     }
 
     std::vector<int> isA(nScales);
-    for(int i=1; i<=nScales; i++) {
+    for(int i=1; i<=(int)nScales; i++) {
         isA[i-1] = i;
     }
 
-    for(int i=0; i<isR.size(); i++)
+    for(int i=0; i<(int)isR.size(); i++)
         isA[isR[i]-1] = -1;
 
     std::vector<int> j;
     j.push_back(0);
-    for(int i=0; i<isR.size()-1; i++) {
+    for(int i=0; i<(int)isR.size()-1; i++) {
         j.push_back(std::floor((isR[i]+isR[i+1])/2.0));
     }
     j.push_back(nScales);
 
 
     std::vector<int> isN(nScales);
-    for(int i=1; i<=nScales; i++) {
+    for(int i=1; i<=(int)nScales; i++) {
         isN[i-1] = i;
     }
 
-    for(int i=0; i<isR.size(); i++) {
+    for(int i=0; i<(int)isR.size(); i++) {
         for(int Q = j[i]+1; Q<=j[i+1]; Q++)
             isN[Q-1] = isR[i];
     }
 
 //Real Scales
-    for(int i=0; i<isR.size(); i++) {
+    for(int i=0; i<(int)isR.size(); i++) {
         int ii = isR[i]-1; //go to C-indexing
 
         float sc = scales[ii];
@@ -327,7 +327,7 @@ for(int i=0;i<nScales;i++){
     }
 
 
-    for(int i=0; i<Layers.size(); i++) {
+    for(int i=0; i<(int)Layers.size(); i++) {
         if(isA[i] == -1) //Real layer
             continue;
 
@@ -337,7 +337,7 @@ for(int i=0;i<nScales;i++){
     }
 
 //Smoothing
-    for(int l=0; l<Layers.size(); l++) {
+    for(int l=0; l<(int)Layers.size(); l++) {
         Layers[l]->SmoothChannels();
     }
 }
@@ -366,7 +366,7 @@ ACFFeaturePyramid::ACFFeaturePyramid(const cv::Mat &Image, float sc,cv::Size min
     }
 
 //Smoothing
-    for(int l=0; l<Layers.size(); l++) {
+    for(int l=0; l<(int)Layers.size(); l++) {
         Layers[l]->SmoothChannels();
     }
 }
@@ -380,7 +380,7 @@ ACFFeaturePyramid::ACFFeaturePyramid(int scalesPerOct,cv::Size minSize, float sc
 
 
 ACFFeaturePyramid::~ACFFeaturePyramid() {
-    for(int l=0; l<Layers.size(); l++)
+    for(int l=0; l<(int)Layers.size(); l++)
         delete Layers[l];
 }
 

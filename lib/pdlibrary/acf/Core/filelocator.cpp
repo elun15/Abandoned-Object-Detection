@@ -22,7 +22,7 @@ using namespace std;
 bool compareNoCase (string first, string second)
 {
     int i=0;
-    while ((i < first.length()) && (i < second.length()))
+    while ((i < (int)first.length()) && (i < (int)second.length()))
     {
         if (tolower (first[i]) < tolower (second[i])) return true;
         else if (tolower (first[i]) > tolower (second[i])) return false;

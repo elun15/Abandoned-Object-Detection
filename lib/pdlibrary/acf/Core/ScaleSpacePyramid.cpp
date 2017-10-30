@@ -17,7 +17,7 @@ ScaleSpacePyramid::ScaleSpacePyramid(const cv::Mat &image2, float rescaleratio, 
     cv::Mat image = image2.clone();
     cv::Mat orImage = image.clone();
 
-    float scale = 1;
+    //float scale = 1;
     int layer = 0;
 
     while(image.cols > smallestWidth && image.rows > smallestHeight) {

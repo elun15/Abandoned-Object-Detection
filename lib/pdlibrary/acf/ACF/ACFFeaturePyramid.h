@@ -12,40 +12,6 @@
 #include "ACFDetector.h"
 
 class ACFFeaturePyramid {
-public:
-
-    ACFFeaturePyramid(const cv::Mat &Image, int scalesPerOct,cv::Size minSize, const ACFDetector &ADet);
-
-
-    ACFFeaturePyramid(const cv::Mat &Image, int scalesPerOct, cv::Size minSize, int minheigth, int maxheight, const ACFDetector &ADet);
-
-
-    // Constructor for single scale
-    ACFFeaturePyramid(const cv::Mat &Image, float sc,cv::Size minSize, const ACFDetector &ADet);
-
-    //Create a Pyramid(Layer) based on approximated features (just fill them in...)
-    ACFFeaturePyramid(int scalesPerOct,cv::Size minSize, float sc, ChannelFeatures* Features);
-
-
-    virtual ~ACFFeaturePyramid();
-
-    int getAmount() {
-        return this->Layers.size();
-    }
-
-    ChannelFeatures* getLayer(int L) {
-        if(L < this->Layers.size()) {
-            return this->Layers[L];
-        }
-        else {
-            std::cerr << "Requesting unknown layer ..." << std::endl;
-            exit(1);
-        }
-    }
-
-    float getScale(int L) {
-        return this->scales[L];
-    }
 protected:
 
     std::vector<ChannelFeatures*> Layers;
@@ -60,6 +26,37 @@ protected:
     int approxAmount;
 
     std::vector<float> scales;
+
+public:
+
+    ACFFeaturePyramid(const cv::Mat &Image, int scalesPerOct,cv::Size minSize, const ACFDetector &ADet);
+    ACFFeaturePyramid(const cv::Mat &Image, int scalesPerOct, cv::Size minSize, int minheigth, int maxheight, const ACFDetector &ADet);
+
+    // Constructor for single scale
+    ACFFeaturePyramid(const cv::Mat &Image, float sc,cv::Size minSize, const ACFDetector &ADet);
+
+    //Create a Pyramid(Layer) based on approximated features (just fill them in...)
+    ACFFeaturePyramid(int scalesPerOct,cv::Size minSize, float sc, ChannelFeatures* Features);
+
+    virtual ~ACFFeaturePyramid();
+
+    int getAmount() {
+        return this->Layers.size();
+    }
+
+    ChannelFeatures* getLayer(int L) {
+        if(L < (int)this->Layers.size()) {
+            return this->Layers[L];
+        }
+        else {
+            std::cerr << "Requesting unknown layer ..." << std::endl;
+            exit(1);
+        }
+    }
+
+    float getScale(int L) {
+        return this->scales[L];
+    }
 
 };
 

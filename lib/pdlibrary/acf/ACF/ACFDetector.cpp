@@ -41,7 +41,7 @@ DetectionList ACFDetector::applyDetector(const cv::Mat &Frame) const {
         std::vector<Detection*> Detections = Detect(ACFP.getLayer(L));
         if(Detections.size() > 0) {
 
-            for(int D=0; D<Detections.size(); D++) {
+            for(int D=0; D<(int)Detections.size(); D++) {
 
                 float rescaleValue = 1.0/ACFP.getScale(L);
                 Detections[D]->setX(Detections[D]->getX()*rescaleValue);
@@ -58,7 +58,7 @@ DetectionList ACFDetector::applyDetector(const cv::Mat &Frame) const {
     }
 
 
-    for(int D=0; D<Ds.size(); D++) {
+    for(int D=0; D<(int)Ds.size(); D++) {
         DL.addDetection(Ds[D]->getX(), Ds[D]->getY(), Ds[D]->getWidth(), Ds[D]->getHeight(), Ds[D]->getScore());
     }
 
@@ -79,7 +79,7 @@ std::vector<Detection*> ACFDetector::Detect(const ChannelFeatures *features) con
     int chnHeight = features->getChannelHeight();
 
     int nTrees = this->Fid.size();
-    int nTreeNodes = this->Fid[0].size();
+    //int nTreeNodes = this->Fid[0].size();
 
 
     // Should be kept in the model
@@ -90,7 +90,7 @@ std::vector<Detection*> ACFDetector::Detect(const ChannelFeatures *features) con
     int height1 = static_cast<int>( std::ceil(static_cast<float>(chnHeight*shrinking-modelHt+1)/stride));
     int width1 = static_cast<int>( std::ceil(static_cast<float>(chnWidth*shrinking-modelWd+1)/stride));
 
-    int nChns = features->getnChannels();
+    //int nChns = features->getnChannels();
 
     // apply classifier to each patch
     std::vector<int> rs, cs;
@@ -197,7 +197,7 @@ void ACFDetector::ReadModel(std::string modelfile) {
     doc.parse<0>(&buffer[0]);
     root_node = doc.first_node("CascadeModel");
 
-    xml_node<> * Nums = root_node->first_node("NumberWeaks");
+    //xml_node<> * Nums = root_node->first_node("NumberWeaks");
 
     this->setWidth(ConvertString2float(root_node->first_node("Width")->value()));
     this->setWidthPad(ConvertString2float(root_node->first_node("WidthPad")->value()));

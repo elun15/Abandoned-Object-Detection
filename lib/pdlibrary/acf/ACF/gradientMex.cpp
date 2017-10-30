@@ -197,7 +197,8 @@ void gradQuantize( float *O, float *M, int *O0, int *O1, float *M0, float *M1,
             *_O1++=SET(0);
         }
     // compute trailing locations without sse
-    if( interpolate ) for( i; i<n; i++ ) {
+    if( interpolate )
+    	for( i; i<n; i++ ) {
             o=O[i]*oMult;
             o0=(int) o;
             od=o-o0;
@@ -211,7 +212,8 @@ void gradQuantize( float *O, float *M, int *O0, int *O1, float *M0, float *M1,
             M1[i]=od*m;
             M0[i]=m-M1[i];
         }
-    else for( i; i<n; i++ ) {
+    else
+    	for( i; i<n; i++ ) {
             o=O[i]*oMult;
             o0=(int) (o+.5f);
             o0*=nb;
@@ -520,7 +522,7 @@ void hog( float *M, float *O, float *H, int h, int w, int binSize,
           int nOrients, int softBin, bool full, float clip )
 {
     float *N, *R;
-    const int hb=h/binSize, wb=w/binSize, nb=hb*wb;
+    const int hb=h/binSize, wb=w/binSize;//, nb=hb*wb;
     // compute unnormalized gradient histograms
     R = (float*) wrCalloc(wb*hb*nOrients,sizeof(float));
     gradHist( M, O, R, h, w, binSize, nOrients, softBin, full );

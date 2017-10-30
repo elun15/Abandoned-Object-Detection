@@ -35,7 +35,7 @@ public:
     }
 
     ACFDetector() {
-        ReadModel("/home/vpu/AOD_System/lib/ACFlibrary/ACF/INRIA_ACF.xml");
+//        ReadModel("./lib/ACFlibrary/ACF/INRIA_ACF.xml");
 //        modifyCascade(-0.01);
 //        modifyCascade(+0.03);
     }
@@ -48,8 +48,8 @@ public:
     }
 
     void modifyCascade(float score) {
-        for(int s=0; s<this->Values.size(); s++) {
-            for(int l=0; l<this->Values[s].size(); l++) {
+        for(int s=0; s<(int)this->Values.size(); s++) {
+            for(int l=0; l<(int)this->Values[s].size(); l++) {
                 this->Values[s][l] += score;
             }
         }
@@ -64,6 +64,7 @@ public:
 		return this->modelheight;
 	}
 
+   void ReadModel(std::string modelfile);
 private:
 
     void getChild( const ChannelFeatures *features, int &k0, int &k, int c,int r, int s,int channelwidth, int channelheight, int modelwidth, int modelheight ) const;
@@ -85,8 +86,6 @@ private:
     void setHeightPad(float h) {
         this->modelheightpad = h;
     }
-
-    void ReadModel(std::string modelfile);
 
     //! holds indeces to follow through a stage evaluation, normally these are the same in every stage since these represent the decision stump tree
     std::vector<std::vector<int> > Child;

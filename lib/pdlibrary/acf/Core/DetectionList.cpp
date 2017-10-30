@@ -10,7 +10,7 @@ DetectionList::DetectionList() {
 }
 
 DetectionList::~DetectionList() {
-    for(int d=0; d<this->Ds.size(); d++) {
+    for(int d=0; d<(int)this->Ds.size(); d++) {
         delete Ds[d];
     }
 }

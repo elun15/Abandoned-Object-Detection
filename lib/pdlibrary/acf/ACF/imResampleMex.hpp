@@ -61,7 +61,7 @@ void resample( T *A, T *B, int ha, int hb, int wa, int wb, int d, T r ) {
     if(x==0) x1=0; xa=xas[x1]; xb=xbs[x1]; wt=xwts[x1]; wt1=1-wt; y=0;
     A0=A+z*ha*wa+xa*ha; A1=A0+ha, A2=A1+ha, A3=A2+ha; B0=B+z*hb*wb+xb*hb;
     // variables for SSE (simple casts to float)
-    float *Af0, *Af1, *Af2, *Af3, *Bf0, *Cf, *ywtsf, wtf, wt1f;
+    float *Af0, *Af1, *Af2, *Af3, *Bf0, *Cf, wtf, wt1f,*ywtsf;
     Af0=(float*) A0; Af1=(float*) A1; Af2=(float*) A2; Af3=(float*) A3;
     Bf0=(float*) B0; Cf=(float*) C;
     ywtsf=(float*) ywts; wtf=(float) wt; wt1f=(float) wt1;

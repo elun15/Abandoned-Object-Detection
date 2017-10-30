@@ -51,7 +51,7 @@ ColorChannel::ColorChannel(const cv::Mat &Image) {
 
 void ChannelFeatures::SmoothChannels() {
 
-    for(int C=0; C<this->Features.size(); C++) {
+    for(int C=0; C<(int)this->Features.size(); C++) {
         //Declare new data-space voor smoothed
         float* smoothed = (float*)malloc(sizeof(float)*Channelwidth*Channelheight);
         // Smooth the data

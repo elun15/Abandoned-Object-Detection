@@ -10,9 +10,12 @@
 
 #include <iostream>
 
-
-
 class Channel {
+private:
+    float *data;
+    int width;
+    int height;
+    int nChns;
 public:
     Channel();
     virtual ~Channel();
@@ -29,13 +32,6 @@ public:
 
 protected:
     void setChanneldata(float* data, int width, int height, int nChns);
-
-
-private:
-    int width;
-    int height;
-    int nChns;
-    float *data;
 };
 
 #endif /* CHANNEL_H_ */

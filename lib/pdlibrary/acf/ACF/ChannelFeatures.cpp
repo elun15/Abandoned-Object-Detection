@@ -59,7 +59,7 @@ ChannelFeatures::ChannelFeatures(const cv::Mat &Image,int shrinking) {
 
 ChannelFeatures::~ChannelFeatures() {
     // free the features
-    for(int c=0; c<this->Features.size(); c++) {
+    for(int c=0; c<(int)this->Features.size(); c++) {
         free(Features[c]);
     }
 }

@@ -52,7 +52,7 @@ vector<Detection*> nms(vector<Detection*> Dets, float overlap) {
         vector<nmsHelperStruct> Temp;
         nmsHelperStruct tijd;
 
-        for(int i=0; i<Dets.size(); i++) {
+        for(int i=0; i<(int)Dets.size(); i++) {
             area[i] = (Dets[i]->getWidth())*(Dets[i]->getHeight());
             tijd.score = Dets[i]->getScore();
             tijd.index = i;
@@ -90,7 +90,7 @@ vector<Detection*> nms(vector<Detection*> Dets, float overlap) {
             }
 
             sort(suppress.begin(),suppress.end());
-            for(int W=0; W<suppress.size(); W++) {
+            for(int W=0; W<(int)suppress.size(); W++) {
                 Temp.erase(Temp.begin()+suppress[W]-W);
 
             }
