@@ -1,0 +1,26 @@
+To use eclipse CDT, please follow these steps:
+
+install eclipse & CDT plugin for C/C++
+$ sudo apt-get install eclipse eclipse-cdt g++
+
+install opencv and verify the installation path
+/usr/local/include/opencv
+/usr/local/include/opencv2
+
+open eclipse and select the following workspace
+<your_root_dir>/AOD_System/proj/Eclipse_Projects
+and the suite of eclipse projects will open
+
+
+To build the required libraries
+bgs->
+$ cd <your_root_dir>/AOD_System/lib/bgslibrary/build
+$ cmake ..
+$ make
+be sure that file "libbgs.a" is generated
+
+pd->
+$ cd <your_root_dir>/AOD_System/lib/pdlibrary/build
+$ cmake ..
+$ make
+be sure that file "libpd.a" is generated
