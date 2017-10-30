@@ -1,0 +1,177 @@
+13:34:20 **** Build of configuration Debug for project test_BlobExtraction ****
+make -j3 all 
+Building file: /home/vpu/code/github/AOD_System/src/utils/utils.cpp
+Building file: /home/vpu/code/github/AOD_System/src/soc/SOCselector.cpp
+Building file: /home/vpu/code/github/AOD_System/src/soc/StaticObjectClassifier.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/utils/utils.d" -MT"src/utils/utils.d" -o "src/utils/utils.o" "/home/vpu/code/github/AOD_System/src/utils/utils.cpp"
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/soc/SOCselector.d" -MT"src/soc/SOCselector.d" -o "src/soc/SOCselector.o" "/home/vpu/code/github/AOD_System/src/soc/SOCselector.cpp"
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/soc/StaticObjectClassifier.d" -MT"src/soc/StaticObjectClassifier.d" -o "src/soc/StaticObjectClassifier.o" "/home/vpu/code/github/AOD_System/src/soc/StaticObjectClassifier.cpp"
+Finished building: /home/vpu/code/github/AOD_System/src/utils/utils.cpp
+ 
+Building file: /home/vpu/code/github/AOD_System/src/soc/StaticObjectClassifierHighGradient.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/soc/StaticObjectClassifierHighGradient.d" -MT"src/soc/StaticObjectClassifierHighGradient.d" -o "src/soc/StaticObjectClassifierHighGradient.o" "/home/vpu/code/github/AOD_System/src/soc/StaticObjectClassifierHighGradient.cpp"
+Finished building: /home/vpu/code/github/AOD_System/src/soc/StaticObjectClassifier.cpp
+ 
+Building file: /home/vpu/code/github/AOD_System/src/soc/StaticObjectClassifierHist.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/soc/StaticObjectClassifierHist.d" -MT"src/soc/StaticObjectClassifierHist.d" -o "src/soc/StaticObjectClassifierHist.o" "/home/vpu/code/github/AOD_System/src/soc/StaticObjectClassifierHist.cpp"
+Finished building: /home/vpu/code/github/AOD_System/src/soc/SOCselector.cpp
+ 
+Building file: /home/vpu/code/github/AOD_System/src/soc/StaticObjectClassifierPCC.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/soc/StaticObjectClassifierPCC.d" -MT"src/soc/StaticObjectClassifierPCC.d" -o "src/soc/StaticObjectClassifierPCC.o" "/home/vpu/code/github/AOD_System/src/soc/StaticObjectClassifierPCC.cpp"
+Finished building: /home/vpu/code/github/AOD_System/src/soc/StaticObjectClassifierHighGradient.cpp
+ 
+Building file: /home/vpu/code/github/AOD_System/src/sfgd/SFGDselector.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/sfgd/SFGDselector.d" -MT"src/sfgd/SFGDselector.d" -o "src/sfgd/SFGDselector.o" "/home/vpu/code/github/AOD_System/src/sfgd/SFGDselector.cpp"
+/home/vpu/code/github/AOD_System/src/soc/StaticObjectClassifierPCC.cpp:345:2: warning: "/*" within comment [-Wcomment]
+ }/**/
+  ^
+Finished building: /home/vpu/code/github/AOD_System/src/soc/StaticObjectClassifierHist.cpp
+ 
+Building file: /home/vpu/code/github/AOD_System/src/sfgd/StaticMaskExtractor.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/sfgd/StaticMaskExtractor.d" -MT"src/sfgd/StaticMaskExtractor.d" -o "src/sfgd/StaticMaskExtractor.o" "/home/vpu/code/github/AOD_System/src/sfgd/StaticMaskExtractor.cpp"
+Finished building: /home/vpu/code/github/AOD_System/src/soc/StaticObjectClassifierPCC.cpp
+ 
+Building file: /home/vpu/code/github/AOD_System/src/sfgd/StaticMaskExtractor_AccMask.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/sfgd/StaticMaskExtractor_AccMask.d" -MT"src/sfgd/StaticMaskExtractor_AccMask.d" -o "src/sfgd/StaticMaskExtractor_AccMask.o" "/home/vpu/code/github/AOD_System/src/sfgd/StaticMaskExtractor_AccMask.cpp"
+Finished building: /home/vpu/code/github/AOD_System/src/sfgd/SFGDselector.cpp
+ 
+Building file: /home/vpu/code/github/AOD_System/src/sfgd/StaticMaskExtractor_Subsampling.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/sfgd/StaticMaskExtractor_Subsampling.d" -MT"src/sfgd/StaticMaskExtractor_Subsampling.d" -o "src/sfgd/StaticMaskExtractor_Subsampling.o" "/home/vpu/code/github/AOD_System/src/sfgd/StaticMaskExtractor_Subsampling.cpp"
+Finished building: /home/vpu/code/github/AOD_System/src/sfgd/StaticMaskExtractor.cpp
+ 
+Building file: /home/vpu/code/github/AOD_System/src/pd/PDselector.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/pd/PDselector.d" -MT"src/pd/PDselector.d" -o "src/pd/PDselector.o" "/home/vpu/code/github/AOD_System/src/pd/PDselector.cpp"
+Finished building: /home/vpu/code/github/AOD_System/src/sfgd/StaticMaskExtractor_AccMask.cpp
+ 
+Building file: /home/vpu/code/github/AOD_System/src/event/Event.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/event/Event.d" -MT"src/event/Event.d" -o "src/event/Event.o" "/home/vpu/code/github/AOD_System/src/event/Event.cpp"
+/home/vpu/code/github/AOD_System/src/event/Event.cpp:48:2: warning: "/*" within comment [-Wcomment]
+ }/**/
+  ^
+/home/vpu/code/github/AOD_System/src/event/Event.cpp:447:2: warning: "/*" within comment [-Wcomment]
+  /**/
+  ^
+Finished building: /home/vpu/code/github/AOD_System/src/sfgd/StaticMaskExtractor_Subsampling.cpp
+ 
+Building file: /home/vpu/code/github/AOD_System/src/event/EventController.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/event/EventController.d" -MT"src/event/EventController.d" -o "src/event/EventController.o" "/home/vpu/code/github/AOD_System/src/event/EventController.cpp"
+/home/vpu/code/github/AOD_System/src/event/EventController.cpp: In member function ‘int EventController::checkEvents(BlobList<ObjectBlob*>*)’:
+/home/vpu/code/github/AOD_System/src/event/EventController.cpp:65:49: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+     message("EVENT_CONTROLLER: \n", currentFrame);
+                                                 ^
+/home/vpu/code/github/AOD_System/src/event/EventController.cpp:62:9: warning: unused variable ‘ret’ [-Wunused-variable]
+     int ret = -1;
+         ^
+/home/vpu/code/github/AOD_System/src/event/EventController.cpp: In member function ‘int EventController::detectNewEvents(BlobList<ObjectBlob*>*)’:
+/home/vpu/code/github/AOD_System/src/event/EventController.cpp:86:55: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+     message("\tChecking new events...\n", currentFrame);
+                                                       ^
+/home/vpu/code/github/AOD_System/src/event/EventController.cpp:104:57: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+             message("\t\tDetected <StolenObject>", score);
+                                                         ^
+/home/vpu/code/github/AOD_System/src/event/EventController.cpp:111:60: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+             message("\t\tDetected <AbandonedObject>", score);
+                                                            ^
+/home/vpu/code/github/AOD_System/src/event/EventController.cpp:119:52: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+             message("\t\tDetected <Unknown>", score);
+                                                    ^
+/home/vpu/code/github/AOD_System/src/event/EventController.cpp: In member function ‘int EventController::checkDependencies()’:
+/home/vpu/code/github/AOD_System/src/event/EventController.cpp:130:72: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+     message("\tChecking dependencies between events...\n", currentFrame);
+                                                                        ^
+/home/vpu/code/github/AOD_System/src/event/EventController.cpp: In member function ‘void EventController::printEvents()’:
+/home/vpu/code/github/AOD_System/src/event/EventController.cpp:821:102: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘std::vector<Event*>::size_type {aka long unsigned int}’ [-Wformat=]
+     fprintf(stderr,"\tCurrent event List (%d events) (past %d)\n", pActiveEvt.size(), pPastEvt.size());
+                                                                                                      ^
+/home/vpu/code/github/AOD_System/src/event/EventController.cpp:821:102: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<Event*>::size_type {aka long unsigned int}’ [-Wformat=]
+/home/vpu/code/github/AOD_System/src/event/EventController.cpp:829:15: warning: enumeration value ‘EVENT_UNKNOWN’ not handled in switch [-Wswitch]
+         switch(evt->getEventType())
+               ^
+Finished building: /home/vpu/code/github/AOD_System/src/event/Event.cpp
+ 
+Building file: /home/vpu/code/github/AOD_System/src/event/EventWriter.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/event/EventWriter.d" -MT"src/event/EventWriter.d" -o "src/event/EventWriter.o" "/home/vpu/code/github/AOD_System/src/event/EventWriter.cpp"
+Finished building: /home/vpu/code/github/AOD_System/src/pd/PDselector.cpp
+ 
+Building file: /home/vpu/code/github/AOD_System/src/blobs/BasicBlob.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/blobs/BasicBlob.d" -MT"src/blobs/BasicBlob.d" -o "src/blobs/BasicBlob.o" "/home/vpu/code/github/AOD_System/src/blobs/BasicBlob.cpp"
+Finished building: /home/vpu/code/github/AOD_System/src/event/EventController.cpp
+ 
+Building file: /home/vpu/code/github/AOD_System/src/blobs/BlobExtractor.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/blobs/BlobExtractor.d" -MT"src/blobs/BlobExtractor.d" -o "src/blobs/BlobExtractor.o" "/home/vpu/code/github/AOD_System/src/blobs/BlobExtractor.cpp"
+/home/vpu/code/github/AOD_System/src/event/EventWriter.cpp: In member function ‘int EventWriter::writeEventVIPER(Event*, bool)’:
+/home/vpu/code/github/AOD_System/src/event/EventWriter.cpp:196:16: warning: enumeration value ‘EVENT_UNKNOWN’ not handled in switch [-Wswitch]
+         switch (pEvent->getEventType()) {
+                ^
+/home/vpu/code/github/AOD_System/src/event/EventWriter.cpp:192:13: warning: unused variable ‘duracion’ [-Wunused-variable]
+         int duracion = -1;
+             ^
+Finished building: /home/vpu/code/github/AOD_System/src/event/EventWriter.cpp
+ 
+Building file: /home/vpu/code/github/AOD_System/src/blobs/BlobList.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/blobs/BlobList.d" -MT"src/blobs/BlobList.d" -o "src/blobs/BlobList.o" "/home/vpu/code/github/AOD_System/src/blobs/BlobList.cpp"
+Finished building: /home/vpu/code/github/AOD_System/src/blobs/BlobList.cpp
+ 
+Building file: /home/vpu/code/github/AOD_System/src/blobs/DefineObjectBlobList.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/blobs/DefineObjectBlobList.d" -MT"src/blobs/DefineObjectBlobList.d" -o "src/blobs/DefineObjectBlobList.o" "/home/vpu/code/github/AOD_System/src/blobs/DefineObjectBlobList.cpp"
+Finished building: /home/vpu/code/github/AOD_System/src/blobs/BasicBlob.cpp
+ 
+Building file: /home/vpu/code/github/AOD_System/src/blobs/ObjectBlob.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/blobs/ObjectBlob.d" -MT"src/blobs/ObjectBlob.d" -o "src/blobs/ObjectBlob.o" "/home/vpu/code/github/AOD_System/src/blobs/ObjectBlob.cpp"
+Finished building: /home/vpu/code/github/AOD_System/src/blobs/BlobExtractor.cpp
+ 
+Building file: /home/vpu/code/github/AOD_System/src/bgs/BGSselector.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/bgs/BGSselector.d" -MT"src/bgs/BGSselector.d" -o "src/bgs/BGSselector.o" "/home/vpu/code/github/AOD_System/src/bgs/BGSselector.cpp"
+/home/vpu/code/github/AOD_System/src/blobs/ObjectBlob.cpp: In member function ‘void ObjectBlob::init(int, cvBlob*, int, int, int, int, double, bool, int, DETECTION_RESULTS*)’:
+/home/vpu/code/github/AOD_System/src/blobs/ObjectBlob.cpp:57:266: warning: operation on ‘((ObjectBlob*)this)->ObjectBlob::results->DETECTION_RESULTS::D_CH’ may be undefined [-Wsequence-point]
+  results->D_GRD = results->D_CONB = results->D_SHP = results->D_CH = results->D_CON = results->D_CH = results->D_ED = results->D_GH = results->D_GL = results->D_F = results->D_GT = results->D_F1 = results->D_F2 = results->D_F3 = results->D_F4 = results->D_F5 = NONE;
+                                                                                                                                                                                                                                                                          ^
+Finished building: /home/vpu/code/github/AOD_System/src/blobs/DefineObjectBlobList.cpp
+ 
+Building file: /home/vpu/code/github/AOD_System/src/Config.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/Config.d" -MT"src/Config.d" -o "src/Config.o" "/home/vpu/code/github/AOD_System/src/Config.cpp"
+Finished building: /home/vpu/code/github/AOD_System/src/blobs/ObjectBlob.cpp
+ 
+Building file: /home/vpu/code/github/AOD_System/src/aod.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/aod.d" -MT"src/aod.d" -o "src/aod.o" "/home/vpu/code/github/AOD_System/src/aod.cpp"
+Finished building: /home/vpu/code/github/AOD_System/src/bgs/BGSselector.cpp
+ 
+Building file: ../main_be.cpp
+Invoking: GCC C++ Compiler
+g++ -I/usr/local/include/opencv/ -I/usr/local/include/opencv2/ -I../../../../src -I../../../../lib -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"main_be.d" -MT"main_be.d" -o "main_be.o" "../main_be.cpp"
+Finished building: /home/vpu/code/github/AOD_System/src/Config.cpp
+ 
+Finished building: ../main_be.cpp
+ 
+Finished building: /home/vpu/code/github/AOD_System/src/aod.cpp
+ 
+Building target: test_BlobExtraction
+Invoking: GCC C++ Linker
+g++ -L/usr/local/lib -L../../../../lib/bgslibrary/build -L../../../../lib/pdlibrary/build -o "test_BlobExtraction"  ./src/utils/utils.o  ./src/soc/SOCselector.o ./src/soc/StaticObjectClassifier.o ./src/soc/StaticObjectClassifierHighGradient.o ./src/soc/StaticObjectClassifierHist.o ./src/soc/StaticObjectClassifierPCC.o  ./src/sfgd/SFGDselector.o ./src/sfgd/StaticMaskExtractor.o ./src/sfgd/StaticMaskExtractor_AccMask.o ./src/sfgd/StaticMaskExtractor_Subsampling.o  ./src/pd/PDselector.o  ./src/event/Event.o ./src/event/EventController.o ./src/event/EventWriter.o  ./src/blobs/BasicBlob.o ./src/blobs/BlobExtractor.o ./src/blobs/BlobList.o ./src/blobs/DefineObjectBlobList.o ./src/blobs/ObjectBlob.o  ./src/bgs/BGSselector.o  ./src/Config.o ./src/aod.o  ./main_be.o   -lopencv_core -lpd -lbgs -lopencv_objdetect -lopencv_videoio -lopencv_features2d -lopencv_imgcodecs -lopencv_imgproc -lopencv_highgui -lopencv_ml -lopencv_video
+Finished building target: test_BlobExtraction
+ 
+
+13:34:39 Build Finished (took 18s.271ms)
+
