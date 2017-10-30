@@ -24,27 +24,17 @@
 // Additional includes 
 #include <opencv2/opencv.hpp>
 
-#include "../../../src/BLOBS/BlobList.h"
-#include "../../../src/BLOBS/ObjectBlob.h"
-#include "opencv2/imgproc/imgproc.hpp"
-#include "opencv2/highgui/highgui.hpp"
-
-
-#include <vector>
-#include <iostream>
-#include <fstream>
-using namespace cv;
-using namespace std;
-
+#include "blobs/BlobList.h"
+#include "blobs/ObjectBlob.h"
 
 // States of an static object (defined in ObjectBlob.h)
-/*typedef enum {
-NONE=-1,
-STATIC_OBJ_TYPE_UNKNOWN=0,
-STATIC_OBJ_TYPE_STOLEN=1,
-STATIC_OBJ_TYPE_ABANDONED=2 ,
-STATIC_OBJ_TYPE_LIGHT_CHANGE=3
-} DECISION;/**/
+//typedef enum {
+//NONE=-1,
+//STATIC_OBJ_TYPE_UNKNOWN=0,
+//STATIC_OBJ_TYPE_STOLEN=1,
+//STATIC_OBJ_TYPE_ABANDONED=2 ,
+//STATIC_OBJ_TYPE_LIGHT_CHANGE=3
+//} DECISION;
 
 ///Debug flag (write log data)
 const int WRITE_LOG_DEF = 0; // for no log-writting
@@ -56,23 +46,21 @@ const int DEBUG_DEF = 0; // data on screen
 //const int DEBUG_DEF = 0; // no data on screen
 
 
-
 class StaticObjectClassifier
 {
 protected:
 
 	///write log flag
-	int writeLog;
+	int _writeLog;
 
 	///Debug data flag
-	int debug;
+	int _debug;
 
 	///Zoom factor to perform the analysis
-	double incFactorBB;
+	double _incFactorBB;
 
 	/// Image with blobs printed
-    Mat resultImage;
-
+    cv::Mat _resultImage;
 public:
 	/// Bounding box to check
 	CvRect checkBB;
@@ -98,11 +86,7 @@ public:
 	* \param nObj number of static objects in the list
 	* \return number of objects classified as uncovered or covered background
 	*/
-    virtual int processFrame(Mat frame,Mat bkgImage, Mat staticObjMask, Mat fgMask, BlobList<ObjectBlob*>* objects, int _nObj);
-
-    /////
-   virtual int classifyBlobStationary(Mat frame, Mat bkg, Mat sfgmask);
-    /////
+	int processFrame(cv::Mat frame, cv::Mat bkgImage, cv::Mat staticObjMask, cv::Mat fgMask, BlobList<ObjectBlob*>* objects);
 
 	/**
 	* Classifies a static object
@@ -113,7 +97,7 @@ public:
 	* \param object static object to check
 	* \return Returns a DECISION about the object analyzed
 	*/
-    virtual int checkObject(Mat frame, Mat bkgImage, Mat staticObjMask, Mat fgMask, ObjectBlob* object);
+    virtual int checkObject(cv::Mat frame, cv::Mat bkgImage, cv::Mat staticObjMask, cv::Mat fgMask, ObjectBlob* object){return -1;};
 
 	/**
 	* Extract a region (indicated by the roi) from the input image
@@ -122,8 +106,7 @@ public:
 	*
 	* \return Region extracted as an IplImage
 	*/
-    Mat extractImage(Mat src, CvRect roi);
-
+    cv::Mat extractImage(cv::Mat src, cv::Rect roi);
 
 	/**
 	* Method to increase the size of the bounding box
@@ -133,25 +116,16 @@ public:
 	*
 	* \return CvRect structure with the increased region of interest
 	*/
-    CvRect ampliarBB(CvRect box, double factorAmpliacion, Mat img);
+    CvRect ampliarBB(CvRect box, double factorAmpliacion, cv::Mat img);
 
-	/**
-	* Method to compute the S_GH in the x and y dimmensions. Currently, Sobel operator is applied in the two dims.
-	* \param src Color or gray image to process
-	* \param order Order of the S_GH operation
-	*
-	* \return S_GH image as IplImage
-	*/
-    Mat GradientXYSobel(Mat src, int order);
-
-	/**
+   /**
 	* Method to show an image .
 	* \param img Image to show
 	* \param windowName Name of the window
 	*
 	* \return S_GH image as IplImage
 	*/
-    void showImage(char *windowName, Mat img);
+    void showImage(char *windowName, cv::Mat img);
 
 	/**
 	* Method to print the status of the blobs in an image.
@@ -160,12 +134,7 @@ public:
 	*
 	* \return A copy of the input image with the status of the blobs printed
 	*/
-    Mat printBlobs(Mat frame, BlobList<ObjectBlob *> *pObjList);
-
-
-
-
-
+    cv::Mat printBlobs(cv::Mat frame, BlobList<ObjectBlob *> *pObjList);
 };
 
 #endif

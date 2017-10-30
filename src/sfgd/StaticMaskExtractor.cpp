@@ -3,15 +3,13 @@
 * \author Juan Carlos San Miguel Avedillo (jcs)
 * \date 16-12-10
 * \brief Implementation of the common interface for the static region detection algorithms
-* \version 2.0\n
+* \version 1.0\n
 *			Version history:\n
 *				- 1.0 (01-09-09): Initial Implementation (jcs)
-*				- 2.0 (16-12-10): Modification for being a common interface (jcs)
+*				- 1.1 (16-12-10): Modification for being a common interface (jcs)
 */
 
 #include "StaticMaskExtractor.h"
-#include "../../../src/SFGD/StaticMaskExtractor.h"
-
 /**
 *	Class Constructor with initial data
 *
@@ -24,21 +22,16 @@ using namespace cv;
 
 StaticMaskExtractor::StaticMaskExtractor(Mat sampleFrame, double framerate, double _secs2static)
 {
-    //IplImage *img = (IplImage*)sampleFrame;
     Mat img;
     sampleFrame.copyTo(img);
-
 
 	this->secs2static = _secs2static;
 	this->framerate = framerate;
 
-
     nChannels = img.channels();
     elemType = img.type();
 
-
     this->staticMask = Mat::zeros(img.rows,img.cols,CV_8UC1);
-
 
 	this->counter = 0;
 }
@@ -53,9 +46,6 @@ StaticMaskExtractor::StaticMaskExtractor(Mat sampleFrame, double framerate, doub
 
 StaticMaskExtractor::~StaticMaskExtractor(void)
 {
-
-
-
     if (!staticMask.empty())
         staticMask.release();
 }

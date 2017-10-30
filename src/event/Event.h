@@ -19,8 +19,8 @@
 #ifndef EVENT_H_INCLUDE
 #define EVENT_H_INCLUDE
 
-#include "../../../src/BLOBS/ObjectBlob.h"
-#include "../../../src/BLOBS/BlobList.h"
+#include "blobs/ObjectBlob.h"
+#include "blobs/BlobList.h"
 
 /**
  *	\var EVENT_TYPE
@@ -30,22 +30,21 @@ typedef enum {
 	///Unknown event
 	EVENT_UNKNOWN		= 0,
 	///Presence event
-	/*EVENT_PRESENCE		= 1,
+	//EVENT_PRESENCE		= 1,
 	///No Presence event
-	EVENT_NOPRESENCE	= 2,
+	//EVENT_NOPRESENCE	= 2,
 	///Get Object event
-	EVENT_GETOBJECT		= 3,
+	//EVENT_GETOBJECT		= 3,
 	///Use Object event
-	EVENT_USEOBJECT		= 4,
+	//EVENT_USEOBJECT		= 4,
 	///Leave Object event
-	EVENT_LEAVEOBJECT	= 5,
+	//EVENT_LEAVEOBJECT	= 5,
 	///People Counter event
-	EVENT_COUNTER		= 6,
+	//EVENT_COUNTER		= 6,
 	///People walking event
-	EVENT_WALKING		= 7,
+	//EVENT_WALKING		= 7,
 	///Hand Up event
-	EVENT_HANDUP		= 8
-	/**/
+	//EVENT_HANDUP		= 8
 	PutObject		= 2,
 	AbandonedObject = 3,
 	StolenObject	= 4,

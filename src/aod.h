@@ -1,55 +1,47 @@
 #ifndef AOD_H
 #define AOD_H
 
-#include <opencv2/opencv.hpp>
-#include "opencv2/imgproc/imgproc.hpp"
-#include "opencv2/highgui/highgui.hpp"
-#include <iostream>
+#include "Config.h"
+#include "bgs/BGSselector.h"
+#include "sfgd/SFGDselector.h"
+#include "blobs/BlobExtractor.h"
+#include "pd/PDselector.h"
+#include "soc/SOCselector.h"
+#include "event/EventController.h"
 
-
-#include "../../../src/BGS/BkgSubtractionSelector.h"
-#include "../../../src/SFGD/SFGDSelector.h"
-#include "../../../src/CLASSIFIER/ClassifierSelector.h"
-#include "../../../src/DETECTOR/detectorselector.h"
-#include "../../../src/Event/EventController.h"
-
-using namespace cv;
+// BGS          --> 1:LOBSTER; 2:PAWCS; 3:MOG2; 4:KNN; 5:Multimodal; 6:SUBSENSE
+// SBGS         --> 1:Subsampling; 2:Acc Mask
+// CLASSIFIER   --> 1:High Gradient; 2:Histogram
+// DETECTOR     --> 1:HOG; 2:DPM; 3:ACF
 
 class AOD
 {
 
 public:
 
-    AOD();
+	AOD();
    ~AOD();
 
-    //Global pointers
-    BkgSubtractionSelector *bkg_selector;
-    SFDGSelector *sfgd_selector;
-    DetectorSelector *detec_selector;
-    BlobExtractor blob_extractor;
-    ClassifierSelector *classifier_selector;
+    FILE *_file_time;
 
-    EventController *evtControl;
+    //system modules
+    BGSselector *_sel_bkg;
+    BGSselector *_sel_bkg_aux;
 
+    SFDGselector *_sel_sfgd;
+    PDselector   *_sel_pd;
+    SOCselector  *_sel_soc;
+    BlobExtractor _blob_extractor;
+    EventController *_evtCtrl;
 
+    double _elapsedTime_bkg;
+    double _elapsedTime_sfgd;
+    double _elapsedTime_pd;
+    double _elapsedTime_soc;
+    double _elapsedTime_frame;
+    double _elapsedTime_evt;
 
-    double elapsedTime_bkg;
-    double elapsedTime_sfgd;
-    double elapsedTime_pd;
-    double elapsedTime_class;
-    double elapsedTime_write;
-    double elapsedTime_frame;
-
-   settings init(settings Video, Mat frame);
-   settings processFrame(settings Video, Mat frame);
-   void finish(settings Video);
-
-
-
+    void init(Mat frame,Config cfg);
+    void processFrame(Mat frame,Config cfg);
 };
-
-
-
-
 #endif // AOD_H

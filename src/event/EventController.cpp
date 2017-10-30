@@ -9,20 +9,9 @@
  *				- 1.1 (20-12-08): Use of the EventChecker class (jcs)
  *				- 2.0 (12-06-16): update  (jcs)
  *              - 3.0 (17-09-17): update (elg)
- /
+ */
 
-//Additional includes
-#include "EventController.h"
-#include <opencv2/opencv.hpp>
-#include <opencv2/highgui/highgui.hpp> //VideoCapture
-#include <opencv2/imgproc/imgproc.hpp> //cvtColor
-#include "opencv2/opencv.hpp" //opencv libraries
-#include <iostream>
-#include "stdio.h"
-#include "stdlib.h"
-#include "math.h"
-
-/**
+/*
  *	Standard class Constructor
  *	\param _pLog Point to log file
  *	\param _verbose_mode Flag to indicate verbose mode (=1) or not (=0)
@@ -59,11 +48,10 @@ void EventController::init(int rows, int cols, char *input_file, char *viper_fil
  *
  */
 EventController::~EventController() {
-
+    std::cout << "~EventController()" << std::endl;
 
     writeEvents(&pFinalEvents);
-
-
+    //pwriter.~EventWriter(); //automatically called when releaseing EventController
 }
 /**********************************************************************
                     EVENT DETECTION
@@ -950,7 +938,14 @@ cv::Mat EventController::getOutputFrame(cv::Mat input_frame, BlobList<ObjectBlob
     return input_frame;
 }
 
-void EventController::message(char *string, int NumFrame)
+void EventController::message(std::string str, int NumFrame)
+{
+    if(verbose_mode==1)
+        fprintf(stderr, "%s", str.c_str());
+}
+
+
+void EventController::message(char*string, int NumFrame)
 {
     if(verbose_mode==1)
         fprintf(stderr, "%s", string);

@@ -3,28 +3,24 @@
 * \author Juan Carlos San Miguel Avedillo (jcs)
 * \date 16-12-10
 * \brief Implementation of the common interface for the static region detection algorithms
-* \version 2.0\n
+* \version 1.0\n
 *			Version history:\n
-*				- 1.0 (01-09-09): Initial Implementation (jcs)
-*				- 2.0 (16-12-10): Modification for being a common interface (jcs)
-*				- 3.0 (07-12-12): He corregido el algoritmo, pues el anterior, solo hacia AND
+*				- 1.1 (01-09-09): Initial Implementation (jcs)
+*				- 1.2 (16-12-10): Modification for being a common interface (jcs)
+*				- 1.3 (07-12-12): He corregido el algoritmo, pues el anterior, solo hacia AND
 *								  de las mascaras FG muestreadas cuando stage_sampled == num_stages
 *								  y eso solo es la primera vez, despues la AND debe ser continua cada
-*								  vez que haya muestreo de una nueva mascara FG.
+*								  vez que haya muestreo de una nueva mascara FG. (doh)
 */
 
-#include "StaticMaskExtractor_subsampling.h"
-#include "../../../src/SFGD/StaticMaskExtractor.h"
-#include "../../../src/SFGD/StaticMaskExtractor_subsampling.h"
-#include <opencv2/opencv.hpp>
-#include "opencv2/imgproc/imgproc.hpp"
-#include "opencv2/highgui/highgui.hpp"
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <opencv2/opencv.hpp>
+#include "StaticMaskExtractor_subsampling.h"
+
 using namespace cv;
 using namespace std;
-
 
 /**
 *	Class Constructor with initial data
@@ -36,14 +32,12 @@ using namespace std;
 *	\param _framerate Framerate of the input video frame
 *
 */
-
 StaticMaskExtractor_subsampling::StaticMaskExtractor_subsampling(Mat sampleFrame, double _framerate, double time_to_static, int _num_stages) : StaticMaskExtractor(sampleFrame, _framerate, time_to_static)
 {
     num_stages = _num_stages;
     numFramesToSample = (int)((this->secs2static * this->framerate) / this->num_stages);//Frames entre cada muestra tomada (cada cuanto cojo una muestra)
 
     stage_sampled = 0;
-
 
     for (int i = 0; i< MAX_STAGES; i++)
     {
@@ -59,10 +53,7 @@ StaticMaskExtractor_subsampling::StaticMaskExtractor_subsampling(Mat sampleFrame
 
 StaticMaskExtractor_subsampling::~StaticMaskExtractor_subsampling()
 {
-
         pSampledMask.clear();
-
-
 }
 
 
@@ -75,7 +66,6 @@ StaticMaskExtractor_subsampling::~StaticMaskExtractor_subsampling()
 *	\param fg_mask Mask indicating the presence of moving objects (Gray)
 *
 */
-
 void StaticMaskExtractor_subsampling::processFrame(Mat frame, Mat fg_mask)
 {
     counter = counter + 1;
@@ -115,12 +105,12 @@ void StaticMaskExtractor_subsampling::processFrame(Mat frame, Mat fg_mask)
 *	\returns An IplImage containing the 'n' sampled FG mask (1 channel and IPL_DEPTH_8U)
 *
 */
-
 Mat StaticMaskExtractor_subsampling::getSampledMask(int n)
 {
     if (n<MAX_STAGES)
         return this->pSampledMask[n];
-
+    else
+    	return Mat(); //we return an empty matrix
 }
 
 /**
@@ -130,7 +120,6 @@ Mat StaticMaskExtractor_subsampling::getSampledMask(int n)
 *	\param _time New value
 *
 */
-
 void StaticMaskExtractor_subsampling::setTime(double _time)
 {
     this->secs2static = _time;
@@ -144,8 +133,6 @@ void StaticMaskExtractor_subsampling::setTime(double _time)
 *	\param _NumStages New value
 *
 */
-
-
 void StaticMaskExtractor_subsampling::setNumStages(int _NumStages)
 {
     if (_NumStages <= MAX_STAGES)
@@ -163,7 +150,6 @@ void StaticMaskExtractor_subsampling::setNumStages(int _NumStages)
 *	\param _framerate New value
 *
 */
-
 void StaticMaskExtractor_subsampling::setFramerate(double _framerate)
 {
     this->framerate = _framerate;
@@ -177,9 +163,7 @@ void StaticMaskExtractor_subsampling::setFramerate(double _framerate)
 *	\return currently used value
 *
 */
-
 int StaticMaskExtractor_subsampling::getNumStages()
 {
     return this->num_stages;
 }
-

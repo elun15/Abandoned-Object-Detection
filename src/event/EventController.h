@@ -23,8 +23,8 @@
 #include <opencv2/opencv.hpp>
 #include <vector>
 #include "Event.h"
-#include "../../../src/BLOBS/ObjectBlob.h"
-#include "../../../src/BLOBS/BlobList.h"
+#include "blobs/ObjectBlob.h"
+#include "blobs/BlobList.h"
 //#include "event_buffers.h"
 //#include "parameter_structure.h"
 #include "EventWriter.h"
@@ -192,24 +192,23 @@ public:
     void printEvents();
 
     //Methods for log file creation
-    /*	// Method to get the file handle
-        FILE* getFile();
-        // Method to set the file handle
-        void setFile(char *xmlfile);
-        // Method to write XML Viper Header
-        void writeViperHeader(char* filename,int numframes,double framerate,int wframe,int hframe);
-        // Method to write XML Viper End
-        void writeViperEnd();
-        // Method to write close events
-        int writeEvents();
-        // Method to wriet a close event
-        int writeEvent(Event* pEvent);
-        // Method to write a close event in XML VIPER format
-        int writeEventVIPER(Event* pEvent);
-    /**/
+//    	// Method to get the file handle
+//        FILE* getFile();
+//        // Method to set the file handle
+//        void setFile(char *xmlfile);
+//        // Method to write XML Viper Header
+//        void writeViperHeader(char* filename,int numframes,double framerate,int wframe,int hframe);
+//        // Method to write XML Viper End
+//        void writeViperEnd();
+//        // Method to write close events
+//        int writeEvents();
+//        // Method to wriet a close event
+//        int writeEvent(Event* pEvent);
+//        // Method to write a close event in XML VIPER format
+//        int writeEventVIPER(Event* pEvent);
+
 
     // Method to generat the output frame with the events detected
-    //IplImage* EventController::getOutputFrame(IplImage* input_frame, BlobList<ObjectBlob*> *pObjList);
 
     //cv::Mat EventController::getOutputFrame(cv::Mat input_frame, BlobList<ObjectBlob*> *pObjList); //before
     cv::Mat getOutputFrame(cv::Mat input_frame, BlobList<ObjectBlob*> *pObjList);
@@ -233,8 +232,11 @@ private:
     /*Check inconsistency between detected events (same area and time)*/
     void checkDep_InconsistencyAreaTime();
     //method to write a message (console or file)
-    void message(char *string, int NumFrame);
+    void message(char *string, int value);
     void message(char *string, double value);
+    void message(std::string str, int value);
+    void message(std::string str, double value);
+
 };
 
 #endif

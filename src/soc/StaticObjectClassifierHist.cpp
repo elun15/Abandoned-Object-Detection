@@ -14,13 +14,11 @@
 *
 */
 
-#include "../../../src/CLASSIFIER/StaticObjectClassifierHist.h"
-#include "../../../src/CLASSIFIER/StaticObjectClassifier.h"
 #include <opencv2/opencv.hpp>
-//#include "highgui.h"
+#include "StaticObjectClassifierHist.h"
+
 using namespace std;
 using namespace cv;
-
 
 /**
 * Standard class Constructor
@@ -31,30 +29,19 @@ using namespace cv;
 StaticObjectClassifierHist::StaticObjectClassifierHist(int _debug, int _writelog)
 {
     // Asignar valor a prametros de funcionamiento
-
-    incFactorBB = 1.5;
+    _incFactorBB = 1.3; //override default value 1.1
 
     //nDimsHist = 3; // Histogramas en 3 dimensiones (RGB?)
     nDimsHist = 1; // Histogramas en 1 dimension (HUE?)
     nBins_hist = 256;
 
-
     //compare_hist_method = CV_COMP_CORREL;
     //compare_hist_method = CV_COMP_CHISQR;
     //compare_hist_method = CV_COMP_INTERSECT;
-
     compare_hist_method = CV_COMP_BHATTACHARYYA;
     thHist_bkg_change = 0.250;
 
     need_to_init = true;
-
-    writeLog = WRITE_LOG_DEF;
-    if (writeLog == 1)
-    {
-        FILE *pf = fopen("Results_Color.txt", "w+");
-        fprintf(pf, "FRAME\tID\tSCORE\n");
-        fclose(pf);
-    }
 }
 
 /**
@@ -65,7 +52,6 @@ StaticObjectClassifierHist::~StaticObjectClassifierHist()
 {
     if (need_to_init == false)
     {
-
         hsvImg.release();
         hueImg.release();
 
@@ -74,9 +60,7 @@ StaticObjectClassifierHist::~StaticObjectClassifierHist()
         newObjHist.release();
 
         free(hdims);
-
     }
-
 }
 
 /**
@@ -86,9 +70,7 @@ StaticObjectClassifierHist::~StaticObjectClassifierHist()
 */
 void StaticObjectClassifierHist::init(Mat sampleFrame)
 {
-
     hsvImg= sampleFrame.clone();
-
     hueImg = Mat(sampleFrame.rows,sampleFrame.cols,CV_8UC1);
 
     // Histogram initialization
@@ -102,38 +84,6 @@ void StaticObjectClassifierHist::init(Mat sampleFrame)
 }
 
 /**
-* Classifies all static objects in the list
-* \param frame current frame
-* \param bkgImage background model image
-* \param staticObjMask static objects mask
-* \param fgMask foreground/background mask
-* \param objects static object list
-* \param nObj number of static objects in the list
-* \return number of objects classified as uncovered or covered background
-*/
-int StaticObjectClassifierHist::processFrame(Mat frame, Mat bkgImage2, Mat staticObjMask, Mat fgMask, BlobList<ObjectBlob*>* objectList)
-{
-
-  Mat bkgImage = bkgImage2.clone();
-    if (need_to_init == true){
-
-        init(frame);
-    }
-
-
-
-    for (int i = 0; i < objectList->getBlobNum(); i++){
-
-        ObjectBlob *obj;
-        obj = objectList->getBlob(i);
-        checkObject(frame, bkgImage, staticObjMask, fgMask,obj);
-    }
-
-
-    return 0;
-}
-
-/**
 * Classifies a static object
 * \param frame current frame
 * \param bkgImage background model image
@@ -142,70 +92,48 @@ int StaticObjectClassifierHist::processFrame(Mat frame, Mat bkgImage2, Mat stati
 * \param object static object to check
 * \return Returns a DECISION about the object analyzed
 */
-int StaticObjectClassifierHist::checkObject(Mat frame, Mat bkgImage, Mat staticObjMask, Mat fgMask, ObjectBlob *_object)
+int StaticObjectClassifierHist::checkObject(Mat frame, Mat bkgImage, Mat staticObjMask, Mat fgMask, ObjectBlob *object)
 {
+	//get ROI for the object
+    cv::Rect bbox = cvRect((int)object->x, (int)object->y, (int)object->w, (int)object->h);
+	cv::Rect objROI = ampliarBB(bbox, _incFactorBB,frame);
 
-    CvRect Bbox = cvRect((int)_object->x, (int)_object->y, (int)_object->w, (int)_object->h);
-
-    // Ampliar la BB
-
-    checkBB = ampliarBB(Bbox, incFactorBB, frame);
-
-    // Calcular Histogramas
-    calcularHistogramas(frame, bkgImage, staticObjMask, fgMask, checkBB);
+    // compute colour histograms
+    calcularHistogramas(frame, bkgImage, staticObjMask, fgMask, objROI);
 
     double distOldObj = abs(compareHist(bkgHist, oldObjHist, CV_COMP_BHATTACHARYYA));
     double distNewObj = abs(compareHist(bkgHist, newObjHist, CV_COMP_BHATTACHARYYA));
     double distOldNew = abs(compareHist(oldObjHist, newObjHist, CV_COMP_BHATTACHARYYA));
 
-
-    int decision = STATIC_OBJ_TYPE_UNKNOWN;
-
-
+	//take decision for abandoned or stolen
+    object->results->D_CH  = STATIC_OBJ_TYPE_UNKNOWN;
 
     if (distOldNew < thHist_bkg_change)
-    {
-        _object->results->D_CH = STATIC_OBJ_TYPE_LIGHT_CHANGE; //Color Hist decision
-        decision = STATIC_OBJ_TYPE_LIGHT_CHANGE;
-        if (writeLog == 1){
-            printf("bkg_changed");
-        }
-
-    }
+        object->results->D_CH = STATIC_OBJ_TYPE_LIGHT_CHANGE; //Color Hist decision
     else
         if (distOldObj < distNewObj)
-        {
-            _object->results->D_CH = STATIC_OBJ_TYPE_ABANDONED;
-            decision = STATIC_OBJ_TYPE_ABANDONED;
-            //cout << "Decision: Abandoned" << endl;
-            if (writeLog == 1){
-                printf("bkg_covered(aband.)");
-            }
-
-        }
+            object->results->D_CH = STATIC_OBJ_TYPE_ABANDONED;
         else
-        {
-            _object->results->D_CH = STATIC_OBJ_TYPE_STOLEN;
-            decision = STATIC_OBJ_TYPE_STOLEN;
-            //cout << "Decision: Stolen" << endl;
-            if (writeLog == 1){
-                printf("bkg_uncovered(robo)");
+            object->results->D_CH = STATIC_OBJ_TYPE_STOLEN;
 
-            }
+    //copy data to object structure
+    object->results->S_CH = distOldObj - distNewObj; //Score
+    object->results->S_CH_dN = distNewObj; //Distances
+    object->results->S_CH_dO = distOldObj;
+    object->results->S_CH_dON = distOldNew;
 
-        }
+    //Final decision
+    object->results->D_F = object->results->D_CH;
 
+    if (_debug)
+    {
+    	std::cout << "object id=" << object->ID << std::endl;
+    	std::cout << "  distNewObj=" << distNewObj  << " distOldObj=" << distOldObj << std::endl;
+    }
 
+	std::cout << "  ABA(c="<<STATIC_OBJ_TYPE_ABANDONED<<"),STO(c="<<STATIC_OBJ_TYPE_STOLEN<<") -> decision c=" <<object->results->D_F <<std::endl;
 
-    _object->results->S_CH = distOldObj - distNewObj; //Score
-    _object->results->S_CH_dN = distNewObj; //Distances
-    _object->results->S_CH_dO = distOldObj;
-    _object->results->S_CH_dON = distOldNew;
-
-
-    _object->results->D_F = _object->results->D_CH; //Final decision
-
-    return decision;
+    return object->results->D_F;
 }
 
 Mat StaticObjectClassifierHist::calcularHistograma(Mat img, Rect roi, Mat objMask, int inside_mask)
@@ -215,15 +143,11 @@ Mat StaticObjectClassifierHist::calcularHistograma(Mat img, Rect roi, Mat objMas
     float range[] = { 0, 256 };
     const float *ranges[] = { range };
 
-
     img.copyTo(hsvImg);
 
     // Si la imagen es grayscale, usarla tal cual
     if (hsvImg.channels() == 1)
-    {
-            hsvImg.copyTo(hueImg);
-    }
-
+    	hsvImg.copyTo(hueImg);
     // Si la imagen esta en color, pasarla a HSV y quedarse con el canal hue
     else
     {
@@ -231,26 +155,15 @@ Mat StaticObjectClassifierHist::calcularHistograma(Mat img, Rect roi, Mat objMas
         Mat channels[3];
         split(hsvImg, channels);
         hueImg = channels[2];
-
    }
 
     Mat hueImg_ROI = hueImg(roi);
     Mat objMask_ROI = objMask(roi);
 
-
-    if (inside_mask){
-
+    if (inside_mask)
         calcHist( &hueImg_ROI, 1, 0,objMask_ROI, hist, 1, &histSize, ranges, true, false );
-
-    }
-
     else
-    {
-
         calcHist( &hueImg_ROI, 1, 0,~objMask_ROI, hist, 1, &histSize, ranges, true, false );
-
-    }
-
 
     histImage = Mat::ones(hist.rows, hist.cols, CV_8U)*255;
     normalize(hist,hist,0, histImage.rows, NORM_MINMAX, -1);
@@ -280,7 +193,6 @@ void StaticObjectClassifierHist::showHistogram(Mat hist, char *windowName)
     waitKey();
 
     histImage.release();
-
 }
 
 Scalar StaticObjectClassifierHist::hsv2rgb(float hue)

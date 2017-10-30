@@ -1,30 +1,26 @@
 #include "DefineObjectBlobList.h"
-#include "../../../src/settings.h"
-void DefineObjectBlobList(std::vector<cvBlob> *ExtractBlobList, vector<cv::Rect> found, BlobList<ObjectBlob*> *pObjectList,Mat mask){
 
+using namespace cv;
 
-    // INPUT ARGUMENTS
+void DefineObjectBlobList(std::vector<cvBlob> *ExtractBlobList, vector<cv::Rect>& found, BlobList<ObjectBlob*> *pObjectList,Mat mask)
+{
+
+	// INPUT ARGUMENTS
     // ExtractBlobList =>  all blobs in static foreground
     // found => people detections
 
     // OUTPUT ARGUMENTS
     // pObjectList  => list with the static objects in the scene
 
-
     ObjectBlob *pObjectBlob;
     bool blobIsObject = true;
-
-
 
     if (!ExtractBlobList->empty()){
 
         for (cvBlob staticBlob : *ExtractBlobList) //loop through static foreground blobs
         {
             blobIsObject = true;
-
-
             Point2f static_bottom(staticBlob.y+staticBlob.h, staticBlob.x+(staticBlob.w/2));
-
 
             for (cv::Rect personBlob : found){ //loop through detected people
 
@@ -37,14 +33,8 @@ void DefineObjectBlobList(std::vector<cvBlob> *ExtractBlobList, vector<cv::Rect>
                 double distance = cv::norm(cv::Mat(static_bottom),cv::Mat(people_bottom));
 
                 if (distance  < 2*staticBlob.w)
-                {
                     blobIsObject = false;
-
-                }
-
-
             }
-
 
             if (blobIsObject == true && !mask.empty()) //Only if we have context mask
             {
@@ -69,7 +59,6 @@ void DefineObjectBlobList(std::vector<cvBlob> *ExtractBlobList, vector<cv::Rect>
 
                 topLeft = Point(coord_x, coord_y);
 
-
                 Point topRight;
                 coord_x= staticBlob.x+staticBlob.w-offset;
                 coord_y= staticBlob.y+offset;
@@ -85,7 +74,6 @@ void DefineObjectBlobList(std::vector<cvBlob> *ExtractBlobList, vector<cv::Rect>
 
                 topRight = Point(coord_x, coord_y);
 
-
                 Point bottomLeft;
                 coord_x=staticBlob.x+offset;
                 coord_y= staticBlob.y+staticBlob.h-offset;
@@ -100,7 +88,6 @@ void DefineObjectBlobList(std::vector<cvBlob> *ExtractBlobList, vector<cv::Rect>
                     coord_y = mask.rows;
 
                 bottomLeft= Point(coord_x, coord_y);
-
 
                 Point bottomRight;
                 coord_x=staticBlob.x+staticBlob.w-offset;
@@ -139,4 +126,54 @@ void DefineObjectBlobList(std::vector<cvBlob> *ExtractBlobList, vector<cv::Rect>
     }
 
     return;
+}
+
+
+bool CompareBlobs(cvBlob blob, cv::Rect rect){
+
+	cv::Rect BlobRect(blob.x, blob.y, blob.w, blob.h);
+
+	blob.PeopleLikelihood = solape(BlobRect, rect);
+
+	cv::Rect inters = BlobRect & rect;
+	blob.PeopleLikelihood = 2*inters.area()/(BlobRect.area() + rect.area());
+
+   // std::cout << blob.PeopleLikelihood << std::endl;
+	if (blob.PeopleLikelihood > 0.5 && blob.PeopleLikelihood < 2)
+		return true;
+	else
+		return false;
+
+
+}
+
+double solape(cv::Rect hogRect, cv::Rect bloblistRect){
+
+
+	int x_solape, y_solape, w_solape, h_solape;
+
+    if(hogRect.contains(bloblistRect.tl()) && hogRect.contains(bloblistRect.br())) //blob completely inside the hog blob
+   {
+       return (double)1;
+
+   }
+    else if(bloblistRect.contains(hogRect.br()) && bloblistRect.contains(hogRect.tl()) )
+    {
+        return (double)1;
+    }
+    else if (hogRect.contains(cv::Point(bloblistRect.x, bloblistRect.y)) || hogRect.contains(cv::Point(bloblistRect.x + bloblistRect.width, bloblistRect.y)) || hogRect.contains(cv::Point(bloblistRect.x, bloblistRect.y + bloblistRect.height)) || hogRect.contains(cv::Point(bloblistRect.x + bloblistRect.width, bloblistRect.y + bloblistRect.height))){
+
+		x_solape = std::max(hogRect.x, bloblistRect.x);
+		y_solape = std::max(hogRect.y, bloblistRect.y);
+		w_solape = abs(std::min(hogRect.x + hogRect.width, bloblistRect.x + bloblistRect.width) - x_solape);
+		h_solape = abs(std::min(hogRect.y + hogRect.height, bloblistRect.y + bloblistRect.height) - y_solape);
+
+		cv::Rect rectSolape(x_solape, y_solape, w_solape, h_solape);
+        return (double)rectSolape.area() / hogRect.area();
+
+	}
+
+
+
+	return 0;
 }

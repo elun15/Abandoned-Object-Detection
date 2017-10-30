@@ -82,7 +82,7 @@ public:
 	virtual ~BlobExtractor();
 
 	// Blob extraction from an image
-    int extractBlobs(Mat &mask, bool extractMask, const cv::Mat *operationMask = NULL);
+    int extractBlobs(Mat &mask, bool extractMask=false, const cv::Mat *operationMask = NULL);
 
 	// Method to get the internal blob's list
 	//std::vector<BasicBlob*>* getBlobList();

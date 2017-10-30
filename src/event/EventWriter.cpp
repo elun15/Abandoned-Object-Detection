@@ -39,9 +39,9 @@ EventWriter::~EventWriter()
     {
         writeViperEnd();
         fclose(pf);
+        std::cout << "closed event file" << std::endl;
     }
 }
-
 
 int EventWriter::initViperFile(char *filenameXML, char* source_filename, int numframes, double framerate, int wframe, int hframe)
 {
@@ -58,7 +58,7 @@ int EventWriter::initViperFile(char *filenameXML, char* source_filename, int num
 
     cout << "Init viper file" << endl;
     if (this->pf == NULL)
-        cout << "WARNING: Viper log file can't be create" << endl;
+        cout << "WARNING: Viper log file can't be created" << endl;
     else
         writeViperHeader(source_filename, numframes, framerate, wframe, hframe);
 

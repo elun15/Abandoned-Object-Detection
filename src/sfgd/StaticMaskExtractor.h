@@ -17,24 +17,13 @@
 *
 */
 
-#if !defined(AFX_STATICMASKEXTRACTOR_H_INCLUDED_)
-#define AFX_STATICMASKEXTRACTOR_H_INCLUDED_
-#include "opencv2/imgproc/imgproc.hpp"
-#include "opencv2/highgui/highgui.hpp"
-
-
-#include <opencv2/opencv.hpp>
+#if !defined(STATICMASKEXTRACTOR_H_INCLUDED_)
+#define STATICMASKEXTRACTOR_H_INCLUDED_
 #include <vector>
 #include <iostream>
 #include <fstream>
-using namespace cv;
-using namespace std;
-// LO PONGO EN COMENTARIO NO LO USO AHORA
-//#include "cv.h"
-//#include "BlobList.h"
-//#include "BasicBlob.h"
-//#include "BlobExtractor.h"
 
+#include <opencv2/opencv.hpp>
 
 /**
 *	\def FRAMERATE_DEF
@@ -56,17 +45,17 @@ class StaticMaskExtractor
 public:
 
 	// Default constructor
-    StaticMaskExtractor(Mat sampleFrame, double framerate = FRAMERATE_DEF, double _time_static = TIME_STATIC_DEF);
+    StaticMaskExtractor(cv::Mat sampleFrame, double framerate = FRAMERATE_DEF, double _time_static = TIME_STATIC_DEF);
 
 	// Default destructor
     virtual ~StaticMaskExtractor();
 
 	//Method to process each frame
 
-    virtual void processFrame(Mat frame,  Mat mask);
+    virtual void processFrame(cv::Mat frame,  cv::Mat mask);
 
     //Method to get the static motion mask
-     Mat getStaticMask();
+    cv::Mat getStaticMask();
 	//Get the number of frames processed
 	int getNumFramesProcessed();
 
@@ -88,7 +77,7 @@ protected:
 	int counter;
 
 	/// Size of the input images
-    Size arrSize;
+	cv::Size arrSize;
 
 	/// Number of channels of the input images
 	int nChannels;
@@ -100,9 +89,7 @@ protected:
 	FILE *_log;
 
 	/// mask of stationary regions
-     Mat staticMask;
-
-
+	cv::Mat staticMask;
 
 	///framerate of the input video
 	double framerate;

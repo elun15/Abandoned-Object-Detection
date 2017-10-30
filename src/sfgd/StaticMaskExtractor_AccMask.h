@@ -19,17 +19,11 @@ IEEE International Workshop on PETS, New York, June 18, 2006
 *
 */
 
-#if !defined(AFX_STATICMASKEXTRACTOR_ACC_H_INCLUDED_)
-#define AFX_STATICMASKEXTRACTOR_ACC_H_INCLUDED_
+#if !defined(STATICMASKEXTRACTOR_ACC_H_INCLUDED_)
+#define STATICMASKEXTRACTOR_ACC_H_INCLUDED_
 
-// LOS PONGO EN COMENTARIO, AHORA NO SE USAN
-//#include "cv.h"
-//#include "BlobList.h"
-//#include "BasicBlob.h"
-//#include "BlobExtractor.h"
-#include "StaticMaskExtractor.h"
 #include <opencv2/opencv.hpp>
-#include "../../../src/settings.h"
+#include "StaticMaskExtractor.h"
 
 /**
 *	\def CONFIDENCE_THRESHOLD
@@ -51,20 +45,20 @@ class StaticMaskExtractor_AccMask : public StaticMaskExtractor
 public:
 
 	// Default constructor
-    StaticMaskExtractor_AccMask(Mat sampleFrame, double _framerate = FRAMERATE_DEF, double time_to_static = TIME_STATIC_DEF, double _wd = WEIGTH_DECAY_FOR_NO_MOTION_ACC, int _conf_th = CONF_TH_ACC);
+    StaticMaskExtractor_AccMask(cv::Mat sampleFrame, double _framerate = FRAMERATE_DEF, double time_to_static = TIME_STATIC_DEF, double _wd = WEIGTH_DECAY_FOR_NO_MOTION_ACC, int _conf_th = CONF_TH_ACC);
 
 	// Default destructor
 	virtual ~StaticMaskExtractor_AccMask();
 
 	//Method to process each frame
-    void processFrame(Mat fgmask, double framerate, int time_to_static);
+    void processFrame(cv::Mat fgmask, double framerate, int time_to_static);
 
 
 	void setWeightDecay(double _wd);
 	double getWeightDecay();
 	void setConfidenceThreshold(int _th);
 	int getConfidenceThreshold();
-    Mat getConfidenceImage();
+	cv::Mat getConfidenceImage();
 
 private:
 
@@ -83,10 +77,7 @@ private:
 	double adapt;
 	double static_th;
 
-    Mat fgmask_counter;
-
-
-
+	cv::Mat fgmask_counter;
 };
 
-#endif // !defined(AFX_STATICMASKEXTRACTOR_ACC_H_INCLUDED_)
+#endif // !defined(STATICMASKEXTRACTOR_ACC_H_INCLUDED_)

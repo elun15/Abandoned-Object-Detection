@@ -4,27 +4,23 @@
 * \author Juan Carlos San Miguel Avedillo (jcs)
 * \date 16-12-10
 * \brief Implementation of the common interface for the static region detection algorithms
-* \version 2.0\n
+* \version 1.0\n
 *			Version history:\n
-*				- 1.0 (01-09-09): Initial Implementation (jcs)
-*				- 2.0 (16-12-10): Modification for being a common interface (jcs)
-*				- 3.0 (07-12-12): El algoritmo lo he cambiado pues el anterior no funcionaba bien,
+*				- 1.1 (01-09-09): Initial Implementation (jcs)
+*				- 1.2 (16-12-10): Modification for being a common interface (jcs)
+*				- 1.3 (07-12-12): El algoritmo lo he cambiado pues el anterior no funcionaba bien,
 *								  ahora la imagen S se incrementa de 1 en 1  si es FG y se decrementa
 *                                de 2 en 2 si es BG. Hay un umbral, que en este caso esta a 240, que
 *                                cuando se supera significa que el pixel es estatico y la mascara
 *                                estatica se pone a 1. (doh)
-* \version 3.0\n
+* \version 2.0\n
 *			Version history:\n
-*				- 3.0(13/09/17): reimplemented and adapted to openCV 3.2 (elg)
+*				- 2.0(13/09/17): reimplemented and adapted to openCV 3.2 (elg)
 *
 */
-#include "../../../src/SFGD/StaticMaskExtractor.h"
-#include "../../../src/SFGD/StaticMaskExtractor_subsampling.h"
-#include "../../../src/SFGD/StaticMaskExtractor_AccMask.h"
+#include "StaticMaskExtractor_AccMask.h"
 
 #include <opencv2/opencv.hpp>
-#include "opencv2/imgproc/imgproc.hpp"
-#include "opencv2/highgui/highgui.hpp"
 #include <vector>
 #include <iostream>
 #include <fstream>
