@@ -1,0 +1,12 @@
+To build the required libraries
+bgs->
+$ cd <your_root_dir>/AOD_System/lib/bgslibrary/build
+$ cmake ..
+$ make
+be sure that file "libbgs.a" is generated
+
+pd->
+$ cd <your_root_dir>/AOD_System/lib/pdlibrary/build
+$ cmake ..
+$ make
+be sure that file "libpd.a" is generated
