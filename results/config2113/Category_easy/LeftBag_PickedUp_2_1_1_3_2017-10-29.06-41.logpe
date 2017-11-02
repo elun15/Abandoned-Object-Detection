@@ -1,0 +1,1 @@
+java -jar ./bin/viper-pe.jar -epf ./bin/config.epf -pr ./bin/properties.pr -g ../datasets/CAVIAR/LeftBag_PickedUp.txt -r ../results/config2113/Category_easy/LeftBag_PickedUp_2_1_1_3_2017-10-29.06-41.xml -raw ../results/config2113/Category_easy/LeftBag_PickedUp_2_1_1_3_2017-10-29.06-41.raw -o ../results/config2113/Category_easy/LeftBag_PickedUp_2_1_1_3_2017-10-29.06-41.out

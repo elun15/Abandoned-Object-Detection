@@ -1,0 +1,22 @@
+#BEGIN_OBJECT_EVALUATION
+
+OBJECT AbandonedObject [dice 0.99]
+BoundingBox : [dice 0.99]
+
+#END_OBJECT_EVALUATION
+
+//#BEGIN_FRAMEWISE_EVALUATION
+//OBJECT AbandonedObject
+//BoundingBox : dice overlap matchedpixels missedpixels \
+//falsepixels [arearecall 0.6] [areaprecision 0.7]
+//#END_FRAMEWISE_EVALUATION
+
+//#BEGIN_GROUND_FILTER
+
+//#END_GROUND_FILTER
+
+//#BEGIN_RESULT_FILTER
+//OBJECT EVENT_LEAVEOBJECT
+//	DetectionScore : > 0.7
+
+//#END_RESULT_FILTER

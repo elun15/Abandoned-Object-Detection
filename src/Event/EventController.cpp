@@ -182,12 +182,6 @@ void EventController::checkDep_NewEventsThatExist()
 
         }
 
-
-        //PRUEBA
-        if (currentFrame == 2307)
-        {
-            int prueba = 1;
-        }
         // Search new detections in the active events
 
         for (int i = 0; i< (int)pNewDetectedEvt.size(); i++)
@@ -211,8 +205,6 @@ void EventController::checkDep_NewEventsThatExist()
 
 
                 solap = op1 / op2;
-
-
 
                 if (solap > MIN_OVERLAP_SAME_EVENT)
                 {

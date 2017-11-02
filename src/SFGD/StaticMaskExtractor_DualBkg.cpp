@@ -27,9 +27,8 @@ StaticMaskExtractor_DualBkg::StaticMaskExtractor_DualBkg(Mat sampleFrame, double
 
     this->evidenceImage = Mat::zeros(sampleFrame.size(),CV_32FC1);
     this->evidenceImageNorm = Mat::zeros(sampleFrame.size(),CV_32FC1);
-
     this->static_cont = floor(this->framerate*this->secs2static);
-   // this->static_cont = floor((this->framerate*this->secs2static) - ((log(bgS->GetBackgroundRatio())) / log(1 - alpha)));
+    // this->static_cont = floor((this->framerate*this->secs2static) - ((log(bgS->GetBackgroundRatio())) / log(1 - alpha)));
     this->k = 1;
     this->oc_tolerance = 0.7;
 
@@ -76,15 +75,14 @@ void StaticMaskExtractor_DualBkg::processFrame( Mat fgLong, Mat fgShort) //Solo 
     evidenceImage.setTo(0,evidence_less_mask);//evidenceImage = 0 when mask = 1
 
     //Check static threshold and fill Mask
-  double static_th = this->static_cont * this->oc_tolerance;
+    double static_th = this->static_cont * this->oc_tolerance;
    // double static_th = 100;
     evidence_greater_mask.setTo(Scalar::all(0));
     compare(evidenceImage,static_th,evidence_greater_mask,CMP_GT); //mask = 1 when evidenceImage > static_th
     staticMask.setTo(255,evidence_greater_mask); //Mask = 255  when evidenceImage > static_th
     staticMask.setTo(0,(255 - evidence_greater_mask)); //Mask = 0  when evidenceImage < static_th
-    imshow("Evidence image", evidenceImage);
-    waitKey(1);
-
+    //imshow("Evidence image", evidenceImage);
+   // waitKey(1);
 
 
 

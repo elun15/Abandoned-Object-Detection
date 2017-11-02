@@ -24,7 +24,7 @@ using namespace cv;
 
 StaticMaskExtractor::StaticMaskExtractor(Mat sampleFrame, double framerate, double _secs2static)
 {
-    //IplImage *img = (IplImage*)sampleFrame;
+
     Mat img;
     sampleFrame.copyTo(img);
 

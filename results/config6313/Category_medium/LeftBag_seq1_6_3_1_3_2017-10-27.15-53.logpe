@@ -1,0 +1,1 @@
+java -jar ./bin/viper-pe.jar -epf ./bin/config.epf -pr ./bin/properties.pr -g ../datasets/CAVIAR/LeftBag_seq1.txt -r ../results/config6313/Category_medium/LeftBag_seq1_6_3_1_3_2017-10-27.15-53.xml -raw ../results/config6313/Category_medium/LeftBag_seq1_6_3_1_3_2017-10-27.15-53.raw -o ../results/config6313/Category_medium/LeftBag_seq1_6_3_1_3_2017-10-27.15-53.out

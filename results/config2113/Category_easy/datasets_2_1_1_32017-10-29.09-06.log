@@ -1,0 +1,8 @@
+Time (seconds) to static: 10
+Selectec bkg method: 2
+Selected sfgd method: 1
+Selcted classifier method: 1
+Selected people detector method:3
+Input video dir: ./datasets
+Results will be saved in ./results/config2113/Category_easy/datasets_2_1_1_3_2017-10-29.09-06.xml
+Could not open the video file

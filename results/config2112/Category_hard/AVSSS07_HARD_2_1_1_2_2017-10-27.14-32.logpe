@@ -1,0 +1,1 @@
+java -jar ./bin/viper-pe.jar -epf ./bin/config.epf -pr ./bin/properties.pr -g ../datasets/AVSS2007/AVSSS07_HARD.txt -r ../results/config2112/Category_hard/AVSSS07_HARD_2_1_1_2_2017-10-27.14-32.xml -raw ../results/config2112/Category_hard/AVSSS07_HARD_2_1_1_2_2017-10-27.14-32.raw -o ../results/config2112/Category_hard/AVSSS07_HARD_2_1_1_2_2017-10-27.14-32.out

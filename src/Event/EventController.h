@@ -192,24 +192,6 @@ public:
     void printEvents();
 
     //Methods for log file creation
-    /*	// Method to get the file handle
-        FILE* getFile();
-        // Method to set the file handle
-        void setFile(char *xmlfile);
-        // Method to write XML Viper Header
-        void writeViperHeader(char* filename,int numframes,double framerate,int wframe,int hframe);
-        // Method to write XML Viper End
-        void writeViperEnd();
-        // Method to write close events
-        int writeEvents();
-        // Method to wriet a close event
-        int writeEvent(Event* pEvent);
-        // Method to write a close event in XML VIPER format
-        int writeEventVIPER(Event* pEvent);
-    /**/
-
-    // Method to generat the output frame with the events detected
-    //IplImage* EventController::getOutputFrame(IplImage* input_frame, BlobList<ObjectBlob*> *pObjList);
 
     //cv::Mat EventController::getOutputFrame(cv::Mat input_frame, BlobList<ObjectBlob*> *pObjList); //before
     cv::Mat getOutputFrame(cv::Mat input_frame, BlobList<ObjectBlob*> *pObjList);

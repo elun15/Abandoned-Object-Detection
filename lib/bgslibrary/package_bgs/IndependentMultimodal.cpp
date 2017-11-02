@@ -18,7 +18,7 @@ along with BGSLibrary.  If not, see <http://www.gnu.org/licenses/>.
 
 using namespace bgslibrary::algorithms;
 
-IndependentMultimodal::IndependentMultimodal() : fps(10)
+IndependentMultimodal::IndependentMultimodal() : fps(25)
 {
   std::cout << "IndependentMultimodal()" << std::endl;
   pIMBS = new BackgroundSubtractorIMBS(fps);

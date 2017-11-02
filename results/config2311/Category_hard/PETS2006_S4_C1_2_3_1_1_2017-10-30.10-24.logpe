@@ -1,0 +1,1 @@
+java -jar ./bin/viper-pe.jar -epf ./bin/config.epf -pr ./bin/properties.pr -g ../datasets/PETS2006_S4/PETS2006_S4_C1.txt -r ../results/config2311/Category_hard/PETS2006_S4_C1_2_3_1_1_2017-10-30.10-24.xml -raw ../results/config2311/Category_hard/PETS2006_S4_C1_2_3_1_1_2017-10-30.10-24.raw -o ../results/config2311/Category_hard/PETS2006_S4_C1_2_3_1_1_2017-10-30.10-24.out

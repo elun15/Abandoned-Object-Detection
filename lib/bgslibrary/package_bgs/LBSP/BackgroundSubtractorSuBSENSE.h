@@ -25,7 +25,7 @@ along with BGSLibrary.  If not, see <http://www.gnu.org/licenses/>.
 //! defines the default value for BackgroundSubtractorSuBSENSE::m_nMinColorDistThreshold
 #define BGSSUBSENSE_DEFAULT_MIN_COLOR_DIST_THRESHOLD (30)
 //! defines the default value for BackgroundSubtractorSuBSENSE::m_nBGSamples
-#define BGSSUBSENSE_DEFAULT_NB_BG_SAMPLES (50)//prueba 50
+#define BGSSUBSENSE_DEFAULT_NB_BG_SAMPLES (50)
 //! defines the default value for BackgroundSubtractorSuBSENSE::m_nRequiredBGSamples
 #define BGSSUBSENSE_DEFAULT_REQUIRED_NB_BG_SAMPLES (2)
 //! defines the default value for BackgroundSubtractorSuBSENSE::m_nSamplesForMovingAvgs

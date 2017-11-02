@@ -1,0 +1,1 @@
+java -jar ./bin/viper-pe.jar -epf ./bin/config.epf -pr ./bin/properties.pr -g ../datasets/VISOR/visor_Video00.txt -r ../results/config2311/Category_easy/visor_Video00_2_3_1_1_2017-10-30.00-43.xml -raw ../results/config2311/Category_easy/visor_Video00_2_3_1_1_2017-10-30.00-43.raw -o ../results/config2311/Category_easy/visor_Video00_2_3_1_1_2017-10-30.00-43.out

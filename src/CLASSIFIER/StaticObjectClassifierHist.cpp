@@ -259,7 +259,7 @@ Mat StaticObjectClassifierHist::calcularHistograma(Mat img, Rect roi, Mat objMas
 }
 
 
-int StaticObjectClassifierHist::calcularHistogramas(Mat frame, Mat bkgImage, Mat staticObjMask, Mat fgMask, Rect roi) //, IplImage *objMask)
+int StaticObjectClassifierHist::calcularHistogramas(Mat frame, Mat bkgImage, Mat staticObjMask, Mat fgMask, Rect roi)
 {
     //bkgHist: Hist. of the area inside the blob not corresponding to the object in the bkg image
     bkgHist = calcularHistograma(bkgImage, roi, staticObjMask, 0);

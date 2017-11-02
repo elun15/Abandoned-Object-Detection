@@ -24,7 +24,7 @@ Mat DrawDetections(cv::Mat frame, vector<Rect> found, std::vector<cvBlob> *BlobL
         r.y += cvRound(r.height*0.06);
         r.height = cvRound(r.height*0.9);
         //tl: top-left corner, br: bottom-right corner
-         rectangle(aux, r.tl(), r.br(), cv::Scalar(255, 0, 0), 2); //Draw moving people in blue
+        rectangle(aux, r.tl(), r.br(), cv::Scalar(255, 0, 0), 2); //Draw moving people in blue
 
         for (cvBlob iter : *BlobList){
          Rect b;//rectangle containing static blob

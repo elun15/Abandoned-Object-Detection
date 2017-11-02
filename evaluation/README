@@ -1,0 +1,56 @@
+
+How to call the executable:
+
+./AS_ConfigurableSystem bkg sfgd classif pdetect source_video_path short_name FOLDER_results_path (mask_path)
+
+(mask path only if required)
+
+Example (without mask):
+
+./AS_ConfigurableSystem 2 1 1 1 ../Datasets/VISOR/visor_Video00.avi visor_Video00 ../Results/Category_easy/
+
+******************************************************************************************
+
+
+
+Files/Folder structure:
+
+-> Datasets
+        -> VISOR
+                - Video file
+                - GT (.txt)
+        -> ...
+        -> ...
+
+-> bin
+        -> AS_ConfigurableSystem (executable)
+        -> viper files
+        -> lib (viper libraries)
+
+
+-> Results
+        -> Category_easy
+        -> Category_medium
+        -> Category_hard
+
+
+-> Images
+        -> Mask for AVSS videos
+
+
+-> Category_easy.txt (contains paths of videos belonging to this categgory)
+-> Category_medium.txt
+-> Category_hard.txt
+
+-> Execute_AS_ConfigurableSystem.sh (Executable)
+-> eval_viper_AS_ConfigurableSystem.sh (file calling viper-pe) THIS SCRIPT SHOULD BE IN SAME PATH THAN VIPER FILES AND VIPER LIB FOLDER.. (bin)
+
+-> Extract_Results.m (Matlab file for post-processing the results)
+-> Compute_scores.m (Matlab file for post-processing the results)
+
+
+
+
+
+
+

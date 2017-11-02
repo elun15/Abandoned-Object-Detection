@@ -95,13 +95,12 @@ SOURCES += main.cpp\
     ../../../src/Utils/CurrentDateTime.cpp \
     ../../../src/aod.cpp \
     ../../../src/settings.cpp \
-<<<<<<< HEAD
+    ../../../src/SFGD/StaticMaskExtractor_DualBkg.cpp \
+    ../../../src/SFGD/StaticMaskExtractor_HistoryImages.cpp \
+    ../../../src/BGS/DualBkgSubtractionSelector.cpp
     ../../../src/BGS/DualBkgSubtractionSelector.cpp \
-    ../../../src/SFGD/StaticMaskExtractor_DualBkg.cpp
 
-=======
-    ../../../src/SFGD/StaticMaskExtractor_HistoryImages.cpp
->>>>>>> doh2
+
 
 HEADERS  +=   ../../../src/SFGD/StaticMaskExtractor_subsampling.h \
     ../../../src/SFGD/StaticMaskExtractor.h \
@@ -186,11 +185,10 @@ HEADERS  +=   ../../../src/SFGD/StaticMaskExtractor_subsampling.h \
     ../../../src/Utils/CurrentDateTime.h \
     ../../../src/aod.h \
     ../../../src/settings.h \
-<<<<<<< HEAD
+    ../../../src/SFGD/StaticMaskExtractor_HistoryImages.h \
+    ../../../src/SFGD/StaticMaskExtractor_DualBkg.h \
+    ../../../src/BGS/DualBkgSubtractionSelector.h
     ../../../src/BGS/DualBkgSubtractionSelector.h \
-    ../../../src/SFGD/StaticMaskExtractor_DualBkg.h
-=======
-    ../../../src/SFGD/StaticMaskExtractor_HistoryImages.h
 
 
 INCLUDEPATH += /usr/local/include/opencv2
@@ -204,7 +202,7 @@ LIBS += -lopencv_features2d
 LIBS += -lopencv_calib3d
 LIBS += -lopencv_objdetect
 LIBS += -lopencv_flann
->>>>>>> doh2
+
 
 
 # The following lines tells Qmake to use pkg-config for opencv

@@ -35,7 +35,7 @@ settings settings::init(int argc, char *argv[], settings Video)
     }
 
     // Save XML results file if true
-    Video.SaveResults = false;
+    Video.SaveResults = true;
 
     // Detect people in every frame if true
     Video.DetectPeopleAlways = false;
@@ -48,28 +48,23 @@ settings settings::init(int argc, char *argv[], settings Video)
     // Using Default parameters
     if (argc < 7 )
     {
-
         cout << "Executing with default parameters" << endl;
 
         // BKG METHOD
         Video.bkg_method = 6;
 
         // SFGD METHOD
-<<<<<<< HEAD
         Video.sfgd_method = 4;
-=======
-        Video.sfgd_method  = 3;
->>>>>>> doh2
 
         // CLASSIFIER METHOD
         Video.classifier_method = 1;
 
         // PEOPLE DETECTOR METHOD
-        Video.detector_method = 1;
+        Video.detector_method = 3;
 
         // INPUT VIDEO FILE DIRECTORY
-        Video.fileDir = "../datasets/VISOR/visor_Video00.avi";
-        //Video.fileDir = "../datasets/AVSS/AVSS_corto.mov";
+        //Video.fileDir = "../datasets/VISOR/visor_Video00.avi";
+        Video.fileDir = "../datasets/AVSS/AVSSS07_MEDIUM.mpg";
         //Video.fileDir = "/storage-disk/AOD/datasets/AVSS2007/AVSSS07_EASY.mpg";
 
         // RESULTS FOLDER
@@ -123,7 +118,7 @@ settings settings::init(int argc, char *argv[], settings Video)
     // Check if it is required to apply context mask
     if ( videoName.find("AVSS") != string::npos)
     {
-        Video.contextMask1 = imread("../datasets/AVSS/AVSS_Mask_1.jpg",CV_LOAD_IMAGE_GRAYSCALE);
+        Video.contextMask1 = imread("./datasets/AVSS2007/AVSS_Mask_1.jpg",CV_LOAD_IMAGE_GRAYSCALE);
         if (Video.contextMask1.empty())
         {
             cout << "Could not open mask image." << endl;
@@ -131,7 +126,7 @@ settings settings::init(int argc, char *argv[], settings Video)
         }
         bitwise_not(Video.contextMask1,Video.contextMask1);
 
-        Video.contextMask = imread("../datasets/AVSS/AVSS_Mask_2.jpg",CV_LOAD_IMAGE_GRAYSCALE);
+        Video.contextMask = imread("./datasets/AVSS2007/AVSS_Mask_2.jpg",CV_LOAD_IMAGE_GRAYSCALE);
         if (Video.contextMask.empty())
         {
             cout << "Could not open mask image." << endl;
@@ -149,8 +144,6 @@ settings settings::init(int argc, char *argv[], settings Video)
 
     //Save images directory
     Video.DirImages = "../../../results/images/";
-
-
 
     return Video;
 

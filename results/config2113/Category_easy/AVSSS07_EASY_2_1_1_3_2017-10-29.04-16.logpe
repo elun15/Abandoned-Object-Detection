@@ -1,0 +1,1 @@
+java -jar ./bin/viper-pe.jar -epf ./bin/config.epf -pr ./bin/properties.pr -g ../datasets/AVSS2007/AVSSS07_EASY.txt -r ../results/config2113/Category_easy/AVSSS07_EASY_2_1_1_3_2017-10-29.04-16.xml -raw ../results/config2113/Category_easy/AVSSS07_EASY_2_1_1_3_2017-10-29.04-16.raw -o ../results/config2113/Category_easy/AVSSS07_EASY_2_1_1_3_2017-10-29.04-16.out

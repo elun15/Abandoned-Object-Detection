@@ -131,6 +131,18 @@ void DefineObjectBlobList(std::vector<cvBlob> *ExtractBlobList, vector<cv::Rect>
                 }
             }
 
+
+
+            int minH = cvCeil((mask.rows * 3) / 100); // 3% size
+            int minW = cvCeil((mask.cols * 3) / 100);
+
+            if (staticBlob.h <= minH || staticBlob.w <= minW)
+            {
+
+                blobIsObject = false;
+            }
+
+
             if (blobIsObject){
                 pObjectBlob = new ObjectBlob(staticBlob.ID, &staticBlob);
                 pObjectList->addBlob(pObjectBlob);

@@ -1,0 +1,1 @@
+java -jar ./bin/viper-pe.jar -epf ./bin/config.epf -pr ./bin/properties.pr -g ../datasets/AVSS2007/AVSSS07_MEDIUM.txt -r ../results/config6313/Category_medium/AVSSS07_MEDIUM_6_3_1_3_2017-10-27.16-04.xml -raw ../results/config6313/Category_medium/AVSSS07_MEDIUM_6_3_1_3_2017-10-27.16-04.raw -o ../results/config6313/Category_medium/AVSSS07_MEDIUM_6_3_1_3_2017-10-27.16-04.out

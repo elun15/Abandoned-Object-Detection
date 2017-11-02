@@ -1,0 +1,30 @@
+[H[2JCONFIGURATION bkg=2 sfg=1 ped=2 asc=1
+ CATEGORY C1 from ./datasets//Category_easy.cat
+Creating output path: ./results/config0/C1
+	Processing ./VISOR/visor_Video00.avi...done (0 min 0 sec)
+	Processing ./VISOR/visor_Video01.avi...done (0 min 0 sec)
+	Processing ./CAVIAR/LeftBag_PickedUp.mpeg...done (0 min 0 sec)
+	Processing ./AVSS2007/AVSSS07_EASY.mpg...done (0 min 0 sec)
+	Processing ./PETS2006_S1/PETS2006_S1_C3.mpeg...done (0 min 0 sec)
+	Processing ./PETS2006_S5/PETS2006_S5_C3.mpeg...done (0 min 0 sec)
+ CATEGORY C3 from ./datasets//Category_hard.cat
+Creating output path: ./results/config0/C3
+	Processing ./VISOR/visor_Video03.avi...done (0 min 0 sec)
+	Processing ./CAVIAR/LeftBag_AtChair.mpeg...done (0 min 0 sec)
+	Processing ./AVSS2007/AVSSS07_HARD.mpg...done (0 min 0 sec)
+	Processing ./PETS2006_S1/PETS2006_S1_C4.mpeg...done (0 min 0 sec)
+	Processing ./PETS2006_S5/PETS2006_S5_C1.mpeg...done (0 min 0 sec)
+	Processing ./PETS2006_S5/PETS2006_S5_C4.avi...done (0 min 0 sec)
+	Processing ./PETS2006_S4/PETS2006_S4_C1.avi...done (0 min 0 sec)
+ CATEGORY C2 from ./datasets//Category_medium.cat
+Creating output path: ./results/config0/C2
+	Processing ./VISOR/visor_Video02.avi...done (0 min 0 sec)
+	Processing ./CAVIAR/LeftBag.mpeg...done (0 min 0 sec)
+	Processing ./CAVIAR/LeftBox.mpeg...done (0 min 0 sec)
+	Processing ./AVSS2007/AVSSS07_MEDIUM.mpg...done (0 min 0 sec)
+	Processing ./PETS2006_S1/PETS2006_S1_C1.mpeg...done (0 min 0 sec)
+	Processing ./PETS2006_S4/PETS2006_S4_C3.avi...done (0 min 0 sec)
+	Processing ./PETS2006_S4/PETS2006_S4_C4.avi...done (0 min 0 sec)
+CONFIGURATION bkg=3 sfg=1 ped=2 asc=1
+ CATEGORY C1 from ./datasets//Category_easy.cat
+	Processing ./VISOR/visor_Video00.avi...

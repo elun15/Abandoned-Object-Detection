@@ -102,7 +102,6 @@ settings AOD::processFrame(settings Video, Mat frame){
 
 
     /******** BACKGROUND SUBTRACTION  ********/
-
     clock_t start_bkg = clock();
 
     this->bkg_selector->process(frame, Video);
@@ -118,19 +117,18 @@ settings AOD::processFrame(settings Video, Mat frame){
 
     // Get static foreground mask
     Mat tmp =  this->sfgd_selector->GetStaticForeground().clone();
-  cout << "prueba tmp tipo " << tmp.type() << endl;
+    //imshow("Static Mask", tmp);
+
     // Extract all blobs in static foreground
     this->blob_extractor.extractBlobs(tmp,false);
 
     // Create BlobList containing all blobs in static foreground
     vector<cvBlob> *BlobList =  this->blob_extractor.getBlobList();
-    cout << "prueba num blobs static " << BlobList->size() << endl;
 
     clock_t finish_sfgd = clock();
     elapsedTime_sfgd = (double)(finish_sfgd - start_sfgd)/CLOCKS_PER_SEC;
 
     /******** PEOPLE DETECTION  ********/
-
     // Detecting people in every frame or when something static has been detected (BlobList !empty)
     if (Video.DetectPeopleAlways == true || (Video.DetectPeopleAlways == false && BlobList->size()) )
     {
@@ -144,7 +142,6 @@ settings AOD::processFrame(settings Video, Mat frame){
 
         // Show people detections if show results variable is true
         Mat peopleDetection = DrawDetections(frame,Video.found_filtered, BlobList, Video);
-
 
         clock_t finish_pd = clock();
         elapsedTime_pd = (double)(finish_pd - start_pd)/CLOCKS_PER_SEC;
@@ -161,10 +158,8 @@ settings AOD::processFrame(settings Video, Mat frame){
 
 
     /******** CLASSIFIER  ********/
-
     clock_t start_class = clock();
 
-     Mat prueba = this->bkg_selector->GetBGModel();
     // Only if some static object is detected
 
     if (Video.list_objects->getBlobNum()){
@@ -177,22 +172,18 @@ settings AOD::processFrame(settings Video, Mat frame){
     clock_t finish_class = clock();
     elapsedTime_class = (double)(finish_class - start_class)/CLOCKS_PER_SEC;
 
-
     /******** WRITE RESULTS   ********/
-
     clock_t start_write = clock();
 
     if (Video.SaveResults == true)
     {
         // Check events
-
         evtControl->checkEvents(Video.list_objects);
 
     }
 
     clock_t finish_write = clock();
     elapsedTime_write = (double)(finish_write - start_write)/CLOCKS_PER_SEC;
-
 
     elapsedTime_frame = (double)(finish_write - start_bkg)/CLOCKS_PER_SEC;
     Video.list_objects->clear();
@@ -204,15 +195,12 @@ settings AOD::processFrame(settings Video, Mat frame){
         fprintf(Video.file_time,"%d     %2.6f %2.6f %2.6f %2.6f %2.6f %2.6f\n",Video.numFrame, elapsedTime_frame ,elapsedTime_bkg,elapsedTime_sfgd,elapsedTime_pd,elapsedTime_class,elapsedTime_write);
     }
 
-
     return Video;
-
 
 }
 
 
 void AOD::finish(settings Video){
-
 
 
     if (Video.SaveResults == true)
