@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 {
     // Initialize all settings to configure the AOD system
     //Config cfg(argc,argv);
-    //Config cfg("./../datasets/AVSS2007/AVSS_AB_Medium_cut.avi","./../results/");
+   // Config cfg("./../datasets/AVSS2007/AVSSS07_EASY.mpg","./../results/");
     //Config cfg("./../datasets/CAVIAR/LeftBag_AtChair.mpeg","./../results/");
     //Config cfg("./../datasets/VISOR_test/visor_1212674131705_pacco6.avi", "./../results");
     Config cfg("./../datasets/VISOR/visor_Video00.avi","./../results/");

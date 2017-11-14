@@ -52,11 +52,11 @@ void AOD::init(Mat frame, Config cfg)
         {
         case BGS_MOG2:
             learningRate_s = 0.002;//TO CHANGE!!!
-            learningRate_l = 0.0002; //TO CHANGE!!!
+            learningRate_l = 0.0001; //TO CHANGE!!!
             break;
         case BGS_SUBSENSE:
-            //learningRate1 = 100;//TO CHECK!!!
-            //learningRate2 = 600;//TO CHECK!!!
+            learningRate_s = 100;//TO CHECK!!!
+            learningRate_l = 600;//TO CHECK!!!
             break;
         }
 
