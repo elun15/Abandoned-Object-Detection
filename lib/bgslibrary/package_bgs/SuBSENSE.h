@@ -36,7 +36,7 @@ namespace bgslibrary
       size_t nSamplesForMovingAvgs;
 
     public:
-      SuBSENSE();
+      SuBSENSE(double rate);
       ~SuBSENSE();
 
       void process(const cv::Mat &img_input, cv::Mat &img_output, cv::Mat &img_bgmodel);

@@ -18,14 +18,14 @@ along with BGSLibrary.  If not, see <http://www.gnu.org/licenses/>.
 
 using namespace bgslibrary::algorithms;
 
-SuBSENSE::SuBSENSE() :
+SuBSENSE::SuBSENSE(double rate) :
   pSubsense(0),
   fRelLBSPThreshold(BGSSUBSENSE_DEFAULT_LBSP_REL_SIMILARITY_THRESHOLD),
   nDescDistThresholdOffset(BGSSUBSENSE_DEFAULT_DESC_DIST_THRESHOLD_OFFSET),
   nMinColorDistThreshold(BGSSUBSENSE_DEFAULT_MIN_COLOR_DIST_THRESHOLD),
   nBGSamples(BGSSUBSENSE_DEFAULT_NB_BG_SAMPLES),
   nRequiredBGSamples(BGSSUBSENSE_DEFAULT_REQUIRED_NB_BG_SAMPLES),
-  nSamplesForMovingAvgs(BGSSUBSENSE_DEFAULT_N_SAMPLES_FOR_MV_AVGS)
+  nSamplesForMovingAvgs(rate)
 {
   std::cout << "SuBSENSE()" << std::endl;
 }

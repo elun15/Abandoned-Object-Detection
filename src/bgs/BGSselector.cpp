@@ -86,6 +86,8 @@ void BGSselector::init(Mat frame, double learningRate, double learningRate2, int
 {
     this->_img_fg      = Mat::zeros(frame.rows, frame.cols, CV_8UC1);
     this->_img_bgmodel = Mat::zeros(frame.rows, frame.cols, CV_8UC3);
+    this->_img_bgmodel_L = Mat::zeros(frame.rows, frame.cols, CV_8UC3);
+
 
     _learningRate = learningRate; //-1 if default SHORT-TERM
     _learningRate_L = learningRate2; //-1 if default LONG-TERM
@@ -126,7 +128,12 @@ void BGSselector::init(Mat frame, double learningRate, double learningRate2, int
         break;
 
     case BGS_SUBSENSE:
-        this->_bgs = new SuBSENSE;
+        this->_bgs = new SuBSENSE(_learningRate);
+
+        if(method_sfgd == 4)//DUAL MOG2
+        {
+            this->_bgs_L = new SuBSENSE(_learningRate_L);
+        }
         break;
 
     case BGS_KDE:
@@ -172,6 +179,8 @@ void BGSselector::process(Mat frame, Mat contextMask, int counter, int method_sf
         if (method_sfgd == 4)
         {
             //DUAL BG OTHERS
+             this->_bgs_L->process(frame,_img_fg_L,_img_bgmodel_L);
+
         }
 
     }

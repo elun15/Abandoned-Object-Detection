@@ -79,8 +79,8 @@ void StaticMaskExtractor_DualBkg::processFrame( Mat fgLong, Mat fgShort) //Solo 
     compare(evidenceImage,static_th,evidence_greater_mask,CMP_GT); //mask = 1 when evidenceImage > static_th
     staticMask.setTo(255,evidence_greater_mask); //Mask = 255  when evidenceImage > static_th
     staticMask.setTo(0,(255 - evidence_greater_mask)); //Mask = 0  when evidenceImage < static_th
-    //imshow("Evidence image", evidenceImage);
-   // waitKey(1);
+    imshow("Evidence image", evidenceImage);
+    waitKey(1);
 
 
 

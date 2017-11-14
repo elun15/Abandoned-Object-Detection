@@ -51,6 +51,7 @@ public:
 
     // Pointer to algorithms available in BGSlibrary
     bgslibrary::algorithms::IBGS *_bgs;
+     bgslibrary::algorithms::IBGS *_bgs_L;
 
     //For MOG2 CASE
     Ptr<BackgroundSubtractor> _pMOG2; //MOG2 Background subtractor
@@ -62,6 +63,7 @@ public:
     cv::Mat _img_fg;//output frame (gray scale image)
     cv::Mat _img_fg_L;//output frame (gray scale image) for Dual
     cv::Mat _img_bgmodel; //background frame (color or gray scale image)
+    cv::Mat _img_bgmodel_L; //background frame (color or gray scale image)
 
     //display settings
     bool _display;
