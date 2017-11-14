@@ -24,8 +24,8 @@
 // Additional includes 
 #include <opencv2/opencv.hpp>
 
-#include "blobs/BlobList.h"
-#include "blobs/ObjectBlob.h"
+#include "../../src/blobs/BlobList.h"
+#include "../../src/blobs/ObjectBlob.h"
 
 // States of an static object (defined in ObjectBlob.h)
 //typedef enum {

@@ -14,7 +14,7 @@
 #ifndef _STATICOBJECTCLASSIFIERHIST_INCLUDED_
 #define _STATICOBJECTCLASSIFIERHIST_INCLUDED_
 
-#include "soc/StaticObjectClassifier.h"
+#include "../../src/soc/StaticObjectClassifier.h"
 
 //class description
 /**

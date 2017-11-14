@@ -1,0 +1,64 @@
+// 
+// 
+// 
+#BEGIN_PARAMETERS
+gt_file = ../datasets/VISOR/visor_Video01.txt
+result_file = ./results/config2123/Category_easy/visor_Video01_2_1_2_3_2017-10-30.00-26.xml
+epf_file = ./bin/config.epf
+log_file = -
+output_file = ./results/config2123/Category_easy/visor_Video01_2_1_2_3_2017-10-30.00-26.out
+level = 3
+#END_PARAMETERS
+
+// 
+// 
+// 
+#BEGIN_GROUND_FILTER
+
+#END_GROUND_FILTER
+
+// 
+// 
+// 
+#BEGIN_RESULT_FILTER
+
+#END_RESULT_FILTER
+
+// 
+// 
+// 
+#BEGIN_METRICS
+AbandonedObject dice 0.99
+   * BoundingBox dice 0.99
+#END_METRICS
+
+#BEGIN_GTF_INFORMATION
+
+NUMFRAMES = 3330
+NUMFILES = 1
+FRAME-SIZE: 320 x 256
+
+#END_GTF_INFORMATION
+
+#BEGIN_RDF_INFORMATION
+
+SOURCETYPE = SEQUENCE
+NUMFRAMES = 3330
+NUMFILES = 1
+FRAME-SIZE: 320 x 256
+
+#END_RDF_INFORMATION
+
+#BEGIN_RESULTS
+AbandonedObject 0 DETECT 3 0.0016627868307282911 1 [0 0.19452642876308024 0.182948490224289]
+#END_RESULTS
+
+// 
+// 
+// 
+#BEGIN_SUMMARY
+OBJECT AbandonedObject 1 1 100.0 100.0
+TOTAL 1 1 100.0 100.0
+
+
+#END_SUMMARY

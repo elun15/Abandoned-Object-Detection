@@ -32,7 +32,7 @@ StaticObjectClassifierPCC::StaticObjectClassifierPCC(int debug, int writelog)
 	this->_writeLog = writelog;
 
 	//this->tha = CONT_ABANDONED_TH_DEF; //th for abandoned object detection
-	this->_tha = 0.10;
+    this->_tha = 0.001;
 	//this->ths = CONT_STOLEN_TH_DEF; //th for stolen object detection
 	this->_ths = 0.10;
 	this->L = 5;

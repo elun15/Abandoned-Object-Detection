@@ -1,8 +1,8 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
 
-#include "blobs/BlobList.h"
-#include "blobs/ObjectBlob.h"
+#include "BlobList.h"
+#include "ObjectBlob.h"
 
 void DefineObjectBlobList(std::vector<cvBlob> *ExtractBlobList, vector<cv::Rect> &found, BlobList<ObjectBlob*> *pObjectList, cv::Mat mask = cv::Mat());
 bool CompareBlobs(cvBlob blob, cv::Rect rect);

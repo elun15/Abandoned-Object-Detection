@@ -9,10 +9,10 @@
 #include "soc/SOCselector.h"
 #include "event/EventController.h"
 
-// BGS          --> 1:LOBSTER; 2:PAWCS; 3:MOG2; 4:KNN; 5:Multimodal; 6:SUBSENSE
-// SBGS         --> 1:Subsampling; 2:Acc Mask
-// CLASSIFIER   --> 1:High Gradient; 2:Histogram
-// DETECTOR     --> 1:HOG; 2:DPM; 3:ACF
+// BGS          --> 1:LOBSTER; 2:PAWCS; 3:MOG2; 4:KNN; 5:Multimodal; 6:SUBSENSE; 7:KDE
+// SBGS         --> 1:Subsampling; 2:Acc Mask ; 3:History Images ; 4:Dual BKG
+// CLASSIFIER   --> 1:High Gradient; 2:Histogram; 3:PixelColorContrast
+// DETECTOR     --> 1:HOG; 2:DPM; 3:ACF; 4:Haar Fullbody; 5:Haar Upperbody
 
 class AOD
 {
@@ -26,7 +26,7 @@ public:
 
     //system modules
     BGSselector *_sel_bkg;
-    BGSselector *_sel_bkg_aux;
+    BGSselector *_sel_bkg_2;
 
     SFDGselector *_sel_sfgd;
     PDselector   *_sel_pd;

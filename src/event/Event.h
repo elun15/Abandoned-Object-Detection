@@ -19,8 +19,8 @@
 #ifndef EVENT_H_INCLUDE
 #define EVENT_H_INCLUDE
 
-#include "blobs/ObjectBlob.h"
-#include "blobs/BlobList.h"
+#include "../blobs/ObjectBlob.h"
+#include "../blobs/BlobList.h"
 
 /**
  *	\var EVENT_TYPE

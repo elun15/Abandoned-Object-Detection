@@ -21,8 +21,8 @@
 
 
 #include "Event.h"
-#include "blobs/ObjectBlob.h"
-#include "blobs/BlobList.h"
+#include "../blobs/ObjectBlob.h"
+#include "../blobs/BlobList.h"
 
 
 //draw settings

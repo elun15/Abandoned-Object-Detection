@@ -12,17 +12,20 @@
 ///Flag to show results
 #define DEFAULT_RESULTS_SHOW true
 
+///Flag to detect people in every frame
+#define DEFAULT_DETECT_ALWAYS false
+
 ///Flag to save results (xml/txt files)
-#define DEFAULT_RESULTS_SAVE_XML true
+#define DEFAULT_RESULTS_SAVE_XML false
 
 ///Flag to save results (images)
 #define DEFAULT_RESULTS_SAVE_IMG false
 #define DEFAULT_RESULTS_SAVE_IMG_FREQ 20
 
-#define DEFAULT_BKG_METHOD 1
-#define DEFAULT_SFGD_METHOD 1
-#define DEFAULT_PD_METHOD 1
-#define DEFAULT_SOC_METHOD 1
+#define DEFAULT_BKG_METHOD 6
+#define DEFAULT_SFGD_METHOD 3
+#define DEFAULT_PD_METHOD 3
+#define DEFAULT_SOC_METHOD 3
 
 class Config
 {
@@ -32,7 +35,7 @@ public:
     int rows;
 
     // PROGRAM OPTIONS
-    bool ShowResults = false; // Boolean to show or not the results
+    bool ShowResults; // Boolean to show or not the results
     bool DetectPeopleAlways; // Detect people in every frame if true
     bool SaveResults;  // Save XML results file if true
     bool SaveImages; // Save results images if true

@@ -12,7 +12,7 @@
 
 #include <opencv2/opencv.hpp> //opencv library
 
-#include "blobs/BasicBlob.h"
+#include "./../../src/blobs/BasicBlob.h"
 #include "StaticObjectClassifierHighGradient.h"
 
 using namespace std;

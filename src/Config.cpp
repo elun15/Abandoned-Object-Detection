@@ -54,8 +54,10 @@ void Config::init(int bkg, int sfgd, int pd, int soc, std::string inputPath, std
 	this->SaveImages = DEFAULT_RESULTS_SAVE_IMG;
 	this->SaveImages_freq = DEFAULT_RESULTS_SAVE_IMG_FREQ;
 
+
 	//other Config
 	this->time_to_static = DEFAULT_TIME_TO_STATIC;
+    this->DetectPeopleAlways = DEFAULT_DETECT_ALWAYS;
 
 	//find filename for the full video path
 	this->inputvideo = findFilename(this->inputPath);

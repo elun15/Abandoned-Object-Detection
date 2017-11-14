@@ -18,7 +18,7 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/video/background_segm.hpp> //algorithms BGS_MOG2, BGS_KNN
 
-#include "bgslibrary/package_bgs/bgslibrary.h" // BGS_LOBSTER,BGS_PAWCS,BGS_Multimodal,BGS_SUBSENSE
+#include "../../lib/bgslibrary/package_bgs/bgslibrary.h" // BGS_LOBSTER,BGS_PAWCS,BGS_Multimodal,BGS_SUBSENSE
 
 ///algorithms implemented by BkgSubtractionSelector
 typedef enum {
@@ -28,7 +28,8 @@ typedef enum {
     BGS_MOG2        =3,
     BGS_KNN         =4,
     BGS_Multimodal  =5,
-    BGS_SUBSENSE    =6
+    BGS_SUBSENSE    =6,
+    BGS_KDE         =7,
 } BGS_type;
 
 /*! \class BkgSubtractionSelector
@@ -50,10 +51,16 @@ public:
 
     // Pointer to algorithms available in BGSlibrary
     bgslibrary::algorithms::IBGS *_bgs;
+
+    //For MOG2 CASE
+    Ptr<BackgroundSubtractor> _pMOG2; //MOG2 Background subtractor
+    Ptr<BackgroundSubtractor> _pMOG2_L; //MOG2 Background subtractor
     double _learningRate;
+    double _learningRate_L;
 
     cv::Mat _img_input; //input frame (color or gray scale image)
     cv::Mat _img_fg;//output frame (gray scale image)
+    cv::Mat _img_fg_L;//output frame (gray scale image) for Dual
     cv::Mat _img_bgmodel; //background frame (color or gray scale image)
 
     //display settings
@@ -65,9 +72,9 @@ public:
     std::string _savePathDir;
 
 public:
-    void init(cv::Mat frame, double learningRate=-1);
-    void process(cv::Mat frame, cv::Mat contextMask=Mat(), int counter=-1);
-    cv::Mat GetFGmask();
+    void init(cv::Mat frame, double learningRate=-1, double learningRate2 =-1, int method_sfgd = 0);
+    void process(cv::Mat frame, cv::Mat contextMask=Mat(), int counter=-1, int method_sfgd = 0);
+    std::vector<Mat> GetFGmask(int method_sfgd);
     cv::Mat GetBGmodel();
 
 private:

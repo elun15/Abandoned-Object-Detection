@@ -6,7 +6,7 @@
 
 #include <opencv2/opencv.hpp>
 #include "SOCselector.h"
-#include "utils/utils.h"
+#include "../utils/utils.h"
 
 using namespace std;
 using namespace cv;

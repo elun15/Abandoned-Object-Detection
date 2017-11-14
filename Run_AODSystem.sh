@@ -32,13 +32,13 @@
 # Last update: 2017-09-18
 
 
-configs=("2111") 	#selected system configurations (YOU CAN CHANGE)
+configs=("2123") 	#selected system configurations (YOU CAN CHANGE)
 
 results_path="./results/"		#path where results  are located (YOU CAN CHANGE)
-dataset_path="./datasets/"		#path where datasets are located (YOU CAN CHANGE)
+dataset_path="./datasets"		#path where datasets are located (YOU CAN CHANGE)
 binary_path="./build_release/System_Evaluation" 	#path where binaries are located (YOU CAN CHANGE)
 
-mask_path="./datasets/AVSS2007/AVSS_EASY_Mask_edited.jpg"
+
 
 Nconfig=${#configs[@]}			#total number of configurations
 clear
@@ -86,16 +86,14 @@ for c in $(seq 0 1 $((Nconfig-1))); do
 			out_log=${out_path}"/"${fname}"_${bkg_sel}_${sfg_sel}_${asc_sel}_${ped_sel}${DATE}.log" #generate output log							
 			
 			START_TIME=$SECONDS
-			# WITH CONTEXT MASK			
-			#echo ${binary_path} $bkg_sel $sfg_sel $asc_sel $ped_sel ${seq_path} ${fname} ${out_path} ${mask} > ${out_log}
-			#${binary_path} $bkg_sel $sfg_sel $asc_sel $ped_sel ${seq_path} ${fname} ${out_path} ${mask}> ${out_log} 2>&1
+			#echo "dir "$seq_path
 			
 			# WITHOUT CONTEXT MASK
-			echo ${binary_path} $bkg_sel $sfg_sel $asc_sel $ped_sel ${seq_path} ${out_path} > ${out_log}
+			#echo -n ${binary_path} $bkg_sel $sfg_sel $asc_sel $ped_sel ${seq_path} ${out_path} > ${out_log}
 			${binary_path} $bkg_sel $sfg_sel $asc_sel $ped_sel ${seq_path} ${out_path} > ${out_log} 2>&1
 		
 
-			echo "done ($(($(($SECONDS- $START_TIME))/60)) min $(($(($SECONDS-$START_TIME))%60)) sec)"
+			echo  "done ($(($(($SECONDS- $START_TIME))/60)) min $(($(($SECONDS-$START_TIME))%60)) sec)"
 		done
 	done
 done					#clean command windows

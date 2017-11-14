@@ -100,13 +100,13 @@ int EventController::detectNewEvents(BlobList<ObjectBlob*> *pCurObjList)
         DECISION dec = pCurObjList->getBlob(i)->results->D_F;
         switch (dec)
         {
-        case STATIC_OBJ_TYPE_STOLEN:
+        /*case STATIC_OBJ_TYPE_STOLEN:
             message("\t\tDetected <StolenObject>", score);
             //evt = new Event(this->getNumberEvent(), StolenObject, this->getCurrentFrame() - (this->framerate*this->time2static), this->getCurrentFrame(), 0, true, 0, 1, false, NULL, &location, 3);
             evt = new Event(this->getNumberEvent(), StolenObject, this->getCurrentFrame() , this->getCurrentFrame(), 0, true, 0, 1, false, NULL, &location, 3);
 
             this->addEvent(evt, &pNewDetectedEvt);
-            break;
+            break;*/
         case STATIC_OBJ_TYPE_ABANDONED:
             message("\t\tDetected <AbandonedObject>", score);
 
@@ -195,7 +195,6 @@ void EventController::checkDep_NewEventsThatExist()
                 solap = op1 / op2;
 
 
-
                 if (solap > MIN_OVERLAP_SAME_EVENT)
                 {
                     ////update event info (only blob position)
@@ -205,9 +204,12 @@ void EventController::checkDep_NewEventsThatExist()
                     // *******MODIFIED********
                     // UPDATE NEW LOCATION, finish frame, type counter and update flag
 
-                    evt->setLocation(evtN->getLocation());
                     evt->setFinishFrame(evtN->getFinishFrame());
-
+                    //Only update new location if the blob is increasing in order to keep the maximum size of the event
+                    if (A.area() > B.area())
+                    {
+                        evt->setLocation(evtN->getLocation());
+                    }
                     evt->update = true;
 
                     //Update counters
@@ -254,11 +256,6 @@ void EventController::checkDep_NewEventsThatExist()
                 this->incrNumberEvent();
             }
 
-
-
-
-
-
         }
 
         // Check updates in active list
@@ -274,7 +271,7 @@ void EventController::checkDep_NewEventsThatExist()
 
             if (evt->numFramesNotDetected > 200)
             {
-                if (evt->getLife() > 50) //al menos 100 frames
+                if (evt->getLife() > 150) //al menos 100 frames
                 {
                     pastEvt = new Event(evt->getID(),evt->getEventType(), evt->getStartFrame(), evt->getFinishFrame(), evt->getScore(),
                                         evt->getDecision(), evt->getLife(), evt->getLength(), evt->getWritten(), NULL, evt->getLocation());
@@ -287,17 +284,10 @@ void EventController::checkDep_NewEventsThatExist()
                     delEventByID(evt->getID(), &pActiveEvt);
                 }
 
-
             }
 
-
         }
-
-
-
     }
-
-
 }
 
 
@@ -326,7 +316,6 @@ void EventController::checkFinalPastEvents()
     }
 
 
-
     //CHECK past events
     for(int i=0;i<(int)pPastEvt.size();i++)
     {
@@ -338,8 +327,6 @@ void EventController::checkFinalPastEvents()
         {
             addEvent(e1, &pFinalEvents);
         }
-
-
 
         else{
             //compare each past event with the other past events
@@ -355,12 +342,8 @@ void EventController::checkFinalPastEvents()
                 cv::Rect B = *(e2->getLocation());
                 cv::Rect inter = A & B;
 
-
-
                 EVENT_TYPE type1 = e1->getEventType();
                 EVENT_TYPE type2 = e2->getEventType();
-
-
 
                 double op1 = 2*inter.area() ;
                 double op2 = (A.area() + B.area());
@@ -368,14 +351,11 @@ void EventController::checkFinalPastEvents()
 
                 solap = op1 / op2;
 
-                if ((solap < 0.5f )|| (solap > 0.5f && (type1 != type2)) || (e1->getLife() > 50)) //not same
+                if ((solap < 0.5f )|| (solap > 0.5f && (type1 != type2)) || (e1->getLife() > 100)) //not same
                 {
                     flag_write = 1;
 
-
                 }
-
-
 
             }
             if (flag_write == 1)
@@ -520,7 +500,7 @@ void EventController::checkDep_InconsistencyAreaTime()
                 }
             }
 
- }
+}
 
 /**********************************************************************
                         PARAMETERS GET/SET

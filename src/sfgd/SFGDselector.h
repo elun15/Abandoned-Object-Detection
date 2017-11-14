@@ -19,7 +19,8 @@
 #include "StaticMaskExtractor_subsampling.h"
 #include "StaticMaskExtractor_AccMask.h"
 //#include "StaticMaskExtractor_histimg.h"
-//#include "StaticMaskExtractor_DBM.h"
+#include "StaticMaskExtractor_DualBkg.h"
+#include "StaticMaskExtractor_HistoryImages.h"
 
 ///	Default Default framerate of the input video
 const double SFGD_FRAMERATE_DEFAULT = 25;
@@ -52,10 +53,13 @@ public:
 	// Pointer to algorithms available for SFGD
 	StaticMaskExtractor_subsampling *psubsamplingSFGD;
 	StaticMaskExtractor_AccMask *pAccMaskSFGD;
+    StaticMaskExtractor_DualBkg *pDBMSFGD;
+    StaticMaskExtractor_HistoryImages *pHistoryImagesSFGD;
 
 	//specific parameters for stationary detection
 	double _framerate; //measured in fps
 	double _time_to_static; //measured in seconds
+
 
 	cv::Mat _img_input; //input frame (color or gray scale image)
 	cv::Mat _img_sfgd;//output frame (gray scale image)
@@ -70,7 +74,7 @@ public:
 	std::string _savePathDir;
 
     void init(cv::Mat frame);
-    void process(cv::Mat frame, cv::Mat foreground_img, cv::Mat bgmodel_img, int counter=-1);
+    void process(cv::Mat frame, std::vector<cv::Mat>, cv::Mat bgmodel_img, int counter=-1);
     cv::Mat GetSFGmask();
 
 private:

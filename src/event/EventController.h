@@ -23,8 +23,8 @@
 #include <opencv2/opencv.hpp>
 #include <vector>
 #include "Event.h"
-#include "blobs/ObjectBlob.h"
-#include "blobs/BlobList.h"
+#include "../blobs/ObjectBlob.h"
+#include "../blobs/BlobList.h"
 //#include "event_buffers.h"
 //#include "parameter_structure.h"
 #include "EventWriter.h"

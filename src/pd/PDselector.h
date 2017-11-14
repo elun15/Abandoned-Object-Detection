@@ -4,17 +4,21 @@
 #include <vector> //std::vector
 #include <map> //std::map
 #include <opencv2/opencv.hpp> //OpenCV library
+#include "opencv2/imgproc/imgproc.hpp"
+#include "opencv2/highgui/highgui.hpp"
 
 //include path to 'lib' must be included in the project settings
-#include "pdlibrary/dpm/dpm.hpp" //DMP people detector
-#include "pdlibrary/acf/acf.hpp" //ACF people detector
+#include "../../lib/pdlibrary/dpm/dpm.hpp" //DMP people detector
+#include "../../lib/pdlibrary/acf/acf.hpp" //ACF people detector
 
 ///algorithms implemented by PDSelector
 typedef enum {
-	PD_NONE		=-1,
-	PD_HOG		=1,
-	PD_DPM	    =2,
-	PD_ACF		=3
+    PD_NONE		  =-1,
+    PD_HOG		  =1,
+    PD_DPM	      =2,
+    PD_ACF		  =3,
+    PD_HAAR_FULL  =4,
+    PD_HAAR_UPPER =5,
 } PD_type;
 
 //#define PATH_PERSON_MODEL_DPM "./lib/DPM/inriaperson.xml"
@@ -22,7 +26,10 @@ typedef enum {
 //#define PATH_PERSON_MODEL_DPM "./models/people/INRIA_DPM.xml"
 //#define PATH_PERSON_MODEL_ACF "./models/people/INRIA_ACF.xml"
 #define PATH_PERSON_MODEL_DPM "./config/models/people/INRIA_DPM.xml"
-#define PATH_PERSON_MODEL_ACF "./config/models/people/INRIA_ACF.xml"
+#define PATH_PERSON_MODEL_ACF "../models/people/INRIA_ACF.xml"
+#define PATH_PERSON_MODEL_HAAR_FULL "../models/people/haarcascade_fullbody.xml"
+#define PATH_PERSON_MODEL_HAAR_UPPER "../models/people/haarcascade_upperbody.xml"
+
 
 
 /*! \class PDSelector
@@ -40,7 +47,12 @@ private:
 
     //HOG detector
     cv::HOGDescriptor _pHOG;
-  
+
+    //Haar
+    cv::CascadeClassifier pUpperBodyCascade;
+    cv::CascadeClassifier pFullBodyCascade;
+
+
     //ACF detector
     ACFDetector _pACF;
     NonMaximumSuppression NMS;

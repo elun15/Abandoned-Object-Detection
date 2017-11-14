@@ -18,8 +18,8 @@ using namespace cv;
  */
 SFDGselector::SFDGselector()
 {
-	cout << "SFGD with default parameters: " << endl;
-	initialize(SFGD_ACC, SFGD_FRAMERATE_DEFAULT, SFGD_TIME_STATIC_DEFAULT,false, false, NULL,-1);
+    cout << "SFGD with default parameters: " << endl;
+    initialize(SFGD_ACC, SFGD_FRAMERATE_DEFAULT, SFGD_TIME_STATIC_DEFAULT,false, false, NULL,-1);
 }
 
 
@@ -36,7 +36,7 @@ SFDGselector::SFDGselector()
  */
 SFDGselector::SFDGselector(SFGD_type SFGDid, double framerate, double time_to_static,bool display, bool saveIMG, const char* savePathDir,int saveCounter)
 {
-	initialize(SFGDid, framerate, time_to_static,display, saveIMG, savePathDir,saveCounter);
+    initialize(SFGDid, framerate, time_to_static,display, saveIMG, savePathDir,saveCounter);
 }
 
 /*
@@ -60,19 +60,19 @@ SFDGselector::~SFDGselector()
  */
 void SFDGselector::initialize(SFGD_type SFGDid, double framerate, double time_to_static,bool display, bool saveIMG, const char* savePathDir,int saveCounter)
 {
-	this->_SFGDid = SFGDid;
+    this->_SFGDid = SFGDid;
     this->_SFGDtype_str =  create_SFGDtype_str(); //create strings to display the name of each method
-	this->_display = display;
-	this->_saveIMG = saveIMG;
-	this->_savePathDir = savePathDir;
-	this->_saveCounter = saveCounter;
-	this->_time_to_static = time_to_static;
-	this->_framerate = framerate;
+    this->_display = display;
+    this->_saveIMG = saveIMG;
+    this->_savePathDir = savePathDir;
+    this->_saveCounter = saveCounter;
+    this->_time_to_static = time_to_static;
+    this->_framerate = framerate;
 
-	this->psubsamplingSFGD  = NULL;
-	this->psubsamplingSFGD = NULL;
+    this->psubsamplingSFGD  = NULL;
+    this->psubsamplingSFGD = NULL;
 
-	cout << "SFDGselector(): " << _SFGDtype_str[_SFGDid] << " selected time2static=" << _time_to_static << "secs framerate=" << _framerate << "fps" << endl;
+    cout << "SFDGselector(): " << _SFGDtype_str[_SFGDid] << " selected time2static=" << _time_to_static << "secs framerate=" << _framerate << "fps" << endl;
 }
 
 /*
@@ -94,7 +94,10 @@ void SFDGselector::init(Mat frame)
         this->pAccMaskSFGD = new StaticMaskExtractor_AccMask(frame, _framerate, _time_to_static, 2.0f, 250);
         break;
     case SFGD_HISTIMG:
+        this->pHistoryImagesSFGD = new StaticMaskExtractor_HistoryImages(frame, _framerate, _time_to_static, 2.0f, 250);
         break;
+    case SFGD_DBM:
+        this->pDBMSFGD = new StaticMaskExtractor_DualBkg(frame, _framerate, _time_to_static);
     default:
         break;
     }
@@ -108,38 +111,44 @@ void SFDGselector::init(Mat frame)
  * \param bgmodel background model corresponding to the frame
  * \param counter frame counter for display purposes
  */
-void SFDGselector::process(Mat frame, Mat fgmask, Mat bgmodel_img,int counter)
+void SFDGselector::process(Mat frame, std::vector<cv::Mat> foreground_img, Mat bgmodel_img,int counter)
 {
     switch (_SFGDid)
     {
-	case SFGD_SUBSAMPLING:
-		this->psubsamplingSFGD->processFrame(frame, fgmask);
-		this->_img_sfgd = this->psubsamplingSFGD->getStaticMask();
-		break;
-	case SFGD_ACC:
-		this->pAccMaskSFGD->processFrame(fgmask,_framerate, _time_to_static);
-		this->_img_sfgd = this->pAccMaskSFGD->getStaticMask();
-		break;
-   	case SFGD_HISTIMG:
-   	    break;
-   	case SFGD_DBM:
-   	   	    break;
-   	default:
-   	    break;
-   	}
+    case SFGD_SUBSAMPLING:
+        this->psubsamplingSFGD->processFrame(frame, foreground_img[0]);
+        this->_img_sfgd = this->psubsamplingSFGD->getStaticMask();
+        break;
+    case SFGD_ACC:
+        this->pAccMaskSFGD->processFrame(foreground_img[0],_framerate, _time_to_static);
+        this->_img_sfgd = this->pAccMaskSFGD->getStaticMask();
+        break;
+    case SFGD_HISTIMG:
+        this->pHistoryImagesSFGD->processFrame(foreground_img[0], frame, bgmodel_img, _framerate, _time_to_static);
+        this->_img_sfgd = this->pHistoryImagesSFGD->getStaticMask();
+        break;
+    case SFGD_DBM:
+        this->pDBMSFGD->processFrame(foreground_img[0],foreground_img[1]);
+        this->_img_sfgd= this->pDBMSFGD->getStaticMask();
+        break;
+    default:
+        break;
+    }
+
 
     if (_display)
     {
-    	string str = "Static Foreground: " + _SFGDtype_str[_SFGDid];
-    	imshow(str.c_str(),_img_sfgd);
+        string str = "Static Foreground: " + _SFGDtype_str[_SFGDid];
+        imshow(str.c_str(),_img_sfgd);
     }
+
 
     if (_saveIMG && (counter% _saveCounter == 0))
     {
-		putText(_img_input,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
-		std::string d = _savePathDir + "sfgd" + to_string_(counter,5) + ".jpg";
-		imwrite(d,_img_input);
-	}
+        putText(_img_input,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
+        std::string d = _savePathDir + "sfgd" + to_string_(counter,5) + ".jpg";
+        imwrite(d,_img_input);
+    }
 }
 
 /*
@@ -151,5 +160,5 @@ void SFDGselector::process(Mat frame, Mat fgmask, Mat bgmodel_img,int counter)
  */
 Mat SFDGselector::GetSFGmask()
 {
-	return this->_img_sfgd;
+    return this->_img_sfgd;
 }

@@ -5,7 +5,7 @@ using namespace cv;
 void DefineObjectBlobList(std::vector<cvBlob> *ExtractBlobList, vector<cv::Rect>& found, BlobList<ObjectBlob*> *pObjectList,Mat mask)
 {
 
-	// INPUT ARGUMENTS
+    // INPUT ARGUMENTS
     // ExtractBlobList =>  all blobs in static foreground
     // found => people detections
 
@@ -118,6 +118,17 @@ void DefineObjectBlobList(std::vector<cvBlob> *ExtractBlobList, vector<cv::Rect>
                 }
             }
 
+
+            int minH = cvCeil((mask.rows * 3) / 100); // 3% size
+            int minW = cvCeil((mask.cols * 3) / 100);
+
+            if (staticBlob.h <= minH || staticBlob.w <= minW)
+            {
+
+                blobIsObject = false;
+            }
+
+
             if (blobIsObject){
                 pObjectBlob = new ObjectBlob(staticBlob.ID, &staticBlob);
                 pObjectList->addBlob(pObjectBlob);
@@ -129,20 +140,21 @@ void DefineObjectBlobList(std::vector<cvBlob> *ExtractBlobList, vector<cv::Rect>
 }
 
 
-bool CompareBlobs(cvBlob blob, cv::Rect rect){
+bool CompareBlobs(cvBlob blob, cv::Rect rect){ //blobRect : static , rect: person
 
-	cv::Rect BlobRect(blob.x, blob.y, blob.w, blob.h);
+    cv::Rect BlobRect(blob.x, blob.y, blob.w, blob.h);
+    cv::Rect Blobperson(rect.x -20, rect.y -20, rect.width + 40, rect.height + 40);
 
-	blob.PeopleLikelihood = solape(BlobRect, rect);
+    blob.PeopleLikelihood = solape(BlobRect, Blobperson);
 
-	cv::Rect inters = BlobRect & rect;
-	blob.PeopleLikelihood = 2*inters.area()/(BlobRect.area() + rect.area());
+    //cv::Rect inters = BlobRect & rect;
+    //blob.PeopleLikelihood = 2*inters.area()/(BlobRect.area() + rect.area());
 
-   // std::cout << blob.PeopleLikelihood << std::endl;
-	if (blob.PeopleLikelihood > 0.5 && blob.PeopleLikelihood < 2)
-		return true;
-	else
-		return false;
+    // std::cout << blob.PeopleLikelihood << std::endl;
+    if (blob.PeopleLikelihood > 0.5 && blob.PeopleLikelihood < 2)
+        return true;
+    else
+        return false;
 
 
 }
@@ -150,30 +162,30 @@ bool CompareBlobs(cvBlob blob, cv::Rect rect){
 double solape(cv::Rect hogRect, cv::Rect bloblistRect){
 
 
-	int x_solape, y_solape, w_solape, h_solape;
+    int x_solape, y_solape, w_solape, h_solape;
 
     if(hogRect.contains(bloblistRect.tl()) && hogRect.contains(bloblistRect.br())) //blob completely inside the hog blob
-   {
-       return (double)1;
+    {
+        return (double)1;
 
-   }
+    }
     else if(bloblistRect.contains(hogRect.br()) && bloblistRect.contains(hogRect.tl()) )
     {
         return (double)1;
     }
     else if (hogRect.contains(cv::Point(bloblistRect.x, bloblistRect.y)) || hogRect.contains(cv::Point(bloblistRect.x + bloblistRect.width, bloblistRect.y)) || hogRect.contains(cv::Point(bloblistRect.x, bloblistRect.y + bloblistRect.height)) || hogRect.contains(cv::Point(bloblistRect.x + bloblistRect.width, bloblistRect.y + bloblistRect.height))){
 
-		x_solape = std::max(hogRect.x, bloblistRect.x);
-		y_solape = std::max(hogRect.y, bloblistRect.y);
-		w_solape = abs(std::min(hogRect.x + hogRect.width, bloblistRect.x + bloblistRect.width) - x_solape);
-		h_solape = abs(std::min(hogRect.y + hogRect.height, bloblistRect.y + bloblistRect.height) - y_solape);
+        x_solape = std::max(hogRect.x, bloblistRect.x);
+        y_solape = std::max(hogRect.y, bloblistRect.y);
+        w_solape = abs(std::min(hogRect.x + hogRect.width, bloblistRect.x + bloblistRect.width) - x_solape);
+        h_solape = abs(std::min(hogRect.y + hogRect.height, bloblistRect.y + bloblistRect.height) - y_solape);
 
-		cv::Rect rectSolape(x_solape, y_solape, w_solape, h_solape);
+        cv::Rect rectSolape(x_solape, y_solape, w_solape, h_solape);
         return (double)rectSolape.area() / hogRect.area();
 
-	}
+    }
 
 
 
-	return 0;
+    return 0;
 }

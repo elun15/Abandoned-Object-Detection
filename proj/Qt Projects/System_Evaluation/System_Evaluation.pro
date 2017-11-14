@@ -24,33 +24,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-    ../../../src/SFGD/StaticMaskExtractor_Subsampling.cpp \
-    ../../../src/SFGD/StaticMaskExtractor.cpp \
-    ../../../src/SFGD/StaticMaskExtractor_AccMask.cpp \
-    ../../../src/SFGD/SFGDSelector.cpp \
-    ../../../src/BGS/BkgSubtractionSelector.cpp \
-    ../../../src/BLOBS/BlobExtractor.cpp \
-    ../../../src/BLOBS/BasicBlob.cpp \
-    ../../../src/Utils/solape.cpp \
-    ../../../src/DETECTOR/DefineObjectBlobList.cpp \
-    ../../../src/BLOBS/BlobList.cpp \
-    ../../../src/BLOBS/CompareBlobs.cpp \
-    ../../../src/BLOBS/ObjectBlob.cpp \
-    ../../../src/CLASSIFIER/ClassifierSelector.cpp \
-    ../../../src/CLASSIFIER/StaticObjectClassifier.cpp \
-    ../../../src/CLASSIFIER/StaticObjectClassifierHist.cpp \
-    ../../../src/CLASSIFIER/StaticObjectClassifierHighGradient.cpp \
-    ../../../src/Utils/DrawDetections.cpp \
-    ../../../src/Event/EventController.cpp \
-    ../../../src/Event/EventWriter.cpp \
-    ../../../src/Event/Event.cpp \
-    ../../../lib/DPM/dpm_cascade_detector.cpp \
-    ../../../lib/DPM/dpm_cascade.cpp \
-    ../../../lib/DPM/dpm_convolution.cpp \
-    ../../../lib/DPM/dpm_feature.cpp \
-    ../../../lib/DPM/dpm_model.cpp \
-    ../../../lib/DPM/dpm_nms.cpp \
-    ../../../src/DETECTOR/detectorselector.cpp \
     ../../../lib/bgslibrary/package_bgs/KNN.cpp \
     ../../../lib/bgslibrary/package_bgs/IndependentMultimodal.cpp \
     ../../../lib/bgslibrary/package_bgs/LOBSTER.cpp \
@@ -65,65 +38,34 @@ SOURCES += main.cpp\
     ../../../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP.cpp \
     ../../../lib/bgslibrary/package_bgs/LBSP/BackgroundSubtractorLBSP_.cpp \
     ../../../lib/bgslibrary/package_bgs/LBSP/LBSP.cpp \
-    ../../../lib/ACFlibrary/ACF/ACFDetector.cpp \
-    ../../../lib/ACFlibrary/ACF/ACFFeaturePyramid.cpp \
-    ../../../lib/ACFlibrary/ACF/Channel.cpp \
-    ../../../lib/ACFlibrary/ACF/ChannelFeatures.cpp \
-    ../../../lib/ACFlibrary/ACF/ColorChannel.cpp \
-    ../../../lib/ACFlibrary/ACF/convConst.cpp \
-    ../../../lib/ACFlibrary/ACF/GradHistChannel.cpp \
-    ../../../lib/ACFlibrary/ACF/gradientMex.cpp \
-    ../../../lib/ACFlibrary/ACF/GradMagChannel.cpp \
-    ../../../lib/ACFlibrary/ACF/wrappers.cpp \
-    ../../../lib/ACFlibrary/Channel/Convert.cpp \
-    ../../../lib/ACFlibrary/Core/detection.cpp \
-    ../../../lib/ACFlibrary/Core/DetectionList.cpp \
-    ../../../lib/ACFlibrary/Core/detector.cpp \
-    ../../../lib/ACFlibrary/Core/DetectorManager.cpp \
-    ../../../lib/ACFlibrary/Core/detectormodel.cpp \
-    ../../../lib/ACFlibrary/Core/feature.cpp \
-    ../../../lib/ACFlibrary/Core/featurelayer.cpp \
-    ../../../lib/ACFlibrary/Core/filelocator.cpp \
-    ../../../lib/ACFlibrary/Core/FileWriter.cpp \
-    ../../../lib/ACFlibrary/Core/FrameFromCamera.cpp \
-    ../../../lib/ACFlibrary/Core/FrameFromDirectory.cpp \
-    ../../../lib/ACFlibrary/Core/FrameFromVideo.cpp \
-    ../../../lib/ACFlibrary/Core/FrameProducer.cpp \
-    ../../../lib/ACFlibrary/Core/nms.cpp \
-    ../../../lib/ACFlibrary/Core/NonMaximumSuppression.cpp \
-    ../../../lib/ACFlibrary/Core/ScaleSpacePyramid.cpp \
-    ../../../src/Utils/CurrentDateTime.cpp \
     ../../../src/aod.cpp \
-    ../../../src/settings.cpp
+    ../../../src/bgs/BGSselector.cpp \
+    ../../../src/blobs/BasicBlob.cpp \
+    ../../../src/blobs/BlobExtractor.cpp \
+    ../../../src/blobs/BlobList.cpp \
+    ../../../src/blobs/DefineObjectBlobList.cpp \
+    ../../../src/blobs/ObjectBlob.cpp \
+    ../../../src/event/Event.cpp \
+    ../../../src/event/EventController.cpp \
+    ../../../src/event/EventWriter.cpp \
+    ../../../src/pd/PDselector.cpp \
+    ../../../src/sfgd/SFGDselector.cpp \
+    ../../../src/sfgd/StaticMaskExtractor.cpp \
+    ../../../src/sfgd/StaticMaskExtractor_AccMask.cpp \
+    ../../../src/sfgd/StaticMaskExtractor_Subsampling.cpp \
+    ../../../src/soc/SOCselector.cpp \
+    ../../../src/soc/StaticObjectClassifier.cpp \
+    ../../../src/soc/StaticObjectClassifierHighGradient.cpp \
+    ../../../src/soc/StaticObjectClassifierHist.cpp \
+    ../../../src/soc/StaticObjectClassifierPCC.cpp \
+    ../../../src/utils/utils.cpp \
+    ../../../src/Config.cpp \
+    ../../../src/sfgd/StaticMaskExtractor_DualBkg.cpp \
+    ../../../src/sfgd/StaticMaskExtractor_HistoryImages.cpp
 
-HEADERS  +=   ../../../src/SFGD/StaticMaskExtractor_subsampling.h \
-    ../../../src/SFGD/StaticMaskExtractor.h \
-    ../../../src/SFGD/StaticMaskExtractor_AccMask.h \
-    ../../../src/SFGD/SFGDSelector.h \
-    ../../../src/BGS/BkgSubtractionSelector.h \
-    ../../../src/BLOBS/BlobExtractor.h \
-    ../../../src/BLOBS/BasicBlob.h \
-    ../../../src/Utils/solape.h \
-    ../../../src/DETECTOR/DefineObjectBlobList.h \
-    ../../../src/BLOBS/BlobList.h \
-    ../../../src/BLOBS/CompareBlobs.h \
-    ../../../src/BLOBS/ObjectBlob.h \
-    ../../../src/CLASSIFIER/ClassifierSelector.h \
-    ../../../src/CLASSIFIER/StaticObjectClassifier.h \
-    ../../../src/CLASSIFIER/StaticObjectClassifierHist.h \
-    ../../../src/CLASSIFIER/StaticObjectClassifierHighGradient.h \
-    ../../../src/Event/EventController.h \
-    ../../../src/Event/Event.h \
-    ../../../src/Event/EventWriter.h \
-    ../../../lib/DPM/dpm_cascade.hpp \
-    ../../../lib/DPM/dpm_convolution.hpp \
-    ../../../lib/DPM/dpm_feature.hpp \
-    ../../../lib/DPM/dpm_model.hpp \
-    ../../../lib/DPM/dpm_nms.hpp \
-    ../../../lib/DPM/dpm.hpp \
-    ../../../lib/DPM/precomp.hpp \
-    ../../../src/DETECTOR/detectorselector.h \
-    ../../../lib/bgslibrary/package_bgs/KNN.h \
+
+
+HEADERS  +=        ../../../lib/bgslibrary/package_bgs/KNN.h \
     ../../../lib/bgslibrary/package_bgs/bgslibrary.h \
     ../../../lib/bgslibrary/package_bgs/IndependentMultimodal.h \
     ../../../lib/bgslibrary/package_bgs/LOBSTER.h \
@@ -175,10 +117,32 @@ HEADERS  +=   ../../../src/SFGD/StaticMaskExtractor_subsampling.h \
     ../../../lib/ACFlibrary/rapidxml-1.13/rapidxml_print.hpp \
     ../../../lib/ACFlibrary/rapidxml-1.13/rapidxml_utils.hpp \
     ../../../lib/ACFlibrary/rapidxml-1.13/rapidxml.hpp \
-    ../../../src/Utils/CurrentDateTime.h \
-  ../../../src/Utils/DrawDetections.h \
     ../../../src/aod.h \
-    ../../../src/settings.h
+      ../../../src/bgs/BGSselector.h \
+    ../../../src/blobs/BasicBlob.h \
+    ../../../src/blobs/BlobExtractor.h \
+    ../../../src/blobs/BlobList.h \
+    ../../../src/blobs/DefineObjectBlobList.h \
+    ../../../src/blobs/ObjectBlob.h \
+    ../../../src/event/Event.h \
+    ../../../src/event/EventController.h \
+    ../../../src/event/EventWriter.h \
+    ../../../src/pd/PDselector.h \
+    ../../../src/sfgd/SFGDselector.h \
+    ../../../src/sfgd/StaticMaskExtractor.h \
+    ../../../src/sfgd/StaticMaskExtractor_AccMask.h \
+    ../../../src/sfgd/StaticMaskExtractor_subsampling.h \
+    ../../../src/soc/SOCselector.h \
+    ../../../src/soc/StaticObjectClassifier.h \
+    ../../../src/soc/StaticObjectClassifierHighGradient.h \
+    ../../../src/soc/StaticObjectClassifierHist.h \
+    ../../../src/soc/StaticObjectClassifierPCC.h \
+    ../../../src/utils/utils.h \
+    ../../../src/Config.h \
+    ../../../src/sfgd/StaticMaskExtractor_DualBkg.h \
+    ../../../src/sfgd/StaticMaskExtractor_HistoryImages.h
+
+
 
 # The following lines tells Qmake to use pkg-config for opencv
 QT_CONFIG -= no-pkg-config
@@ -190,3 +154,29 @@ LIBS += -L/usr/lib/x86_64-linux-gnu/
 DISTFILES += \
     ../../../lib/ACF/INRIA_ACF.xml \
     ../../../lib/rapidxml-1.13/license.txt
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../lib/pdlibrary/build/release/ -lpd
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../lib/pdlibrary/build/debug/ -lpd
+else:unix: LIBS += -L$$PWD/../../../lib/pdlibrary/build/ -lpd
+
+INCLUDEPATH += $$PWD/../../../lib/pdlibrary/build
+DEPENDPATH += $$PWD/../../../lib/pdlibrary/build
+
+win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../../../lib/pdlibrary/build/release/libpd.a
+else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../../../lib/pdlibrary/build/debug/libpd.a
+else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../../../lib/pdlibrary/build/release/pd.lib
+else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../../../lib/pdlibrary/build/debug/pd.lib
+else:unix: PRE_TARGETDEPS += $$PWD/../../../lib/pdlibrary/build/libpd.a
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../lib/bgslibrary/build/release/ -lbgs
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../lib/bgslibrary/build/debug/ -lbgs
+else:unix: LIBS += -L$$PWD/../../../lib/bgslibrary/build/ -lbgs
+
+INCLUDEPATH += $$PWD/../../../lib/bgslibrary/build
+DEPENDPATH += $$PWD/../../../lib/bgslibrary/build
+
+win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../../../lib/bgslibrary/build/release/libbgs.a
+else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../../../lib/bgslibrary/build/debug/libbgs.a
+else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../../../lib/bgslibrary/build/release/bgs.lib
+else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../../../lib/bgslibrary/build/debug/bgs.lib
+else:unix: PRE_TARGETDEPS += $$PWD/../../../lib/bgslibrary/build/libbgs.a
