@@ -61,7 +61,9 @@ SOURCES += main.cpp\
     ../../../src/utils/utils.cpp \
     ../../../src/Config.cpp \
     ../../../src/sfgd/StaticMaskExtractor_DualBkg.cpp \
-    ../../../src/sfgd/StaticMaskExtractor_HistoryImages.cpp
+    ../../../src/sfgd/StaticMaskExtractor_HistoryImages.cpp \
+    ../../../lib/bgslibrary/package_bgs/KDE2.cpp \
+    ../../../lib/bgslibrary/package_bgs/KDE/NPBGSubtractor.cpp
 
 
 
@@ -140,7 +142,8 @@ HEADERS  +=        ../../../lib/bgslibrary/package_bgs/KNN.h \
     ../../../src/utils/utils.h \
     ../../../src/Config.h \
     ../../../src/sfgd/StaticMaskExtractor_DualBkg.h \
-    ../../../src/sfgd/StaticMaskExtractor_HistoryImages.h
+    ../../../src/sfgd/StaticMaskExtractor_HistoryImages.h \
+    ../../../lib/bgslibrary/package_bgs/KDE2.h
 
 
 

@@ -54,6 +54,11 @@ void Config::init(int bkg, int sfgd, int pd, int soc, std::string inputPath, std
 	this->SaveImages = DEFAULT_RESULTS_SAVE_IMG;
 	this->SaveImages_freq = DEFAULT_RESULTS_SAVE_IMG_FREQ;
 
+    //default flags
+    this->flag_minsize = DEFAULT_FLAG_MINSIZE;
+    this->flag_nearpeople = DEFAULT_FLAG_NEARPEOPLE;
+    this->flag_stillpeople = DEFAULT_FLAG_STILLPEOPLE;
+
 
 	//other Config
 	this->time_to_static = DEFAULT_TIME_TO_STATIC;
@@ -97,6 +102,7 @@ void Config::print_parsed_data()
     }
 
     findContextMask();//find contextual masks for processing
+
 }
 
 Config::~Config()

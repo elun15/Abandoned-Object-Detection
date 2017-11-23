@@ -50,6 +50,7 @@ along with BGSLibrary.  If not, see <http://www.gnu.org/licenses/>.
 #include "PixelBasedAdaptiveSegmenter.h"
 #include "VuMeter.h"
 #include "KDE.h"
+#include "KDE2.h"
 #include "IndependentMultimodal.h"
 #include "MultiCue.h"
 #include "SigmaDelta.h"

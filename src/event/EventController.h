@@ -99,6 +99,8 @@ public:
     double framerate;
     double time2static;
 
+    int pos=0;
+
     /// Detection method for Counter event
     //EventChecker_Counter *pEvt_CO;
 

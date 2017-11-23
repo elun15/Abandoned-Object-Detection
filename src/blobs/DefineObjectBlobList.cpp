@@ -2,10 +2,9 @@
 
 using namespace cv;
 
-void DefineObjectBlobList(std::vector<cvBlob> *ExtractBlobList, vector<cv::Rect>& found, BlobList<ObjectBlob*> *pObjectList,Mat mask)
+void DefineObjectBlobList(std::vector<cvBlob> *ExtractBlobList, vector<cv::Rect>& found, BlobList<ObjectBlob*> *pObjectList,Mat mask, bool flag_minsize, bool flag_nearpeople, bool flag_stillpeople)
 {
-
-    // INPUT ARGUMENTS
+        // INPUT ARGUMENTS
     // ExtractBlobList =>  all blobs in static foreground
     // found => people detections
 
@@ -24,16 +23,22 @@ void DefineObjectBlobList(std::vector<cvBlob> *ExtractBlobList, vector<cv::Rect>
 
             for (cv::Rect personBlob : found){ //loop through detected people
 
-                if (CompareBlobs(staticBlob, personBlob)){
-                    blobIsObject = false; //at least 50% of being a person
+                if (flag_stillpeople == true)
+                {
+                    if (CompareBlobs(staticBlob, personBlob)){
+                        blobIsObject = false; //at least 50% of being a person
+                    }
                 }
 
-                //Check if it is near a person
-                Point2f people_bottom(personBlob.y+personBlob.height,personBlob.x+(personBlob.width/2));
-                double distance = cv::norm(cv::Mat(static_bottom),cv::Mat(people_bottom));
+                if (flag_nearpeople == true)
+                {
+                    //Check if it is near a person
+                    Point2f people_bottom(personBlob.y+personBlob.height,personBlob.x+(personBlob.width/2));
+                    double distance = cv::norm(cv::Mat(static_bottom),cv::Mat(people_bottom));
 
-                if (distance  < 2*staticBlob.w)
-                    blobIsObject = false;
+                    if (distance  < 2*staticBlob.w)
+                        blobIsObject = false;
+                }
             }
 
             if (blobIsObject == true && !mask.empty()) //Only if we have context mask
@@ -118,16 +123,18 @@ void DefineObjectBlobList(std::vector<cvBlob> *ExtractBlobList, vector<cv::Rect>
                 }
             }
 
-
-            int minH = cvCeil((mask.rows * 3) / 100); // 3% size
-            int minW = cvCeil((mask.cols * 3) / 100);
-
-            if (staticBlob.h <= minH || staticBlob.w <= minW)
+            if (flag_minsize == true)
             {
+                int minH = cvCeil((mask.rows * 3.5) / 100); // 3% size
+                int minW = cvCeil((mask.cols * 3.5) / 100);
 
-                blobIsObject = false;
+                if (staticBlob.h <= minH || staticBlob.w <= minW)
+                {
+
+                    blobIsObject = false;
+                }
+
             }
-
 
             if (blobIsObject){
                 pObjectBlob = new ObjectBlob(staticBlob.ID, &staticBlob);
@@ -151,7 +158,7 @@ bool CompareBlobs(cvBlob blob, cv::Rect rect){ //blobRect : static , rect: perso
     //blob.PeopleLikelihood = 2*inters.area()/(BlobRect.area() + rect.area());
 
     // std::cout << blob.PeopleLikelihood << std::endl;
-    if (blob.PeopleLikelihood > 0.5 && blob.PeopleLikelihood < 2)
+    if (blob.PeopleLikelihood > 0.3 && blob.PeopleLikelihood < 2)
         return true;
     else
         return false;

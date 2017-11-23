@@ -19,6 +19,7 @@
  */
 
 #include "EventController.h"
+#include "../blobs/DefineObjectBlobList.h"
 EventController::EventController()
 {
 
@@ -110,7 +111,6 @@ int EventController::detectNewEvents(BlobList<ObjectBlob*> *pCurObjList)
         case STATIC_OBJ_TYPE_ABANDONED:
             message("\t\tDetected <AbandonedObject>", score);
 
-            //evt = new Event(this->getNumberEvent(), AbandonedObject, this->getCurrentFrame() - (this->framerate*this->time2static), this->getCurrentFrame(), 0, true, 0, 1, false, NULL, &location, 3);
             evt = new Event(this->getNumberEvent(), AbandonedObject, this->getCurrentFrame(), this->getCurrentFrame(), 0, true, 0, 1, false, NULL, &location, 3);
 
             this->addEvent(evt, &pNewDetectedEvt);
@@ -185,12 +185,13 @@ void EventController::checkDep_NewEventsThatExist()
 
                 cv::Rect A = *(evtN->getLocation());
                 cv::Rect B = *(evt->getLocation());
+                double solap;
+
+                //solap=solape(A,B);
+
                 cv::Rect inter = A & B;
-
-
                 double op1 = 2*inter.area() ;
                 double op2 = (A.area() + B.area());
-                double solap;
 
                 solap = op1 / op2;
 
@@ -316,6 +317,26 @@ void EventController::checkFinalPastEvents()
     }
 
 
+    //look for most stable event
+    double life_prev = 0;
+
+    for(int i=0;i<(int)pPastEvt.size();i++)
+    {
+        Event *ev;
+        ev = getEvent(i,&pPastEvt);
+        double life = ev->getLife();
+        if (life > life_prev )
+        {
+            pos = i;
+        }
+        life_prev = life;
+
+    }
+    Event *ev;
+    ev = getEvent(pos,&pPastEvt);
+    addEvent(ev, &pFinalEvents);
+
+
     //CHECK past events
     for(int i=0;i<(int)pPastEvt.size();i++)
     {
@@ -323,56 +344,60 @@ void EventController::checkFinalPastEvents()
         e1 = getEvent(i,&pPastEvt);
         int flag_write= 0;
 
-        if(((int)pFinalEvents.size()) == 0)
+
+        //compare each past event with the other past events
+        for(int j=0;j<(int)pFinalEvents.size();j++)
         {
-            addEvent(e1, &pFinalEvents);
-        }
 
-        else{
-            //compare each past event with the other past events
-            for(int j=0;j<(int)pFinalEvents.size();j++)
+            Event *e2;
+            e2 = getEvent(j,&pFinalEvents);
+
+
+            //check spatial overlap
+            cv::Rect A = *(e1->getLocation());
+            cv::Rect B = *(e2->getLocation());
+            cv::Rect inter = A & B;
+
+            EVENT_TYPE type1 = e1->getEventType();
+            EVENT_TYPE type2 = e2->getEventType();
+
+            double op1 = 2*inter.area() ;
+            double op2 = (A.area() + B.area());
+            double solap  ;
+
+
+            solap = op1 / op2;
+            // solap  = solape(A,B);
+
+
+            if (flag_write != 2)
             {
-
-                Event *e2;
-                e2 = getEvent(j,&pFinalEvents);
-
-
-                //check spatial overlap
-                cv::Rect A = *(e1->getLocation());
-                cv::Rect B = *(e2->getLocation());
-                cv::Rect inter = A & B;
-
-                EVENT_TYPE type1 = e1->getEventType();
-                EVENT_TYPE type2 = e2->getEventType();
-
-                double op1 = 2*inter.area() ;
-                double op2 = (A.area() + B.area());
-                double solap  ;
-
-                solap = op1 / op2;
-
-                if ((solap < 0.5f )|| (solap > 0.5f && (type1 != type2)) || (e1->getLife() > 100)) //not same
+                if ((solap < 0.15f )|| (solap > 0.15f && (type1 != type2))) //not same
                 {
                     flag_write = 1;
 
                 }
+                else
+                {
+                    flag_write = 2;
 
+                }
             }
-            if (flag_write == 1)
-            {
-
-                addEvent(e1, &pFinalEvents);
-            }
 
 
+        }
+        if (flag_write == 1)
+        {
 
+            addEvent(e1, &pFinalEvents);
         }
 
     }
 
-
-
 }
+
+
+
 
 void EventController::checkDep_RemoveOldEvents()
 {
@@ -798,7 +823,7 @@ void EventController::printEvents()
 
     /*print events*/
     //if(verbose_mode==1)
-    fprintf(stderr,"\tCurrent event List (%d events) (past %d)\n", pActiveEvt.size(), pPastEvt.size());
+    //PRUEBA  fprintf(stderr,"\tCurrent event List (%d events) (past %d)\n", pActiveEvt.size(), pPastEvt.size());
 
     //if (verbose_mode > 1)
 
@@ -898,18 +923,7 @@ cv::Mat EventController::getOutputFrame(cv::Mat input_frame, BlobList<ObjectBlob
             p2.y = (int)(pB->y + pB->h) + 4;
         }
             break;
-        case StolenPerson: // ?
-            //if (evt->getLife() < 2*MAX_LIFE)
-        {
-            colour.val[0] = 255;
-            colour.val[1] = 255;
-            colour.val[2] = colour.val[3] = 0;
-            p1.x = (int)pB->x + 4;
-            p1.y = (int)pB->y + 4;
-            p2.x = (int)(pB->x + pB->w) + 4;
-            p2.y = (int)(pB->y + pB->h) + 4;
-        }
-            break;
+
         default:
             colour.val[0]=colour.val[1]=colour.val[2]=colour.val[3]=0;
         }

@@ -28,7 +28,7 @@ StaticMaskExtractor_DualBkg::StaticMaskExtractor_DualBkg(Mat sampleFrame, double
     this->evidenceImageNorm = Mat::zeros(sampleFrame.size(),CV_32FC1);
     this->static_cont = floor(this->framerate*this->secs2static);
     this->k = 1;
-    this->oc_tolerance = 0.7;
+    this->oc_tolerance = 0.9;
 
 }
 
@@ -81,9 +81,6 @@ void StaticMaskExtractor_DualBkg::processFrame( Mat fgLong, Mat fgShort) //Solo 
     staticMask.setTo(0,(255 - evidence_greater_mask)); //Mask = 0  when evidenceImage < static_th
     imshow("Evidence image", evidenceImage);
     waitKey(1);
-
-
-
 
 }
 

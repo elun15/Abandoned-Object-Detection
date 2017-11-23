@@ -78,7 +78,7 @@ void PDselector::init(){
         pFullBodyCascade.load(PATH_PERSON_MODEL_HAAR_FULL);
         break;
     case PD_HAAR_UPPER:
-       pUpperBodyCascade.load(PATH_PERSON_MODEL_HAAR_UPPER);
+        pUpperBodyCascade.load(PATH_PERSON_MODEL_HAAR_UPPER);
         break;
 
 
@@ -122,10 +122,18 @@ vector<Rect> PDselector::process(Mat frame,int counter)
 
         //Apply NMS
         Dl_NMS = NMS.dollarNMS(Dl);
+
         for ( int i = 0; i < (int)Dl_NMS.Ds.size(); i++)
         {
+            Detection a = Dl_NMS.Ds[i];
+            float Score = a.getScore();
             Rect detection = Rect (Dl_NMS.Ds[i]->getX(),Dl_NMS.Ds[i]->getY(),Dl_NMS.Ds[i]->getWidth(),Dl_NMS.Ds[i]->getHeight());
-            _found.push_back(detection);
+            if (detection.x >0 && detection.y >0 && detection.height >0 && detection.width > 0)
+            {
+                if (Score > 35)
+                    _found.push_back(detection);
+                   cout <<   Score << endl;
+            }
         }
         break;
 

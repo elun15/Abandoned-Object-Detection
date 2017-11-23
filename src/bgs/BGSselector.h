@@ -60,6 +60,7 @@ public:
     double _learningRate_L;
 
     cv::Mat _img_input; //input frame (color or gray scale image)
+    cv::Mat _img_input2; //input frame (color or gray scale image)
     cv::Mat _img_fg;//output frame (gray scale image)
     cv::Mat _img_fg_L;//output frame (gray scale image) for Dual
     cv::Mat _img_bgmodel; //background frame (color or gray scale image)

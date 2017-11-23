@@ -7,25 +7,37 @@
 #include <opencv2/opencv.hpp>
 
 ///time to detect a stationary object (in seconds)
-#define DEFAULT_TIME_TO_STATIC 10
+#define DEFAULT_TIME_TO_STATIC 30
 
 ///Flag to show results
-#define DEFAULT_RESULTS_SHOW true
+#define DEFAULT_RESULTS_SHOW false
 
 ///Flag to detect people in every frame
 #define DEFAULT_DETECT_ALWAYS false
 
 ///Flag to save results (xml/txt files)
-#define DEFAULT_RESULTS_SAVE_XML false
+#define DEFAULT_RESULTS_SAVE_XML true
 
 ///Flag to save results (images)
 #define DEFAULT_RESULTS_SAVE_IMG false
 #define DEFAULT_RESULTS_SAVE_IMG_FREQ 20
 
-#define DEFAULT_BKG_METHOD 6
+///Flag to filter by min size
+#define DEFAULT_FLAG_MINSIZE true
+
+///Flag to filter still people
+#define DEFAULT_FLAG_STILLPEOPLE true
+
+///Flag to filter objects near people
+#define DEFAULT_FLAG_NEARPEOPLE true
+
+
+#define DEFAULT_BKG_METHOD  3
 #define DEFAULT_SFGD_METHOD 4
-#define DEFAULT_PD_METHOD 3
-#define DEFAULT_SOC_METHOD 1
+#define DEFAULT_PD_METHOD   3
+#define DEFAULT_SOC_METHOD  1
+
+
 
 class Config
 {
@@ -40,6 +52,13 @@ public:
     bool SaveResults;  // Save XML results file if true
     bool SaveImages; // Save results images if true
     int SaveImages_freq; //frequency to save results in disk
+
+
+    //FLAGS
+
+    bool flag_stillpeople;
+    bool flag_nearpeople;
+    bool flag_minsize;
 
     // DIRECTORIES
     std::string inputPath;  //full path for video input

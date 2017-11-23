@@ -84,7 +84,8 @@ void BGSselector::initialize(BGS_type BGSid, bool display, bool saveIMG, const c
  */
 void BGSselector::init(Mat frame, double learningRate, double learningRate2, int method_sfgd)
 {
-    this->_img_fg      = Mat::zeros(frame.rows, frame.cols, CV_8UC1);
+    this->_img_fg      = Mat::zeros(frame.rows, frame.cols, 0);
+    this->_img_fg_L      = Mat::zeros(frame.rows, frame.cols, 0);
     this->_img_bgmodel = Mat::zeros(frame.rows, frame.cols, CV_8UC3);
     this->_img_bgmodel_L = Mat::zeros(frame.rows, frame.cols, CV_8UC3);
 
@@ -98,27 +99,20 @@ void BGSselector::init(Mat frame, double learningRate, double learningRate2, int
     case BGS_LOBSTER:
         this->_bgs = new LOBSTER;
         break;
+
     case BGS_PAWCS:
         this->_bgs = new PAWCS;
         break;
+
     case BGS_MOG2:
 
-        //OPENCV VERSION
-        //create Background Subtractor objects
-        this->_pMOG2 = createBackgroundSubtractorMOG2(); //MOG2 approach
+        this->_pMOG2 = createBackgroundSubtractorMOG2(); // //OPENCV VERSIONMOG2 approach
 
         if(method_sfgd == 4)//DUAL MOG2
         {
             this->_pMOG2_L = createBackgroundSubtractorMOG2(); //MOG2 approach
         }
 
-        /*   BGS LIBRARY VERSION
-         *  this->_bgs = new MixtureOfGaussianV2;
-            if(_learningRate != -1)
-            {
-                //set new learningrate
-            }
-            break;*/
     case BGS_KNN:
         this->_bgs = new KNN;
         break;
@@ -128,16 +122,32 @@ void BGSselector::init(Mat frame, double learningRate, double learningRate2, int
         break;
 
     case BGS_SUBSENSE:
-        this->_bgs = new SuBSENSE(_learningRate);
-
-        if(method_sfgd == 4)//DUAL MOG2
+        if(method_sfgd != 4)
         {
+            this->_bgs = new SuBSENSE(100); //default
+        }
+
+        else //DUAL
+        {
+            this->_bgs = new SuBSENSE(_learningRate);
             this->_bgs_L = new SuBSENSE(_learningRate_L);
         }
         break;
 
     case BGS_KDE:
-        this->_bgs = new KDE;
+
+        if(method_sfgd != 4)
+        {
+            this->_bgs = new KDE(); //framesToLearn = 10 (default)
+
+        }
+        else    //DUAL
+        {
+            this->_bgs = new KDE2(50); //framesToLearn = 10 (default)
+            this->_bgs_L = new KDE2(10);
+        }
+
+        break;
 
     default:
         break;
@@ -156,8 +166,9 @@ void BGSselector::init(Mat frame, double learningRate, double learningRate2, int
 void BGSselector::process(Mat frame, Mat contextMask, int counter, int method_sfgd)
 {
     _img_input = frame.clone();
-    _img_fg = Mat::zeros(frame.rows,frame.cols,0);
-    _img_fg_L = Mat::zeros(frame.rows,frame.cols,0);
+    _img_input2 = frame.clone();
+    //_img_fg = Mat::zeros(frame.rows,frame.cols,0);
+   // _img_fg_L = Mat::zeros(frame.rows,frame.cols,0);
 
     if (_BGSid == 3) // MOG2
     {
@@ -167,19 +178,19 @@ void BGSselector::process(Mat frame, Mat contextMask, int counter, int method_sf
 
         if (method_sfgd == 4)
         {
-            this->_pMOG2_L->apply(frame, _img_fg_L,_learningRate_L);
+            this->_pMOG2_L->apply(_img_input, _img_fg_L,_learningRate_L);
 
         }
 
     }
     else //OTHERS
     {
-        this->_bgs->process(frame,_img_fg,_img_bgmodel);
+        this->_bgs->process(_img_input,_img_fg,_img_bgmodel);
 
         if (method_sfgd == 4)
         {
             //DUAL BG OTHERS
-             this->_bgs_L->process(frame,_img_fg_L,_img_bgmodel_L);
+            this->_bgs_L->process(_img_input2,_img_fg_L,_img_bgmodel_L);
 
         }
 
@@ -188,8 +199,6 @@ void BGSselector::process(Mat frame, Mat contextMask, int counter, int method_sf
     if (!contextMask.empty())
     {
         bitwise_and(_img_fg,contextMask,_img_fg);
-        cout << "prueba 1: " << _img_fg.type()  << endl;
-        cout << "prueba 2 "  << _img_fg_L.type()  << endl;
         bitwise_and(_img_fg_L,contextMask,_img_fg_L);
 
     }

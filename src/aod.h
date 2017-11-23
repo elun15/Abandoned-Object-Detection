@@ -41,7 +41,7 @@ public:
     double _elapsedTime_frame;
     double _elapsedTime_evt;
 
-    void init(Mat frame,Config cfg);
-    void processFrame(Mat frame,Config cfg);
+    void init(Mat frame, Config &cfg);
+    void processFrame(Mat frame, Config cfg);
 };
 #endif // AOD_H

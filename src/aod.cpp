@@ -36,7 +36,7 @@ AOD::~AOD()
     cout << "System modules released." << endl;
 }
 
-void AOD::init(Mat frame, Config cfg)
+void AOD::init(Mat frame, Config &cfg)
 {
     // Initializations
     this->_sel_bkg = new BGSselector((BGS_type)cfg.m_bkg,cfg.ShowResults,cfg.SaveImages,cfg.DirImages.c_str(),cfg.SaveImages_freq);
@@ -58,6 +58,11 @@ void AOD::init(Mat frame, Config cfg)
             learningRate_s = 100;//TO CHECK!!!
             learningRate_l = 600;//TO CHECK!!!
             break;
+        case BGS_KDE:
+            learningRate_s = 50;//TO CHECK!!!
+            learningRate_l = 5;//TO CHECK!!!
+            break;
+
         }
 
         this->_sel_bkg->init(frame, learningRate_s, learningRate_l, cfg.m_sfgd);
@@ -103,6 +108,11 @@ void AOD::init(Mat frame, Config cfg)
     else
         _evtCtrl->init(cfg.rows, cfg.cols ,sourceFile, NULL, cfg.totalNumFrames,cfg.framerate, cfg.time_to_static, 0);
 
+    if ( cfg.contextMask.empty() )
+        cfg.contextMask = Mat::zeros(frame.rows, frame.cols, 0);
+
+
+
 }
 
 void AOD::processFrame(Mat frame,Config cfg)
@@ -111,11 +121,13 @@ void AOD::processFrame(Mat frame,Config cfg)
     Mat fgmask, fgmask_2, bgmodel, sfgmask;
     BlobList<ObjectBlob*> pStaticObjectList;
 
+
+
+
     /******** BACKGROUND SUBTRACTION  ********/
     tinit = clock();
     if(cfg.m_sfgd != SFGD_DBM)
     {
-
         _sel_bkg->process(frame,cfg.contextMask1,cfg.numFrame, cfg.m_sfgd);
         fgmask = _sel_bkg->GetFGmask(cfg.m_sfgd)[0].clone(); // Get foreground mask
         bgmodel = _sel_bkg->GetBGmodel().clone(); // Get background model
@@ -158,6 +170,7 @@ void AOD::processFrame(Mat frame,Config cfg)
     {
         clock_t start_pd = clock();
         pdBlobs = this->_sel_pd->process(frame); //apply detector
+
         //this->_sel_pd->non_max_suppresion(_sel_pd->getDetections(),pdBlobs,0.5); // Filter detections with nms
         _elapsedTime_pd = (double)(clock() - start_pd)/CLOCKS_PER_SEC;
     }
@@ -166,8 +179,8 @@ void AOD::processFrame(Mat frame,Config cfg)
     // Create a static objects list (pStaticObjectList) by filtering the static foreground blobs (BlobList)
     // by removing static foreground blobs due to people detections (pdBlobs) and considering
     // the context mask (if applicable)
-    DefineObjectBlobList(BlobList,pdBlobs,&pStaticObjectList, cfg.contextMask);
-    cout << "Frame " << cfg.numFrame << ". Num blobs=" << BlobList->size() <<  "  people=" << pdBlobs.size() << "  static=" << pStaticObjectList.getBlobNum() << std::endl;
+    DefineObjectBlobList(BlobList,pdBlobs,&pStaticObjectList, cfg.contextMask, cfg.flag_minsize, cfg.flag_nearpeople, cfg.flag_stillpeople);
+    // PRUEBA cout << "Frame " << cfg.numFrame << ". Num blobs=" << BlobList->size() <<  "  people=" << pdBlobs.size() << "  static=" << pStaticObjectList.getBlobNum() << std::endl;
 
     // ******* STATIONARY OBJECT CLASSIFICATION  *******
     clock_t start_soc = clock();

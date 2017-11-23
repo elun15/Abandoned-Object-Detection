@@ -14,12 +14,12 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     // Initialize all settings to configure the AOD system
-    //Config cfg(argc,argv);
-   // Config cfg("./../datasets/AVSS2007/AVSSS07_EASY.mpg","./../results/");
+    Config cfg(argc,argv);
+    //Config cfg("./../datasets/AVSS2007/AVSSS07_EASY.mpg","./../results/");
     //Config cfg("./../datasets/CAVIAR/LeftBag_AtChair.mpeg","./../results/");
     //Config cfg("./../datasets/VISOR_test/visor_1212674131705_pacco6.avi", "./../results");
-    Config cfg("./../datasets/VISOR/visor_Video00.avi","./../results/");
-    cfg.time_to_static = 10; //in seconds
+   //Config cfg("./../datasets/VISOR/visor_Video01.avi","./../results/");
+   cfg.time_to_static = 30; //in seconds
 
     //videoreader
     cv::VideoCapture cap(cfg.inputPath);
@@ -40,13 +40,14 @@ int main(int argc, char *argv[])
     Mat frame;
     for ( ; ; )
     {
+
         cap >> frame; // Get frame
         cfg.numFrame = cap.get(CAP_PROP_POS_FRAMES); // Get frame number
 
         // ******** FRAME PROCESSING *******
         if (frame.data)
         {
-            cout << "Frame " << cfg.numFrame << endl;
+           // PRUEBA cout << "Frame " << cfg.numFrame << endl;
 
             // First frame
             if (cfg.numFrame  == 1)
@@ -64,6 +65,5 @@ int main(int argc, char *argv[])
 
     //Release resources
     cap.release(); // Release video capture
-
     return 1;
 }
