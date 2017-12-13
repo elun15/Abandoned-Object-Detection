@@ -115,8 +115,11 @@ int StaticObjectClassifier::processFrame(Mat frame, Mat bkgImage, Mat staticObjM
 		//get the object to analyze
 		ObjectBlob *object = objectList->getBlob(j);
 
-		//process object
-		checkObject(frame,bkgImage,staticObjMask,fgMask, object);
+        //process object
+        if(object->getAttended() == false)
+            checkObject(frame,bkgImage,staticObjMask,fgMask, object);
+        else
+           object->results->D_F = NONE;
 	}
 	return 1;
 }

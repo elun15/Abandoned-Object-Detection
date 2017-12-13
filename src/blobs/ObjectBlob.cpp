@@ -83,6 +83,8 @@ void ObjectBlob::init(int id, cvBlob *pBlob, int count, int StaticCount, int Sta
 		this->w = pBlob->w;
 		this->peopleLikelihood = pBlob->PeopleLikelihood;
 	}
+
+    this->attended = false;
 }
 
 /**
@@ -262,4 +264,21 @@ void ObjectBlob::setNumOfCheckingSteps(int value)
 
 cv::Rect ObjectBlob::getRect() {
 	return cv::Rect(this->x - this->w / 2, this->y - this->h / 2, this->w, this->h);
+}
+
+
+/**
+*	Method to set the attended state
+*
+*/
+void ObjectBlob::setAttended(bool newAttState) {
+    this->attended = newAttState;
+}
+
+/**
+*	Method to get the attended state
+*
+*/
+bool ObjectBlob::getAttended() {
+    return this->attended;
 }

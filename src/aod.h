@@ -23,6 +23,8 @@ public:
    ~AOD();
 
     FILE *_file_time;
+    FILE *_file_settings;
+
 
     //system modules
     BGSselector *_sel_bkg;

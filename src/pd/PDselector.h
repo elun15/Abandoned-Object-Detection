@@ -25,10 +25,10 @@ typedef enum {
 //#define PATH_PERSON_MODEL_DPM "./lib/ACFlibrary/ACF/INRIA_ACF.xml"
 //#define PATH_PERSON_MODEL_DPM "./models/people/INRIA_DPM.xml"
 //#define PATH_PERSON_MODEL_ACF "./models/people/INRIA_ACF.xml"
-#define PATH_PERSON_MODEL_DPM "./config/models/people/INRIA_DPM.xml"
-#define PATH_PERSON_MODEL_ACF "../models/people/INRIA_ACF.xml"
-#define PATH_PERSON_MODEL_HAAR_FULL "../models/people/haarcascade_fullbody.xml"
-#define PATH_PERSON_MODEL_HAAR_UPPER "../models/people/haarcascade_upperbody.xml"
+#define PATH_PERSON_MODEL_DPM "./models/people/INRIA_DPM.xml"
+#define PATH_PERSON_MODEL_ACF "./models/people/INRIA_ACF.xml"
+#define PATH_PERSON_MODEL_HAAR_FULL "./models/people/haarcascade_fullbody.xml"
+#define PATH_PERSON_MODEL_HAAR_UPPER "./models/people/haarcascade_upperbody.xml"
 
 
 
@@ -38,7 +38,7 @@ typedef enum {
 class PDselector
 {
 private:
-	PD_type _PDid;
+    PD_type _PDid;
     std::map<int,std::string> _PDtype_str;//string for each selected algorithm
 
     cv::Mat _img_input; //input frame (color or gray scale image)
@@ -64,12 +64,12 @@ private:
     std::vector<cv::dpm::DPMDetector::ObjectDetection> _DPMBbox; // DPM
 
     //display settings
-   bool _display;
+    bool _display;
 
-   //output settings
-   bool _saveIMG;
-   int _saveCounter;
-   std::string _savePathDir;
+    //output settings
+    bool _saveIMG;
+    int _saveCounter;
+    std::string _savePathDir;
 
 public:
 
@@ -84,21 +84,21 @@ public:
     void non_max_suppresion(const std::vector<cv::Rect> &srcRects, std::vector<cv::Rect> &resRects, float thresh);
 
     std::vector<cv::Rect> getDetections();
-	cv::Mat &getDetectionsBoundingBoxMask(cv::Mat &img);
+    cv::Mat &getDetectionsBoundingBoxMask(cv::Mat &img);
 
 private:
-	//internal init
-	void initialize(PD_type BGSid, bool display, bool saveIMG, const char* savePathDir, int saveCounter);
+    //internal init
+    void initialize(PD_type BGSid, bool display, bool saveIMG, const char* savePathDir, int saveCounter);
 
-	//list of strings for display purposes
-	static std::map<int,std::string> create_PDtype_str() {
+    //list of strings for display purposes
+    static std::map<int,std::string> create_PDtype_str() {
 
-	   std::map<int,std::string> m;
-	   m.insert(std::make_pair(PD_HOG    , "PD_HOG"));
-	   m.insert(std::make_pair(PD_DPM    , "PD_DPM"));
-	   m.insert(std::make_pair(PD_ACF    , "PD_ACF"));
-	   return m;
-   }
+        std::map<int,std::string> m;
+        m.insert(std::make_pair(PD_HOG    , "PD_HOG"));
+        m.insert(std::make_pair(PD_DPM    , "PD_DPM"));
+        m.insert(std::make_pair(PD_ACF    , "PD_ACF"));
+        return m;
+    }
 };
 
 #endif // __PDSELECTOR_H__

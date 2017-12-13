@@ -100,7 +100,7 @@ private:
 	//Number of times that the checking process (check if it is stolen or abandoned) has been perfomed
 	int numberOfCheckingSteps;
 
-
+    bool attended;
 
 public:
 
@@ -179,6 +179,9 @@ public:
 
 	// Method to get the detection results 
 	DETECTION_RESULTS *getDetectionResults();
+
+    void setAttended(bool newAttState);
+    bool getAttended();
 };
 
 #endif

@@ -28,7 +28,7 @@ AOD::~AOD()
 
     // release modules
     if (this->_sel_bkg!=NULL)		delete _sel_bkg;
-    if (this->_sel_bkg_2!=NULL)	delete _sel_bkg_2;
+    if (this->_sel_bkg_2!=NULL)     delete _sel_bkg_2;
     if (this->_sel_sfgd!=NULL)		delete _sel_sfgd;
     if (this->_sel_pd!=NULL)		delete _sel_pd;
     if (this->_sel_soc!=NULL)		delete _sel_soc;
@@ -59,8 +59,8 @@ void AOD::init(Mat frame, Config &cfg)
             learningRate_l = 600;//TO CHECK!!!
             break;
         case BGS_KDE:
-            learningRate_s = 50;//TO CHECK!!!
-            learningRate_l = 5;//TO CHECK!!!
+            learningRate_s = 100;//TO CHECK!!!
+            learningRate_l = 1000;//TO CHECK!!!
             break;
 
         }
@@ -101,8 +101,33 @@ void AOD::init(Mat frame, Config &cfg)
         strcpy(pfile, cfg.fileTime.c_str());
         _file_time = fopen(pfile, "w+");
 
-        fprintf( _file_time,"Execution times\n");
-        fprintf( _file_time,"Frame    Total     BKG     SFGD      PD    CLASS    WRITE\n");
+        fprintf( _file_time,"#Execution times (secs) \n");
+        fprintf( _file_time,"#Frame   Total           BKG             SFGD               PD            CLASS          WRITE\n");
+
+
+        //settings paratemers file writting
+
+        char *pfile2 = (char *)malloc(strlen(cfg.fileSettingsPath.c_str()) + 1);
+        strcpy(pfile2, cfg.fileSettingsPath.c_str());
+        _file_settings = fopen(pfile2, "w+");
+
+        if (_file_settings == NULL)
+            cout << "WARNING: settings file can't be created: " << cfg.fileSettingsPath << endl;
+        else
+          cout << "Settings file created" << endl;
+
+
+        fprintf( _file_settings,"#Configuration settings \n");
+        fprintf( _file_settings, "Selected bkg method = %d\n",cfg.m_bkg) ;
+        fprintf( _file_settings, "Selected sfgd method= %d\n" ,cfg.m_sfgd);
+        fprintf( _file_settings, "Selected people detector method = %d\n",cfg.m_pd);
+        fprintf( _file_settings,"Selected static object classifier method = %d\n",cfg.m_soc);
+        fprintf( _file_settings,"Time (seconds) to static = %d\n",cfg.time_to_static);
+        fprintf( _file_settings,"Flag near people = %d\n",cfg.flag_nearpeople);
+        fprintf( _file_settings,"Flag context mask = %d\n",cfg.flag_contextmask);
+
+        fclose(_file_settings);
+
 
     }
     else
@@ -128,14 +153,14 @@ void AOD::processFrame(Mat frame,Config cfg)
     tinit = clock();
     if(cfg.m_sfgd != SFGD_DBM)
     {
-        _sel_bkg->process(frame,cfg.contextMask1,cfg.numFrame, cfg.m_sfgd);
+        _sel_bkg->process(frame,cfg.AVSS_FGMask,cfg.numFrame, cfg.m_sfgd);
         fgmask = _sel_bkg->GetFGmask(cfg.m_sfgd)[0].clone(); // Get foreground mask
         bgmodel = _sel_bkg->GetBGmodel().clone(); // Get background model
     }
     else
     {
 
-        _sel_bkg->process(frame,cfg.contextMask1,cfg.numFrame, cfg.m_sfgd);
+        _sel_bkg->process(frame,cfg.AVSS_FGMask,cfg.numFrame, cfg.m_sfgd);
         fgmask = _sel_bkg->GetFGmask(cfg.m_sfgd)[0].clone(); // Get foreground mask
         bgmodel = _sel_bkg->GetBGmodel().clone(); // Get background model
         //execute dual background
@@ -180,7 +205,7 @@ void AOD::processFrame(Mat frame,Config cfg)
     // by removing static foreground blobs due to people detections (pdBlobs) and considering
     // the context mask (if applicable)
     DefineObjectBlobList(BlobList,pdBlobs,&pStaticObjectList, cfg.contextMask, cfg.flag_minsize, cfg.flag_nearpeople, cfg.flag_stillpeople);
-    // PRUEBA cout << "Frame " << cfg.numFrame << ". Num blobs=" << BlobList->size() <<  "  people=" << pdBlobs.size() << "  static=" << pStaticObjectList.getBlobNum() << std::endl;
+    cout << "Frame " << cfg.numFrame << ". Num blobs=" << BlobList->size() <<  "  people=" << pdBlobs.size() << "  static=" << pStaticObjectList.getBlobNum() << std::endl;
 
     // ******* STATIONARY OBJECT CLASSIFICATION  *******
     clock_t start_soc = clock();
@@ -195,11 +220,12 @@ void AOD::processFrame(Mat frame,Config cfg)
         _evtCtrl->checkEvents(&pStaticObjectList);
     _elapsedTime_evt = (double)(clock() - start_write)/CLOCKS_PER_SEC;
 
+    _elapsedTime_frame = (double)(clock() - tinit)/CLOCKS_PER_SEC;
+
     // ******** TIME CONSUPTION WRITTING (For each frame) ********
     if (cfg.SaveResults == true)
-        fprintf(_file_time,"%d     %2.6f %2.6f %2.6f %2.6f %2.6f %2.6f\n",cfg.numFrame, _elapsedTime_frame ,_elapsedTime_bkg,_elapsedTime_sfgd,_elapsedTime_pd,_elapsedTime_soc,_elapsedTime_evt);
+        fprintf(_file_time,"%d\t%2.6f\t%2.6f\t%2.6f\t%2.6f\t%2.6f\t%2.6f\n",cfg.numFrame, _elapsedTime_frame ,_elapsedTime_bkg,_elapsedTime_sfgd,_elapsedTime_pd,_elapsedTime_soc,_elapsedTime_evt);
 
-    _elapsedTime_frame = (double)(clock() - tinit)/CLOCKS_PER_SEC;
 
 
 }

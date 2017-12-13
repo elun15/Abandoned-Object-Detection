@@ -11,71 +11,78 @@ using namespace cv;
 
 Config::Config()
 {
-	init(DEFAULT_BKG_METHOD,DEFAULT_SFGD_METHOD,DEFAULT_PD_METHOD,DEFAULT_SOC_METHOD, "./datasets/VISOR_test/visor_Video00.avi","./results");
+    init(DEFAULT_BKG_METHOD,DEFAULT_SFGD_METHOD,DEFAULT_PD_METHOD,DEFAULT_SOC_METHOD, "./datasets/VISOR_test/visor_Video00.avi","./results", DEFAULT_TIME_TO_STATIC);
 }
 
 Config::Config(int argc, char *argv[])
 {
-	if (argc == 7)
-		init(atoi(argv[1]),atoi(argv[2]),atoi(argv[3]),atoi(argv[4]),argv[5],argv[6]);
-	else {
-		cout << "Wrong number of parameters" << endl;
-		print_usage();
-		exit(EXIT_FAILURE);
-	}
+    if (argc == 8)
+        init(atoi(argv[1]),atoi(argv[2]),atoi(argv[3]),atoi(argv[4]),argv[5],argv[6],atoi(argv[7]));
+    else {
+        cout << "Wrong number of parameters" << endl;
+        print_usage();
+        exit(EXIT_FAILURE);
+    }
 }
 
-Config::Config(std::string inputPath, std::string resultsDir)
+Config::Config(std::string inputPath, std::string resultsDir, int seconds)
 {
-	init(DEFAULT_BKG_METHOD,DEFAULT_SFGD_METHOD,DEFAULT_PD_METHOD,DEFAULT_SOC_METHOD, inputPath,resultsDir);
+    init(DEFAULT_BKG_METHOD,DEFAULT_SFGD_METHOD,DEFAULT_PD_METHOD,DEFAULT_SOC_METHOD, inputPath,resultsDir,seconds);
 }
 
-Config::Config(std::string inputPath, std::string resultsDir, int bkg, int sfgd, int pd, int soc)
+Config::Config(std::string inputPath, std::string resultsDir, int bkg, int sfgd, int pd, int soc, int seconds)
 {
 
-	init(bkg,sfgd,pd,soc,inputPath,resultsDir);
+    init(bkg,sfgd,pd,soc,inputPath,resultsDir,seconds);
 }
 
-void Config::init(int bkg, int sfgd, int pd, int soc, std::string inputPath, std::string resultsDir)
+void Config::init(int bkg, int sfgd, int pd, int soc, std::string inputPath, std::string resultsDir,int seconds)
 {
-	this->m_bkg     = bkg;
-	this->m_sfgd    = sfgd;
-	this->m_pd      = pd;
-	this->m_soc 	= soc;
-	this->inputPath = inputPath;
-	this->resultsDir= resultsDir;
+    this->m_bkg     = bkg;
+    this->m_sfgd    = sfgd;
+    this->m_pd      = pd;
+    this->m_soc 	= soc;
+    this->inputPath = inputPath;
+    this->resultsDir= resultsDir;
 
-	 //output for images
-	this->DirImages = this->resultsDir + "/images/";
+    //output for images
+    this->DirImages = this->resultsDir + "/images/";
+    //Path for settings file
+    //in QT
+    //this->fileSettingsPath = this->resultsDir + "config" + to_string_(this->m_bkg) +  to_string_( this->m_sfgd)+ to_string_( this->m_pd)+ to_string_( this->m_soc  )+"/parameters.settings";
+    //Terminal:
+    this->fileSettingsPath = "./results/config" + to_string_(this->m_bkg) +  to_string_( this->m_sfgd)+ to_string_( this->m_pd)+ to_string_( this->m_soc  )+"/parameters.settings";
 
-	//default display/output Config
-	this->ShowResults = DEFAULT_RESULTS_SHOW;
-	this->SaveResults = DEFAULT_RESULTS_SAVE_XML;
-	this->SaveImages = DEFAULT_RESULTS_SAVE_IMG;
-	this->SaveImages_freq = DEFAULT_RESULTS_SAVE_IMG_FREQ;
+
+    //default display/output Config
+    this->ShowResults = DEFAULT_RESULTS_SHOW;
+    this->SaveResults = DEFAULT_RESULTS_SAVE_XML;
+    this->SaveImages = DEFAULT_RESULTS_SAVE_IMG;
+    this->SaveImages_freq = DEFAULT_RESULTS_SAVE_IMG_FREQ;
 
     //default flags
     this->flag_minsize = DEFAULT_FLAG_MINSIZE;
     this->flag_nearpeople = DEFAULT_FLAG_NEARPEOPLE;
     this->flag_stillpeople = DEFAULT_FLAG_STILLPEOPLE;
+    this->flag_contextmask = DEFAULT_FLAG_MASK;
 
 
-	//other Config
-	this->time_to_static = DEFAULT_TIME_TO_STATIC;
+    //other Config
+    this->time_to_static = seconds;
     this->DetectPeopleAlways = DEFAULT_DETECT_ALWAYS;
 
-	//find filename for the full video path
-	this->inputvideo = findFilename(this->inputPath);
+    //find filename for the full video path
+    this->inputvideo = findFilename(this->inputPath);
 
-	//output files
-	if (this->SaveResults == true){
-		string baseoutfile = resultsDir + inputvideo + "_"+ to_string_(this->m_bkg) + "_" + to_string_( this->m_sfgd) + "_"+ to_string_( this->m_soc ) + "_" + to_string_( this->m_pd );
-		this->fileResults = baseoutfile + "_"+ currentDateTime() + ".xml";    // XML file with results (.xml)
-		this->fileTime = baseoutfile + "_"+ currentDateTime() + ".time";      // file with execution times (.time)
-	}
+    //output files
+    if (this->SaveResults == true){
+        string baseoutfile = resultsDir + inputvideo + "_"+ to_string_(this->m_bkg) + "_" + to_string_( this->m_sfgd) + "_"+ to_string_( this->m_pd )+ "_"+to_string_( this->m_soc ) ;
+        this->fileResults = baseoutfile + "_"+ currentDateTime() + ".xml";    // XML file with results (.xml)
+        this->fileTime = baseoutfile + "_"+ currentDateTime() + ".time";      // file with execution times (.time)
+    }
 
-	//print the current settings
-	print_parsed_data();
+    //print the current settings
+    print_parsed_data();
 }
 
 void Config::print_parsed_data()
@@ -91,9 +98,9 @@ void Config::print_parsed_data()
     cout << " Time (seconds) to static: " << this->time_to_static << endl;
     cout << " Show results: " << this->ShowResults << endl;
     if (this->SaveImages == true)
-    	cout << " Save results (images): " << this->SaveImages << "(saved in " <<  this->DirImages << ")" << endl;
+        cout << " Save results (images): " << this->SaveImages << "(saved in " <<  this->DirImages << ")" << endl;
     else
-    	cout << " Save results (images): " << this->SaveImages << endl;
+        cout << " Save results (images): " << this->SaveImages << endl;
 
     cout << " Save results (xml): " << this->SaveResults << endl;
     if (this->SaveResults == true){
@@ -112,7 +119,7 @@ Config::~Config()
 
 void Config::get_video_info(cv::VideoCapture cap)
 {
-	//open video file & check if it has been correctly opened
+    //open video file & check if it has been correctly opened
     if (!cap.isOpened())
     {
         cout << "Could not open the video file" << endl;
@@ -120,14 +127,14 @@ void Config::get_video_info(cv::VideoCapture cap)
     }
     else
     {
-    	// Read video properties
-    	this->framerate = cap.get(CAP_PROP_FPS);
-		this->totalNumFrames = cap.get(CAP_PROP_FRAME_COUNT);
-		this->rows = cap.get(CAP_PROP_FRAME_HEIGHT);
-		this->cols = cap.get(CAP_PROP_FRAME_WIDTH);
+        // Read video properties
+        this->framerate = cap.get(CAP_PROP_FPS);
+        this->totalNumFrames = cap.get(CAP_PROP_FRAME_COUNT);
+        this->rows = cap.get(CAP_PROP_FRAME_HEIGHT);
+        this->cols = cap.get(CAP_PROP_FRAME_WIDTH);
         cout << "Video successfully opened";
         cout << this->framerate << " fps. Size: " << cap.get(CV_CAP_PROP_FRAME_WIDTH) << " x " << cap.get(CV_CAP_PROP_FRAME_HEIGHT) << endl;
-    }    
+    }
 }
 
 string Config::findFilename(string filepath)
@@ -138,32 +145,55 @@ string Config::findFilename(string filepath)
     return basename.substr(0,point_position);
 }
 
-//TODO: fix the path for the contextual masks
+
 void Config::findContextMask()
 {
-    // Check if it is required to apply context mask
-    if ( this->inputvideo.find("AVSS") != string::npos)
-    {
-        this->contextMask1 = imread("../datasets/AVSS_test/AVSS_Mask_1.jpg",CV_LOAD_IMAGE_GRAYSCALE);
-        if (this->contextMask1.empty())
-        {
-            cout << "Could not open mask image." << endl;
-            exit(EXIT_FAILURE);
-        }
-        bitwise_not(this->contextMask1,this->contextMask1);
 
-        this->contextMask = imread("../datasets/AVSS_test/AVSS_Mask_2.jpg",CV_LOAD_IMAGE_GRAYSCALE);
+
+    if (flag_contextmask == true)
+    {
+        //READ CONTEXT MASK FOR EVERY VIDEO
+
+
+       // string mask_folder  = inputPath.substr(3,inputPath.find_last_of("/")-2);
+        string mask_folder  = inputPath.substr(0,inputPath.find_last_of("/")+1);
+        string mask_path = mask_folder + this->inputvideo + "_mask.jpg";
+        this->contextMask = imread(mask_path,CV_LOAD_IMAGE_GRAYSCALE);
         if (this->contextMask.empty())
         {
-            cout << "Could not open mask image." << endl;
+            cout << "Could not open mask image:"<< mask_path << endl;
             exit(EXIT_FAILURE);
         }
+        else
+        {
+           // imshow("Context mask", this->contextMask);
+           // waitKey();
+        }
+
     }
     else
     {
-    	this->contextMask1 = Mat();
-    	this->contextMask = Mat();
+        this->contextMask = Mat();
+
     }
+
+    //ONLY FOR AVSS, TO REMOVE BOUNDARY ERRORS
+    if ( this->inputvideo.find("AVSS") != string::npos)
+    {
+        this->AVSS_FGMask = imread("./datasets/AVSS2007/AVSS_Mask_1.jpg",CV_LOAD_IMAGE_GRAYSCALE); //BORDES
+        if (this->AVSS_FGMask.empty())
+        {
+            cout << "Could not open mask image." << endl;
+            exit(EXIT_FAILURE);
+        }
+        bitwise_not(this->AVSS_FGMask,this->AVSS_FGMask);
+    }
+    else
+    {
+        this->AVSS_FGMask = Mat();
+    }
+
+
 }
 
 

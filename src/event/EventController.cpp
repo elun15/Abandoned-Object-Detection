@@ -94,6 +94,9 @@ int EventController::detectNewEvents(BlobList<ObjectBlob*> *pCurObjList)
     for(int i = 0; i < pCurObjList->getBlobNum(); i++)
         //if (checkROI(pCurObjList->getBlob(i)->getRect()) == 1)
     {
+        if(pCurObjList->getBlob(i)->getAttended() == true)
+            continue;
+
         Event *evt = NULL;
         //this->numberEvent++;
         cv::Rect location = cv::Rect(pCurObjList->getBlob(i)->x, pCurObjList->getBlob(i)->y, pCurObjList->getBlob(i)->w, pCurObjList->getBlob(i)->h);
@@ -115,11 +118,12 @@ int EventController::detectNewEvents(BlobList<ObjectBlob*> *pCurObjList)
 
             this->addEvent(evt, &pNewDetectedEvt);
             break;
+        case STATIC_OBJ_TYPE_UNKNOWN:
+            message("\t\tDetected <Unknown>", score);
+            break;
         default:
             message("\t\tDetected <Unknown>", score);
             break;
-
-
         }
     }
     return 1;
@@ -823,7 +827,7 @@ void EventController::printEvents()
 
     /*print events*/
     //if(verbose_mode==1)
-    //PRUEBA  fprintf(stderr,"\tCurrent event List (%d events) (past %d)\n", pActiveEvt.size(), pPastEvt.size());
+      fprintf(stderr,"\tCurrent event List (%d events) (past %d)\n", pActiveEvt.size(), pPastEvt.size());
 
     //if (verbose_mode > 1)
 

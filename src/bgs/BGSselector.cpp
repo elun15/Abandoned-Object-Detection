@@ -113,6 +113,7 @@ void BGSselector::init(Mat frame, double learningRate, double learningRate2, int
             this->_pMOG2_L = createBackgroundSubtractorMOG2(); //MOG2 approach
         }
 
+        break;
     case BGS_KNN:
         this->_bgs = new KNN;
         break;
@@ -138,13 +139,13 @@ void BGSselector::init(Mat frame, double learningRate, double learningRate2, int
 
         if(method_sfgd != 4)
         {
-            this->_bgs = new KDE(); //framesToLearn = 10 (default)
+            this->_bgs = new KDE(500); //framesToLearn = 10 (default)
 
         }
         else    //DUAL
         {
-            this->_bgs = new KDE2(50); //framesToLearn = 10 (default)
-            this->_bgs_L = new KDE2(10);
+            this->_bgs = new KDE(300); //framesToLearn = 10 (default)
+            this->_bgs_L = new KDE(5000);
         }
 
         break;
@@ -163,12 +164,10 @@ void BGSselector::init(Mat frame, double learningRate, double learningRate2, int
  * \param contextMask Optional parameter to apply a binary mask to the result
  * \param counter frame counter for display purposes
  */
-void BGSselector::process(Mat frame, Mat contextMask, int counter, int method_sfgd)
+void BGSselector::process(Mat frame, Mat BoundaryMask, int counter, int method_sfgd)
 {
     _img_input = frame.clone();
     _img_input2 = frame.clone();
-    //_img_fg = Mat::zeros(frame.rows,frame.cols,0);
-   // _img_fg_L = Mat::zeros(frame.rows,frame.cols,0);
 
     if (_BGSid == 3) // MOG2
     {
@@ -196,15 +195,19 @@ void BGSselector::process(Mat frame, Mat contextMask, int counter, int method_sf
 
     }
 
-    if (!contextMask.empty())
+    if (!BoundaryMask.empty())  //ONLY FOR AVSS
     {
-        bitwise_and(_img_fg,contextMask,_img_fg);
-        bitwise_and(_img_fg_L,contextMask,_img_fg_L);
+        bitwise_and(_img_fg,BoundaryMask,_img_fg);
+        bitwise_and(_img_fg_L,BoundaryMask,_img_fg_L);
 
     }
 
     if (_display)
     {
+        string str = "Frame: " + _BGStype_str[_BGSid];
+        putText(frame.clone(),to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
+        imshow(str.c_str(),frame.clone());
+
         string str1 = "Background image: " + _BGStype_str[_BGSid];
         putText(_img_bgmodel,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
         imshow(str1.c_str(),_img_bgmodel);

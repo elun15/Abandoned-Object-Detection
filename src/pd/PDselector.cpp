@@ -132,7 +132,7 @@ vector<Rect> PDselector::process(Mat frame,int counter)
             {
                 if (Score > 35)
                     _found.push_back(detection);
-                   cout <<   Score << endl;
+                  // cout <<   Score << endl;
             }
         }
         break;

@@ -57,10 +57,15 @@ int EventWriter::initViperFile(char *filenameXML, char* source_filename, int num
     pf = fopen(pXML, "w+");
 
     cout << "Init viper file" << endl;
+
     if (this->pf == NULL)
         cout << "WARNING: Viper log file can't be created" << endl;
     else
+    {
+      cout << "Viper log file created" << endl;
         writeViperHeader(source_filename, numframes, framerate, wframe, hframe);
+
+    }
 
     return 1;
 }
@@ -122,14 +127,6 @@ void EventWriter::writeViperHeader(char* filename,int numframes,double framerate
         fprintf(this->pf, "</descriptor>\n");
 
         fprintf(this->pf, "<descriptor name=\"StolenObject\" type=\"OBJECT\">\n");
-        fprintf(this->pf, "<attribute dynamic=\"false\" name=\"BoundingBox\" type=\"http://lamp.cfar.umd.edu/viperdata#bbox\" /> \n");
-        fprintf(this->pf, "</descriptor>\n");
-
-        fprintf(this->pf, "<descriptor name=\"AbandonedPerson\" type=\"OBJECT\">\n");
-        fprintf(this->pf, "<attribute dynamic=\"false\" name=\"BoundingBox\" type=\"http://lamp.cfar.umd.edu/viperdata#bbox\" /> \n");
-        fprintf(this->pf, "</descriptor>\n");
-
-        fprintf(this->pf, "<descriptor name=\"StolenPerson\" type=\"OBJECT\">\n");
         fprintf(this->pf, "<attribute dynamic=\"false\" name=\"BoundingBox\" type=\"http://lamp.cfar.umd.edu/viperdata#bbox\" /> \n");
         fprintf(this->pf, "</descriptor>\n");
 

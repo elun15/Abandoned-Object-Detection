@@ -2,21 +2,22 @@
 
 using namespace cv;
 
-void DefineObjectBlobList(std::vector<cvBlob> *ExtractBlobList, vector<cv::Rect>& found, BlobList<ObjectBlob*> *pObjectList,Mat mask, bool flag_minsize, bool flag_nearpeople, bool flag_stillpeople)
+void DefineObjectBlobList(std::vector<cvBlob> *inBlobList, vector<cv::Rect>& found, BlobList<ObjectBlob*> *outObjectList,Mat mask, bool flag_minsize, bool flag_nearpeople, bool flag_stillpeople)
 {
-        // INPUT ARGUMENTS
-    // ExtractBlobList =>  all blobs in static foreground
+    // INPUT ARGUMENTS
+    // inBlobList =>  all blobs in static foreground
     // found => people detections
 
     // OUTPUT ARGUMENTS
-    // pObjectList  => list with the static objects in the scene
+    // outObjectList  => list with the static objects in the scene
 
     ObjectBlob *pObjectBlob;
     bool blobIsObject = true;
+    bool blobIsAttended = false;
 
-    if (!ExtractBlobList->empty()){
+    if (!inBlobList->empty()){
 
-        for (cvBlob staticBlob : *ExtractBlobList) //loop through static foreground blobs
+        for (cvBlob staticBlob : *inBlobList) //loop through static foreground blobs
         {
             blobIsObject = true;
             Point2f static_bottom(staticBlob.y+staticBlob.h, staticBlob.x+(staticBlob.w/2));
@@ -27,6 +28,7 @@ void DefineObjectBlobList(std::vector<cvBlob> *ExtractBlobList, vector<cv::Rect>
                 {
                     if (CompareBlobs(staticBlob, personBlob)){
                         blobIsObject = false; //at least 50% of being a person
+                        blobIsAttended = true;
                     }
                 }
 
@@ -36,8 +38,10 @@ void DefineObjectBlobList(std::vector<cvBlob> *ExtractBlobList, vector<cv::Rect>
                     Point2f people_bottom(personBlob.y+personBlob.height,personBlob.x+(personBlob.width/2));
                     double distance = cv::norm(cv::Mat(static_bottom),cv::Mat(people_bottom));
 
-                    if (distance  < 2*staticBlob.w)
+                    if (distance  < 2*staticBlob.w){
                         blobIsObject = false;
+                        blobIsAttended = true;
+                    }
                 }
             }
 
@@ -136,9 +140,20 @@ void DefineObjectBlobList(std::vector<cvBlob> *ExtractBlobList, vector<cv::Rect>
 
             }
 
+            // if (blobIsObject){
+            //     pObjectBlob = new ObjectBlob(staticBlob.ID, &staticBlob);
+            //     outObjectList->addBlob(pObjectBlob);
+            // }
+
             if (blobIsObject){
+
                 pObjectBlob = new ObjectBlob(staticBlob.ID, &staticBlob);
-                pObjectList->addBlob(pObjectBlob);
+                if (blobIsAttended == false)
+                    pObjectBlob->setAttended(false);
+                else
+                    pObjectBlob->setAttended(true);
+
+                outObjectList->addBlob(pObjectBlob);
             }
         }
     }
