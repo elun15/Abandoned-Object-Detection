@@ -22,12 +22,6 @@
 <descriptor name="StolenObject" type="OBJECT">
 <attribute dynamic="false" name="BoundingBox" type="http://lamp.cfar.umd.edu/viperdata#bbox" /> 
 </descriptor>
-<descriptor name="AbandonedPerson" type="OBJECT">
-<attribute dynamic="false" name="BoundingBox" type="http://lamp.cfar.umd.edu/viperdata#bbox" /> 
-</descriptor>
-<descriptor name="StolenPerson" type="OBJECT">
-<attribute dynamic="false" name="BoundingBox" type="http://lamp.cfar.umd.edu/viperdata#bbox" /> 
-</descriptor>
 </config>
 <data>
 <sourcefile filename="">
@@ -36,21 +30,36 @@
 <data:lvalue value="SEQUENCE"/> 
 </attribute>
 <attribute name="NUMFRAMES">
-<data:dvalue value="3330" /> 
+<data:dvalue value="5311" /> 
 </attribute>
 <attribute name="FRAMERATE">
 <data:fvalue value="25.0" /> 
 </attribute>
 <attribute name="H-FRAME-SIZE" > 
-<data:dvalue value="320" /> 
+<data:dvalue value="720" /> 
 </attribute>
 <attribute name="V-FRAME-SIZE" > 
-<data:dvalue value="256" /> 
+<data:dvalue value="576" /> 
 </attribute>
 </file>
-<object framespan="1657:2138" id="0" name="AbandonedObject">
+<object framespan="2638:2919" id="4" name="AbandonedObject">
 <attribute name="BoundingBox">
-<data:bbox height="23" width="33" x="117" y="84"/> 
+<data:bbox height="108" width="37" x="590" y="74"/> 
+</attribute>
+</object>
+<object framespan="2099:2329" id="0" name="AbandonedObject">
+<attribute name="BoundingBox">
+<data:bbox height="146" width="113" x="492" y="271"/> 
+</attribute>
+</object>
+<object framespan="2356:2568" id="2" name="AbandonedObject">
+<attribute name="BoundingBox">
+<data:bbox height="36" width="31" x="569" y="270"/> 
+</attribute>
+</object>
+<object framespan="2742:2957" id="5" name="AbandonedObject">
+<attribute name="BoundingBox">
+<data:bbox height="25" width="28" x="546" y="199"/> 
 </attribute>
 </object>
 </sourcefile>
