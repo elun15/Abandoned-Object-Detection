@@ -12,13 +12,14 @@
 #	1: Subsampling
 # 	2: Acc Mask
 #
-# 3 "Abandoned/Stolen classifier" module
+#3 "People detection" module
+#	1: HOG
+# 	2: DPM
+
+# 4 "Abandoned/Stolen classifier" module
 # 	1: High Gradient
 # 	2: Histogram
 #
-# 4 "People detection" module
-#	1: HOG
-# 	2: DPM
 
 #
 # Proposed configurations
@@ -32,13 +33,12 @@
 # Last update: 2017-09-18
 
 
-configs=("2123") 	#selected system configurations (YOU CAN CHANGE)
+configs=("1111") 	#selected system configurations (YOU CAN CHANGE)
+seconds_to_static=30;
 
 results_path="./results/"		#path where results  are located (YOU CAN CHANGE)
 dataset_path="./datasets"		#path where datasets are located (YOU CAN CHANGE)
 binary_path="./build_release/System_Evaluation" 	#path where binaries are located (YOU CAN CHANGE)
-
-
 
 Nconfig=${#configs[@]}			#total number of configurations
 clear
@@ -49,10 +49,10 @@ for c in $(seq 0 1 $((Nconfig-1))); do
 	#echo "Configuration ${configs[c]}"
 	bkg_sel=${configs[c]:0:1} #algorithm for "Background subtraction" module
 	sfg_sel=${configs[c]:1:1} #algorithm for "Stationary foreground" module
-	asc_sel=${configs[c]:2:1} #algorithm for "Abandoned/Stolen classifier" module
-	ped_sel=${configs[c]:3:1} #algorithm for "People detection" module
-
-	echo "CONFIGURATION bkg=${bkg_sel} sfg=${sfg_sel} asc=${asc_sel} ped=${ped_sel}"
+	ped_sel=${configs[c]:2:1} #algorithm for "People detection" module
+	asc_sel=${configs[c]:3:1} #algorithm for "Abandoned/Stolen classifier" module
+	
+	echo "CONFIGURATION bkg=${bkg_sel} sfg=${sfg_sel} ped=${ped_sel} asc=${asc_sel} time=$seconds_to_static"
 
 	
 	#process each category descriptor/file
@@ -83,14 +83,14 @@ for c in $(seq 0 1 $((Nconfig-1))); do
 			seq_path=${dataset_path}${line}		#get the full sequence path
 			filename=$(basename "$seq_path")	#get the filename of the sequence 
 			fname="${filename%.*}"			#get the filename without extension
-			out_log=${out_path}"/"${fname}"_${bkg_sel}_${sfg_sel}_${asc_sel}_${ped_sel}${DATE}.log" #generate output log							
+			out_log=${out_path}"/"${fname}"_${bkg_sel}_${sfg_sel}_${ped_sel}_${asc_sel}_${DATE}.log" #generate output log							
 			
 			START_TIME=$SECONDS
 			#echo "dir "$seq_path
 			
 			# WITHOUT CONTEXT MASK
 			#echo -n ${binary_path} $bkg_sel $sfg_sel $asc_sel $ped_sel ${seq_path} ${out_path} > ${out_log}
-			${binary_path} $bkg_sel $sfg_sel $asc_sel $ped_sel ${seq_path} ${out_path} > ${out_log} 2>&1
+			${binary_path} $bkg_sel $sfg_sel $ped_sel $asc_sel ${seq_path} ${out_path} $seconds_to_static  > ${out_log} 2>&1
 		
 
 			echo  "done ($(($(($SECONDS- $START_TIME))/60)) min $(($(($SECONDS-$START_TIME))%60)) sec)"
