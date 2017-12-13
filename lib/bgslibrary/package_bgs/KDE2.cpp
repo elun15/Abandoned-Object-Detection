@@ -31,6 +31,7 @@ KDE2::KDE2(int rate)
   setup("./config/KDE.xml");
 
   framesToLearn = rate;
+  //SequenceLength = 50;
   //frameNumber = 0;
   //alpha = rate;
 
@@ -45,6 +46,7 @@ KDE2::~KDE2()
 
 void KDE2::process(const cv::Mat &img_input, cv::Mat &img_output, cv::Mat &img_bgmodel)
 {
+
   init(img_input, img_output, img_bgmodel);
 
   if (firstTime)
@@ -58,7 +60,7 @@ void KDE2::process(const cv::Mat &img_input, cv::Mat &img_output, cv::Mat &img_b
     // this rate will affect how fast the model adapt.
     // SDEstimationFlag: True means to estimate suitable kernel bandwidth to each pixel, False uses a default value.
     // lUseColorRatiosFlag: True means use normalized RGB for color (recommended.)
-    p->Intialize(rows, cols, color_channels, SequenceLength, TimeWindowSize, SDEstimationFlag, lUseColorRatiosFlag);
+    p->Intialize(rows, cols, color_channels, SequenceLength, TimeWindowSize, SDEstimationFlag, lUseColorRatiosFlag,500);
     // th: 0-1 is the probability threshold for a pixel to be a foregroud. typically make it small as 10e-8. the smaller the value the less false positive and more false negative.
     // alpha: 0-1, for color. typically set to 0.3. this affect shadow suppression.
     p->SetThresholds(th, alpha);
@@ -95,7 +97,7 @@ void KDE2::process(const cv::Mat &img_input, cv::Mat &img_output, cv::Mat &img_b
 
     // At each frame also you can call the update function to adapt the bg
     // here you pass a mask where pixels with true value will be masked out of the update.
-   ((NPBGSubtractor*)p)->Update(FGImage);
+   //CAMBIAR ((NPBGSubtractor*)p)->Update(FGImage);
 
 
 

@@ -55,6 +55,12 @@ along with BGSLibrary.  If not, see <http://www.gnu.org/licenses/>.
 #include <math.h>
 #include <string.h>
 
+
+//ADDED
+#include <opencv2/opencv.hpp>
+#include "opencv2/imgproc/imgproc.hpp"
+#include "opencv2/highgui/highgui.hpp"
+
 //#ifdef _DEBUG
 //#undef THIS_FILE
 //static char THIS_FILE[]=__FILE__;
@@ -268,7 +274,8 @@ int NPBGSubtractor::Intialize(unsigned int prows,
   unsigned int SequenceLength,
   unsigned int pTimeWindowSize,
   unsigned char pSDEstimationFlag,
-  unsigned char pUseColorRatiosFlag)
+  unsigned char pUseColorRatiosFlag,
+  int resetBG)
 {
 
   rows = prows;
@@ -283,9 +290,10 @@ int NPBGSubtractor::Intialize(unsigned int prows,
   //
   SubsetFlag = TRUE;
 
-  UpdateSDRate = 0;
+  UpdateSDRate = 0; //0
 
-  BGModel = new NPBGmodel(rows, cols, color_channels, SequenceLength, pTimeWindowSize, 500);
+  //BGModel = new NPBGmodel(rows, cols, color_channels, SequenceLength, pTimeWindowSize, 500);
+  BGModel = new NPBGmodel(rows, cols, color_channels, SequenceLength, pTimeWindowSize, resetBG);
 
   Pimage1 = new double[rows*cols];
   Pimage2 = new double[rows*cols];
@@ -341,7 +349,13 @@ void NPBGSubtractor::Estimation()
     memset(pSDs, bin, rows*cols*color_channels * sizeof(unsigned char));
   }
 
-  BGModel->SDbinsImage = pSDs;
+  //BGModel->SDbinsImage = pSDs;
+ // AbsDiffHist.MedianBins
+  cv::Mat BG = cv::Mat::zeros(rows,cols,CV_8UC3);
+ BG.data =  AbsDiffHist.AccSum;
+  imshow("pSDs", BG);
+  cv::waitKey();
+
 
   // Generate the Kernel
   KernelTable = new KernelLUTable(KERNELHALFWIDTH, SEGMAMIN, SEGMAMAX, SEGMABINS);
@@ -703,6 +717,7 @@ void NPBGSubtractor::SequenceBGUpdate_Pairs(unsigned char * image,
 
   rate = TimeWindowSize / SampleSize;
   rate = (rate > 2) ? rate : 2;
+ // std::cout << "rate="<< rate<< std::endl;//PRUEBA
 
 
   TemporalBufferNext = (TemporalBufferTop + 1)
@@ -756,40 +771,34 @@ void NPBGSubtractor::SequenceBGUpdate_Pairs(unsigned char * image,
 
             // add new pair from temporal buffer
             histindex = ic*histbins;
-            diff = abs(*pTBbase1 -
-              *pTBbase2);
+            diff = abs(*pTBbase1 - *pTBbase2);
             bin = (diff < histbins ? diff : histbins_1);
             pAbsDiffHist[histindex + bin]++;
 
             histindex += histbins;
-            diff = abs(*(pTBbase1 + 1) -
-              *(pTBbase2 + 1));
+            diff = abs(*(pTBbase1 + 1) - *(pTBbase2 + 1));
             bin = (diff < histbins ? diff : histbins_1);
             pAbsDiffHist[histindex + bin]++;
 
             histindex += histbins;
-            diff = abs(*(pTBbase1 + 2) -
-              *(pTBbase2 + 2));
+            diff = abs(*(pTBbase1 + 2) - *(pTBbase2 + 2));
             bin = (diff < histbins ? diff : histbins_1);
             pAbsDiffHist[histindex + bin]++;
 
             // remove old pair from the model
             histindex = ic*histbins;
 
-            diff = abs(*pModelbase1 -
-              *pModelbase2);
+            diff = abs(*pModelbase1 - *pModelbase2);
             bin = (diff < histbins ? diff : histbins_1);
             pAbsDiffHist[histindex + bin]--;
 
             histindex += histbins;
-            diff = abs(*(pModelbase1 + 1) -
-              *(pModelbase2 + 1));
+            diff = abs(*(pModelbase1 + 1) - *(pModelbase2 + 1));
             bin = (diff < histbins ? diff : histbins_1);
             pAbsDiffHist[histindex + bin]--;
 
             histindex += histbins;
-            diff = abs(*(pModelbase1 + 2) -
-              *(pModelbase2 + 2));
+            diff = abs(*(pModelbase1 + 2) - *(pModelbase2 + 2));
             bin = (diff < histbins ? diff : histbins_1);
             pAbsDiffHist[histindex + bin]--;
           }
@@ -844,6 +853,7 @@ void NPBGSubtractor::SequenceBGUpdate_Pairs(unsigned char * image,
     unsigned char * pSDs = BGModel->SDbinsImage;
 
     FindHistMedians(&(AbsDiffHist));
+
     EstimateSDsFromAbsDiffHist(&(AbsDiffHist), pSDs, imagebuffersize, MinSD, MaxSD, KernelBins);
   }
 
@@ -1155,6 +1165,7 @@ void NPBGSubtractor::NBBGSubtraction(unsigned char * Frame,
 
 void NPBGSubtractor::Update(unsigned char * FGMask)
 {
+   std::cout << "UpdateBGFlag="<< (int)(UpdateBGFlag) << std::endl;
   if (UpdateBGFlag)
     SequenceBGUpdate_Pairs(tempFrame, FGMask);
 }

@@ -15,16 +15,17 @@ int main(int argc, char *argv[])
 {
     // Initialize all settings to configure the AOD system
     Config cfg(argc,argv);
-    //Config cfg("./../datasets/AVSS2007/AVSSS07_EASY.mpg","./../results/");
-    //Config cfg("./../datasets/CAVIAR/LeftBag_AtChair.mpeg","./../results/");
-    //Config cfg("./../datasets/VISOR_test/visor_1212674131705_pacco6.avi", "./../results");
-   //Config cfg("./../datasets/VISOR/visor_Video01.avi","./../results/");
-   cfg.time_to_static = 30; //in seconds
+    //Config cfg("./../datasets/AVSS2007/AVSSS07_EASY.mpg","./../results/",30);
+    //Config cfg("./../datasets/PETS2006_S5/PETS2006_S5_C3.mpeg","./../results/");
+
+
+    //Config cfg("./../datasets/VISOR/visor_Video02.avi","./../results/");
+   // cfg.time_to_static = 30; //in seconds ARGUMENTOS
 
     //videoreader
     cv::VideoCapture cap(cfg.inputPath);
     if (!cap.isOpened()){
-        cout << "Could not open the video file" << endl;
+        cout << "Could not open the video file: " << cfg.inputPath << endl;
         exit(EXIT_FAILURE);
     }
     else
@@ -47,7 +48,7 @@ int main(int argc, char *argv[])
         // ******** FRAME PROCESSING *******
         if (frame.data)
         {
-           // PRUEBA cout << "Frame " << cfg.numFrame << endl;
+            //cout << "Frame " << cfg.numFrame << endl;
 
             // First frame
             if (cfg.numFrame  == 1)

@@ -38,13 +38,14 @@ namespace bgslibrary
       double alpha;
       int framesToLearn;
       int frameNumber;
+      int reset ;
 
       unsigned char *FGImage;
       unsigned char *FilteredFGImage;
       unsigned char **DisplayBuffers;
 
     public:
-      KDE();
+      KDE(int r);
       ~KDE();
 
       void process(const cv::Mat &img_input, cv::Mat &img_output, cv::Mat &img_bgmodel);

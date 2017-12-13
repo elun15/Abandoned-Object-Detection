@@ -62,8 +62,42 @@ SOURCES += main.cpp\
     ../../../src/Config.cpp \
     ../../../src/sfgd/StaticMaskExtractor_DualBkg.cpp \
     ../../../src/sfgd/StaticMaskExtractor_HistoryImages.cpp \
-    ../../../lib/bgslibrary/package_bgs/KDE2.cpp \
-    ../../../lib/bgslibrary/package_bgs/KDE/NPBGSubtractor.cpp
+    ../../../lib/bgslibrary/package_bgs/KDE/NPBGSubtractor.cpp \
+    ../../../lib/bgslibrary/package_bgs/KDE/KernelTable.cpp \
+    ../../../lib/bgslibrary/package_bgs/KDE/NPBGmodel.cpp \
+    ../../../lib/bgslibrary/package_bgs/KDE.cpp \
+       ../../../lib/pdlibrary/acf/ACF/ACFFeaturePyramid.cpp \
+    ../../../lib/pdlibrary/acf/ACF/Channel.cpp \
+    ../../../lib/pdlibrary/acf/ACF/ChannelFeatures.cpp \
+    ../../../lib/pdlibrary/acf/ACF/ColorChannel.cpp \
+    ../../../lib/pdlibrary/acf/ACF/convConst.cpp \
+    ../../../lib/pdlibrary/acf/ACF/GradHistChannel.cpp \
+    ../../../lib/pdlibrary/acf/ACF/gradientMex.cpp \
+    ../../../lib/pdlibrary/acf/ACF/GradMagChannel.cpp \
+    ../../../lib/pdlibrary/acf/ACF/wrappers.cpp \
+    ../../../lib/pdlibrary/acf/Channel/Convert.cpp \
+    ../../../lib/pdlibrary/acf/Core/detection.cpp \
+    ../../../lib/pdlibrary/acf/Core/DetectionList.cpp \
+    ../../../lib/pdlibrary/acf/Core/detector.cpp \
+    ../../../lib/pdlibrary/acf/Core/DetectorManager.cpp \
+    ../../../lib/pdlibrary/acf/Core/detectormodel.cpp \
+    ../../../lib/pdlibrary/acf/Core/feature.cpp \
+    ../../../lib/pdlibrary/acf/Core/featurelayer.cpp \
+    ../../../lib/pdlibrary/acf/Core/filelocator.cpp \
+    ../../../lib/pdlibrary/acf/Core/FileWriter.cpp \
+    ../../../lib/pdlibrary/acf/Core/FrameFromCamera.cpp \
+    ../../../lib/pdlibrary/acf/Core/FrameFromDirectory.cpp \
+    ../../../lib/pdlibrary/acf/Core/FrameFromVideo.cpp \
+    ../../../lib/pdlibrary/acf/Core/FrameProducer.cpp \
+    ../../../lib/pdlibrary/acf/Core/nms.cpp \
+    ../../../lib/pdlibrary/acf/Core/NonMaximumSuppression.cpp \
+    ../../../lib/pdlibrary/acf/Core/ScaleSpacePyramid.cpp \
+    ../../../lib/pdlibrary/dpm/dpm_cascade.cpp \
+    ../../../lib/pdlibrary/dpm/dpm_cascade_detector.cpp \
+    ../../../lib/pdlibrary/dpm/dpm_convolution.cpp \
+    ../../../lib/pdlibrary/dpm/dpm_feature.cpp \
+    ../../../lib/pdlibrary/dpm/dpm_model.cpp \
+    ../../../lib/pdlibrary/dpm/dpm_nms.cpp \
 
 
 
@@ -120,7 +154,7 @@ HEADERS  +=        ../../../lib/bgslibrary/package_bgs/KNN.h \
     ../../../lib/ACFlibrary/rapidxml-1.13/rapidxml_utils.hpp \
     ../../../lib/ACFlibrary/rapidxml-1.13/rapidxml.hpp \
     ../../../src/aod.h \
-      ../../../src/bgs/BGSselector.h \
+     ../../../src/bgs/BGSselector.h \
     ../../../src/blobs/BasicBlob.h \
     ../../../src/blobs/BlobExtractor.h \
     ../../../src/blobs/BlobList.h \
@@ -143,7 +177,59 @@ HEADERS  +=        ../../../lib/bgslibrary/package_bgs/KNN.h \
     ../../../src/Config.h \
     ../../../src/sfgd/StaticMaskExtractor_DualBkg.h \
     ../../../src/sfgd/StaticMaskExtractor_HistoryImages.h \
-    ../../../lib/bgslibrary/package_bgs/KDE2.h
+        ../../../lib/bgslibrary/package_bgs/KDE/KernelTable.h \
+    ../../../lib/bgslibrary/package_bgs/KDE/NPBGmodel.h \
+    ../../../lib/bgslibrary/package_bgs/KDE/NPBGSubtractor.h \
+      ../../../lib/bgslibrary/package_bgs/GMG.h \
+    ../../../lib/bgslibrary/package_bgs/KDE.h \
+          ../../../lib/bgslibrary/Config.h \
+    ../../../lib/bgslibrary/FrameProcessor.h \
+    ../../../lib/bgslibrary/IFrameProcessor.h \
+    ../../../lib/bgslibrary/PreProcessor.h \
+    ../../../lib/bgslibrary/VideoAnalysis.h \
+    ../../../lib/bgslibrary/VideoCapture.h \
+    ../../../lib/pdlibrary/acf/ACF/ACFDetector.h \
+    ../../../lib/pdlibrary/acf/ACF/ACFFeaturePyramid.h \
+    ../../../lib/pdlibrary/acf/ACF/Channel.h \
+    ../../../lib/pdlibrary/acf/ACF/ChannelFeatures.h \
+    ../../../lib/pdlibrary/acf/ACF/ColorChannel.h \
+    ../../../lib/pdlibrary/acf/ACF/GradHistChannel.h \
+    ../../../lib/pdlibrary/acf/ACF/GradMagChannel.h \
+    ../../../lib/pdlibrary/acf/ACF/imResampleMex.hpp \
+    ../../../lib/pdlibrary/acf/ACF/rgbConvertMex.hpp \
+    ../../../lib/pdlibrary/acf/ACF/sse.hpp \
+    ../../../lib/pdlibrary/acf/ACF/wrappers.hpp \
+    ../../../lib/pdlibrary/acf/Channel/Functions.h \
+    ../../../lib/pdlibrary/acf/Core/detection.h \
+    ../../../lib/pdlibrary/acf/Core/DetectionList.h \
+    ../../../lib/pdlibrary/acf/Core/detector.h \
+    ../../../lib/pdlibrary/acf/Core/DetectorManager.h \
+    ../../../lib/pdlibrary/acf/Core/detectormodel.h \
+    ../../../lib/pdlibrary/acf/Core/dirent.h \
+    ../../../lib/pdlibrary/acf/Core/feature.h \
+    ../../../lib/pdlibrary/acf/Core/featurelayer.h \
+    ../../../lib/pdlibrary/acf/Core/filelocator.h \
+    ../../../lib/pdlibrary/acf/Core/FileWriter.h \
+    ../../../lib/pdlibrary/acf/Core/FrameFromCamera.h \
+    ../../../lib/pdlibrary/acf/Core/FrameFromDirectory.h \
+    ../../../lib/pdlibrary/acf/Core/FrameFromVideo.h \
+    ../../../lib/pdlibrary/acf/Core/FrameProducer.h \
+    ../../../lib/pdlibrary/acf/Core/Image.hpp \
+    ../../../lib/pdlibrary/acf/Core/nms.h \
+    ../../../lib/pdlibrary/acf/Core/NonMaximumSuppression.h \
+    ../../../lib/pdlibrary/acf/Core/ScaleSpacePyramid.h \
+    ../../../lib/pdlibrary/acf/rapidxml-1.13/rapidxml.hpp \
+    ../../../lib/pdlibrary/acf/rapidxml-1.13/rapidxml_iterators.hpp \
+    ../../../lib/pdlibrary/acf/rapidxml-1.13/rapidxml_print.hpp \
+    ../../../lib/pdlibrary/acf/rapidxml-1.13/rapidxml_utils.hpp \
+    ../../../lib/pdlibrary/acf/acf.hpp \
+    ../../../lib/pdlibrary/dpm/dpm.hpp \
+    ../../../lib/pdlibrary/dpm/dpm_cascade.hpp \
+    ../../../lib/pdlibrary/dpm/dpm_convolution.hpp \
+    ../../../lib/pdlibrary/dpm/dpm_feature.hpp \
+    ../../../lib/pdlibrary/dpm/dpm_model.hpp \
+    ../../../lib/pdlibrary/dpm/dpm_nms.hpp \
+    ../../../lib/pdlibrary/dpm/precomp.hpp \
 
 
 
@@ -154,9 +240,6 @@ PKGCONFIG += opencv
 INCLUDEPATH += /usr/lib/x86_64-linux-gnu/
 LIBS += -L/usr/lib/x86_64-linux-gnu/
 
-DISTFILES += \
-    ../../../lib/ACF/INRIA_ACF.xml \
-    ../../../lib/rapidxml-1.13/license.txt
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../lib/pdlibrary/build/release/ -lpd
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../lib/pdlibrary/build/debug/ -lpd
@@ -171,15 +254,23 @@ else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/..
 else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../../../lib/pdlibrary/build/debug/pd.lib
 else:unix: PRE_TARGETDEPS += $$PWD/../../../lib/pdlibrary/build/libpd.a
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../lib/bgslibrary/build/release/ -lbgs
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../lib/bgslibrary/build/debug/ -lbgs
-else:unix: LIBS += -L$$PWD/../../../lib/bgslibrary/build/ -lbgs
+#win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../lib/bgslibrary/build/release/ -lbgs
+#else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../lib/bgslibrary/build/debug/ -lbgs
+#else:unix: LIBS += -L$$PWD/../../../lib/bgslibrary/build/ -lbgs
 
-INCLUDEPATH += $$PWD/../../../lib/bgslibrary/build
-DEPENDPATH += $$PWD/../../../lib/bgslibrary/build
+#INCLUDEPATH += $$PWD/../../../lib/bgslibrary/build
+#DEPENDPATH += $$PWD/../../../lib/bgslibrary/build
 
-win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../../../lib/bgslibrary/build/release/libbgs.a
-else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../../../lib/bgslibrary/build/debug/libbgs.a
-else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../../../lib/bgslibrary/build/release/bgs.lib
-else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../../../lib/bgslibrary/build/debug/bgs.lib
-else:unix: PRE_TARGETDEPS += $$PWD/../../../lib/bgslibrary/build/libbgs.a
+#win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../../../lib/bgslibrary/build/release/libbgs.a
+#else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../../../lib/bgslibrary/build/debug/libbgs.a
+#else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../../../lib/bgslibrary/build/release/bgs.lib
+#else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../../../lib/bgslibrary/build/debug/bgs.lib
+#else:unix: PRE_TARGETDEPS += $$PWD/../../../lib/bgslibrary/build/libbgs.a
+#
+#SUBDIRS += \
+ #   ../../../lib/bgslibrary/gui_qt/bgslibrary_gui.pro
+
+#RESOURCES += \
+ #   ../../../lib/bgslibrary/gui_qt/application.qrc
+
+

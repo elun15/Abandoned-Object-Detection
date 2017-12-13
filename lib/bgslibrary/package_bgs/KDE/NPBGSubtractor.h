@@ -121,7 +121,7 @@ public:
     unsigned int SequenceLength,
     unsigned int TimeWindowSize,
     unsigned char SDEstimationFlag,
-    unsigned char UseColorRatiosFlag);
+    unsigned char UseColorRatiosFlag, int resetBG);
 
   void AddFrame(unsigned char * ImageBuffer);
 
@@ -132,7 +132,7 @@ public:
     unsigned char *FilteredFGImage,
     unsigned char **DisplayBuffers);
 
-  void Update(unsigned char *);
+  void Update(unsigned char * FGMask);
 
   void SetThresholds(double th, double alpha)
   {
