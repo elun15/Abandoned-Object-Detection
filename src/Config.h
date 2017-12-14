@@ -16,7 +16,7 @@
 #define DEFAULT_DETECT_ALWAYS false
 
 ///Flag to save results (xml/txt files)
-#define DEFAULT_RESULTS_SAVE_XML false
+#define DEFAULT_RESULTS_SAVE_XML true
 
 ///Flag to save results (images)
 #define DEFAULT_RESULTS_SAVE_IMG false

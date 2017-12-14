@@ -45,14 +45,6 @@ void Config::init(int bkg, int sfgd, int pd, int soc, std::string inputPath, std
     this->inputPath = inputPath;
     this->resultsDir= resultsDir;
 
-    //output for images
-    this->DirImages = this->resultsDir + "/images/";
-    //Path for settings file
-    //in QT
-    //this->fileSettingsPath = this->resultsDir + "config" + to_string_(this->m_bkg) +  to_string_( this->m_sfgd)+ to_string_( this->m_pd)+ to_string_( this->m_soc  )+"/parameters.settings";
-    //Terminal:
-    this->fileSettingsPath = "./results/config" + to_string_(this->m_bkg) +  to_string_( this->m_sfgd)+ to_string_( this->m_pd)+ to_string_( this->m_soc  )+"/parameters.settings";
-
 
     //default display/output Config
     this->ShowResults = DEFAULT_RESULTS_SHOW;
@@ -66,7 +58,6 @@ void Config::init(int bkg, int sfgd, int pd, int soc, std::string inputPath, std
     this->flag_stillpeople = DEFAULT_FLAG_STILLPEOPLE;
     this->flag_contextmask = DEFAULT_FLAG_MASK;
 
-
     //other Config
     this->time_to_static = seconds;
     this->DetectPeopleAlways = DEFAULT_DETECT_ALWAYS;
@@ -74,8 +65,18 @@ void Config::init(int bkg, int sfgd, int pd, int soc, std::string inputPath, std
     //find filename for the full video path
     this->inputvideo = findFilename(this->inputPath);
 
+    //output for images
+    this->DirImages = this->resultsDir + "/images/";
+    //Path for settings file
+    //in QT
+    //this->fileSettingsPath = this->resultsDir + "config" + to_string_(this->m_bkg) +  to_string_( this->m_sfgd)+ to_string_( this->m_pd)+ to_string_( this->m_soc  )+"/parameters.settings";
+    //Terminal:
+    this->fileSettingsPath = "./results/config" + to_string_(this->m_bkg) +  to_string_( this->m_sfgd)+ to_string_( this->m_pd)+ to_string_( this->m_soc )+ "_"+ to_string_(this->time_to_static) + "/parameters.settings";
+
+
     //output files
-    if (this->SaveResults == true){
+    if (this->SaveResults == true)
+    {
         string baseoutfile = resultsDir + inputvideo + "_"+ to_string_(this->m_bkg) + "_" + to_string_( this->m_sfgd) + "_"+ to_string_( this->m_pd )+ "_"+to_string_( this->m_soc ) ;
         this->fileResults = baseoutfile + "_"+ currentDateTime() + ".xml";    // XML file with results (.xml)
         this->fileTime = baseoutfile + "_"+ currentDateTime() + ".time";      // file with execution times (.time)
@@ -155,7 +156,7 @@ void Config::findContextMask()
         //READ CONTEXT MASK FOR EVERY VIDEO
 
 
-       // string mask_folder  = inputPath.substr(3,inputPath.find_last_of("/")-2);
+        // string mask_folder  = inputPath.substr(3,inputPath.find_last_of("/")-2);
         string mask_folder  = inputPath.substr(0,inputPath.find_last_of("/")+1);
         string mask_path = mask_folder + this->inputvideo + "_mask.jpg";
         this->contextMask = imread(mask_path,CV_LOAD_IMAGE_GRAYSCALE);
@@ -166,8 +167,8 @@ void Config::findContextMask()
         }
         else
         {
-           // imshow("Context mask", this->contextMask);
-           // waitKey();
+            // imshow("Context mask", this->contextMask);
+            // waitKey();
         }
 
     }
