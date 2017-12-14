@@ -1,0 +1,14 @@
+ Selected bkg method: 3
+ Selected sfgd method: 2
+ Selected people detector method:3
+ Selected static object classifier method: 2
+ Input video dir: ./datasets
+ Output dir: ./results/config3232/Category_hard/
+
+ Time (seconds) to static: 30
+ Show results: 0
+ Save results (images): 0
+ Save results (xml): 1
+ - Results will be saved in (XML): ./results/config3232/Category_hard/datasets_3_2_3_2_2017-12-13.17-36.xml
+ - Results will be saved in (Time): ./results/config3232/Category_hard/datasets_3_2_3_2_2017-12-13.17-36.time
+Could not open mask image:./datasets_mask.jpg

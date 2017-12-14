@@ -1,0 +1,23 @@
+ Selected bkg method: 3
+ Selected sfgd method: 4
+ Selected people detector method:4
+ Selected static object classifier method: 2
+ Input video dir: ./datasets/PETS2006_S5/PETS2006_S5_C4.avi
+ Output dir: ./results/config3442_20/Category_hard/
+
+ Time (seconds) to static: 20
+ Show results: 0
+ Save results (images): 0
+ Save results (xml): 1
+ - Results will be saved in (XML): ./results/config3442_20/Category_hard/PETS2006_S5_C4_3_4_4_2_2017-12-14.10-35.xml
+ - Results will be saved in (Time): ./results/config3442_20/Category_hard/PETS2006_S5_C4_3_4_4_2_2017-12-14.10-35.time
+Video successfully opened29.97 fps. Size: 720 x 576
+BGSselector(): BGS_MOG2 selected
+BGSselector(): BGS_MOG2 method initialized.
+SFDGselector():  selected time2static=20secs framerate=29.97fps
+PDselector():  selected
+PDSelector(): SOC_HIST selected
+Saving results and execution times.
+Init viper file
+Viper log file created
+WARNING: settings file can't be created: ./results/config3442/parameters.settings

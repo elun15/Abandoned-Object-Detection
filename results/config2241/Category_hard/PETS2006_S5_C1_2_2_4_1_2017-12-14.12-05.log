@@ -1,0 +1,1456 @@
+ Selected bkg method: 2
+ Selected sfgd method: 2
+ Selected people detector method:4
+ Selected static object classifier method: 1
+ Input video dir: ./datasets/PETS2006_S5/PETS2006_S5_C1.mpeg
+ Output dir: ./results/config2241/Category_hard/
+
+ Time (seconds) to static: 30
+ Show results: 0
+ Save results (images): 0
+ Save results (xml): 1
+ - Results will be saved in (XML): ./results/config2241/Category_hard/PETS2006_S5_C1_2_2_4_1_2017-12-14.12-05.xml
+ - Results will be saved in (Time): ./results/config2241/Category_hard/PETS2006_S5_C1_2_2_4_1_2017-12-14.12-05.time
+Video successfully opened30 fps. Size: 720 x 576
+BGSselector(): BGS_PAWCS selected
+PAWCS()
+BGSselector(): BGS_PAWCS method initialized.
+SFDGselector(): SFGD_ACC selected time2static=30secs framerate=30fps
+PDselector():  selected
+PDSelector(): SOC_HGR selected
+Saving results and execution times.
+Init viper file
+Viper log file created
+Settings file created
+Frame 1. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 2. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 3. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 4. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 5. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 6. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 7. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 8. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 9. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 10. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 11. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 12. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 13. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 14. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 15. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 16. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 17. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 18. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 19. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 20. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 21. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 22. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 23. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 24. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 25. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 26. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 27. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 28. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 29. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 30. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 31. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 32. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 33. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 34. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 35. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 36. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 37. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 38. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 39. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 40. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 41. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 42. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 43. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 44. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 45. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 46. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 47. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 48. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 49. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 50. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 51. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 52. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 53. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 54. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 55. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 56. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 57. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 58. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 59. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 60. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 61. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 62. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 63. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 64. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 65. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 66. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 67. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 68. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 69. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 70. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 71. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 72. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 73. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 74. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 75. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 76. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 77. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 78. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 79. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 80. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 81. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 82. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 83. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 84. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 85. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 86. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 87. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 88. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 89. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 90. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 91. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 92. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 93. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 94. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 95. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 96. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 97. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 98. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 99. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 100. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 101. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 102. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 103. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 104. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 105. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 106. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 107. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 108. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 109. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 110. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 111. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 112. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 113. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 114. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 115. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 116. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 117. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 118. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 119. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 120. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 121. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 122. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 123. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 124. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 125. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 126. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 127. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 128. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 129. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 130. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 131. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 132. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 133. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 134. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 135. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 136. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 137. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 138. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 139. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 140. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 141. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 142. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 143. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 144. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 145. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 146. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 147. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 148. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 149. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 150. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 151. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 152. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 153. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 154. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 155. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 156. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 157. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 158. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 159. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 160. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 161. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 162. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 163. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 164. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 165. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 166. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 167. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 168. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 169. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 170. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 171. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 172. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 173. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 174. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 175. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 176. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 177. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 178. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 179. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 180. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 181. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 182. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 183. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 184. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 185. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 186. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 187. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 188. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 189. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 190. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 191. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 192. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 193. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 194. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 195. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 196. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 197. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 198. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 199. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 200. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 201. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 202. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 203. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 204. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 205. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 206. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 207. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 208. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 209. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 210. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 211. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 212. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 213. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 214. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 215. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 216. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 217. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 218. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 219. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 220. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 221. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 222. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 223. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 224. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 225. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 226. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 227. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 228. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 229. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 230. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 231. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 232. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 233. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 234. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 235. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 236. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 237. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 238. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 239. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 240. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 241. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 242. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 243. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 244. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 245. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 246. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 247. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 248. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 249. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 250. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 251. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 252. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 253. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 254. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 255. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 256. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 257. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 258. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 259. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 260. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 261. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 262. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 263. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 264. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 265. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 266. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 267. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 268. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 269. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 270. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 271. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 272. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 273. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 274. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 275. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 276. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 277. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 278. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 279. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 280. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 281. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 282. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 283. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 284. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 285. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 286. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 287. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 288. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 289. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 290. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 291. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 292. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 293. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 294. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 295. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 296. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 297. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 298. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 299. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 300. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 301. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 302. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 303. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 304. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 305. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 306. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 307. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 308. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 309. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 310. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 311. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 312. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 313. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 314. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 315. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 316. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 317. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 318. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 319. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 320. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 321. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 322. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 323. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 324. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 325. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 326. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 327. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 328. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 329. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 330. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 331. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 332. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 333. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 334. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 335. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 336. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 337. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 338. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 339. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 340. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 341. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 342. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 343. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 344. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 345. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 346. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 347. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 348. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 349. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 350. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 351. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 352. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 353. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 354. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 355. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 356. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 357. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 358. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 359. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 360. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 361. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 362. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 363. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 364. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 365. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 366. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 367. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 368. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 369. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 370. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 371. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 372. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 373. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 374. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 375. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 376. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 377. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 378. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 379. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 380. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 381. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 382. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 383. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 384. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 385. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 386. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 387. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 388. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 389. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 390. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 391. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 392. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 393. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 394. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 395. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 396. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 397. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 398. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 399. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 400. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 401. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 402. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 403. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 404. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 405. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 406. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 407. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 408. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 409. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 410. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 411. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 412. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 413. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 414. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 415. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 416. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 417. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 418. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 419. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 420. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 421. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 422. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 423. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 424. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 425. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 426. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 427. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 428. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 429. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 430. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 431. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 432. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 433. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 434. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 435. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 436. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 437. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 438. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 439. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 440. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 441. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 442. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 443. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 444. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 445. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 446. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 447. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 448. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 449. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 450. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 451. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 452. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 453. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 454. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 455. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 456. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 457. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 458. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 459. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 460. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 461. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 462. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 463. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 464. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 465. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 466. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 467. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 468. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 469. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 470. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 471. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 472. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 473. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 474. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 475. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 476. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 477. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 478. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 479. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 480. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 481. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 482. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 483. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 484. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 485. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 486. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 487. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 488. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 489. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 490. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 491. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 492. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 493. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 494. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 495. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 496. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 497. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 498. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 499. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 500. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 501. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 502. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 503. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 504. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 505. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 506. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 507. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 508. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 509. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 510. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 511. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 512. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 513. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 514. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 515. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 516. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 517. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 518. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 519. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 520. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 521. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 522. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 523. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 524. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 525. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 526. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 527. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 528. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 529. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 530. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 531. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 532. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 533. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 534. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 535. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 536. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 537. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 538. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 539. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 540. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 541. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 542. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 543. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 544. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 545. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 546. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 547. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 548. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 549. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 550. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 551. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 552. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 553. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 554. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 555. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 556. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 557. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 558. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 559. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 560. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 561. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 562. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 563. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 564. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 565. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 566. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 567. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 568. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 569. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 570. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 571. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 572. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 573. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 574. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 575. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 576. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 577. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 578. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 579. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 580. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 581. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 582. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 583. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 584. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 585. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 586. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 587. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 588. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 589. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 590. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 591. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 592. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 593. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 594. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 595. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 596. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 597. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 598. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 599. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 600. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 601. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 602. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 603. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 604. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 605. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 606. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 607. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 608. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 609. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 610. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 611. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 612. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 613. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 614. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 615. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 616. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 617. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 618. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 619. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 620. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 621. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 622. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 623. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 624. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 625. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 626. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 627. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 628. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 629. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 630. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 631. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 632. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 633. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 634. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 635. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 636. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 637. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 638. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 639. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 640. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 641. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 642. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 643. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 644. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 645. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 646. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 647. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 648. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 649. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 650. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 651. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 652. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 653. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 654. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 655. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 656. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 657. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 658. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 659. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 660. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 661. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 662. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 663. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 664. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 665. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 666. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 667. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 668. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 669. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 670. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 671. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 672. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 673. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 674. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 675. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 676. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 677. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 678. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 679. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 680. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 681. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 682. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 683. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 684. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 685. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 686. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 687. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 688. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 689. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 690. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 691. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 692. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 693. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 694. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 695. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 696. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 697. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 698. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 699. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 700. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 701. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 702. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 703. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 704. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 705. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 706. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 707. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 708. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 709. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 710. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 711. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 712. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 713. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 714. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 715. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+Frame 716. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
