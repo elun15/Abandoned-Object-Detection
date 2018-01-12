@@ -13,8 +13,8 @@
 #  Created by Elena  on 24/5/17.
 #  Last update: 2017-06-14
 
-results_path="./results_stage4/"		#path where results  are located (YOU CAN CHANGE)
-dataset_path="./datasets"		#path where datasets are located (YOU CAN CHANGE)
+results_path="./results_stage1/"		#path where results  are located (YOU CAN CHANGE)
+dataset_path="./datasets_evaluation"		#path where datasets are located (YOU CAN CHANGE)
 bin_path="./bin/viper/"	 		#path where binaries are located (YOU CAN CHANGE)
 
 #required files 

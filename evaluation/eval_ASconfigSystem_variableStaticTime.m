@@ -19,7 +19,7 @@ addpath(genpath('./funs/'));
 %paths
 bin_path     = './bin/viper/';      %path where binaries are located (YOU CAN CHANGE)
 results_path = './results_stage1/';		%path where results are located (YOU CAN CHANGE)
-dataset_path = './datasets/';		%path where datasets are located (YOU CAN CHANGE)
+dataset_path = './datasets_evaluation/';		%path where datasets are located (YOU CAN CHANGE)
 temp_path    = './temp/';     		%path where temp files are generated (YOU CAN CHANGE)
 
 %executable commands
