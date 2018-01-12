@@ -10,21 +10,36 @@ using namespace std;
 /*********************************/
 /*** MAIN PROGRAM FUNCTION     ***/
 /*********************************/
+
 // To check command usage see Config::print_usage()
 int main(int argc, char *argv[])
 {
     // Initialize all settings to configure the AOD system
-    Config cfg(argc,argv);
-    //Config cfg("./../datasets/AVSS2007/AVSSS07_EASY.mpg","./../results/",30);
-    //Config cfg("./../datasets/PETS2006_S5/PETS2006_S5_C3.mpeg","./../results/");
+
+    Config cfg;
+
+    if (argc == 10)
+    {
+        cout << " Using terminal input parameters "<< endl;
+        cfg.QT_execution = false;
+        cfg.init(atoi(argv[1]),atoi(argv[2]),atoi(argv[3]),atoi(argv[4]),argv[5],argv[6],atoi(argv[7]),atoi(argv[8]),atoi(argv[9]));
+
+    }
+    else
+    {
+        cout << " Using QT input parameters "<< endl;
+        cfg.QT_execution = true;
+        cfg.init(2,1,3,1, "./../datasets/VISOR/visor_Video02.avi","./../results/",30,DEFAULT_FLAG_NEARPEOPLE, DEFAULT_FLAG_MASK);
+        //cfg.init(4,4,3,1, "./../datasets/AVSS2007/AVSSS07_HARD.mpg","./../results/",30,DEFAULT_FLAG_NEARPEOPLE, DEFAULT_FLAG_MASK);
+
+    }
 
 
-    //Config cfg("./../datasets/VISOR/visor_Video02.avi","./../results/");
-   // cfg.time_to_static = 30; //in seconds ARGUMENTOS
 
     //videoreader
     cv::VideoCapture cap(cfg.inputPath);
-    if (!cap.isOpened()){
+    if (!cap.isOpened())
+    {
         cout << "Could not open the video file: " << cfg.inputPath << endl;
         exit(EXIT_FAILURE);
     }

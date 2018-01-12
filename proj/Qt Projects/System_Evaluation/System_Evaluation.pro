@@ -98,6 +98,8 @@ SOURCES += main.cpp\
     ../../../lib/pdlibrary/dpm/dpm_feature.cpp \
     ../../../lib/pdlibrary/dpm/dpm_model.cpp \
     ../../../lib/pdlibrary/dpm/dpm_nms.cpp \
+    #../../../src/sfgd/StaticMaskExtractor_TripleBkg.cpp
+    ../../../src/sfgd/StaticMaskExtractor_TripleBkg.cpp
 
 
 
@@ -230,6 +232,8 @@ HEADERS  +=        ../../../lib/bgslibrary/package_bgs/KNN.h \
     ../../../lib/pdlibrary/dpm/dpm_model.hpp \
     ../../../lib/pdlibrary/dpm/dpm_nms.hpp \
     ../../../lib/pdlibrary/dpm/precomp.hpp \
+    #../../../src/sfgd/StaticMaskExtractor_TripleBkg.h
+    ../../../src/sfgd/StaticMaskExtractor_TripleBkg.h
 
 
 
@@ -239,6 +243,15 @@ CONFIG  += link_pkgconfig
 PKGCONFIG += opencv
 INCLUDEPATH += /usr/lib/x86_64-linux-gnu/
 LIBS += -L/usr/lib/x86_64-linux-gnu/
+# remove possible other optimization flags
+QMAKE_CXXFLAGS_RELEASE -= -O
+QMAKE_CXXFLAGS_RELEASE -= -O1
+
+# add the desired -O2 if not present
+QMAKE_CXXFLAGS_RELEASE -= -O2
+QMAKE_CXXFLAGS_RELEASE -= -O3
+QMAKE_CXXFLAGS_RELEASE -= -O4
+QMAKE_CXXFLAGS_RELEASE *= -O5
 
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../lib/pdlibrary/build/release/ -lpd
@@ -272,5 +285,4 @@ else:unix: PRE_TARGETDEPS += $$PWD/../../../lib/pdlibrary/build/libpd.a
 
 #RESOURCES += \
  #   ../../../lib/bgslibrary/gui_qt/application.qrc
-
 

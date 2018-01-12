@@ -33,8 +33,10 @@
 # Last update: 2017-09-18
 
 
-configs=("1111") 	#selected system configurations (YOU CAN CHANGE)
+configs=("4432" ) 	#selected system configurations (YOU CAN CHANGE)
 seconds_to_static=30;
+flag_near_people=1;
+flag_context=1;
 
 results_path="./results/"		#path where results  are located (YOU CAN CHANGE)
 dataset_path="./datasets"		#path where datasets are located (YOU CAN CHANGE)
@@ -52,7 +54,7 @@ for c in $(seq 0 1 $((Nconfig-1))); do
 	ped_sel=${configs[c]:2:1} #algorithm for "People detection" module
 	asc_sel=${configs[c]:3:1} #algorithm for "Abandoned/Stolen classifier" module
 	
-	echo "CONFIGURATION bkg=${bkg_sel} sfg=${sfg_sel} ped=${ped_sel} asc=${asc_sel} time=$seconds_to_static"
+	echo "CONFIGURATION bkg=${bkg_sel} sfg=${sfg_sel} ped=${ped_sel} asc=${asc_sel} time=$seconds_to_static flag_people=$flag_near_people flag_context=$flag_context"
 
 	
 	#process each category descriptor/file
@@ -63,7 +65,7 @@ for c in $(seq 0 1 $((Nconfig-1))); do
 		echo " CATEGORY ${cat_name} from ${file}"
 
 		#create output directory
-		out_path=${results_path}config${configs[c]}"/"${cat_name}"/"
+		out_path=${results_path}config${configs[c]}"_"$seconds_to_static"_"$flag_near_people"_"$flag_context"/"${cat_name}"/"
 		#rm -rf $out_path	#deletes everything in the directory!!!
 		
 		if [ ! -d "$out_path" ]; then
@@ -90,7 +92,7 @@ for c in $(seq 0 1 $((Nconfig-1))); do
 			
 			# WITHOUT CONTEXT MASK
 			#echo -n ${binary_path} $bkg_sel $sfg_sel $asc_sel $ped_sel ${seq_path} ${out_path} > ${out_log}
-			${binary_path} $bkg_sel $sfg_sel $ped_sel $asc_sel ${seq_path} ${out_path} $seconds_to_static  > ${out_log} 2>&1
+			${binary_path} $bkg_sel $sfg_sel $ped_sel $asc_sel ${seq_path} ${out_path} $seconds_to_static $flag_near_people $flag_context  > ${out_log} 2>&1
 		
 
 			echo  "done ($(($(($SECONDS- $START_TIME))/60)) min $(($(($SECONDS-$START_TIME))%60)) sec)"

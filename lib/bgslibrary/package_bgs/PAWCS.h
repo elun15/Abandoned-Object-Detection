@@ -43,6 +43,7 @@ namespace bgslibrary
     private:
       void saveConfig();
       void loadConfig();
+
     };
   }
 }
