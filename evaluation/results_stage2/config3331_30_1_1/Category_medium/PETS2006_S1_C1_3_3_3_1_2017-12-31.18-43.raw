@@ -1,0 +1,68 @@
+// 
+// 
+// 
+#BEGIN_PARAMETERS
+gt_file = ./datasets/PETS2006_S1/PETS2006_S1_C1.gt
+result_file = ./results_stage2//config3331_30_1_1/Category_medium/PETS2006_S1_C1_3_3_3_1_2017-12-31.18-43.xml
+epf_file = ./bin/viper/config.epf
+log_file = -
+output_file = ./results_stage2//config3331_30_1_1/Category_medium/PETS2006_S1_C1_3_3_3_1_2017-12-31.18-43.out
+level = 3
+#END_PARAMETERS
+
+// 
+// 
+// 
+#BEGIN_GROUND_FILTER
+
+#END_GROUND_FILTER
+
+// 
+// 
+// 
+#BEGIN_RESULT_FILTER
+
+#END_RESULT_FILTER
+
+// 
+// 
+// 
+#BEGIN_METRICS
+AbandonedObject dice 0.99
+   * BoundingBox dice 0.99
+#END_METRICS
+
+#BEGIN_GTF_INFORMATION
+
+NUMFRAMES = 3021
+NUMFILES = 1
+FRAME-SIZE: 720 x 576
+
+#END_GTF_INFORMATION
+
+#BEGIN_RDF_INFORMATION
+
+SOURCETYPE = SEQUENCE
+NUMFRAMES = 3024
+NUMFILES = 1
+FRAME-SIZE: 720 x 576
+
+#END_RDF_INFORMATION
+
+#BEGIN_RESULTS
+AbandonedObject 0 FALSE 0
+AbandonedObject 1 FALSE 0
+AbandonedObject 3 FALSE 0
+AbandonedObject 4 FALSE 0
+AbandonedObject 0 DETECT 3 0.4424379232505643 1 [6 0.4424379232505643 0.22440537727643053]
+#END_RESULTS
+
+// 
+// 
+// 
+#BEGIN_SUMMARY
+OBJECT AbandonedObject 1 5 20.0 100.0
+TOTAL 1 5 20.0 100.0
+
+
+#END_SUMMARY

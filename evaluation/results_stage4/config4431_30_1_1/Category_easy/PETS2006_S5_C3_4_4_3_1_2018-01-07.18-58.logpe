@@ -1,0 +1,18 @@
+****** NOTE: All output directed to: ./results_stage4//config4431_30_1_1/Category_easy/PETS2006_S5_C3_4_4_3_1_2018-01-07.18-58.out ******
+04:40:24	 Parsing Target Config information.
+04:40:24	 Parsing Candidate Config information.
+04:40:24	 Parsing Evaluation Parameter information.
+04:40:24	 Parsing target data.
+........................................
+04:40:24	 Parsing candidate data.
+........................................
+04:40:24	 Generating comparison matrix for Object Evaluation
+No FILE Information descriptor has no SOURCEFILES attribute.
+No SOURCEFILES attribute found.
+No FILE Information descriptor has no SOURCEFILES attribute.
+No SOURCEFILES attribute found.
+No FILE Information descriptor has no SOURCEFILES attribute.
+No SOURCEFILES attribute found.
+04:40:24	 Performing evaluation.
+.................................................................
+04:40:24	 Cleaning up...

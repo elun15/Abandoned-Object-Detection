@@ -1,0 +1,74 @@
+*****************************************************
+*                 INPUT PARAMETERS                  *
+*****************************************************
+
+Ground Truth: ./datasets/AVSS2007/AVSSS07_HARD.gt
+     Results: ./results_stage3//config4441_30_1_1/Category_hard/AVSSS07_HARD_4_4_4_1_2018-01-10.13-10.xml
+ Eval Params: ./bin/viper/config.epf
+         Log: -
+      Output: ./results_stage3//config4441_30_1_1/Category_hard/AVSSS07_HARD_4_4_4_1_2018-01-10.13-10.out
+
+       Level: 3
+       Match: MULTIPLE      
+      metric: 2
+   tolerance: 0.9
+*****************************************************
+*                      METRICS                      *
+*****************************************************
+
+OBJECT AbandonedObject	[dice 0.99]
+	BoundingBox	 [dice 0.99]
+*****************************************************
+*                 OBJECT EVALUATION                 *
+*****************************************************
+
+	For file "the only file specified in the data."
+*****************************************************
+*                      LEVEL 0                      *
+*                 FALSE DETECTIONS                  *
+*****************************************************
+OBJECT AbandonedObject 0 2116:2466
+        BoundingBox : "352 91 24 51"
+
+*****************************************************
+*                      LEVEL 0                      *
+*                 MISSED DETECTIONS                 *
+*****************************************************
+*****************************************************
+*                      LEVEL 1                      *
+*                 FALSE DETECTIONS                  *
+*****************************************************
+*****************************************************
+*                      LEVEL 1                      *
+*                 MISSED DETECTIONS                 *
+*****************************************************
+*****************************************************
+*                      LEVEL 2                      *
+*                 FALSE DETECTIONS                  *
+*****************************************************
+OBJECT AbandonedObject 1 2955:3360
+        BoundingBox : "462 315 31 19"
+
+OBJECT AbandonedObject 2 3960:4166
+        BoundingBox : "542 291 25 32"
+
+*****************************************************
+*                      LEVEL 2                      *
+*                 MISSED DETECTIONS                 *
+*****************************************************
+OBJECT AbandonedObject 0 2958:5670
+        BoundingBox : "345 81 30 60"
+
+*****************************************************
+*                   DETECTION(S)                    *
+*****************************************************
+*****************************************************
+*                  SUMMARY RESULTS                  *
+*****************************************************
+
+For OBJECT AbandonedObject: Precision is 0 %  (0/3)
+For OBJECT AbandonedObject: Recall is 0 %  (0/1)
+
+For TOTAL: Precision is 0 %  (0/3)
+For TOTAL: Recall is 0 %  (0/1)
+

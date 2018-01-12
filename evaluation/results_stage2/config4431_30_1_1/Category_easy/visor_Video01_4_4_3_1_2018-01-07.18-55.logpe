@@ -1,0 +1,19 @@
+****** NOTE: All output directed to: ./resultcopia//config4431_30_1_1/Category_easy/visor_Video01_4_4_3_1_2018-01-07.18-55.out ******
+11:23:58	 Parsing Target Config information.
+11:23:58	 Parsing Candidate Config information.
+11:23:58	 Parsing Evaluation Parameter information.
+11:23:58	 Parsing target data.
+........................................
+11:23:59	 Parsing candidate data.
+Static values must be the same for all occurances of a descriptor with a given identification number
+........................................
+11:23:59	 Generating comparison matrix for Object Evaluation
+No FILE Information descriptor has no SOURCEFILES attribute.
+No SOURCEFILES attribute found.
+No FILE Information descriptor has no SOURCEFILES attribute.
+No SOURCEFILES attribute found.
+No FILE Information descriptor has no SOURCEFILES attribute.
+No SOURCEFILES attribute found.
+11:23:59	 Performing evaluation.
+.................................................................
+11:23:59	 Cleaning up...

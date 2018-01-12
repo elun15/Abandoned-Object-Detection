@@ -1,0 +1,55 @@
+*****************************************************
+*                 INPUT PARAMETERS                  *
+*****************************************************
+
+Ground Truth: ./datasets/AVSS2007/AVSSS07_HARD.gt
+     Results: ./results_stage2//config4531_30_1_1/Category_hard/AVSSS07_HARD_4_5_3_1_2018-01-08.09-27.xml
+ Eval Params: ./bin/viper/config.epf
+         Log: -
+      Output: ./results_stage2//config4531_30_1_1/Category_hard/AVSSS07_HARD_4_5_3_1_2018-01-08.09-27.out
+
+       Level: 3
+       Match: MULTIPLE      
+      metric: 2
+   tolerance: 0.9
+*****************************************************
+*                      METRICS                      *
+*****************************************************
+
+OBJECT AbandonedObject	[dice 0.99]
+	BoundingBox	 [dice 0.99]
+*****************************************************
+*                 OBJECT EVALUATION                 *
+*****************************************************
+
+	For file "the only file specified in the data."
+*****************************************************
+*                      LEVEL 0                      *
+*                 FALSE DETECTIONS                  *
+*****************************************************
+OBJECT AbandonedObject 0 2075:2355
+        BoundingBox : "351 94 26 51"
+
+OBJECT AbandonedObject 2 2533:2736
+        BoundingBox : "477 279 32 56"
+
+*****************************************************
+*                      LEVEL 0                      *
+*                 MISSED DETECTIONS                 *
+*****************************************************
+OBJECT AbandonedObject 0 2958:5670
+        BoundingBox : "345 81 30 60"
+
+*****************************************************
+*                   DETECTION(S)                    *
+*****************************************************
+*****************************************************
+*                  SUMMARY RESULTS                  *
+*****************************************************
+
+For OBJECT AbandonedObject: Precision is 0 %  (0/2)
+For OBJECT AbandonedObject: Recall is 0 %  (0/1)
+
+For TOTAL: Precision is 0 %  (0/2)
+For TOTAL: Recall is 0 %  (0/1)
+

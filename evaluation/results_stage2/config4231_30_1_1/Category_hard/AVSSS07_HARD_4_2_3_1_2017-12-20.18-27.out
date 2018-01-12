@@ -1,0 +1,49 @@
+*****************************************************
+*                 INPUT PARAMETERS                  *
+*****************************************************
+
+Ground Truth: ./datasets/AVSS2007/AVSSS07_HARD.gt
+     Results: ./results_stage2//config4231_30_1_1/Category_hard/AVSSS07_HARD_4_2_3_1_2017-12-20.18-27.xml
+ Eval Params: ./bin/viper/config.epf
+         Log: -
+      Output: ./results_stage2//config4231_30_1_1/Category_hard/AVSSS07_HARD_4_2_3_1_2017-12-20.18-27.out
+
+       Level: 3
+       Match: MULTIPLE      
+      metric: 2
+   tolerance: 0.9
+*****************************************************
+*                      METRICS                      *
+*****************************************************
+
+OBJECT AbandonedObject	[dice 0.99]
+	BoundingBox	 [dice 0.99]
+*****************************************************
+*                 OBJECT EVALUATION                 *
+*****************************************************
+
+	For file "the only file specified in the data."
+*****************************************************
+*                      LEVEL 0                      *
+*                 FALSE DETECTIONS                  *
+*****************************************************
+*****************************************************
+*                      LEVEL 0                      *
+*                 MISSED DETECTIONS                 *
+*****************************************************
+OBJECT AbandonedObject 0 2958:5670
+        BoundingBox : "345 81 30 60"
+
+*****************************************************
+*                   DETECTION(S)                    *
+*****************************************************
+*****************************************************
+*                  SUMMARY RESULTS                  *
+*****************************************************
+
+For OBJECT AbandonedObject: Precision is - %  (0/0)
+For OBJECT AbandonedObject: Recall is 0 %  (0/1)
+
+For TOTAL: Precision is - %  (0/0)
+For TOTAL: Recall is 0 %  (0/1)
+

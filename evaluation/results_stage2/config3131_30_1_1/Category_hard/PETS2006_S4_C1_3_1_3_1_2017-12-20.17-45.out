@@ -1,0 +1,52 @@
+*****************************************************
+*                 INPUT PARAMETERS                  *
+*****************************************************
+
+Ground Truth: ./datasets/PETS2006_S4/PETS2006_S4_C1.gt
+     Results: ./results_stage2//config3131_30_1_1/Category_hard/PETS2006_S4_C1_3_1_3_1_2017-12-20.17-45.xml
+ Eval Params: ./bin/viper/config.epf
+         Log: -
+      Output: ./results_stage2//config3131_30_1_1/Category_hard/PETS2006_S4_C1_3_1_3_1_2017-12-20.17-45.out
+
+       Level: 3
+       Match: MULTIPLE      
+      metric: 2
+   tolerance: 0.9
+*****************************************************
+*                      METRICS                      *
+*****************************************************
+
+OBJECT AbandonedObject	[dice 0.99]
+	BoundingBox	 [dice 0.99]
+*****************************************************
+*                 OBJECT EVALUATION                 *
+*****************************************************
+
+	For file "the only file specified in the data."
+*****************************************************
+*                      LEVEL 0                      *
+*                 FALSE DETECTIONS                  *
+*****************************************************
+OBJECT AbandonedObject 6 2635:2872
+        BoundingBox : "308 125 27 107"
+
+OBJECT AbandonedObject 1 898:1170
+        BoundingBox : "47 220 83 27"
+
+*****************************************************
+*                      LEVEL 0                      *
+*                 MISSED DETECTIONS                 *
+*****************************************************
+*****************************************************
+*                   DETECTION(S)                    *
+*****************************************************
+*****************************************************
+*                  SUMMARY RESULTS                  *
+*****************************************************
+
+For OBJECT AbandonedObject: Precision is 0 %  (0/2)
+For OBJECT AbandonedObject: Recall is - %  (0/0)
+
+For TOTAL: Precision is 0 %  (0/2)
+For TOTAL: Recall is - %  (0/0)
+

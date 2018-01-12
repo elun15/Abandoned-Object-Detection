@@ -1,0 +1,38 @@
+
+**FILES**
+
+./Bin:
+-Executable
+
+./Datasets:
+-GT files 
+
+./Results:
+- 2 folders with 2 configuration results examples
+
+Viper files:
+
+- script_viper.sh 
+- properties.pr
+- config.epf
+- viper-pe
+- viper-gt
+
+
+Matlab files:
+
+-Extract_Results_jcs.m 
+-Compute_scores.m 
+
+
+**INSTRUCTIONS**
+
+Terminal:
+
+1. Extract configuration results, .xml files, with Run_AODSystem.sh (already done)
+2. Execute viper_pe to get .raw and .out files, with eval_ASconfigSystem.sh 
+
+Matlab:
+3. Extract_Results_jcs.m : Extract results from viper output files and save them in .mat matrix (eg. "Category_easy.mat" rows-> configXXXX  cols-> category (E,M,H) )
+(4. Compute_scores.m simply loads results matrix)
+

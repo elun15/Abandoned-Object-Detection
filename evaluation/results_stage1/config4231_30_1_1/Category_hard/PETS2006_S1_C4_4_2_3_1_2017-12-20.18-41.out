@@ -1,0 +1,49 @@
+*****************************************************
+*                 INPUT PARAMETERS                  *
+*****************************************************
+
+Ground Truth: ./datasets/PETS2006_S1/PETS2006_S1_C4.gt
+     Results: ./results_stage1//config4231_30_1_1/Category_hard/PETS2006_S1_C4_4_2_3_1_2017-12-20.18-41.xml
+ Eval Params: ./bin/viper/config.epf
+         Log: -
+      Output: ./results_stage1//config4231_30_1_1/Category_hard/PETS2006_S1_C4_4_2_3_1_2017-12-20.18-41.out
+
+       Level: 3
+       Match: MULTIPLE      
+      metric: 2
+   tolerance: 0.9
+*****************************************************
+*                      METRICS                      *
+*****************************************************
+
+OBJECT AbandonedObject	[dice 0.99]
+	BoundingBox	 [dice 0.99]
+*****************************************************
+*                 OBJECT EVALUATION                 *
+*****************************************************
+
+	For file "the only file specified in the data."
+*****************************************************
+*                      LEVEL 0                      *
+*                 FALSE DETECTIONS                  *
+*****************************************************
+*****************************************************
+*                      LEVEL 0                      *
+*                 MISSED DETECTIONS                 *
+*****************************************************
+OBJECT AbandonedObject 0 2726:2900
+        BoundingBox : "378 185 29 28"
+
+*****************************************************
+*                   DETECTION(S)                    *
+*****************************************************
+*****************************************************
+*                  SUMMARY RESULTS                  *
+*****************************************************
+
+For OBJECT AbandonedObject: Precision is - %  (0/0)
+For OBJECT AbandonedObject: Recall is 0 %  (0/1)
+
+For TOTAL: Precision is - %  (0/0)
+For TOTAL: Recall is 0 %  (0/1)
+

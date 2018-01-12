@@ -1,0 +1,52 @@
+*****************************************************
+*                 INPUT PARAMETERS                  *
+*****************************************************
+
+Ground Truth: ./temp/config2231_30_1_1/AVSSS07_EASY.gt
+     Results: ./results_stage1/config2231_30_1_1/Category_easy/AVSSS07_EASY_2_2_3_1_2017-12-27.00-15.xml
+ Eval Params: ./bin/viper/config.epf
+         Log: -
+      Output: ./results_stage1/config2231_30_1_1/Category_easy/AVSSS07_EASY_2_2_3_1_2017-12-27.00-15.out
+
+       Level: 3
+       Match: MULTIPLE      
+      metric: 2
+   tolerance: 0.9
+*****************************************************
+*                      METRICS                      *
+*****************************************************
+
+OBJECT AbandonedObject	[dice 0.99]
+	BoundingBox	 [dice 0.99]
+*****************************************************
+*                 OBJECT EVALUATION                 *
+*****************************************************
+
+	For file "the only file specified in the data."
+*****************************************************
+*                      LEVEL 0                      *
+*                 FALSE DETECTIONS                  *
+*****************************************************
+OBJECT AbandonedObject 1 2888:3220
+        BoundingBox : "67 244 81 185"
+
+*****************************************************
+*                      LEVEL 0                      *
+*                 MISSED DETECTIONS                 *
+*****************************************************
+OBJECT AbandonedObject 0 3470:4727
+        BoundingBox : "59 242 88 155"
+
+*****************************************************
+*                   DETECTION(S)                    *
+*****************************************************
+*****************************************************
+*                  SUMMARY RESULTS                  *
+*****************************************************
+
+For OBJECT AbandonedObject: Precision is 0 %  (0/1)
+For OBJECT AbandonedObject: Recall is 0 %  (0/1)
+
+For TOTAL: Precision is 0 %  (0/1)
+For TOTAL: Recall is 0 %  (0/1)
+

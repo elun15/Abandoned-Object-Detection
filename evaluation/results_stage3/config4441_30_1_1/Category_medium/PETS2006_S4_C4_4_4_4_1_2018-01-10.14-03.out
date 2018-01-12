@@ -1,0 +1,46 @@
+*****************************************************
+*                 INPUT PARAMETERS                  *
+*****************************************************
+
+Ground Truth: ./datasets/PETS2006_S4/PETS2006_S4_C4.gt
+     Results: ./results_stage3//config4441_30_1_1/Category_medium/PETS2006_S4_C4_4_4_4_1_2018-01-10.14-03.xml
+ Eval Params: ./bin/viper/config.epf
+         Log: -
+      Output: ./results_stage3//config4441_30_1_1/Category_medium/PETS2006_S4_C4_4_4_4_1_2018-01-10.14-03.out
+
+       Level: 3
+       Match: MULTIPLE      
+      metric: 2
+   tolerance: 0.9
+*****************************************************
+*                      METRICS                      *
+*****************************************************
+
+OBJECT AbandonedObject	[dice 0.99]
+	BoundingBox	 [dice 0.99]
+*****************************************************
+*                 OBJECT EVALUATION                 *
+*****************************************************
+
+	For file "the only file specified in the data."
+*****************************************************
+*                      LEVEL 0                      *
+*                 FALSE DETECTIONS                  *
+*****************************************************
+*****************************************************
+*                      LEVEL 0                      *
+*                 MISSED DETECTIONS                 *
+*****************************************************
+*****************************************************
+*                   DETECTION(S)                    *
+*****************************************************
+*****************************************************
+*                  SUMMARY RESULTS                  *
+*****************************************************
+
+For OBJECT AbandonedObject: Precision is - %  (0/0)
+For OBJECT AbandonedObject: Recall is - %  (0/0)
+
+For TOTAL: Precision is - %  (0/0)
+For TOTAL: Recall is - %  (0/0)
+

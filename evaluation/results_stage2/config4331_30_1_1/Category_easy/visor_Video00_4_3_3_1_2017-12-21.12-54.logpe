@@ -1,0 +1,18 @@
+****** NOTE: All output directed to: ./results_stage2//config4331_30_1_1/Category_easy/visor_Video00_4_3_3_1_2017-12-21.12-54.out ******
+11:14:11	 Parsing Target Config information.
+11:14:11	 Parsing Candidate Config information.
+11:14:11	 Parsing Evaluation Parameter information.
+11:14:11	 Parsing target data.
+........................................
+11:14:11	 Parsing candidate data.
+........................................
+11:14:11	 Generating comparison matrix for Object Evaluation
+No FILE Information descriptor has no SOURCEFILES attribute.
+No SOURCEFILES attribute found.
+No FILE Information descriptor has no SOURCEFILES attribute.
+No SOURCEFILES attribute found.
+No FILE Information descriptor has no SOURCEFILES attribute.
+No SOURCEFILES attribute found.
+11:14:11	 Performing evaluation.
+.................................................................
+11:14:11	 Cleaning up...

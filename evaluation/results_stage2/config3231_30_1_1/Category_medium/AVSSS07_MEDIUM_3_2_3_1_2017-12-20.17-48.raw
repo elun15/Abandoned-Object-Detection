@@ -1,0 +1,73 @@
+// 
+// 
+// 
+#BEGIN_PARAMETERS
+gt_file = ./datasets/AVSS2007/AVSSS07_MEDIUM.gt
+result_file = ./results_stage2//config3231_30_1_1/Category_medium/AVSSS07_MEDIUM_3_2_3_1_2017-12-20.17-48.xml
+epf_file = ./bin/viper/config.epf
+log_file = -
+output_file = ./results_stage2//config3231_30_1_1/Category_medium/AVSSS07_MEDIUM_3_2_3_1_2017-12-20.17-48.out
+level = 3
+#END_PARAMETERS
+
+// 
+// 
+// 
+#BEGIN_GROUND_FILTER
+
+#END_GROUND_FILTER
+
+// 
+// 
+// 
+#BEGIN_RESULT_FILTER
+
+#END_RESULT_FILTER
+
+// 
+// 
+// 
+#BEGIN_METRICS
+AbandonedObject dice 0.99
+   * BoundingBox dice 0.99
+#END_METRICS
+
+#BEGIN_GTF_INFORMATION
+
+NUMFRAMES = 4834
+NUMFILES = 1
+FRAME-SIZE: 720 x 576
+
+#END_GTF_INFORMATION
+
+#BEGIN_RDF_INFORMATION
+
+SOURCETYPE = SEQUENCE
+NUMFRAMES = 4834
+NUMFILES = 1
+FRAME-SIZE: 720 x 576
+
+#END_RDF_INFORMATION
+
+#BEGIN_RESULTS
+AbandonedObject 0 FALSE 0
+AbandonedObject 2 FALSE 0
+AbandonedObject 3 FALSE 0
+AbandonedObject 1 FALSE 0
+AbandonedObject 8 FALSE 0
+AbandonedObject 11 FALSE 0
+AbandonedObject 10 FALSE 0
+AbandonedObject 16 FALSE 2
+AbandonedObject 17 FALSE 2
+AbandonedObject 0 DETECT 3 0.5495251017639078 1 [18 0.5495251017639078 0.34232026121687154]
+#END_RESULTS
+
+// 
+// 
+// 
+#BEGIN_SUMMARY
+OBJECT AbandonedObject 1 10 10.0 100.0
+TOTAL 1 10 10.0 100.0
+
+
+#END_SUMMARY

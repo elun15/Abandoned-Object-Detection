@@ -1,0 +1,113 @@
+*****************************************************
+*                 INPUT PARAMETERS                  *
+*****************************************************
+
+Ground Truth: ./datasets/AVSS2007/AVSSS07_MEDIUM.gt
+     Results: ./results_stage2//config3431_30_1_1/Category_medium/AVSSS07_MEDIUM_3_4_3_1_2018-01-07.19-30.xml
+ Eval Params: ./bin/viper/config.epf
+         Log: -
+      Output: ./results_stage2//config3431_30_1_1/Category_medium/AVSSS07_MEDIUM_3_4_3_1_2018-01-07.19-30.out
+
+       Level: 3
+       Match: MULTIPLE      
+      metric: 2
+   tolerance: 0.9
+*****************************************************
+*                      METRICS                      *
+*****************************************************
+
+OBJECT AbandonedObject	[dice 0.99]
+	BoundingBox	 [dice 0.99]
+*****************************************************
+*                 OBJECT EVALUATION                 *
+*****************************************************
+
+	For file "the only file specified in the data."
+*****************************************************
+*                      LEVEL 0                      *
+*                 FALSE DETECTIONS                  *
+*****************************************************
+OBJECT AbandonedObject 0 1042:1252
+        BoundingBox : "521 40 52 82"
+
+OBJECT AbandonedObject 1 1080:1284
+        BoundingBox : "584 49 47 145"
+
+OBJECT AbandonedObject 5 1809:2061
+        BoundingBox : "492 205 56 58"
+
+OBJECT AbandonedObject 7 1870:2089
+        BoundingBox : "568 212 25 40"
+
+OBJECT AbandonedObject 9 2000:2256
+        BoundingBox : "357 140 38 138"
+
+OBJECT AbandonedObject 8 2000:2273
+        BoundingBox : "392 138 30 116"
+
+*****************************************************
+*                      LEVEL 0                      *
+*                 MISSED DETECTIONS                 *
+*****************************************************
+*****************************************************
+*                      LEVEL 1                      *
+*                 FALSE DETECTIONS                  *
+*****************************************************
+*****************************************************
+*                      LEVEL 1                      *
+*                 MISSED DETECTIONS                 *
+*****************************************************
+*****************************************************
+*                      LEVEL 2                      *
+*                 FALSE DETECTIONS                  *
+*****************************************************
+OBJECT AbandonedObject 15 2689:2919
+        BoundingBox : "552 313 64 35"
+
+OBJECT AbandonedObject 14 2527:2733
+        BoundingBox : "529 283 54 31"
+
+*****************************************************
+*                      LEVEL 2                      *
+*                 MISSED DETECTIONS                 *
+*****************************************************
+*****************************************************
+*                      LEVEL 3                      *
+*                 FALSE DETECTIONS                  *
+*****************************************************
+*****************************************************
+*                      LEVEL 3                      *
+*                 MISSED DETECTIONS                 *
+*****************************************************
+*****************************************************
+*                     LEVEL 3C                      *
+*                 FALSE DETECTIONS                  *
+*****************************************************
+*****************************************************
+*                     LEVEL 3C                      *
+*                 MISSED DETECTIONS                 *
+*****************************************************
+*****************************************************
+*                   DETECTION(S)                    *
+*****************************************************
+OBJECT AbandonedObject 0 2310:4593
+        BoundingBox : "290 147 53 31"
+
+	OBJECT AbandonedObject 11 2323:2551
+	        BoundingBox : "299 149 30 23"
+			DISTANCE(S): 0.40848692665271785
+			AVERAGE: 0.40848692665271785
+	---------------------------------------
+	DISTANCE: 0.40848692665271785, OVERLAP: 0.8997373029772329, DICE = 0.8997373029772329, EXTENT = 1.0, (START: -13, END: 2042)
+
+
+*****************************************************
+*                  SUMMARY RESULTS                  *
+*****************************************************
+
+For OBJECT AbandonedObject: Precision is 11 %  (1/9)
+For OBJECT AbandonedObject: Recall is 100 %  (1/1)
+
+For TOTAL: Precision is 11 %  (1/9)
+For TOTAL: Recall is 100 %  (1/1)
+

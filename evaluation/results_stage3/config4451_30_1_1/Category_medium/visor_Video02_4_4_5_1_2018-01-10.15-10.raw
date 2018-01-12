@@ -1,0 +1,65 @@
+// 
+// 
+// 
+#BEGIN_PARAMETERS
+gt_file = ./datasets/VISOR/visor_Video02.gt
+result_file = ./results_stage3//config4451_30_1_1/Category_medium/visor_Video02_4_4_5_1_2018-01-10.15-10.xml
+epf_file = ./bin/viper/config.epf
+log_file = -
+output_file = ./results_stage3//config4451_30_1_1/Category_medium/visor_Video02_4_4_5_1_2018-01-10.15-10.out
+level = 3
+#END_PARAMETERS
+
+// 
+// 
+// 
+#BEGIN_GROUND_FILTER
+
+#END_GROUND_FILTER
+
+// 
+// 
+// 
+#BEGIN_RESULT_FILTER
+
+#END_RESULT_FILTER
+
+// 
+// 
+// 
+#BEGIN_METRICS
+AbandonedObject dice 0.99
+   * BoundingBox dice 0.99
+#END_METRICS
+
+#BEGIN_GTF_INFORMATION
+
+NUMFRAMES = 2815
+NUMFILES = 1
+FRAME-SIZE: 320 x 256
+
+#END_GTF_INFORMATION
+
+#BEGIN_RDF_INFORMATION
+
+SOURCETYPE = SEQUENCE
+NUMFRAMES = 3008
+NUMFILES = 1
+FRAME-SIZE: 320 x 256
+
+#END_RDF_INFORMATION
+
+#BEGIN_RESULTS
+AbandonedObject 0 DETECT 3 0.2461799660441426 1 [0 0.3091286307053942 0.12751677824534327]
+AbandonedObject 1 DETECT 3 0.003468208092485603 1 [1 0.179047619047619 0.5506912439831957]
+#END_RESULTS
+
+// 
+// 
+// 
+#BEGIN_SUMMARY
+OBJECT AbandonedObject 2 2 100.0 100.0
+TOTAL 2 2 100.0 100.0
+
+
+#END_SUMMARY

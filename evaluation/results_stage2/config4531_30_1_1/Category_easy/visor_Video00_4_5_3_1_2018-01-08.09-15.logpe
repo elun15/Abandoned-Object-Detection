@@ -1,0 +1,19 @@
+****** NOTE: All output directed to: ./results_stage2//config4531_30_1_1/Category_easy/visor_Video00_4_5_3_1_2018-01-08.09-15.out ******
+11:14:47	 Parsing Target Config information.
+11:14:48	 Parsing Candidate Config information.
+11:14:48	 Parsing Evaluation Parameter information.
+11:14:48	 Parsing target data.
+........................................
+11:14:48	 Parsing candidate data.
+Split descriptors cannot overlap
+........................................
+11:14:48	 Generating comparison matrix for Object Evaluation
+No FILE Information descriptor has no SOURCEFILES attribute.
+No SOURCEFILES attribute found.
+No FILE Information descriptor has no SOURCEFILES attribute.
+No SOURCEFILES attribute found.
+No FILE Information descriptor has no SOURCEFILES attribute.
+No SOURCEFILES attribute found.
+11:14:48	 Performing evaluation.
+.................................................................
+11:14:48	 Cleaning up...

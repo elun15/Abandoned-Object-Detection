@@ -1,0 +1,18 @@
+****** NOTE: All output directed to: ./results_stage4//config4433_30_1_1/Category_medium/AVSSS07_MEDIUM_4_4_3_3_2018-01-11.04-28.out ******
+04:41:52	 Parsing Target Config information.
+04:41:52	 Parsing Candidate Config information.
+04:41:52	 Parsing Evaluation Parameter information.
+04:41:52	 Parsing target data.
+........................................
+04:41:52	 Parsing candidate data.
+........................................
+04:41:52	 Generating comparison matrix for Object Evaluation
+No FILE Information descriptor has no SOURCEFILES attribute.
+No SOURCEFILES attribute found.
+No FILE Information descriptor has no SOURCEFILES attribute.
+No SOURCEFILES attribute found.
+No FILE Information descriptor has no SOURCEFILES attribute.
+No SOURCEFILES attribute found.
+04:41:53	 Performing evaluation.
+.................................................................
+04:41:53	 Cleaning up...
