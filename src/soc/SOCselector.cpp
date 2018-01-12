@@ -125,14 +125,20 @@ Mat SOCselector::process(cv::Mat frame, cv::Mat bkg, cv::Mat sfgmask, cv::Mat fg
 			break;
     }
 
+    //For display
+    string namewindow;
+    string str = "StaticClassifier: " + _SOCtype_str[_SOCid];
+    namewindow = str.c_str();
+
     if (_display)
 	{
 		if (counter>0)
 			putText(result,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
-		string str = "StaticClassifier: " + _SOCtype_str[_SOCid];
-		imshow(str.c_str(),result);
-		waitKey(1);
-	}
+
+        imshow(namewindow,result);
+        waitKey(1);
+    }
+
 
 	if (_saveIMG && (counter% _saveCounter == 0))
 	{

@@ -129,10 +129,28 @@ void DefineObjectBlobList(std::vector<cvBlob> *inBlobList, vector<cv::Rect>& fou
 
             if (flag_minsize == true)
             {
-                int minH = cvCeil((mask.rows * 3.5) / 100); // 3% size
-                int minW = cvCeil((mask.cols * 3.5) / 100);
+                int minH = cvCeil((mask.rows * 3) / 100); // 3% size
+                int minW = cvCeil((mask.cols * 3) / 100);
 
-                if (staticBlob.h <= minH || staticBlob.w <= minW)
+                int maxH = cvCeil((mask.rows * 40) / 100); // 3% size
+                int maxW = cvCeil((mask.cols * 40) / 100);
+
+                if (staticBlob.h <= minH || staticBlob.w <= minW || staticBlob.h >= maxH || staticBlob.w >= maxW )
+                {
+
+                    blobIsObject = false;
+                }
+
+            }
+            else //FALSE
+            {
+                int minH = cvCeil((mask.rows * 2) / 100); // 3% size
+                int minW = cvCeil((mask.cols * 2) / 100);
+
+                int maxH = cvCeil((mask.rows * 40) / 100); // 3% size
+                int maxW = cvCeil((mask.cols * 40) / 100);
+
+                if (staticBlob.h <= minH || staticBlob.w <= minW || staticBlob.h >= maxH || staticBlob.w >= maxW )
                 {
 
                     blobIsObject = false;

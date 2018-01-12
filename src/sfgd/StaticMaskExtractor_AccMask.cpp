@@ -47,7 +47,7 @@ StaticMaskExtractor_AccMask::StaticMaskExtractor_AccMask(Mat sampleFrame, double
     this->confThreshold = _conf_th;	//Threshold to consider as stationary mask (range 0---1 is mapped to 0...255)
     this->Acc_Cont = 1;
     this->Acc_Dec= 250;
-    this->static_th = 0.9 * 250;
+    this->static_th = 0.85 * 250;
     this->adapt = (255 / (framerate*secs2static));
     this->FG_Dec = 3 * this->adapt;
 

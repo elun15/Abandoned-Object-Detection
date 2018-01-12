@@ -51,20 +51,31 @@ public:
 
     // Pointer to algorithms available in BGSlibrary
     bgslibrary::algorithms::IBGS *_bgs;
-     bgslibrary::algorithms::IBGS *_bgs_L;
+    bgslibrary::algorithms::IBGS *_bgs_L;
 
     //For MOG2 CASE
     Ptr<BackgroundSubtractor> _pMOG2; //MOG2 Background subtractor
+    Ptr<BackgroundSubtractor> _pMOG2_M; //MOG2 Background subtractor
     Ptr<BackgroundSubtractor> _pMOG2_L; //MOG2 Background subtractor
+    //KNN
+    Ptr<BackgroundSubtractor> _pKNN; //KNN Background subtractor
+   Ptr<BackgroundSubtractor> _pKNN_M; //KNN Background subtractor
+    Ptr<BackgroundSubtractor> _pKNN_L; //KNN Background subtractor
+
     double _learningRate;
     double _learningRate_L;
+    double _learningRate_M;
 
     cv::Mat _img_input; //input frame (color or gray scale image)
     cv::Mat _img_input2; //input frame (color or gray scale image)
+
     cv::Mat _img_fg;//output frame (gray scale image)
     cv::Mat _img_fg_L;//output frame (gray scale image) for Dual
+    cv::Mat _img_fg_M;
+
     cv::Mat _img_bgmodel; //background frame (color or gray scale image)
     cv::Mat _img_bgmodel_L; //background frame (color or gray scale image)
+    cv::Mat _img_bgmodel_M;
 
     //display settings
     bool _display;
@@ -74,9 +85,10 @@ public:
     int _saveCounter;
     std::string _savePathDir;
 
+
 public:
-    void init(cv::Mat frame, double learningRate=-1, double learningRate2 =-1, int method_sfgd = 0);
-    void process(cv::Mat frame, cv::Mat contextMask=Mat(), int counter=-1, int method_sfgd = 0);
+    void init(cv::Mat frame, double learningRate=-1, double learningRate2 =-1, double learningRate3=-1, int method_sfgd = 0);
+    void process(cv::Mat frame, cv::Mat contextMask=Mat(), int counter=-1, int method_sfgd = 0,  int nframe = 0);
     std::vector<Mat> GetFGmask(int method_sfgd);
     cv::Mat GetBGmodel();
 

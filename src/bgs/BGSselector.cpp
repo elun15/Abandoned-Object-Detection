@@ -82,16 +82,18 @@ void BGSselector::initialize(BGS_type BGSid, bool display, bool saveIMG, const c
  *
  * \param frame first image of the video sequence in cv::Mat
  */
-void BGSselector::init(Mat frame, double learningRate, double learningRate2, int method_sfgd)
+void BGSselector::init(Mat frame, double learningRate, double learningRate2,double learningRate3, int method_sfgd)
 {
     this->_img_fg      = Mat::zeros(frame.rows, frame.cols, 0);
     this->_img_fg_L      = Mat::zeros(frame.rows, frame.cols, 0);
+      this->_img_fg_M      = Mat::zeros(frame.rows, frame.cols, 0);
     this->_img_bgmodel = Mat::zeros(frame.rows, frame.cols, CV_8UC3);
     this->_img_bgmodel_L = Mat::zeros(frame.rows, frame.cols, CV_8UC3);
 
 
     _learningRate = learningRate; //-1 if default SHORT-TERM
     _learningRate_L = learningRate2; //-1 if default LONG-TERM
+    _learningRate_M = learningRate3;
 
     //initialization of BGS modules is performed here
     switch (_BGSid)
@@ -112,10 +114,26 @@ void BGSselector::init(Mat frame, double learningRate, double learningRate2, int
         {
             this->_pMOG2_L = createBackgroundSubtractorMOG2(); //MOG2 approach
         }
+        if(method_sfgd == 5)//TRIPLE MOG2
+        {
+            this->_pMOG2_M = createBackgroundSubtractorMOG2(); //MOG2 approach
+            this->_pMOG2_L = createBackgroundSubtractorMOG2(); //MOG2 approach
+        }
 
         break;
+
     case BGS_KNN:
-        this->_bgs = new KNN;
+        this->_pKNN = createBackgroundSubtractorKNN();
+
+        if(method_sfgd == 4)//DUAL KNN
+        {
+            this->_pKNN_L = createBackgroundSubtractorKNN(); //KNN approach
+        }
+        if(method_sfgd == 5)//TRIPLE KNN
+        {
+            this->_pKNN_L = createBackgroundSubtractorKNN(); //KNN approach
+            this->_pKNN_M = createBackgroundSubtractorKNN(); //KNN approach
+        }
         break;
 
     case BGS_Multimodal:
@@ -164,22 +182,89 @@ void BGSselector::init(Mat frame, double learningRate, double learningRate2, int
  * \param contextMask Optional parameter to apply a binary mask to the result
  * \param counter frame counter for display purposes
  */
-void BGSselector::process(Mat frame, Mat BoundaryMask, int counter, int method_sfgd)
+void BGSselector::process(Mat frame, Mat BoundaryMask, int counter, int method_sfgd, int nframe)
 {
     _img_input = frame.clone();
     _img_input2 = frame.clone();
 
     if (_BGSid == 3) // MOG2
     {
-
-        this->_pMOG2->apply(frame, _img_fg,_learningRate);
-        this->_pMOG2->getBackgroundImage(_img_bgmodel);
-
         if (method_sfgd == 4)
         {
+            this->_pMOG2->apply(frame, _img_fg);
             this->_pMOG2_L->apply(_img_input, _img_fg_L,_learningRate_L);
+            this->_pMOG2_L->getBackgroundImage(_img_bgmodel);
 
         }
+        else if(method_sfgd == 5)
+        {
+            this->_pMOG2->apply(frame, _img_fg);
+            this->_pMOG2_L->apply(_img_input, _img_fg_L,_learningRate_L);
+            this->_pMOG2_M->apply(_img_input2, _img_fg_M,_learningRate_M);
+            this->_pMOG2_L->getBackgroundImage(_img_bgmodel);
+
+
+        }
+
+        else
+        {
+            this->_pMOG2->apply(frame, _img_fg,0.00005);
+            this->_pMOG2->getBackgroundImage(_img_bgmodel);
+        }
+
+        ;
+
+    }
+
+    else if (_BGSid == 4) // KNN
+    {
+        if (method_sfgd == 4)
+        {
+            this->_pKNN->apply(_img_input, _img_fg);
+
+            if (nframe < 400)
+            {
+                this->_pKNN_L->apply(_img_input2, _img_fg_L);
+            }
+            else
+            {
+                this->_pKNN_L->apply(_img_input2, _img_fg_L,_learningRate_L);
+
+            }
+             this->_pKNN_L->getBackgroundImage(_img_bgmodel);
+
+        }
+        else if(method_sfgd == 5)
+        {
+            this->_pKNN->apply(frame, _img_fg);
+
+            if (nframe < 400)
+            {
+                this->_pKNN_L->apply(_img_input, _img_fg_L);
+                this->_pKNN_M->apply(_img_input2, _img_fg_M);
+
+            }
+            else
+            {
+                this->_pKNN_L->apply(_img_input, _img_fg_L,_learningRate_L);
+                this->_pKNN_M->apply(_img_input2, _img_fg_M,_learningRate_M);
+
+            }
+           this->_pKNN_L->getBackgroundImage(_img_bgmodel);
+
+        }
+
+        else //NO DUAL
+        {
+            if (nframe < 400)
+                this->_pKNN->apply(_img_input, _img_fg);
+            else
+                this->_pKNN->apply(_img_input, _img_fg,0.0001);
+
+             this->_pKNN->getBackgroundImage(_img_bgmodel);
+        }
+
+
 
     }
     else //OTHERS
@@ -199,6 +284,8 @@ void BGSselector::process(Mat frame, Mat BoundaryMask, int counter, int method_s
     {
         bitwise_and(_img_fg,BoundaryMask,_img_fg);
         bitwise_and(_img_fg_L,BoundaryMask,_img_fg_L);
+        bitwise_and(_img_fg_M,BoundaryMask,_img_fg_M);
+
 
     }
 
@@ -212,17 +299,32 @@ void BGSselector::process(Mat frame, Mat BoundaryMask, int counter, int method_s
         putText(_img_bgmodel,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
         imshow(str1.c_str(),_img_bgmodel);
 
-        string str2 = "Foreground image: " + _BGStype_str[_BGSid];
+        string str2 = "FG: " + _BGStype_str[_BGSid];
         putText(_img_fg,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
         imshow(str2.c_str(),_img_fg);
         waitKey(1);
 
         if (method_sfgd == 4)
         {
-            string str2 = "Foreground image 2: " + _BGStype_str[_BGSid];
+            string str2 = "FG Long: " + _BGStype_str[_BGSid];
             putText(_img_fg_L,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
             imshow(str2.c_str(),_img_fg_L);
             waitKey(1);
+
+
+        }
+        if (method_sfgd == 5)
+        {
+            string str2 = "FG Long: " + _BGStype_str[_BGSid];
+            putText(_img_fg_L,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
+            imshow(str2.c_str(),_img_fg_L);
+            waitKey(1);
+            string str3 = "FG Medium: " + _BGStype_str[_BGSid];
+            putText(_img_fg_M,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
+            imshow(str3.c_str(),_img_fg_M);
+            waitKey(1);
+
+
 
 
         }
@@ -256,6 +358,12 @@ std::vector<cv::Mat> BGSselector::GetFGmask(int method_sfgd)
     {
         vector.push_back(this->_img_fg_L);
     }
+    if (method_sfgd == 5) //TRIPLE
+    {
+       vector.push_back(this->_img_fg_M);
+       vector.push_back(this->_img_fg_L);
+    }
+
 
     return vector;
 }

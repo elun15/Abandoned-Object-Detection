@@ -1,4 +1,3 @@
-
 #include <opencv2/opencv.hpp>
 #include "aod.h"
 #include "blobs/DefineObjectBlobList.h"
@@ -41,38 +40,61 @@ void AOD::init(Mat frame, Config &cfg)
     // Initializations
     this->_sel_bkg = new BGSselector((BGS_type)cfg.m_bkg,cfg.ShowResults,cfg.SaveImages,cfg.DirImages.c_str(),cfg.SaveImages_freq);
 
-    if(cfg.m_sfgd != SFGD_DBM)
 
-        this->_sel_bkg->init(frame);
-    else
+    if (cfg.m_sfgd == SFGD_DBM)
     {
-        double learningRate_s=-1,learningRate_l = -1;
+        double learningRate_s=-1,learningRate_l = -1,learningRate_m = -1;
 
         switch(cfg.m_bkg)
         {
         case BGS_MOG2:
-            learningRate_s = 0.002;//TO CHANGE!!!
-            learningRate_l = 0.0001; //TO CHANGE!!!
+
+            learningRate_l = 0.00009;
             break;
-        case BGS_SUBSENSE:
-            learningRate_s = 100;//TO CHECK!!!
-            learningRate_l = 600;//TO CHECK!!!
+        case BGS_KNN:
+
+            learningRate_l = 0.00009;
             break;
-        case BGS_KDE:
-            learningRate_s = 100;//TO CHECK!!!
-            learningRate_l = 1000;//TO CHECK!!!
-            break;
+                  break;
 
         }
 
-        this->_sel_bkg->init(frame, learningRate_s, learningRate_l, cfg.m_sfgd);
+        this->_sel_bkg->init(frame, learningRate_s, learningRate_l,learningRate_m, cfg.m_sfgd);
+    }
+    else if (cfg.m_sfgd == SFGD_TBM)
+    {
+        double learningRate_s=-1,learningRate_l = -1, learningRate_m = -1;
 
+        switch(cfg.m_bkg)
+        {
+
+        case BGS_MOG2:
+            learningRate_s = 0.002; // only used to compute medium rate, default for execution
+            learningRate_l = 0.00009;//0.00005
+            learningRate_m = learningRate_s + ((learningRate_l-learningRate_s)/2);
+            break;
+        case BGS_KNN:
+            learningRate_s = 0.002; // only used to compute medium rate
+            learningRate_l = 0.00009;
+            learningRate_m = learningRate_s + ((learningRate_l-learningRate_s)/2);
+
+            break;
+
+
+        }
+
+        this->_sel_bkg->init(frame, learningRate_s, learningRate_l,learningRate_m, cfg.m_sfgd);
+
+    }
+    else{
+
+        this->_sel_bkg->init(frame);
     }
 
     this->_sel_sfgd = new SFDGselector((SFGD_type)cfg.m_sfgd,cfg.framerate,cfg.time_to_static,cfg.ShowResults,cfg.SaveImages,cfg.DirImages.c_str(),cfg.SaveImages_freq);
     this->_sel_sfgd->init(frame);
 
-    this->_sel_pd = new PDselector((PD_type)cfg.m_pd,cfg.ShowResults,cfg.SaveImages,cfg.DirImages.c_str(),cfg.SaveImages_freq);
+    this->_sel_pd = new PDselector((PD_type)cfg.m_pd,cfg.ShowResults,cfg.SaveImages,cfg.DirImages.c_str(),cfg.SaveImages_freq, cfg.QT_execution);
     this->_sel_pd->init();
 
     this->_sel_soc = new SOCselector((SOC_type)cfg.m_soc,cfg.ShowResults,cfg.SaveImages,cfg.DirImages.c_str(),cfg.SaveImages_freq);
@@ -114,7 +136,7 @@ void AOD::init(Mat frame, Config &cfg)
         if (_file_settings == NULL)
             cout << "WARNING: settings file can't be created: " << cfg.fileSettingsPath << endl;
         else
-          cout << "Settings file created" << endl;
+            cout << "Settings file created" << endl;
 
 
         fprintf( _file_settings,"#Configuration settings \n");
@@ -142,45 +164,28 @@ void AOD::init(Mat frame, Config &cfg)
 
 void AOD::processFrame(Mat frame,Config cfg)
 {
-    clock_t tinit;
+
     Mat fgmask, fgmask_2, bgmodel, sfgmask;
     BlobList<ObjectBlob*> pStaticObjectList;
 
 
-
-
     /******** BACKGROUND SUBTRACTION  ********/
-    tinit = clock();
-    if(cfg.m_sfgd != SFGD_DBM)
-    {
-        _sel_bkg->process(frame,cfg.AVSS_FGMask,cfg.numFrame, cfg.m_sfgd);
-        fgmask = _sel_bkg->GetFGmask(cfg.m_sfgd)[0].clone(); // Get foreground mask
-        bgmodel = _sel_bkg->GetBGmodel().clone(); // Get background model
-    }
-    else
-    {
+    clock_t tinit = clock();
 
-        _sel_bkg->process(frame,cfg.AVSS_FGMask,cfg.numFrame, cfg.m_sfgd);
-        fgmask = _sel_bkg->GetFGmask(cfg.m_sfgd)[0].clone(); // Get foreground mask
-        bgmodel = _sel_bkg->GetBGmodel().clone(); // Get background model
-        //execute dual background
-        fgmask_2 = _sel_bkg->GetFGmask(cfg.m_sfgd)[1].clone(); // Get foreground mask
-        //SHOW DOS MASCARAS Y CHECK
-
-    }
-
+    _sel_bkg->process(frame,cfg.AVSS_FGMask,cfg.numFrame, cfg.m_sfgd,cfg.numFrame);
+    bgmodel = _sel_bkg->GetBGmodel().clone(); // Get background model
 
     _elapsedTime_bkg = (double)(clock() - tinit)/CLOCKS_PER_SEC;
+    cout << "tiempo " <<_elapsedTime_bkg << endl;
 
     // ******** STATIC FOREGROUND DETECTION  ******
-    tinit = clock();
+    clock_t start_sfgd = clock();
     _sel_sfgd->process(frame, _sel_bkg->GetFGmask(cfg.m_sfgd), bgmodel,cfg.numFrame);
     sfgmask = _sel_sfgd->GetSFGmask().clone(); // Get static foreground mask
-    _elapsedTime_sfgd = (double)(clock() - tinit)/CLOCKS_PER_SEC;
+    _elapsedTime_sfgd = (double)(clock() - start_sfgd)/CLOCKS_PER_SEC;
 
     // ******** BLOB EXTRACTION  ******
     // Extract all blobs in static foreground
-    //_blob_extractor.extractBlobs(fgmask,false); //extract blobs from foreground
     _blob_extractor.extractBlobs(sfgmask,false); //extract blobs from foreground mask
 
     // Create BlobList containing all blobs in static foreground
@@ -209,8 +214,10 @@ void AOD::processFrame(Mat frame,Config cfg)
 
     // ******* STATIONARY OBJECT CLASSIFICATION  *******
     clock_t start_soc = clock();
+
     if (pStaticObjectList.getBlobNum())
         this->_sel_soc->process(frame, bgmodel, sfgmask, sfgmask,&pStaticObjectList);
+
     _elapsedTime_soc = (double)(clock()-start_soc)/CLOCKS_PER_SEC;
 
     // ******** EVENT ANALYSIS/HANDLING   ********

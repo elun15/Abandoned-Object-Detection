@@ -11,32 +11,34 @@ using namespace cv;
 
 Config::Config()
 {
-    init(DEFAULT_BKG_METHOD,DEFAULT_SFGD_METHOD,DEFAULT_PD_METHOD,DEFAULT_SOC_METHOD, "./datasets/VISOR_test/visor_Video00.avi","./results", DEFAULT_TIME_TO_STATIC);
+    // init(DEFAULT_BKG_METHOD,DEFAULT_SFGD_METHOD,DEFAULT_PD_METHOD,DEFAULT_SOC_METHOD, "./datasets/VISOR_test/visor_Video00.avi","./results", DEFAULT_TIME_TO_STATIC, DEFAULT_FLAG_NEARPEOPLE, DEFAULT_FLAG_MASK);
 }
 
-Config::Config(int argc, char *argv[])
+Config::Config(int argc, char *argv[]) //Unused
 {
-    if (argc == 8)
-        init(atoi(argv[1]),atoi(argv[2]),atoi(argv[3]),atoi(argv[4]),argv[5],argv[6],atoi(argv[7]));
+    if (argc == 10)
+        init(atoi(argv[1]),atoi(argv[2]),atoi(argv[3]),atoi(argv[4]),argv[5],argv[6],atoi(argv[7]),atoi(argv[8]),atoi(argv[9]));
+
     else {
+
         cout << "Wrong number of parameters" << endl;
         print_usage();
         exit(EXIT_FAILURE);
     }
 }
 
-Config::Config(std::string inputPath, std::string resultsDir, int seconds)
+Config::Config(std::string inputPath, std::string resultsDir, int seconds) //Unused
 {
-    init(DEFAULT_BKG_METHOD,DEFAULT_SFGD_METHOD,DEFAULT_PD_METHOD,DEFAULT_SOC_METHOD, inputPath,resultsDir,seconds);
+    init(DEFAULT_BKG_METHOD,DEFAULT_SFGD_METHOD,DEFAULT_PD_METHOD,DEFAULT_SOC_METHOD, inputPath,resultsDir,seconds,DEFAULT_FLAG_NEARPEOPLE, DEFAULT_FLAG_MASK);
+}
+//Unused
+Config::Config(std::string inputPath, std::string resultsDir, int bkg, int sfgd, int pd, int soc, int seconds, int flag_people, int flag_context)
+{
+
+    init(bkg,sfgd,pd,soc,inputPath,resultsDir,seconds,flag_people,flag_context);
 }
 
-Config::Config(std::string inputPath, std::string resultsDir, int bkg, int sfgd, int pd, int soc, int seconds)
-{
-
-    init(bkg,sfgd,pd,soc,inputPath,resultsDir,seconds);
-}
-
-void Config::init(int bkg, int sfgd, int pd, int soc, std::string inputPath, std::string resultsDir,int seconds)
+void Config::init(int bkg, int sfgd, int pd, int soc, std::string inputPath, std::string resultsDir, int seconds, int flag_people, int flag_context)
 {
     this->m_bkg     = bkg;
     this->m_sfgd    = sfgd;
@@ -54,24 +56,48 @@ void Config::init(int bkg, int sfgd, int pd, int soc, std::string inputPath, std
 
     //default flags
     this->flag_minsize = DEFAULT_FLAG_MINSIZE;
-    this->flag_nearpeople = DEFAULT_FLAG_NEARPEOPLE;
     this->flag_stillpeople = DEFAULT_FLAG_STILLPEOPLE;
-    this->flag_contextmask = DEFAULT_FLAG_MASK;
+    this->DetectPeopleAlways = DEFAULT_DETECT_ALWAYS;
+
+
 
     //other Config
     this->time_to_static = seconds;
-    this->DetectPeopleAlways = DEFAULT_DETECT_ALWAYS;
 
     //find filename for the full video path
     this->inputvideo = findFilename(this->inputPath);
+
+    if (this->inputvideo.find("S1_C4") != string::npos) // (min size in S1_C4 sequence is 2% instead of 3%)
+    {
+        if (bkg == 4 && sfgd == 4 )
+        {
+
+            this->flag_minsize = false;
+
+        }
+    }
+
+
+    if (flag_people ==1)
+        this->flag_nearpeople = true;
+    else
+        this->flag_nearpeople = false;
+
+    if (flag_context==1)
+        this->flag_contextmask = true;
+    else
+        this->flag_contextmask = false;
+
+
 
     //output for images
     this->DirImages = this->resultsDir + "/images/";
     //Path for settings file
     //in QT
-    //this->fileSettingsPath = this->resultsDir + "config" + to_string_(this->m_bkg) +  to_string_( this->m_sfgd)+ to_string_( this->m_pd)+ to_string_( this->m_soc  )+"/parameters.settings";
+    this->fileSettingsPath = this->resultsDir + "config" + to_string_(this->m_bkg) +  to_string_( this->m_sfgd)+ to_string_( this->m_pd)+ to_string_( this->m_soc  )+ "_"+ to_string_(this->time_to_static)+ "_" + to_string_(flag_people)+"_"+ to_string_(flag_context) + "/parameters.settings";
+
     //Terminal:
-    this->fileSettingsPath = "./results/config" + to_string_(this->m_bkg) +  to_string_( this->m_sfgd)+ to_string_( this->m_pd)+ to_string_( this->m_soc )+ "_"+ to_string_(this->time_to_static) + "/parameters.settings";
+    //this->fileSettingsPath = "./results/config" + to_string_(this->m_bkg) +  to_string_( this->m_sfgd)+ to_string_( this->m_pd)+ to_string_( this->m_soc )+ "_"+ to_string_(this->time_to_static)+ "_" + to_string_(flag_people)+"_"+ to_string_(flag_context) + "/parameters.settings";
 
 
     //output files
@@ -154,15 +180,28 @@ void Config::findContextMask()
     if (flag_contextmask == true)
     {
         //READ CONTEXT MASK FOR EVERY VIDEO
+        string mask_folder;
+
+        if (this->QT_execution == true)
+        {
+            //Path for QT:
+            mask_folder = "."+inputPath.substr(3,inputPath.find_last_of("/")-2);
+
+        }
+        else
+        {
+            //Path for terminal:
+
+            mask_folder  = inputPath.substr(0,inputPath.find_last_of("/")+1);
+        }
 
 
-        // string mask_folder  = inputPath.substr(3,inputPath.find_last_of("/")-2);
-        string mask_folder  = inputPath.substr(0,inputPath.find_last_of("/")+1);
         string mask_path = mask_folder + this->inputvideo + "_mask.jpg";
         this->contextMask = imread(mask_path,CV_LOAD_IMAGE_GRAYSCALE);
+
         if (this->contextMask.empty())
         {
-            cout << "Could not open mask image:"<< mask_path << endl;
+            cout << "Could not open  mask image:"<< mask_path << endl;
             exit(EXIT_FAILURE);
         }
         else
@@ -181,10 +220,15 @@ void Config::findContextMask()
     //ONLY FOR AVSS, TO REMOVE BOUNDARY ERRORS
     if ( this->inputvideo.find("AVSS") != string::npos)
     {
-        this->AVSS_FGMask = imread("./datasets/AVSS2007/AVSS_Mask_1.jpg",CV_LOAD_IMAGE_GRAYSCALE); //BORDES
+        if (this->QT_execution == true) // path for QT
+            this->AVSS_FGMask = imread("../datasets/AVSS2007/AVSS_Mask_1.jpg",CV_LOAD_IMAGE_GRAYSCALE); //BORDES
+        else //path for terminal
+            this->AVSS_FGMask = imread("./datasets/AVSS2007/AVSS_Mask_1.jpg",CV_LOAD_IMAGE_GRAYSCALE); //BORDES
+
+
         if (this->AVSS_FGMask.empty())
         {
-            cout << "Could not open mask image." << endl;
+            cout << "Could not open borders mask image." << endl;
             exit(EXIT_FAILURE);
         }
         bitwise_not(this->AVSS_FGMask,this->AVSS_FGMask);

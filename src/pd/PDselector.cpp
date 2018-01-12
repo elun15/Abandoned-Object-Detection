@@ -5,6 +5,7 @@
 
 #include "PDselector.h"
 #include "../utils/utils.h"
+#include "../Config.h"
 
 using namespace std;
 using namespace cv;
@@ -17,7 +18,7 @@ using namespace cv::dpm;
 PDselector::PDselector()
 {
     cout << "Default parameters:" << endl;
-    initialize(PD_HOG, false, false, NULL, -1);
+    initialize(PD_HOG, false, false, NULL, -1,true);
 }
 
 /*
@@ -28,9 +29,9 @@ PDselector::PDselector()
  * \param saveParDir directory to save files
  * \param saveCounter frequency to save data (number of frames), -1 for none
  */
-PDselector::PDselector(PD_type PDid, bool display, bool saveIMG, const char* savePathDir, int saveCounter)
+PDselector::PDselector(PD_type PDid, bool display, bool saveIMG, const char* savePathDir, int saveCounter, bool QT_execution)
 {
-    initialize(PDid, display, saveIMG, savePathDir, saveCounter);
+    initialize(PDid, display, saveIMG, savePathDir, saveCounter,QT_execution);
 }
 
 /*
@@ -49,7 +50,7 @@ PDselector::~PDselector()
  * \param saveParDir directory to save files
  * \param saveCounter frequency to save data (number of frames), -1 for none
  */
-void PDselector::initialize(PD_type PDid, bool display, bool saveIMG, const char* savePathDir, int saveCounter)
+void PDselector::initialize(PD_type PDid, bool display, bool saveIMG, const char* savePathDir, int saveCounter,bool QT_execution)
 {
     this->_PDid = PDid;
     this->_PDtype_str =  create_PDtype_str(); //create strings to display the name of each method
@@ -57,11 +58,13 @@ void PDselector::initialize(PD_type PDid, bool display, bool saveIMG, const char
     this->_saveIMG = saveIMG;
     this->_savePathDir = savePathDir;
     this->_saveCounter = saveCounter;
+    this->_QT_execution = QT_execution;
     cout << "PDselector(): " << _PDtype_str[_PDid] << " selected" << endl;
 }
 
 
 void PDselector::init(){
+
 
     switch (_PDid)
     {
@@ -69,18 +72,40 @@ void PDselector::init(){
         _pHOG.setSVMDetector(cv::HOGDescriptor::getDefaultPeopleDetector());
         break;
     case PD_DPM:
-        _pDPM  = DPMDetector::create(vector<string>(1, PATH_PERSON_MODEL_DPM));
-        break;
-    case PD_ACF:
-        _pACF.ReadModel(PATH_PERSON_MODEL_ACF);
-        break;
-    case PD_HAAR_FULL:
-        pFullBodyCascade.load(PATH_PERSON_MODEL_HAAR_FULL);
-        break;
-    case PD_HAAR_UPPER:
-        pUpperBodyCascade.load(PATH_PERSON_MODEL_HAAR_UPPER);
+
+        if (this->_QT_execution == true)
+            _pDPM  = DPMDetector::create(vector<string>(1, QT_PATH_PERSON_MODEL_DPM));
+        else
+            _pDPM  = DPMDetector::create(vector<string>(1, PATH_PERSON_MODEL_DPM));
+
         break;
 
+    case PD_ACF:
+
+        if (this->_QT_execution == true)
+            _pACF.ReadModel(QT_PATH_PERSON_MODEL_ACF);
+        else
+            _pACF.ReadModel(PATH_PERSON_MODEL_ACF);
+
+        break;
+    case PD_HAAR_FULL:
+
+        if (this->_QT_execution == true)
+            pFullBodyCascade.load(QT_PATH_PERSON_MODEL_HAAR_FULL);
+        else
+            pFullBodyCascade.load(PATH_PERSON_MODEL_HAAR_FULL);
+
+        break;
+
+    case PD_HAAR_UPPER:
+
+        if (this->_QT_execution == true)
+            pUpperBodyCascade.load(QT_PATH_PERSON_MODEL_HAAR_UPPER);
+        else
+            pUpperBodyCascade.load(QT_PATH_PERSON_MODEL_HAAR_UPPER);
+
+
+        break;
 
     default:
         break;
@@ -132,7 +157,7 @@ vector<Rect> PDselector::process(Mat frame,int counter)
             {
                 if (Score > 35)
                     _found.push_back(detection);
-                  // cout <<   Score << endl;
+                // cout <<   Score << endl;
             }
         }
         break;

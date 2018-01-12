@@ -99,6 +99,10 @@ void SFDGselector::init(Mat frame)
     case SFGD_DBM:
         this->pDBMSFGD = new StaticMaskExtractor_DualBkg(frame, _framerate, _time_to_static);
         break;
+    case SFGD_TBM:
+        this->pTBMSFGD = new StaticMaskExtractor_TripleBkg(frame, _framerate, _time_to_static);
+        break;
+
     default:
         break;
     }
@@ -129,8 +133,12 @@ void SFDGselector::process(Mat frame, std::vector<cv::Mat> foreground_img, Mat b
         this->_img_sfgd = this->pHistoryImagesSFGD->getStaticMask();
         break;
     case SFGD_DBM:
-        this->pDBMSFGD->processFrame(foreground_img[1],foreground_img[0]);
+        this->pDBMSFGD->processFrame(foreground_img[1],foreground_img[0]); // ( L, S)
         this->_img_sfgd= this->pDBMSFGD->getStaticMask();
+        break;
+   case SFGD_TBM:
+        this->pTBMSFGD->processFrame(foreground_img[2],foreground_img[1],foreground_img[0]); // (L, M , S)
+        this->_img_sfgd = this->pTBMSFGD->getStaticMask();
         break;
     default:
         break;

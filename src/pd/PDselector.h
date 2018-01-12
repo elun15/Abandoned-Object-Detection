@@ -21,10 +21,12 @@ typedef enum {
     PD_HAAR_UPPER =5,
 } PD_type;
 
-//#define PATH_PERSON_MODEL_DPM "./lib/DPM/inriaperson.xml"
-//#define PATH_PERSON_MODEL_DPM "./lib/ACFlibrary/ACF/INRIA_ACF.xml"
-//#define PATH_PERSON_MODEL_DPM "./models/people/INRIA_DPM.xml"
-//#define PATH_PERSON_MODEL_ACF "./models/people/INRIA_ACF.xml"
+
+#define QT_PATH_PERSON_MODEL_DPM "../models/people/INRIA_DPM.xml"
+#define QT_PATH_PERSON_MODEL_ACF "../models/people/INRIA_ACF.xml"
+#define QT_PATH_PERSON_MODEL_HAAR_FULL "../models/people/haarcascade_fullbody.xml"
+#define QT_PATH_PERSON_MODEL_HAAR_UPPER "../models/people/haarcascade_upperbody.xml"
+
 #define PATH_PERSON_MODEL_DPM "./models/people/INRIA_DPM.xml"
 #define PATH_PERSON_MODEL_ACF "./models/people/INRIA_ACF.xml"
 #define PATH_PERSON_MODEL_HAAR_FULL "./models/people/haarcascade_fullbody.xml"
@@ -71,10 +73,12 @@ private:
     int _saveCounter;
     std::string _savePathDir;
 
+    bool _QT_execution;
+
 public:
 
     PDselector();
-    PDselector(PD_type PDid,bool display=false, bool saveIMG=false, const char* savePathDir=NULL,int saveCounter=-1);  // PDid: technique ID
+    PDselector(PD_type PDid,bool display=false, bool saveIMG=false, const char* savePathDir=NULL,int saveCounter=-1,bool QT_execution= true);  // PDid: technique ID
 
     ~PDselector();
 
@@ -88,7 +92,7 @@ public:
 
 private:
     //internal init
-    void initialize(PD_type BGSid, bool display, bool saveIMG, const char* savePathDir, int saveCounter);
+    void initialize(PD_type BGSid, bool display, bool saveIMG, const char* savePathDir, int saveCounter,bool QT_execution);
 
     //list of strings for display purposes
     static std::map<int,std::string> create_PDtype_str() {

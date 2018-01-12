@@ -21,6 +21,7 @@
 //#include "StaticMaskExtractor_histimg.h"
 #include "StaticMaskExtractor_DualBkg.h"
 #include "StaticMaskExtractor_HistoryImages.h"
+#include "StaticMaskExtractor_TripleBkg.h"
 
 ///	Default Default framerate of the input video
 const double SFGD_FRAMERATE_DEFAULT = 25;
@@ -34,7 +35,8 @@ typedef enum {
 	SFGD_SUBSAMPLING	=1,
 	SFGD_ACC	        =2,
 	SFGD_HISTIMG		=3,
-	SFGD_DBM			=4
+    SFGD_DBM			=4,
+    SFGD_TBM            =5
 } SFGD_type;
 
 /*! \class SFDGSelector
@@ -55,15 +57,16 @@ public:
 	StaticMaskExtractor_AccMask *pAccMaskSFGD;
     StaticMaskExtractor_DualBkg *pDBMSFGD;
     StaticMaskExtractor_HistoryImages *pHistoryImagesSFGD;
+    StaticMaskExtractor_TripleBkg *pTBMSFGD;
 
 	//specific parameters for stationary detection
 	double _framerate; //measured in fps
 	double _time_to_static; //measured in seconds
 
 
-	cv::Mat _img_input; //input frame (color or gray scale image)
+    cv::Mat _img_input; //input frame (color or gray scale image)
 	cv::Mat _img_sfgd;//output frame (gray scale image)
-	cv::Mat _img_bgmodel; //background frame (color or gray scale image)
+    cv::Mat _img_bgmodel; //background frame (color or gray scale image)*/
 
 	//display settings
 	bool _display;

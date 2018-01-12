@@ -10,13 +10,13 @@
 #define DEFAULT_TIME_TO_STATIC 30
 
 ///Flag to show results
-#define DEFAULT_RESULTS_SHOW false
+#define DEFAULT_RESULTS_SHOW true
 
 ///Flag to detect people in every frame
 #define DEFAULT_DETECT_ALWAYS false
 
 ///Flag to save results (xml/txt files)
-#define DEFAULT_RESULTS_SAVE_XML true
+#define DEFAULT_RESULTS_SAVE_XML false
 
 ///Flag to save results (images)
 #define DEFAULT_RESULTS_SAVE_IMG false
@@ -34,11 +34,10 @@
 ///Flag to filter objects by context masks
 #define DEFAULT_FLAG_MASK true
 
-#define DEFAULT_BKG_METHOD  3
+#define DEFAULT_BKG_METHOD  4
 #define DEFAULT_SFGD_METHOD 4
-#define DEFAULT_PD_METHOD   4
-#define DEFAULT_SOC_METHOD  2
-
+#define DEFAULT_PD_METHOD   3
+#define DEFAULT_SOC_METHOD  3
 
 
 class Config
@@ -60,6 +59,7 @@ public:
     bool flag_nearpeople;
     bool flag_minsize;
     bool flag_contextmask;
+    bool QT_execution;
 
     // DIRECTORIES
     std::string inputPath;  //full path for video input
@@ -89,7 +89,7 @@ public:
 	Config();
 	Config(int argc, char *argv[]);
     Config(std::string inputPath, std::string resultsDir, int seconds);
-    Config(std::string inputPath, std::string resultsDir, int bkg, int m_sfgd, int pd, int soc,int seconds);
+    Config(std::string inputPath, std::string resultsDir, int bkg, int m_sfgd, int pd, int soc, int seconds, int flag_people, int flag_context);
 
     ~Config();
 
@@ -100,8 +100,8 @@ public:
     std::string findFilename(std::string filepath);
     void findContextMask();
 
-private:
-    void init(int bkg, int m_sfgd, int pd, int soc, std::string inputPath, std::string resultsDir, int seconds);
+
+    void init(int bkg, int m_sfgd, int pd, int soc, std::string inputPath, std::string resultsDir, int seconds, int flag_people, int flag_context);
 };
 
 #endif //__SETTINGS_H__

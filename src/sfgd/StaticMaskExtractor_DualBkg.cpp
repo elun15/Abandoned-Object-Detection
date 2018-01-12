@@ -28,7 +28,7 @@ StaticMaskExtractor_DualBkg::StaticMaskExtractor_DualBkg(Mat sampleFrame, double
     this->evidenceImageNorm = Mat::zeros(sampleFrame.size(),CV_32FC1);
     this->static_cont = floor(this->framerate*this->secs2static);
     this->k = 1;
-    this->oc_tolerance = 0.95;
+    this->oc_tolerance = 0.8;
 
 }
 
