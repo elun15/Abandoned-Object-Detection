@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<viper xmlns="http://lamp.cfar.umd.edu/viper#" xmlns:data="http://lamp.cfar.umd.edu/viperdata#">
+<config>
+<descriptor name="Information" type="FILE">
+<attribute dynamic="false" name="SOURCETYPE" type="http://lamp.cfar.umd.edu/viperdata#lvalue">
+<data:lvalue-possibles>
+<data:lvalue-enum value="SEQUENCE" /> 
+<data:lvalue-enum value="FRAMES" /> 
+</data:lvalue-possibles>
+</attribute>
+<attribute dynamic="false" name="NUMFRAMES" type="http://lamp.cfar.umd.edu/viperdata#dvalue" /> 
+<attribute dynamic="false" name="FRAMERATE" type="http://lamp.cfar.umd.edu/viperdata#fvalue" /> 
+<attribute dynamic="false" name="H-FRAME-SIZE" type="http://lamp.cfar.umd.edu/viperdata#dvalue" /> 
+<attribute dynamic="false" name="V-FRAME-SIZE" type="http://lamp.cfar.umd.edu/viperdata#dvalue" /> 
+</descriptor>
+<descriptor name="PutObject" type="OBJECT">
+<attribute dynamic="false" name="BoundingBox" type="http://lamp.cfar.umd.edu/viperdata#bbox" /> 
+</descriptor>
+<descriptor name="AbandonedObject" type="OBJECT">
+<attribute dynamic="false" name="BoundingBox" type="http://lamp.cfar.umd.edu/viperdata#bbox" /> 
+</descriptor>
+<descriptor name="StolenObject" type="OBJECT">
+<attribute dynamic="false" name="BoundingBox" type="http://lamp.cfar.umd.edu/viperdata#bbox" /> 
+</descriptor>
+</config>
+<data>
+<sourcefile filename="">
+<file id="0" name="Information">
+<attribute name="SOURCETYPE"> 
+<data:lvalue value="SEQUENCE"/> 
+</attribute>
+<attribute name="NUMFRAMES">
+<data:dvalue value="3051" /> 
+</attribute>
+<attribute name="FRAMERATE">
+<data:fvalue value="30.0" /> 
+</attribute>
+<attribute name="H-FRAME-SIZE" > 
+<data:dvalue value="720" /> 
+</attribute>
+<attribute name="V-FRAME-SIZE" > 
+<data:dvalue value="576" /> 
+</attribute>
+</file>
+<object framespan="2469:3053" id="5" name="AbandonedObject">
+<attribute name="BoundingBox">
+<data:bbox height="26" width="33" x="399" y="192"/> 
+</attribute>
+</object>
+<object framespan="829:1034" id="0" name="AbandonedObject">
+<attribute name="BoundingBox">
+<data:bbox height="23" width="13" x="491" y="387"/> 
+</attribute>
+</object>
+<object framespan="1445:1647" id="1" name="AbandonedObject">
+<attribute name="BoundingBox">
+<data:bbox height="17" width="13" x="466" y="336"/> 
+</attribute>
+</object>
+<object framespan="2221:2469" id="3" name="AbandonedObject">
+<attribute name="BoundingBox">
+<data:bbox height="33" width="16" x="400" y="153"/> 
+</attribute>
+</object>
+<object framespan="2430:2653" id="4" name="AbandonedObject">
+<attribute name="BoundingBox">
+<data:bbox height="24" width="28" x="500" y="399"/> 
+</attribute>
+</object>
+<object framespan="2560:2773" id="6" name="AbandonedObject">
+<attribute name="BoundingBox">
+<data:bbox height="34" width="23" x="471" y="396"/> 
+</attribute>
+</object>
+<object framespan="2624:2828" id="7" name="AbandonedObject">
+<attribute name="BoundingBox">
+<data:bbox height="16" width="15" x="500" y="328"/> 
+</attribute>
+</object>
+<object framespan="2654:2859" id="10" name="AbandonedObject">
+<attribute name="BoundingBox">
+<data:bbox height="8" width="12" x="476" y="349"/> 
+</attribute>
+</object>
+<object framespan="2655:2861" id="10" name="AbandonedObject">
+<attribute name="BoundingBox">
+<data:bbox height="12" width="15" x="478" y="355"/> 
+</attribute>
+</object>
+<object framespan="2669:2876" id="11" name="AbandonedObject">
+<attribute name="BoundingBox">
+<data:bbox height="6" width="9" x="422" y="383"/> 
+</attribute>
+</object>
+<object framespan="2671:2877" id="11" name="AbandonedObject">
+<attribute name="BoundingBox">
+<data:bbox height="16" width="19" x="428" y="383"/> 
+</attribute>
+</object>
+</sourcefile>
+</data>
+</viper>

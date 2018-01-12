@@ -1,0 +1,378 @@
+ Using terminal input parameters 
+ Selected bkg method: 4
+ Selected sfgd method: 4
+ Selected people detector method:3
+ Selected static object classifier method: 2
+ Input video dir: ./datasets/AVSS2007/AVSSS07_EASY.mpg
+ Output dir: ./results/config4432_30_1_1/Category_easy/
+
+ Time (seconds) to static: 30
+ Show results: 1
+ Save results (images): 0
+ Save results (xml): 0
+Video successfully opened29.97 fps. Size: 720 x 576
+BGSselector(): BGS_KNN selected
+BGSselector(): BGS_KNN method initialized.
+SFDGselector():  selected time2static=30secs framerate=29.97fps
+PDselector(): PD_ACF selected
+PDSelector(): SOC_HIST selected
+Init viper file
+WARNING: Viper log file can't be created
+tiempo 0.27599
+Frame 1. Num blobs=0  people=0  static=0
+tiempo 0.209275
+Frame 2. Num blobs=0  people=0  static=0
+tiempo 0.162006
+Frame 3. Num blobs=0  people=0  static=0
+tiempo 0.169828
+Frame 4. Num blobs=0  people=0  static=0
+tiempo 0.072745
+Frame 5. Num blobs=0  people=0  static=0
+tiempo 0.088894
+Frame 6. Num blobs=0  people=0  static=0
+tiempo 0.084563
+Frame 7. Num blobs=0  people=0  static=0
+tiempo 0.084754
+Frame 8. Num blobs=0  people=0  static=0
+tiempo 0.066762
+Frame 9. Num blobs=0  people=0  static=0
+tiempo 0.076103
+Frame 10. Num blobs=0  people=0  static=0
+tiempo 0.045286
+Frame 11. Num blobs=0  people=0  static=0
+tiempo 0.126502
+Frame 12. Num blobs=0  people=0  static=0
+tiempo 0.052837
+Frame 13. Num blobs=0  people=0  static=0
+tiempo 0.071322
+Frame 14. Num blobs=0  people=0  static=0
+tiempo 0.05836
+Frame 15. Num blobs=0  people=0  static=0
+tiempo 0.076008
+Frame 16. Num blobs=0  people=0  static=0
+tiempo 0.051124
+Frame 17. Num blobs=0  people=0  static=0
+tiempo 0.081911
+Frame 18. Num blobs=0  people=0  static=0
+tiempo 0.047912
+Frame 19. Num blobs=0  people=0  static=0
+tiempo 0.071069
+Frame 20. Num blobs=0  people=0  static=0
+tiempo 0.06611
+Frame 21. Num blobs=0  people=0  static=0
+tiempo 0.058589
+Frame 22. Num blobs=0  people=0  static=0
+tiempo 0.042909
+Frame 23. Num blobs=0  people=0  static=0
+tiempo 0.059004
+Frame 24. Num blobs=0  people=0  static=0
+tiempo 0.050795
+Frame 25. Num blobs=0  people=0  static=0
+tiempo 0.045206
+Frame 26. Num blobs=0  people=0  static=0
+tiempo 0.084925
+Frame 27. Num blobs=0  people=0  static=0
+tiempo 0.045955
+Frame 28. Num blobs=0  people=0  static=0
+tiempo 0.038002
+Frame 29. Num blobs=0  people=0  static=0
+tiempo 0.046183
+Frame 30. Num blobs=0  people=0  static=0
+tiempo 0.063826
+Frame 31. Num blobs=0  people=0  static=0
+tiempo 0.04318
+Frame 32. Num blobs=0  people=0  static=0
+tiempo 0.086145
+Frame 33. Num blobs=0  people=0  static=0
+tiempo 0.04379
+Frame 34. Num blobs=0  people=0  static=0
+tiempo 0.059899
+Frame 35. Num blobs=0  people=0  static=0
+tiempo 0.03863
+Frame 36. Num blobs=0  people=0  static=0
+tiempo 0.042933
+Frame 37. Num blobs=0  people=0  static=0
+tiempo 0.042886
+Frame 38. Num blobs=0  people=0  static=0
+tiempo 0.042007
+Frame 39. Num blobs=0  people=0  static=0
+tiempo 0.078794
+Frame 40. Num blobs=0  people=0  static=0
+tiempo 0.044915
+Frame 41. Num blobs=0  people=0  static=0
+tiempo 0.043229
+Frame 42. Num blobs=0  people=0  static=0
+tiempo 0.044671
+Frame 43. Num blobs=0  people=0  static=0
+tiempo 0.052094
+Frame 44. Num blobs=0  people=0  static=0
+tiempo 0.060833
+Frame 45. Num blobs=0  people=0  static=0
+tiempo 0.038651
+Frame 46. Num blobs=0  people=0  static=0
+tiempo 0.039723
+Frame 47. Num blobs=0  people=0  static=0
+tiempo 0.069202
+Frame 48. Num blobs=0  people=0  static=0
+tiempo 0.042291
+Frame 49. Num blobs=0  people=0  static=0
+tiempo 0.040951
+Frame 50. Num blobs=0  people=0  static=0
+tiempo 0.068689
+Frame 51. Num blobs=0  people=0  static=0
+tiempo 0.04694
+Frame 52. Num blobs=0  people=0  static=0
+tiempo 0.04614
+Frame 53. Num blobs=0  people=0  static=0
+tiempo 0.039749
+Frame 54. Num blobs=0  people=0  static=0
+tiempo 0.064904
+Frame 55. Num blobs=0  people=0  static=0
+tiempo 0.046767
+Frame 56. Num blobs=0  people=0  static=0
+tiempo 0.071885
+Frame 57. Num blobs=0  people=0  static=0
+tiempo 0.05941
+Frame 58. Num blobs=0  people=0  static=0
+tiempo 0.044452
+Frame 59. Num blobs=0  people=0  static=0
+tiempo 0.040348
+Frame 60. Num blobs=0  people=0  static=0
+tiempo 0.046704
+Frame 61. Num blobs=0  people=0  static=0
+tiempo 0.040932
+Frame 62. Num blobs=0  people=0  static=0
+tiempo 0.040369
+Frame 63. Num blobs=0  people=0  static=0
+tiempo 0.053631
+Frame 64. Num blobs=0  people=0  static=0
+tiempo 0.03724
+Frame 65. Num blobs=0  people=0  static=0
+tiempo 0.043127
+Frame 66. Num blobs=0  people=0  static=0
+tiempo 0.036845
+Frame 67. Num blobs=0  people=0  static=0
+tiempo 0.043845
+Frame 68. Num blobs=0  people=0  static=0
+tiempo 0.06873
+Frame 69. Num blobs=0  people=0  static=0
+tiempo 0.044226
+Frame 70. Num blobs=0  people=0  static=0
+tiempo 0.050128
+Frame 71. Num blobs=0  people=0  static=0
+tiempo 0.069879
+Frame 72. Num blobs=0  people=0  static=0
+tiempo 0.041296
+Frame 73. Num blobs=0  people=0  static=0
+tiempo 0.041279
+Frame 74. Num blobs=0  people=0  static=0
+tiempo 0.046362
+Frame 75. Num blobs=0  people=0  static=0
+tiempo 0.055444
+Frame 76. Num blobs=0  people=0  static=0
+tiempo 0.046879
+Frame 77. Num blobs=0  people=0  static=0
+tiempo 0.041716
+Frame 78. Num blobs=0  people=0  static=0
+tiempo 0.041321
+Frame 79. Num blobs=0  people=0  static=0
+tiempo 0.046567
+Frame 80. Num blobs=0  people=0  static=0
+tiempo 0.052417
+Frame 81. Num blobs=0  people=0  static=0
+tiempo 0.034317
+Frame 82. Num blobs=0  people=0  static=0
+tiempo 0.052863
+Frame 83. Num blobs=0  people=0  static=0
+tiempo 0.037459
+Frame 84. Num blobs=0  people=0  static=0
+tiempo 0.040851
+Frame 85. Num blobs=0  people=0  static=0
+tiempo 0.037346
+Frame 86. Num blobs=0  people=0  static=0
+tiempo 0.035596
+Frame 87. Num blobs=0  people=0  static=0
+tiempo 0.035905
+Frame 88. Num blobs=0  people=0  static=0
+tiempo 0.03869
+Frame 89. Num blobs=0  people=0  static=0
+tiempo 0.041257
+Frame 90. Num blobs=0  people=0  static=0
+tiempo 0.081996
+Frame 91. Num blobs=0  people=0  static=0
+tiempo 0.045546
+Frame 92. Num blobs=0  people=0  static=0
+tiempo 0.042371
+Frame 93. Num blobs=0  people=0  static=0
+tiempo 0.046428
+Frame 94. Num blobs=0  people=0  static=0
+tiempo 0.041414
+Frame 95. Num blobs=0  people=0  static=0
+tiempo 0.04427
+Frame 96. Num blobs=0  people=0  static=0
+tiempo 0.038522
+Frame 97. Num blobs=0  people=0  static=0
+tiempo 0.04089
+Frame 98. Num blobs=0  people=0  static=0
+tiempo 0.055012
+Frame 99. Num blobs=0  people=0  static=0
+tiempo 0.049504
+Frame 100. Num blobs=0  people=0  static=0
+tiempo 0.051587
+Frame 101. Num blobs=0  people=0  static=0
+tiempo 0.062952
+Frame 102. Num blobs=0  people=0  static=0
+tiempo 0.038968
+Frame 103. Num blobs=0  people=0  static=0
+tiempo 0.043438
+Frame 104. Num blobs=0  people=0  static=0
+tiempo 0.038753
+Frame 105. Num blobs=0  people=0  static=0
+tiempo 0.038366
+Frame 106. Num blobs=0  people=0  static=0
+tiempo 0.039874
+Frame 107. Num blobs=0  people=0  static=0
+tiempo 0.057695
+Frame 108. Num blobs=0  people=0  static=0
+tiempo 0.042559
+Frame 109. Num blobs=0  people=0  static=0
+tiempo 0.037314
+Frame 110. Num blobs=0  people=0  static=0
+tiempo 0.037807
+Frame 111. Num blobs=0  people=0  static=0
+tiempo 0.03804
+Frame 112. Num blobs=0  people=0  static=0
+tiempo 0.042353
+Frame 113. Num blobs=0  people=0  static=0
+tiempo 0.059529
+Frame 114. Num blobs=0  people=0  static=0
+tiempo 0.048686
+Frame 115. Num blobs=0  people=0  static=0
+tiempo 0.057493
+Frame 116. Num blobs=0  people=0  static=0
+tiempo 0.037494
+Frame 117. Num blobs=0  people=0  static=0
+tiempo 0.057173
+Frame 118. Num blobs=0  people=0  static=0
+tiempo 0.050985
+Frame 119. Num blobs=0  people=0  static=0
+tiempo 0.039804
+Frame 120. Num blobs=0  people=0  static=0
+tiempo 0.037216
+Frame 121. Num blobs=0  people=0  static=0
+tiempo 0.043043
+Frame 122. Num blobs=0  people=0  static=0
+tiempo 0.038999
+Frame 123. Num blobs=0  people=0  static=0
+tiempo 0.038621
+Frame 124. Num blobs=0  people=0  static=0
+tiempo 0.039132
+Frame 125. Num blobs=0  people=0  static=0
+tiempo 0.041008
+Frame 126. Num blobs=0  people=0  static=0
+tiempo 0.040175
+Frame 127. Num blobs=0  people=0  static=0
+tiempo 0.066896
+Frame 128. Num blobs=0  people=0  static=0
+tiempo 0.04404
+Frame 129. Num blobs=0  people=0  static=0
+tiempo 0.043623
+Frame 130. Num blobs=0  people=0  static=0
+tiempo 0.040545
+Frame 131. Num blobs=0  people=0  static=0
+tiempo 0.036792
+Frame 132. Num blobs=0  people=0  static=0
+tiempo 0.035611
+Frame 133. Num blobs=0  people=0  static=0
+tiempo 0.051622
+Frame 134. Num blobs=0  people=0  static=0
+tiempo 0.053337
+Frame 135. Num blobs=0  people=0  static=0
+tiempo 0.046057
+Frame 136. Num blobs=0  people=0  static=0
+tiempo 0.036463
+Frame 137. Num blobs=0  people=0  static=0
+tiempo 0.043596
+Frame 138. Num blobs=0  people=0  static=0
+tiempo 0.039173
+Frame 139. Num blobs=0  people=0  static=0
+tiempo 0.039367
+Frame 140. Num blobs=0  people=0  static=0
+tiempo 0.057741
+Frame 141. Num blobs=0  people=0  static=0
+tiempo 0.049748
+Frame 142. Num blobs=0  people=0  static=0
+tiempo 0.053795
+Frame 143. Num blobs=0  people=0  static=0
+tiempo 0.039079
+Frame 144. Num blobs=0  people=0  static=0
+tiempo 0.037201
+Frame 145. Num blobs=0  people=0  static=0
+tiempo 0.035647
+Frame 146. Num blobs=0  people=0  static=0
+tiempo 0.036864
+Frame 147. Num blobs=0  people=0  static=0
+tiempo 0.03647
+Frame 148. Num blobs=0  people=0  static=0
+tiempo 0.038012
+Frame 149. Num blobs=0  people=0  static=0
+tiempo 0.037376
+Frame 150. Num blobs=0  people=0  static=0
+tiempo 0.058688
+Frame 151. Num blobs=0  people=0  static=0
+tiempo 0.046874
+Frame 152. Num blobs=0  people=0  static=0
+tiempo 0.033188
+Frame 153. Num blobs=0  people=0  static=0
+tiempo 0.039324
+Frame 154. Num blobs=0  people=0  static=0
+tiempo 0.038146
+Frame 155. Num blobs=0  people=0  static=0
+tiempo 0.034641
+Frame 156. Num blobs=0  people=0  static=0
+tiempo 0.044095
+Frame 157. Num blobs=0  people=0  static=0
+tiempo 0.044934
+Frame 158. Num blobs=0  people=0  static=0
+tiempo 0.037744
+Frame 159. Num blobs=0  people=0  static=0
+tiempo 0.074668
+Frame 160. Num blobs=0  people=0  static=0
+tiempo 0.035099
+Frame 161. Num blobs=0  people=0  static=0
+tiempo 0.035655
+Frame 162. Num blobs=0  people=0  static=0
+tiempo 0.040848
+Frame 163. Num blobs=0  people=0  static=0
+tiempo 0.037817
+Frame 164. Num blobs=0  people=0  static=0
+tiempo 0.048404
+Frame 165. Num blobs=0  people=0  static=0
+tiempo 0.054428
+Frame 166. Num blobs=0  people=0  static=0
+tiempo 0.060784
+Frame 167. Num blobs=0  people=0  static=0
+tiempo 0.053119
+Frame 168. Num blobs=0  people=0  static=0
+tiempo 0.048475
+Frame 169. Num blobs=0  people=0  static=0
+tiempo 0.039239
+Frame 170. Num blobs=0  people=0  static=0
+tiempo 0.037139
+Frame 171. Num blobs=0  people=0  static=0
+tiempo 0.034576
+Frame 172. Num blobs=0  people=0  static=0
+tiempo 0.044208
+Frame 173. Num blobs=0  people=0  static=0
+tiempo 0.043279
+Frame 174. Num blobs=0  people=0  static=0
+tiempo 0.03791
+Frame 175. Num blobs=0  people=0  static=0
+tiempo 0.035265
+Frame 176. Num blobs=0  people=0  static=0
+tiempo 0.042138
+Frame 177. Num blobs=0  people=0  static=0
+tiempo 0.034079
+Frame 178. Num blobs=0  people=0  static=0
+tiempo 0.056643
+Frame 179. Num blobs=0  people=0  static=0

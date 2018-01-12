@@ -1,0 +1,14 @@
+ Selected bkg method: 3
+ Selected sfgd method: 5
+ Selected people detector method:3
+ Selected static object classifier method: 1
+ Input video dir: ./datasets/PETS2006_S5/PETS2006_S5_C4.mpeg
+ Output dir: ./results/config3531_30_1_1/Category_hard/
+
+ Time (seconds) to static: 30
+ Show results: 0
+ Save results (images): 0
+ Save results (xml): 1
+ - Results will be saved in (XML): ./results/config3531_30_1_1/Category_hard/PETS2006_S5_C4_3_5_3_1_2017-12-31.20-30.xml
+ - Results will be saved in (Time): ./results/config3531_30_1_1/Category_hard/PETS2006_S5_C4_3_5_3_1_2017-12-31.20-30.time
+Could not open the video file: ./datasets/PETS2006_S5/PETS2006_S5_C4.mpeg
