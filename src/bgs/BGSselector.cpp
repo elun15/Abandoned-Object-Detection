@@ -330,13 +330,14 @@ void BGSselector::process(Mat frame, Mat BoundaryMask, int counter, int method_s
         }
     }
 
-    if (_saveIMG && (counter% _saveCounter == 0))
+    if (_saveIMG && (counter > 1800))
     {
-        putText(_img_input,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
+       // putText(_img_input,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
         std::string d1 = _savePathDir + "frame" + to_string_(counter,5) + ".jpg";
-        imwrite(d1,_img_input);
+        bool check =imwrite(d1,frame.clone());
+        cout << "check " << d1 << endl;
 
-        putText(_img_fg,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
+      //  putText(_img_fg,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
         std::string d2 = _savePathDir + "fg" + to_string_(counter,5) + ".jpg";
         imwrite(d2,_img_fg);
     }

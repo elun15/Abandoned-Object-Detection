@@ -176,6 +176,10 @@ int StaticObjectClassifierHist::calcularHistogramas(Mat frame, Mat bkgImage, Mat
 {
     //bkgHist: Hist. of the area inside the blob not corresponding to the object in the bkg image
     bkgHist = calcularHistograma(bkgImage, roi, staticObjMask, 0);
+    cout << " prueba " << bkgHist.cols << endl;
+    imshow("bkghist", bkgHist);
+    waitKey();
+
     //newObjHist: Hist. of the area inside the blob corresponding to the object in the frame
     newObjHist=  calcularHistograma(frame, roi, staticObjMask, 1);
     //newObjHist: Hist. of the area inside the blob corresponding to the object in the bkg image

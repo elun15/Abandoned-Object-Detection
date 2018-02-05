@@ -59,7 +59,7 @@ public:
     Ptr<BackgroundSubtractor> _pMOG2_L; //MOG2 Background subtractor
     //KNN
     Ptr<BackgroundSubtractor> _pKNN; //KNN Background subtractor
-   Ptr<BackgroundSubtractor> _pKNN_M; //KNN Background subtractor
+    Ptr<BackgroundSubtractor> _pKNN_M; //KNN Background subtractor
     Ptr<BackgroundSubtractor> _pKNN_L; //KNN Background subtractor
 
     double _learningRate;

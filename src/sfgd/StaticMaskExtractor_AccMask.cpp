@@ -110,6 +110,7 @@ void StaticMaskExtractor_AccMask::processFrame(Mat fgmask,double framerate, int 
     compare(fgmask_counter, (float)numframes2static, this->staticMask, CMP_GE);
 
 
+
 }
 
 

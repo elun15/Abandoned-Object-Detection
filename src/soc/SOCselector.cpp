@@ -15,8 +15,8 @@ using namespace cv;
  */
 SOCselector::SOCselector()
 {
-	cout << "Default parameters:" << endl;
-	initialize(SOC_HGR, false, false, NULL, -1);	
+    cout << "Default parameters:" << endl;
+    initialize(SOC_HGR, false, false, NULL, -1);
 }
 
 
@@ -30,7 +30,7 @@ SOCselector::SOCselector()
  */
 SOCselector::SOCselector(SOC_type SOCid, bool display, bool saveIMG, const char* savePathDir, int saveCounter)
 {
-	initialize(SOCid, display, saveIMG, savePathDir, saveCounter);
+    initialize(SOCid, display, saveIMG, savePathDir, saveCounter);
 }
 
 /*
@@ -51,42 +51,42 @@ SOCselector::~SOCselector()
  */
 void SOCselector::initialize(SOC_type SOCid, bool display, bool saveIMG, const char* savePathDir, int saveCounter)
 {
-	this->_SOCid = SOCid;
-	this->_SOCtype_str =  create_SOCtype_str(); //create strings to display the name of each method
-	this->_display = display;
-	this->_saveIMG = saveIMG;
-	this->_savePathDir = savePathDir;
-	this->_saveCounter = saveCounter;
+    this->_SOCid = SOCid;
+    this->_SOCtype_str =  create_SOCtype_str(); //create strings to display the name of each method
+    this->_display = display;
+    this->_saveIMG = saveIMG;
+    this->_savePathDir = savePathDir;
+    this->_saveCounter = saveCounter;
 
-	this->_pHGR = NULL;
-	this->_pHist = NULL;
-	this->_pPCC = NULL;
+    this->_pHGR = NULL;
+    this->_pHist = NULL;
+    this->_pPCC = NULL;
 
-	cout << "PDSelector(): " << _SOCtype_str[_SOCid] << " selected" << endl;
+    cout << "PDSelector(): " << _SOCtype_str[_SOCid] << " selected" << endl;
 }
 
 void SOCselector::init()
 {
     switch (_SOCid)
     {
-		case SOC_HGR:
-			this->_pHGR = new StaticObjectClassifierHighGradient();
-			break;
-		case SOC_HIST:
-			this->_pHist = new StaticObjectClassifierHist();
-			break;
-		case SOC_PCC:
-			this->_pPCC = new StaticObjectClassifierPCC();
-			break;
-		default:
-			break;
+    case SOC_HGR:
+        this->_pHGR = new StaticObjectClassifierHighGradient();
+        break;
+    case SOC_HIST:
+        this->_pHist = new StaticObjectClassifierHist();
+        break;
+    case SOC_PCC:
+        this->_pPCC = new StaticObjectClassifierPCC();
+        break;
+    default:
+        break;
     }
 
 }
 
 Mat SOCselector::process(cv::Mat frame, cv::Mat bkg, cv::Mat sfgmask, cv::Mat fgmask, BlobList<ObjectBlob*>* objects, int counter)
 {
-    Mat result;
+    Mat result, show_hist;
     Mat sfgmaskTemp=sfgmask.clone();
 
     //structuring element to apply dilation&erosion
@@ -107,22 +107,24 @@ Mat SOCselector::process(cv::Mat frame, cv::Mat bkg, cv::Mat sfgmask, cv::Mat fg
 
     switch(_SOCid)
     {
-		case SOC_HGR:
-			_pHGR->processFrame(frame,bkg,sfgmaskTemp,fgmask,objects);
-			result = (_pHGR->printBlobs(frame, objects)).clone();
-			break;
+    case SOC_HGR:
+        _pHGR->processFrame(frame,bkg,sfgmaskTemp,fgmask,objects);
+        result = (_pHGR->printBlobs(frame, objects)).clone();
+        break;
 
-		case SOC_HIST:
-		    _pHist->processFrame(frame,bkg,sfgmaskTemp,fgmask,objects);
-		    result = (_pHist->printBlobs(frame, objects)).clone();
-			break;
+    case SOC_HIST:
+        _pHist->processFrame(frame,bkg,sfgmaskTemp,fgmask,objects);
+        result = (_pHist->printBlobs(frame, objects)).clone();
 
-		case SOC_PCC:
-		    _pPCC->processFrame(frame,bkg,sfgmaskTemp,fgmask,objects);
-		    result = (_pPCC->printBlobs(frame, objects)).clone();
-			break;
-		default:
-			break;
+
+        break;
+
+    case SOC_PCC:
+        _pPCC->processFrame(frame,bkg,sfgmaskTemp,fgmask,objects);
+        result = (_pPCC->printBlobs(frame, objects)).clone();
+        break;
+    default:
+        break;
     }
 
     //For display
@@ -131,21 +133,23 @@ Mat SOCselector::process(cv::Mat frame, cv::Mat bkg, cv::Mat sfgmask, cv::Mat fg
     namewindow = str.c_str();
 
     if (_display)
-	{
-		if (counter>0)
-			putText(result,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
+    {
+        if (counter>0)
+            putText(result,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
 
         imshow(namewindow,result);
         waitKey(1);
     }
 
 
-	if (_saveIMG && (counter% _saveCounter == 0))
-	{
-		if (counter>0)
-			putText(result,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
-		std::string d1 = _savePathDir + "SOC" + to_string_(counter,5) + ".jpg";
-		imwrite(d1,result);
-	}
+    if (_saveIMG && (counter > 1800))
+    {
+        if (counter>0){
+
+            //putText(result,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
+            std::string d1 = _savePathDir + "SOC" + to_string_(counter,5) + ".jpg";
+            imwrite(d1,result);
+        }
+    }
     return result;
 }

@@ -93,12 +93,16 @@ void Config::init(int bkg, int sfgd, int pd, int soc, std::string inputPath, std
     //output for images
     this->DirImages = this->resultsDir + "/images/";
     //Path for settings file
-    //in QT
-    this->fileSettingsPath = this->resultsDir + "config" + to_string_(this->m_bkg) +  to_string_( this->m_sfgd)+ to_string_( this->m_pd)+ to_string_( this->m_soc  )+ "_"+ to_string_(this->time_to_static)+ "_" + to_string_(flag_people)+"_"+ to_string_(flag_context) + "/parameters.settings";
 
-    //Terminal:
-    //this->fileSettingsPath = "./results/config" + to_string_(this->m_bkg) +  to_string_( this->m_sfgd)+ to_string_( this->m_pd)+ to_string_( this->m_soc )+ "_"+ to_string_(this->time_to_static)+ "_" + to_string_(flag_people)+"_"+ to_string_(flag_context) + "/parameters.settings";
-
+    if (QT_execution == true){
+        //in QT
+        this->fileSettingsPath = this->resultsDir + "config" + to_string_(this->m_bkg) +  to_string_( this->m_sfgd)+ to_string_( this->m_pd)+ to_string_( this->m_soc  )+ "_"+ to_string_(this->time_to_static)+ "_" + to_string_(flag_people)+"_"+ to_string_(flag_context) + "/parameters.settings";
+    }
+    else
+    {
+        //Terminal:
+        this->fileSettingsPath = "./results/config" + to_string_(this->m_bkg) +  to_string_( this->m_sfgd)+ to_string_( this->m_pd)+ to_string_( this->m_soc )+ "_"+ to_string_(this->time_to_static)+ "_" + to_string_(flag_people)+"_"+ to_string_(flag_context) + "/parameters.settings";
+    }
 
     //output files
     if (this->SaveResults == true)
@@ -216,7 +220,8 @@ void Config::findContextMask()
         this->contextMask = Mat();
 
     }
-
+    /*
+  COMMENTED FOR PICTURE EXTRACTION
     //ONLY FOR AVSS, TO REMOVE BOUNDARY ERRORS
     if ( this->inputvideo.find("AVSS") != string::npos)
     {
@@ -237,7 +242,7 @@ void Config::findContextMask()
     {
         this->AVSS_FGMask = Mat();
     }
-
+*/
 
 }
 

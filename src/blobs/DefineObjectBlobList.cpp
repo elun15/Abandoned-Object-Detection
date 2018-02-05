@@ -144,10 +144,10 @@ void DefineObjectBlobList(std::vector<cvBlob> *inBlobList, vector<cv::Rect>& fou
             }
             else //FALSE
             {
-                int minH = cvCeil((mask.rows * 2) / 100); // 3% size
+                int minH = cvCeil((mask.rows * 2) / 100); // 2% size
                 int minW = cvCeil((mask.cols * 2) / 100);
 
-                int maxH = cvCeil((mask.rows * 40) / 100); // 3% size
+                int maxH = cvCeil((mask.rows * 40) / 100); // 2% size
                 int maxW = cvCeil((mask.cols * 40) / 100);
 
                 if (staticBlob.h <= minH || staticBlob.w <= minW || staticBlob.h >= maxH || staticBlob.w >= maxW )

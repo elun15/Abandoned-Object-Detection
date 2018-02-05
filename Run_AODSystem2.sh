@@ -34,7 +34,7 @@
 
 
 configs=("4431" ) 	#selected system configurations (YOU CAN CHANGE)
-seconds_to_static=10;
+seconds_to_static=20;
 flag_near_people=0;
 flag_context=1;
 

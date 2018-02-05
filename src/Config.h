@@ -10,17 +10,17 @@
 #define DEFAULT_TIME_TO_STATIC 30
 
 ///Flag to show results
-#define DEFAULT_RESULTS_SHOW true
+#define DEFAULT_RESULTS_SHOW false
 
 ///Flag to detect people in every frame
-#define DEFAULT_DETECT_ALWAYS false
+#define DEFAULT_DETECT_ALWAYS true
 
 ///Flag to save results (xml/txt files)
 #define DEFAULT_RESULTS_SAVE_XML false
 
 ///Flag to save results (images)
-#define DEFAULT_RESULTS_SAVE_IMG false
-#define DEFAULT_RESULTS_SAVE_IMG_FREQ 25
+#define DEFAULT_RESULTS_SAVE_IMG true
+#define DEFAULT_RESULTS_SAVE_IMG_FREQ 50
 
 ///Flag to filter by min size
 #define DEFAULT_FLAG_MINSIZE true
@@ -35,8 +35,8 @@
 #define DEFAULT_FLAG_MASK true
 
 #define DEFAULT_BKG_METHOD  4
-#define DEFAULT_SFGD_METHOD 4
-#define DEFAULT_PD_METHOD   3
+#define DEFAULT_SFGD_METHOD 2
+#define DEFAULT_PD_METHOD   2
 #define DEFAULT_SOC_METHOD  3
 
 

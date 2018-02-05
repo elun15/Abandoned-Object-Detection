@@ -67,6 +67,7 @@ public:
     cv::Mat _img_input; //input frame (color or gray scale image)
 	cv::Mat _img_sfgd;//output frame (gray scale image)
     cv::Mat _img_bgmodel; //background frame (color or gray scale image)*/
+    cv::Mat _conf_image;
 
 	//display settings
 	bool _display;

@@ -199,7 +199,7 @@ void AOD::processFrame(Mat frame,Config cfg)
     if (cfg.DetectPeopleAlways == true || (cfg.DetectPeopleAlways == false && BlobList->size()) )
     {
         clock_t start_pd = clock();
-        pdBlobs = this->_sel_pd->process(frame); //apply detector
+        pdBlobs = this->_sel_pd->process(frame,cfg.numFrame); //apply detector
 
         //this->_sel_pd->non_max_suppresion(_sel_pd->getDetections(),pdBlobs,0.5); // Filter detections with nms
         _elapsedTime_pd = (double)(clock() - start_pd)/CLOCKS_PER_SEC;
@@ -216,7 +216,7 @@ void AOD::processFrame(Mat frame,Config cfg)
     clock_t start_soc = clock();
 
     if (pStaticObjectList.getBlobNum())
-        this->_sel_soc->process(frame, bgmodel, sfgmask, sfgmask,&pStaticObjectList);
+        this->_sel_soc->process(frame, bgmodel, sfgmask, sfgmask,&pStaticObjectList,cfg.numFrame);
 
     _elapsedTime_soc = (double)(clock()-start_soc)/CLOCKS_PER_SEC;
 

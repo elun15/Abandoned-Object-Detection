@@ -29,9 +29,8 @@ int main(int argc, char *argv[])
     {
         cout << " Using QT input parameters "<< endl;
         cfg.QT_execution = true;
-        cfg.init(2,1,3,1, "./../datasets/VISOR/visor_Video02.avi","./../results/",30,DEFAULT_FLAG_NEARPEOPLE, DEFAULT_FLAG_MASK);
-        //cfg.init(4,4,3,1, "./../datasets/AVSS2007/AVSSS07_HARD.mpg","./../results/",30,DEFAULT_FLAG_NEARPEOPLE, DEFAULT_FLAG_MASK);
-
+        cfg.init(2,2,3,1, "./../datasets/PETS2006_S5/PETS2006_S5_C3.mpeg","./../results/",30,DEFAULT_FLAG_NEARPEOPLE, DEFAULT_FLAG_MASK);
+       // cfg.init(4,2,1,3, "./../datasets/PETS2006_S5/PETS2006_S5_C3.mpeg","./../results/",30,DEFAULT_FLAG_NEARPEOPLE, DEFAULT_FLAG_MASK);
     }
 
 
