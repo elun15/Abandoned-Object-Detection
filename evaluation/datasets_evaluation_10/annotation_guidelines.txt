@@ -1,0 +1,27 @@
+
+* Gt Annotation Guidelines *
+
+For each event the following descriptors are considered:
+-Framespan (initial_frame:final_frame)
+-BoundingBox (location)
+
+
+Events types:
+-PutObject: since the object is left until it is removed or the end of the sequence
+-AbandonedObject: since the abandon conditions are met until the object is removed or the end of the sequence
+
+Abandon conditions:
+First level:
+	-Temporal condition: the object must be stationary, at least, for 10 seconds
+Second level:
+	-Spatial condition: object's owner should not be in the surroundings
+
+
+Each event is associated to a single object. 
+Each object has a unique id. 
+A single object can/must be associated with both events type (PutObject and AbandonedObject).
+
+
+
+
+
