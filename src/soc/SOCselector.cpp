@@ -7,6 +7,8 @@
 #include <opencv2/opencv.hpp>
 #include "SOCselector.h"
 #include "../utils/utils.h"
+#include <iostream>   // std::cout
+#include <string>     // std::string
 
 using namespace std;
 using namespace cv;
@@ -142,7 +144,7 @@ Mat SOCselector::process(cv::Mat frame, cv::Mat bkg, cv::Mat sfgmask, cv::Mat fg
     }
 
 
-    if (_saveIMG && (counter > 1800))
+   if (_saveIMG && (counter >= 2000)  )
     {
         if (counter>0){
 

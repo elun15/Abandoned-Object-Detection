@@ -13,13 +13,13 @@
 #define DEFAULT_RESULTS_SHOW false
 
 ///Flag to detect people in every frame
-#define DEFAULT_DETECT_ALWAYS true
+#define DEFAULT_DETECT_ALWAYS false
 
 ///Flag to save results (xml/txt files)
-#define DEFAULT_RESULTS_SAVE_XML false
+#define DEFAULT_RESULTS_SAVE_XML true
 
 ///Flag to save results (images)
-#define DEFAULT_RESULTS_SAVE_IMG true
+#define DEFAULT_RESULTS_SAVE_IMG false
 #define DEFAULT_RESULTS_SAVE_IMG_FREQ 50
 
 ///Flag to filter by min size

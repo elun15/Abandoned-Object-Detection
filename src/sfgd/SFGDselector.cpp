@@ -154,17 +154,17 @@ void SFDGselector::process(Mat frame, std::vector<cv::Mat> foreground_img, Mat b
     }
 
 
-    if (_saveIMG && (counter > 1800))
+   if (_saveIMG && (counter > 2000))
     {
         // putText(_img_input,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
         std::string d = _savePathDir + "sfgd" + to_string_(counter,5) + ".jpg";
         imwrite(d,_img_sfgd);
 
-        if (!_conf_image.empty()){
+        /*if (!_conf_image.empty()){
 
             std::string d2 = _savePathDir + "conf" + to_string_(counter,5) + ".jpg";
             imwrite(d2,_conf_image);
-        }
+        }*/
 
     }
 }

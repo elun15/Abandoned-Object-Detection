@@ -86,7 +86,7 @@ void BGSselector::init(Mat frame, double learningRate, double learningRate2,doub
 {
     this->_img_fg      = Mat::zeros(frame.rows, frame.cols, 0);
     this->_img_fg_L      = Mat::zeros(frame.rows, frame.cols, 0);
-      this->_img_fg_M      = Mat::zeros(frame.rows, frame.cols, 0);
+    this->_img_fg_M      = Mat::zeros(frame.rows, frame.cols, 0);
     this->_img_bgmodel = Mat::zeros(frame.rows, frame.cols, CV_8UC3);
     this->_img_bgmodel_L = Mat::zeros(frame.rows, frame.cols, CV_8UC3);
 
@@ -231,7 +231,7 @@ void BGSselector::process(Mat frame, Mat BoundaryMask, int counter, int method_s
                 this->_pKNN_L->apply(_img_input2, _img_fg_L,_learningRate_L);
 
             }
-             this->_pKNN_L->getBackgroundImage(_img_bgmodel);
+            this->_pKNN_L->getBackgroundImage(_img_bgmodel);
 
         }
         else if(method_sfgd == 5)
@@ -250,7 +250,7 @@ void BGSselector::process(Mat frame, Mat BoundaryMask, int counter, int method_s
                 this->_pKNN_M->apply(_img_input2, _img_fg_M,_learningRate_M);
 
             }
-           this->_pKNN_L->getBackgroundImage(_img_bgmodel);
+            this->_pKNN_L->getBackgroundImage(_img_bgmodel);
 
         }
 
@@ -261,7 +261,7 @@ void BGSselector::process(Mat frame, Mat BoundaryMask, int counter, int method_s
             else
                 this->_pKNN->apply(_img_input, _img_fg,0.0001);
 
-             this->_pKNN->getBackgroundImage(_img_bgmodel);
+            this->_pKNN->getBackgroundImage(_img_bgmodel);
         }
 
 
@@ -330,16 +330,22 @@ void BGSselector::process(Mat frame, Mat BoundaryMask, int counter, int method_s
         }
     }
 
-    if (_saveIMG && (counter > 1800))
-    {
-       // putText(_img_input,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
-        std::string d1 = _savePathDir + "frame" + to_string_(counter,5) + ".jpg";
-        bool check =imwrite(d1,frame.clone());
-        cout << "check " << d1 << endl;
 
-      //  putText(_img_fg,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
+    if (_saveIMG && (counter >= 2000))
+
+    {
+        putText(_img_fg,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
         std::string d2 = _savePathDir + "fg" + to_string_(counter,5) + ".jpg";
         imwrite(d2,_img_fg);
+
+        putText(_img_input,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
+        std::string d1 = _savePathDir + "frame" + to_string_(counter,5) + ".jpg";
+        imwrite(d1,frame.clone());
+
+/*
+        putText(_img_fg_L,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
+        std::string d3 = _savePathDir + "fg_L_" + to_string_(counter,5) + ".jpg";
+        imwrite(d3,_img_fg_L);*/
     }
 }
 
@@ -361,8 +367,8 @@ std::vector<cv::Mat> BGSselector::GetFGmask(int method_sfgd)
     }
     if (method_sfgd == 5) //TRIPLE
     {
-       vector.push_back(this->_img_fg_M);
-       vector.push_back(this->_img_fg_L);
+        vector.push_back(this->_img_fg_M);
+        vector.push_back(this->_img_fg_L);
     }
 
 

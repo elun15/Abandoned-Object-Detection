@@ -216,7 +216,7 @@ void AOD::processFrame(Mat frame,Config cfg)
     clock_t start_soc = clock();
 
     if (pStaticObjectList.getBlobNum())
-        this->_sel_soc->process(frame, bgmodel, sfgmask, sfgmask,&pStaticObjectList,cfg.numFrame);
+        this->_sel_soc->process(frame, bgmodel, sfgmask, sfgmask, &pStaticObjectList,cfg.numFrame);
 
     _elapsedTime_soc = (double)(clock()-start_soc)/CLOCKS_PER_SEC;
 

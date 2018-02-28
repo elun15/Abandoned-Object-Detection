@@ -220,8 +220,8 @@ void Config::findContextMask()
         this->contextMask = Mat();
 
     }
-    /*
-  COMMENTED FOR PICTURE EXTRACTION
+
+
     //ONLY FOR AVSS, TO REMOVE BOUNDARY ERRORS
     if ( this->inputvideo.find("AVSS") != string::npos)
     {
@@ -242,7 +242,7 @@ void Config::findContextMask()
     {
         this->AVSS_FGMask = Mat();
     }
-*/
+
 
 }
 

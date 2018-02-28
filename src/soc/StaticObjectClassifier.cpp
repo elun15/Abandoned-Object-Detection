@@ -110,18 +110,18 @@ Mat StaticObjectClassifier::extractImage(Mat src, cv::Rect roi)
 */
 int StaticObjectClassifier::processFrame(Mat frame, Mat bkgImage, Mat staticObjMask, Mat fgMask, BlobList<ObjectBlob*>* objectList)
 {
-	for (int j = 0; j <  objectList->getBlobNum(); j++) {
+    for (int j = 0; j <  objectList->getBlobNum(); j++) {
 
-		//get the object to analyze
-		ObjectBlob *object = objectList->getBlob(j);
+        //get the object to analyze
+        ObjectBlob *object = objectList->getBlob(j);
 
         //process object
         if(object->getAttended() == false)
             checkObject(frame,bkgImage,staticObjMask,fgMask, object);
         else
-           object->results->D_F = NONE;
-	}
-	return 1;
+            object->results->D_F = NONE;
+    }
+    return 1;
 }
 
 /**
@@ -173,6 +173,14 @@ Mat StaticObjectClassifier::printBlobs(Mat frame, BlobList<ObjectBlob *> *pObjLi
         //print blob and state in the image
         switch (pB->results->D_F)
         {
+        case STATIC_OBJ_TYPE_ABANDONED:
+            color = Scalar(0, 255, 0, 0);
+            sprintf(string, "Abandoned");
+            putText(_resultImage,string,Point((pB->x)-5,(pB->y)-5),CV_FONT_HERSHEY_SIMPLEX,0.5,color,2,8);
+             rectangle(_resultImage, Point((int)pB->x,(int)pB->y), Point((int)(pB->x + pB->w),(int)(pB->y + pB->h)),color,2,8,0);
+            break;
+
+            /*
         case NONE:
             color = Scalar(255, 255, 255, 0);
             sprintf(string, "None");
@@ -184,31 +192,29 @@ Mat StaticObjectClassifier::printBlobs(Mat frame, BlobList<ObjectBlob *> *pObjLi
 
             //cvPutText(_resultImage, strNumFrame, cvPoint(0, frame.rows - 35), display_font, color);
             break;
-        case STATIC_OBJ_TYPE_STOLEN:
+       case STATIC_OBJ_TYPE_STOLEN:
             color = Scalar(255, 0, 0, 0);
             sprintf(string, "Stolen");
             putText(_resultImage,string,Point((pB->x)-5,(pB->y)-5),CV_FONT_HERSHEY_SIMPLEX,0.5,color,2,8);
             break;
-        case STATIC_OBJ_TYPE_ABANDONED:
-            color = Scalar(0, 255, 0, 0);
-            sprintf(string, "Abandoned");
-            putText(_resultImage,string,Point((pB->x)-5,(pB->y)-5),CV_FONT_HERSHEY_SIMPLEX,0.5,color,2,8);
-            break;
+
         case STATIC_OBJ_TYPE_LIGHT_CHANGE:
             color = Scalar(0, 0, 255, 0);
             sprintf(string, "Light Change");
             putText(_resultImage,string,Point(frame.rows - 50),CV_FONT_HERSHEY_SIMPLEX,0.5,color,1,8);
-            break;
+            break;*/
+
         }
 
         //cvRectangle(_resultImage, cvPoint((int)pB->getBlob()->x, (int)pB->getBlob()->y), cvPoint((int)(pB->getBlob()->x + pB->getBlob()->w), (int)(pB->getBlob()->y + pB->getBlob()->h)), color, 1, 8, 0);
         //cvRectangle(_resultImage, cvPoint((int)pB->x, (int)pB->y), cvPoint(((int)(pB->x + pB->w)), (int)(pB->y + pB->h)), color, 1, 8, 0);
 
 
-        rectangle(_resultImage, Point((int)pB->x,(int)pB->y), Point((int)(pB->x + pB->w),(int)(pB->y + pB->h)),color,2,8,0);
-    }
 
-    //delete display_font;
 
-    return _resultImage;
+}
+
+//delete display_font;
+
+return _resultImage;
 }

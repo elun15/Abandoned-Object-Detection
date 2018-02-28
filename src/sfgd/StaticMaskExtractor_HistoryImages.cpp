@@ -139,8 +139,8 @@ void StaticMaskExtractor_HistoryImages::processFrame(Mat fgmask, Mat srcMat, Mat
     int kernel_size = 5;
     Mat kernel = Mat::ones( kernel_size, kernel_size, CV_32F )/ (float)(kernel_size*kernel_size);
     filter2D(meanSSIM, RSSIM, -1 , kernel, Point( -1, -1 ), 0, BORDER_DEFAULT);
-    //cv::imshow( "RSSIM", RSSIM);
-    //cvWaitKey(1);
+   // cv::imshow( "RSSIM", RSSIM);
+   // waitKey(1);
 
     //Get SSIM FG by thresholding
     Mat FG_ssim = Mat::zeros(RSSIM.rows,RSSIM.cols,CV_8UC1);
@@ -218,14 +218,14 @@ void StaticMaskExtractor_HistoryImages::processFrame(Mat fgmask, Mat srcMat, Mat
     divide(this->ssim_counter,(float)numframes2static,HI_S);
     HI_S.setTo(1,HI_S>1);
 
-    //cv::imshow( "HI_F", HI_F);
-    //cvWaitKey(1);
+   /* cv::imshow( "HI_F", HI_F);
+    waitKey(1);
 
-    //cv::imshow( "HI_M", HI_M);
-    //cvWaitKey(1);
+    cv::imshow( "HI_M", HI_M);
+    waitKey(1);
 
-    //cv::imshow( "HI_S", HI_S);
-    //cvWaitKey(1);/**/
+    cv::imshow( "HI_S", HI_S);
+    waitKey(1);*/
 
     //Combination
     Mat mask = Mat::zeros(diff.rows,diff.cols,CV_8UC1);
@@ -237,16 +237,16 @@ void StaticMaskExtractor_HistoryImages::processFrame(Mat fgmask, Mat srcMat, Mat
     Mat maskMov = Mat::zeros(diff.rows,diff.cols,CV_8UC1);
     maskMov.setTo(1,HI_M<1 & HI_F==1 & HI_S==1);//Values to 1 in frame t-1
 
-    //cv::imshow( "Combined HI", SHI);
-    //cvWaitKey(1);
+   // cv::imshow( "Combined HI", SHI);
+   // waitKey(1);
 
     this->staticMask = Mat::zeros(this->staticMask.rows,this->staticMask.cols,CV_8UC1);
     this->staticMask.setTo(255,maskMov==1 & SHI>=0.7);
     this->staticMask.setTo(255,maskMov==0 & SHI==1);
     this->staticMask.setTo(255,mask==1 & HI_F>=0.8 & HI_M<1 & HI_S==1);
 
-    //cv::imshow( "My static mask", this->staticMask);
-    //cvWaitKey(1);
+   // cv::imshow( "My static mask", this->staticMask);
+   // waitKey(1);
 
 }
 
