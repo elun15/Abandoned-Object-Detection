@@ -1,0 +1,76 @@
+ Using terminal input parameters 
+ Selected bkg method: 3
+ Selected sfgd method: 3
+ Selected people detector method:3
+ Selected static object classifier method: 1
+ Input video dir: ./datasets/AVSS2007/AVSSS07_EASY.mpg
+ Output dir: ./results/config3331_10_1_1/Category_easy/
+
+ Time (seconds) to static: 10
+ Show results: 0
+ Save results (images): 0
+ Save results (xml): 1
+ - Results will be saved in (XML): ./results/config3331_10_1_1/Category_easy/AVSSS07_EASY_3_3_3_1_2018-02-21.11-10.xml
+ - Results will be saved in (Time): ./results/config3331_10_1_1/Category_easy/AVSSS07_EASY_3_3_3_1_2018-02-21.11-10.time
+Video successfully opened29.97 fps. Size: 720 x 576
+BGSselector(): BGS_MOG2 selected
+BGSselector(): BGS_MOG2 method initialized.
+SFDGselector(): SFGD_HISTIMG selected time2static=10secs framerate=29.97fps
+PDselector(): PD_ACF selected
+PDSelector(): SOC_HGR selected
+Saving results and execution times.
+Init viper file
+Viper log file created
+Settings file created
+tiempo 0.095147
+Frame 1. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+tiempo 0.017709
+Frame 2. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+tiempo 0.024948
+Frame 3. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+tiempo 0.027481
+Frame 4. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+tiempo 0.02258
+Frame 5. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+tiempo 0.024703
+Frame 6. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+tiempo 0.021057
+Frame 7. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+tiempo 0.024614
+Frame 8. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+tiempo 0.025524
+Frame 9. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+tiempo 0.021704
+Frame 10. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+tiempo 0.023157
+Frame 11. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+tiempo 0.024397
+Frame 12. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+tiempo 0.026635
+Frame 13. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+tiempo 0.025139
+Frame 14. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+tiempo 0.023184
+Frame 15. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+tiempo 0.026723
+Frame 16. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+tiempo 0.026046
+Frame 17. Num blobs=0  people=0  static=0
+	Current event List (0 events) (past 0)
+tiempo 0.024959

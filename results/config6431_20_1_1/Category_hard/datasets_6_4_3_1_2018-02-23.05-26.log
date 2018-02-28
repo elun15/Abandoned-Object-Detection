@@ -1,0 +1,15 @@
+ Using terminal input parameters 
+ Selected bkg method: 6
+ Selected sfgd method: 4
+ Selected people detector method:3
+ Selected static object classifier method: 1
+ Input video dir: ./datasets
+ Output dir: ./results/config6431_20_1_1/Category_hard/
+
+ Time (seconds) to static: 20
+ Show results: 0
+ Save results (images): 0
+ Save results (xml): 1
+ - Results will be saved in (XML): ./results/config6431_20_1_1/Category_hard/datasets_6_4_3_1_2018-02-23.05-26.xml
+ - Results will be saved in (Time): ./results/config6431_20_1_1/Category_hard/datasets_6_4_3_1_2018-02-23.05-26.time
+Could not open  mask image:./datasets_mask.jpg

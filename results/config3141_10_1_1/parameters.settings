@@ -1,8 +1,0 @@
-#Configuration settings 
-Selected bkg method = 3
-Selected sfgd method= 1
-Selected people detector method = 4
-Selected static object classifier method = 1
-Time (seconds) to static = 10
-Flag near people = 1
-Flag context mask = 1

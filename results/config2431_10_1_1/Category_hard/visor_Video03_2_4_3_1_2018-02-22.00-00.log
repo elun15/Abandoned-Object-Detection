@@ -1,0 +1,25 @@
+ Using terminal input parameters 
+ Selected bkg method: 2
+ Selected sfgd method: 4
+ Selected people detector method:3
+ Selected static object classifier method: 1
+ Input video dir: ./datasets/VISOR/visor_Video03.avi
+ Output dir: ./results/config2431_10_1_1/Category_hard/
+
+ Time (seconds) to static: 10
+ Show results: 0
+ Save results (images): 0
+ Save results (xml): 1
+ - Results will be saved in (XML): ./results/config2431_10_1_1/Category_hard/visor_Video03_2_4_3_1_2018-02-22.00-00.xml
+ - Results will be saved in (Time): ./results/config2431_10_1_1/Category_hard/visor_Video03_2_4_3_1_2018-02-22.00-00.time
+Video successfully opened25 fps. Size: 540 x 432
+BGSselector(): BGS_PAWCS selected
+PAWCS()
+BGSselector(): BGS_PAWCS method initialized.
+SFDGselector():  selected time2static=10secs framerate=25fps
+PDselector(): PD_ACF selected
+PDSelector(): SOC_HGR selected
+Saving results and execution times.
+Init viper file
+Viper log file created
+Settings file created
