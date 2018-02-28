@@ -33,14 +33,14 @@
 # Last update: 2017-09-18
 
 
-configs=("4431" ) 	#selected system configurations (YOU CAN CHANGE)
-seconds_to_static=10;
-flag_near_people=0;
+configs=("3431" "3331" "4431" "4331" "2431" "2331" "6431" "6331") 	#selected system configurations (YOU CAN CHANGE)
+seconds_to_static=20;
+flag_near_people=1;
 flag_context=1;
 
 results_path="./results/"		#path where results  are located (YOU CAN CHANGE)
 dataset_path="./datasets"		#path where datasets are located (YOU CAN CHANGE)
-binary_path="./System_Evaluation1" 	#path where binaries are located (YOU CAN CHANGE)
+binary_path="./System_Evaluation" 	#path where binaries are located (YOU CAN CHANGE)
 
 Nconfig=${#configs[@]}			#total number of configurations
 clear
