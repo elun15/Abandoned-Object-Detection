@@ -203,16 +203,13 @@ void BGSselector::process(Mat frame, Mat BoundaryMask, int counter, int method_s
             this->_pMOG2_M->apply(_img_input2, _img_fg_M,_learningRate_M);
             this->_pMOG2_L->getBackgroundImage(_img_bgmodel);
 
-
         }
 
         else
         {
             this->_pMOG2->apply(frame, _img_fg,0.00005);
             this->_pMOG2->getBackgroundImage(_img_bgmodel);
-        }
-
-        ;
+        };
 
     }
 
@@ -222,7 +219,7 @@ void BGSselector::process(Mat frame, Mat BoundaryMask, int counter, int method_s
         {
             this->_pKNN->apply(_img_input, _img_fg);
 
-            if (nframe < 400)
+            if (nframe < 400) //During first 400 frames, KNN always by default.
             {
                 this->_pKNN_L->apply(_img_input2, _img_fg_L);
             }
@@ -280,7 +277,7 @@ void BGSselector::process(Mat frame, Mat BoundaryMask, int counter, int method_s
 
     }
 
-    if (!BoundaryMask.empty())  //ONLY FOR AVSS
+    if (!BoundaryMask.empty())  //ONLY FOR AVSS DATASET
     {
         bitwise_and(_img_fg,BoundaryMask,_img_fg);
         bitwise_and(_img_fg_L,BoundaryMask,_img_fg_L);
@@ -324,14 +321,11 @@ void BGSselector::process(Mat frame, Mat BoundaryMask, int counter, int method_s
             imshow(str3.c_str(),_img_fg_M);
             waitKey(1);
 
-
-
-
         }
     }
 
 
-    if (_saveIMG && (counter >= 2000))
+    if (_saveIMG && (counter >= 2000) ) //define criteria
 
     {
         putText(_img_fg,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));

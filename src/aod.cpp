@@ -32,6 +32,7 @@ AOD::~AOD()
     if (this->_sel_pd!=NULL)		delete _sel_pd;
     if (this->_sel_soc!=NULL)		delete _sel_soc;
     if (this->_evtCtrl!=NULL)		delete _evtCtrl;
+
     cout << "System modules released." << endl;
 }
 
@@ -51,11 +52,12 @@ void AOD::init(Mat frame, Config &cfg)
 
             learningRate_l = 0.00009;
             break;
+
         case BGS_KNN:
 
             learningRate_l = 0.00009;
             break;
-                  break;
+            break;
 
         }
 
@@ -73,6 +75,7 @@ void AOD::init(Mat frame, Config &cfg)
             learningRate_l = 0.00009;//0.00005
             learningRate_m = learningRate_s + ((learningRate_l-learningRate_s)/2);
             break;
+
         case BGS_KNN:
             learningRate_s = 0.002; // only used to compute medium rate
             learningRate_l = 0.00009;

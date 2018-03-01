@@ -60,7 +60,6 @@ void Config::init(int bkg, int sfgd, int pd, int soc, std::string inputPath, std
     this->DetectPeopleAlways = DEFAULT_DETECT_ALWAYS;
 
 
-
     //other Config
     this->time_to_static = seconds;
 
@@ -87,7 +86,6 @@ void Config::init(int bkg, int sfgd, int pd, int soc, std::string inputPath, std
         this->flag_contextmask = true;
     else
         this->flag_contextmask = false;
-
 
 
     //output for images
@@ -223,6 +221,7 @@ void Config::findContextMask()
 
 
     //ONLY FOR AVSS, TO REMOVE BOUNDARY ERRORS
+
     if ( this->inputvideo.find("AVSS") != string::npos)
     {
         if (this->QT_execution == true) // path for QT

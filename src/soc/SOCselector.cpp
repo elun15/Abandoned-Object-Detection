@@ -117,14 +117,13 @@ Mat SOCselector::process(cv::Mat frame, cv::Mat bkg, cv::Mat sfgmask, cv::Mat fg
     case SOC_HIST:
         _pHist->processFrame(frame,bkg,sfgmaskTemp,fgmask,objects);
         result = (_pHist->printBlobs(frame, objects)).clone();
-
-
         break;
 
     case SOC_PCC:
         _pPCC->processFrame(frame,bkg,sfgmaskTemp,fgmask,objects);
         result = (_pPCC->printBlobs(frame, objects)).clone();
         break;
+
     default:
         break;
     }
@@ -144,7 +143,7 @@ Mat SOCselector::process(cv::Mat frame, cv::Mat bkg, cv::Mat sfgmask, cv::Mat fg
     }
 
 
-   if (_saveIMG && (counter >= 2000)  )
+   if (_saveIMG && (counter >= 2000) )
     {
         if (counter>0){
 

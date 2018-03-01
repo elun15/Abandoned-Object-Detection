@@ -187,19 +187,19 @@ vector<Rect> PDselector::process(Mat frame,int counter)
     }
 
 
-        if (_saveIMG && (counter >=2000 ))
-        {
+    if (_saveIMG && (counter >=2000 )) //Define criteria
+    {
 
-            // putText(_img_input,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
-            // std::string d1 = _savePathDir + "frame" + to_string_(counter,5) + ".jpg";
-            //imwrite(d1,_img_input);
+        // putText(_img_input,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
+        // std::string d1 = _savePathDir + "frame" + to_string_(counter,5) + ".jpg";
+        //imwrite(d1,_img_input);
 
-            cv::Mat img = getDetectionsBoundingBoxMask(_img_input);
+        cv::Mat img = getDetectionsBoundingBoxMask(_img_input);
 
-            // putText(img,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
-            std::string d2 = _savePathDir + "pd" + to_string_(counter,5) + ".jpg";
-            imwrite(d2,img);
-        }
+        // putText(img,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
+        std::string d2 = _savePathDir + "pd" + to_string_(counter,5) + ".jpg";
+        imwrite(d2,img);
+    }
 
 
     //printf("Number of detected people %d \n", this->found.size());

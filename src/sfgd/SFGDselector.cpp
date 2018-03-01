@@ -154,7 +154,7 @@ void SFDGselector::process(Mat frame, std::vector<cv::Mat> foreground_img, Mat b
     }
 
 
-   if (_saveIMG && (counter > 2000))
+   if (_saveIMG && (counter > 2000)) //define own criteria to save
     {
         // putText(_img_input,to_string_(counter), cv::Point(15, 15), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(0, 0, 255));
         std::string d = _savePathDir + "sfgd" + to_string_(counter,5) + ".jpg";

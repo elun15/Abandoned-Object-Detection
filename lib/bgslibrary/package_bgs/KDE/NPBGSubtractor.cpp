@@ -717,7 +717,7 @@ void NPBGSubtractor::SequenceBGUpdate_Pairs(unsigned char * image,
 
   rate = TimeWindowSize / SampleSize;
   rate = (rate > 2) ? rate : 2;
- // std::cout << "rate="<< rate<< std::endl;//PRUEBA
+
 
 
   TemporalBufferNext = (TemporalBufferTop + 1)
