@@ -39,7 +39,7 @@ flag_near_people=1;
 flag_context=1;
 
 results_path="./results/"		#path where results  are located (YOU CAN CHANGE)
-dataset_path="./datasets_evaluation"		#path where datasets are located (YOU CAN CHANGE)
+dataset_path="./datasets"		#path where datasets are located (YOU CAN CHANGE)
 binary_path="./build_release/System_Evaluation" 	#path where binaries are located (YOU CAN CHANGE)
 
 Nconfig=${#configs[@]}			#total number of configurations

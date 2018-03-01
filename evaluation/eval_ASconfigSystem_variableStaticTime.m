@@ -19,7 +19,7 @@ addpath(genpath('./funs/'));
 %paths
 bin_path     = './bin/viper/';      %path where binaries are located (YOU CAN CHANGE)
 results_path = './results_stage1/';		%path where results are located (YOU CAN CHANGE)
-dataset_path = './datasets_evaluation/';		%path where datasets are located (YOU CAN CHANGE)
+dataset_path = './datasets/';		%path where datasets are located (YOU CAN CHANGE)
 temp_path    = './temp/';     		%path where temp files are generated (YOU CAN CHANGE)
 
 %executable commands
@@ -31,6 +31,7 @@ exe_cmd=sprintf('java -jar %s%s -epf %s%s -pr %s%s',bin_path,viper,bin_path,epf,
 %parameters
 gt.time2static = 10;                   %default time for ground-truth (in seconds)
 gt.evtName = 'AbandonedObject';        %tag/name of the event to modify
+gt.evtName = 'PutObject';        %tag/name of the event to modify
 
 %creation of temporal directories
 mkdir(temp_path);                      %create root tmp directory

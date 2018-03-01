@@ -10,7 +10,7 @@ clc; clear all ; close all;
 %% CONFIGURATION
 %input directories
 results_path='./results_stage4/';		%path where results are located (YOU CAN CHANGE)
-dataset_path='./datasets_evaluation/';		%path where datasets are located (YOU CAN CHANGE)
+dataset_path='./datasets/';		%path where datasets are located (YOU CAN CHANGE)
 
 % Display flags
 DISPLAY_CONFIGS = 1;
