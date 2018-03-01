@@ -1,6 +1,4 @@
 
-datasets/
-
 build_debug/
 
 build_release/
@@ -16,3 +14,9 @@ results/images_4223_AVSS_EASY/
 results/images_4223_AVSS_HARD/
 
 results/images_4233_30_1_1_EASY/
+
+*.mpg
+
+*.mpeg
+
+*.avi
